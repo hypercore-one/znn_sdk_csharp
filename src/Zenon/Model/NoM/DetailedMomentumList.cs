@@ -3,7 +3,7 @@ using Zenon.Model.NoM.Json;
 
 namespace Zenon.Model.NoM
 {
-    public class DetailedMomentumList
+    public class DetailedMomentumList : IJsonConvertible<JDetailedMomentumList>
     {
         public DetailedMomentumList(JDetailedMomentumList json)
         {

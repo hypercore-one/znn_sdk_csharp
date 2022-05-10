@@ -8,7 +8,7 @@ namespace Zenon.Api
     {
         public StatsApi(IClient client)
         {
-            Client = client;
+            this.Client = client;
         }
 
         public IClient Client { get; }

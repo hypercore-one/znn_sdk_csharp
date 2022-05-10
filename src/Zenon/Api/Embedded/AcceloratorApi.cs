@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Newtonsoft.Json.Linq;
+using System.Linq;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Model.Embedded;
@@ -16,9 +17,9 @@ namespace Zenon.Api.Embedded
 
         public IClient Client { get; }
 
-        public async Task<ProjectList> GetAll(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<ProjectList> GetAll(int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
         {
-            var response = await Client.SendRequest<JProjectList>("embedded.accelerator.getAll", address.ToString(), pageIndex, pageSize);
+            var response = await Client.SendRequest<JProjectList>("embedded.accelerator.getAll", pageIndex, pageSize);
             return new ProjectList(response);
         }
 
@@ -30,8 +31,8 @@ namespace Zenon.Api.Embedded
 
         public async Task<Phase> GetPhaseById(Hash id)
         {
-            var response = await Client.SendRequest<JPhase>("embedded.accelerator.getPhaseById", id.ToString());
-            return new Phase(response);
+            var response = await Client.SendRequest<JObject>("embedded.accelerator.getPhaseById", id.ToString());
+            return new Phase(JPhase.FromJObject(response));
         }
 
         public async Task<PillarVote[]> GetPillarVotes(string name, string[] hashes)

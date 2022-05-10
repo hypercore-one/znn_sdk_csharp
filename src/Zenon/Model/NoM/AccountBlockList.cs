@@ -3,7 +3,7 @@ using Zenon.Model.NoM.Json;
 
 namespace Zenon.Model.NoM
 {
-    public class AccountBlockList
+    public class AccountBlockList : IJsonConvertible<JAccountBlockList>
     {
         public AccountBlockList(JAccountBlockList json)
         {

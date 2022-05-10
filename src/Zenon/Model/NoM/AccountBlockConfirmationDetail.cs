@@ -3,7 +3,7 @@ using Zenon.Model.Primitives;
 
 namespace Zenon.Model.NoM
 {
-    public class AccountBlockConfirmationDetail
+    public class AccountBlockConfirmationDetail : IJsonConvertible<JAccountBlockConfirmationDetail>
     {
         public AccountBlockConfirmationDetail(JAccountBlockConfirmationDetail json)
         {

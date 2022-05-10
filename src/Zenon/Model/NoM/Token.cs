@@ -4,7 +4,7 @@ using Zenon.Model.Primitives;
 
 namespace Zenon.Model.NoM
 {
-    public class Token
+    public class Token : IJsonConvertible<JToken>
     {
         public Token(JToken json)
         {

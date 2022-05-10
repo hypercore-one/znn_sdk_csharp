@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Model.NoM
@@ -14,7 +15,7 @@ namespace Zenon.Model.NoM
         ContractReceive
     }
 
-    public class AccountBlockTemplate
+    public class AccountBlockTemplate : IJsonConvertible<JAccountBlockTemplate>
     {
         public static AccountBlockTemplate Receive(Hash fromBlockHash) =>
             new AccountBlockTemplate(blockType: BlockTypeEnum.UserReceive, fromBlockHash: fromBlockHash);
@@ -43,8 +44,8 @@ namespace Zenon.Model.NoM
             FusedPlasma = json.fusedPlasma;
             Difficulty = json.difficulty;
             Nonce = json.nonce;
-            PublicKey = string.IsNullOrEmpty(json.data) ? new byte[0] : Convert.FromBase64String(json.publicKey);
-            Signature = string.IsNullOrEmpty(json.data) ? new byte[0] : Convert.FromBase64String(json.signature);
+            PublicKey = string.IsNullOrEmpty(json.publicKey) ? new byte[0] : Convert.FromBase64String(json.publicKey);
+            Signature = string.IsNullOrEmpty(json.signature) ? new byte[0] : Convert.FromBase64String(json.signature);
         }
 
         public AccountBlockTemplate(BlockTypeEnum blockType,
@@ -106,33 +107,33 @@ namespace Zenon.Model.NoM
         public byte[] PublicKey { get; }
         public byte[] Signature { get; }
 
-        public virtual Json.JAccountBlockTemplate ToJson()
+        public virtual JAccountBlockTemplate ToJson()
         {
-            var data = new Json.JAccountBlockTemplate();
+            var data = new JAccountBlockTemplate();
             ToJson(data);
             return data;
         }
 
-        public virtual void ToJson(Json.JAccountBlockTemplate json)
+        public virtual void ToJson(JAccountBlockTemplate json)
         {
-            json.version = Version;
-            json.chainIdentifier = ChainIdentifier;
-            json.blockType = (int)BlockType;
-            json.hash = Hash.ToString();
-            json.previousHash = PreviousHash.ToString();
-            json.height = Height;
-            json.momentumAcknowledged = MomentumAcknowledged.ToJson();
-            json.address = Address.ToString();
-            json.toAddress = ToAddress.ToString();
-            json.amount = Amount;
-            json.tokenStandard = TokenStandard.ToString();
-            json.fromBlockHash = FromBlockHash.ToString();
-            json.data = Convert.ToBase64String(Data);
-            json.fusedPlasma = FusedPlasma;
-            json.difficulty = Difficulty;
-            json.nonce = Nonce;
-            json.publicKey = Convert.ToBase64String(PublicKey);
-            json.signature = Convert.ToBase64String(Signature);
+            json.version = this.Version;
+            json.chainIdentifier = this.ChainIdentifier;
+            json.blockType = (int)this.BlockType;
+            json.hash = this.Hash.ToString();
+            json.previousHash = this.PreviousHash.ToString();
+            json.height = this.Height;
+            json.momentumAcknowledged = this.MomentumAcknowledged.ToJson();
+            json.address = this.Address.ToString();
+            json.toAddress = this.ToAddress.ToString();
+            json.amount = this.Amount;
+            json.tokenStandard = this.TokenStandard.ToString();
+            json.fromBlockHash = this.FromBlockHash.ToString();
+            json.data = Convert.ToBase64String(this.Data);
+            json.fusedPlasma = this.FusedPlasma;
+            json.difficulty = this.Difficulty;
+            json.nonce = this.Nonce;
+            json.publicKey = Convert.ToBase64String(this.PublicKey);
+            json.signature = Convert.ToBase64String(this.Signature);
         }
 
         public override string ToString()

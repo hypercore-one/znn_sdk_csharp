@@ -3,7 +3,7 @@ using Zenon.Model.Embedded.Json;
 
 namespace Zenon.Model.Embedded
 {
-    public class FusionEntryList
+    public class FusionEntryList : IJsonConvertible<JFusionEntryList>
     {
         public FusionEntryList(JFusionEntryList json)
         {

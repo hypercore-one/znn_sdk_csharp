@@ -6,7 +6,7 @@ using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class GetRequiredParam
+    public class GetRequiredParam : IJsonConvertible<JGetRequiredParam>
     {
         public GetRequiredParam(JGetRequiredParam json)
         {

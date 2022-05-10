@@ -5,11 +5,25 @@
     <RepositoryType>git</RepositoryType>
     <PackageIcon>icon.png</PackageIcon>
     <PackageId>$(AssemblyName).Sdk</PackageId>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Abi\**" />
+    <EmbeddedResource Remove="Abi\**" />
+    <None Remove="Abi\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Utils\BytesUtils.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="icon.png" Pack="true" PackagePath="" />
     <None Include="..\..\README.md" Pack="true" PackagePath="" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="..\..\CONTRIBUTING.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>

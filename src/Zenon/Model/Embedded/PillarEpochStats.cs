@@ -2,7 +2,7 @@
 
 namespace Zenon.Model.Embedded
 {
-    public class PillarEpochStats
+    public class PillarEpochStats : IJsonConvertible<JPillarEpochStats>
     {
         public PillarEpochStats(JPillarEpochStats json)
         {

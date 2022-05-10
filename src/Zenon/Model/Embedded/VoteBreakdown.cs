@@ -4,7 +4,7 @@ using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class VoteBreakdown
+    public class VoteBreakdown : IJsonConvertible<JVoteBreakdown>
     {
         public VoteBreakdown(JVoteBreakdown json)
         {

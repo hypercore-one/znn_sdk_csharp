@@ -1,10 +1,11 @@
-﻿using Zenon.Model.Primitives;
+﻿using Zenon.Model.NoM.Json;
+using Zenon.Model.Primitives;
 
 namespace Zenon.Model.NoM
 {
-    public class MomentumShort
+    public class MomentumShort : IJsonConvertible<JMomentumShort>
     {
-        public MomentumShort(Json.JMomentumShort json)
+        public MomentumShort(JMomentumShort json)
         {
             Hash = Hash.Parse(json.hash);
             Height = json.height;
@@ -15,9 +16,9 @@ namespace Zenon.Model.NoM
         public long? Height { get; }
         public long? Timestamp { get; }
 
-        public virtual Json.JMomentumShort ToJson()
+        public virtual JMomentumShort ToJson()
         {
-            return new Json.JMomentumShort()
+            return new JMomentumShort()
             {
                 hash = Hash.ToString(),
                 height = Height,

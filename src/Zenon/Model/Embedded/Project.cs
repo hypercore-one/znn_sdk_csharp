@@ -1,16 +1,18 @@
-﻿using System.Linq;
+﻿using Newtonsoft.Json.Linq;
+using System.Linq;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class Project : AcceleratorProject
+    public class Project : AcceleratorProject, IJsonConvertible<JProject>
     {
-        public Project(Json.JProject json)
+        public Project(JProject json)
             : base(json)
         {
             Owner = Address.Parse(json.owner);
             LastUpdateTimestamp = json.lastUpdateTimestamp;
-            Phases = json.phases.Select(x => new Phase(x)).ToArray();
+            Phases = json.phases.Select(x => new Phase(JPhase.FromJObject(x))).ToArray();
             PhaseIds = json.phaseIds.Select(x => Hash.Parse(x)).ToArray();
         }
 
@@ -41,13 +43,13 @@ namespace Zenon.Model.Embedded
         public Phase[] Phases { get; }
         public long LastUpdateTimestamp { get; }
 
-        public virtual Json.JProject ToJson()
+        public virtual JProject ToJson()
         {
-            var json = new Json.JProject();
+            var json = new JProject();
             base.ToJson(json);
             json.owner = Owner.ToString();
             json.lastUpdateTimestamp = LastUpdateTimestamp;
-            json.phases = Phases.Select(x => x.ToJson()).ToArray();
+            json.phases = Phases.Select(x => JPhase.ToJObject(x.ToJson())).ToArray();
             json.phaseIds = PhaseIds.Select(x => x.ToString()).ToArray();
             return json;
         }

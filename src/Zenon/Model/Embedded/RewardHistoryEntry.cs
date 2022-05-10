@@ -2,7 +2,7 @@
 
 namespace Zenon.Model.Embedded
 {
-    public class RewardHistoryEntry
+    public class RewardHistoryEntry : IJsonConvertible<JRewardHistoryEntry>
     {
         public RewardHistoryEntry(JRewardHistoryEntry json)
         {

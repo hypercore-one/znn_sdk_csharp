@@ -1,10 +1,12 @@
-﻿using Zenon.Model.Primitives;
+﻿using Newtonsoft.Json.Linq;
+using Zenon.Model.Embedded.Json;
+using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class Phase : AcceleratorProject
+    public class Phase : AcceleratorProject, IJsonConvertible<JPhase>
     {
-        public Phase(Json.JPhase json)
+        public Phase(JPhase json)
             : base(json)
         {
             ProjectId = Hash.Parse(json.projectId);

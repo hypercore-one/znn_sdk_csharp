@@ -3,7 +3,7 @@ using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class SwapAssetEntry
+    public class SwapAssetEntry : IJsonConvertible<JSwapAssetEntry>
     {
         public SwapAssetEntry(Hash keyIdHash, JSwapAssetEntry json)
         {

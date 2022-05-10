@@ -1,8 +1,9 @@
 ﻿using System.Linq;
+using Zenon.Model.NoM.Json;
 
 namespace Zenon.Model.NoM
 {
-    public class TokenList
+    public class TokenList : IJsonConvertible<JTokenList>
     {
         public TokenList(Json.JTokenList json)
         {
@@ -19,15 +20,15 @@ namespace Zenon.Model.NoM
         public long? Count { get; }
         public Token[] List { get; }
 
-        public virtual Json.JTokenList ToJson()
+        public virtual JTokenList ToJson()
         {
-            var data = new Json.JTokenList()
+            var data = new JTokenList()
             {
-                count = Count
+                count = this.Count
             };
 
-            if (List != null)
-                data.list = List.Select(x => x.ToJson()).ToArray();
+            if (this.List != null)
+                data.list = this.List.Select(x => x.ToJson()).ToArray();
 
             return data;
         }

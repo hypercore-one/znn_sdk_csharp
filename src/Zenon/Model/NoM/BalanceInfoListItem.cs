@@ -3,7 +3,7 @@ using Zenon.Utils;
 
 namespace Zenon.Model.NoM
 {
-    public class BalanceInfoListItem
+    public class BalanceInfoListItem : IJsonConvertible<JBalanceInfoListItem>
     {
         public BalanceInfoListItem(JBalanceInfoListItem json)
         {
@@ -27,9 +27,9 @@ namespace Zenon.Model.NoM
         public virtual JBalanceInfoListItem ToJson()
         {
             var data = new JBalanceInfoListItem();
-            if (Token != null)
+            if (this.Token != null)
             {
-                data.token = Token!.ToJson();
+                data.token = this.Token!.ToJson();
             }
             data.balance = Balance;
             return data;

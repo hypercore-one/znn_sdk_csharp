@@ -50,7 +50,6 @@ namespace Zenon.Api.Embedded
             return response.Select(x => new PillarInfo(x)).ToArray();
         }
 
-
         public async Task<PillarInfo> GetByName(string name)
         {
             var response = await Client.SendRequest<JPillarInfo>("embedded.pillar.getByName", name);

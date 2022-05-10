@@ -1,22 +1,23 @@
 ﻿using System.Linq;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class ProjectList
+    public class ProjectList : IJsonConvertible<JProjectList>
     {
         public long Count { get; }
         public Project[] List { get; }
 
-        public ProjectList(Json.JProjectList json)
+        public ProjectList(JProjectList json)
         {
             Count = json.count;
             List = json.list.Select(x => new Project(x)).ToArray();
         }
 
-        public virtual Json.JProjectList ToJson()
+        public virtual JProjectList ToJson()
         {
-            return new Json.JProjectList()
+            return new JProjectList()
             {
                 count = Count,
                 list = List.Select(x => x.ToJson()).ToArray()

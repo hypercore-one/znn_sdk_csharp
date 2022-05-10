@@ -10,7 +10,7 @@ namespace Zenon.Api
     {
         public LedgerApi(IClient client)
         {
-            Client = client;
+            this.Client = client;
         }
 
         public IClient Client { get; }
@@ -78,12 +78,12 @@ namespace Zenon.Api
             return response != null ? new Momentum(response) : null;
         }
 
-        public async Task<Momentum> GetMomentumsByHeight(long height, long count)
+        public async Task<MomentumList> GetMomentumsByHeight(long height, long count)
         {
             height = height < 1 ? 1 : height;
             count = count > Constants.RpcMaxPageSize ? Constants.RpcMaxPageSize : count;
-            var response = await Client.SendRequest<JMomentum>("ledger.getMomentumsByHeight", height, count);
-            return response != null ? new Momentum(response) : null;
+            var response = await Client.SendRequest<JMomentumList>("ledger.getMomentumsByHeight", height, count);
+            return new MomentumList(response);
         }
 
         /// pageIndex = 0 returns the most recent momentums sorted descending by height

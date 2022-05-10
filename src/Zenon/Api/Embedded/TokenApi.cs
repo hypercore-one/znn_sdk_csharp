@@ -23,14 +23,14 @@ namespace Zenon.Api.Embedded
 
         public async Task<TokenList> GetByOwner(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
         {
-            var response = await Client.SendRequest<JTokenList>("embedded.token.getByOwner", pageIndex, pageSize);
+            var response = await Client.SendRequest<JTokenList>("embedded.token.getByOwner", address.ToString(), pageIndex, pageSize);
             return new TokenList(response);
         }
 
-        public async Task<TokenList> GetByZts(TokenStandard tokenStandard, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<TokenList> GetByZts(TokenStandard tokenStandard)
         {
-            var response = await Client.SendRequest<JTokenList>("embedded.token.getByZts", pageIndex, pageSize);
-            return new TokenList(response);
+            var response = await Client.SendRequest<JTokenList>("embedded.token.getByZts", tokenStandard.ToString());
+            return response != null ? new TokenList(response) : null;
         }
     }
 }

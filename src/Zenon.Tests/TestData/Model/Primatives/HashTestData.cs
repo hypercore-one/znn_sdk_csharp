@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace Zenon.Tests.TestData
+namespace Zenon.Tests.TestData.Model.Primatives
 {
     internal class HashTestData : IEnumerable<object[]>
     {

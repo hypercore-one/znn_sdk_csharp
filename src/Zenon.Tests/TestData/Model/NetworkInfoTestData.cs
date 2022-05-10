@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using Zenon.Model.Json;
 
-namespace Zenon.Tests.TestData
+namespace Zenon.Tests.TestData.Model
 {
-    internal class TokenTestData : IEnumerable<object[]>
+    internal class NetworkInfoTestData : IEnumerable<object[]>
     {
         internal static string GetManifestResourceText(Assembly assembly, string resourceName)
         {
@@ -17,15 +18,17 @@ namespace Zenon.Tests.TestData
 
         public IEnumerator<object[]> GetEnumerator()
         {
-            var json = GetManifestResourceText(Assembly.GetExecutingAssembly(), "Zenon.Tests.TestData.TokenTestData.json");
+            var json = GetManifestResourceText(Assembly.GetExecutingAssembly(), typeof(NetworkInfoTestData).FullName + ".json");
 
-            dynamic tokens = JsonConvert.DeserializeObject(json)!;
+            dynamic jsonArray = JsonConvert.DeserializeObject(json)!;
 
-            foreach (var token in tokens)
+            foreach (var item in jsonArray)
             {
                 yield return new object[]
                 {
-                    token.ToString()
+                    item.ToString(),
+                    typeof(JNetworkInfo),
+                    null
                 };
             }
         }

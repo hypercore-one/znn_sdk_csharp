@@ -2,8 +2,8 @@
 {
     public class JAccountBlockList
     {
-        public long count { get; set; }
         public JAccountBlock[] list { get; set; }
+        public long count { get; set; }
         public bool more { get; set; }
     }
 }

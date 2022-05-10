@@ -2,7 +2,7 @@
 {
     public class JDetailedMomentumList
     {
-        public long? count { get; set; }
         public JDetailedMomentum[] list { get; set; }
+        public long? count { get; set; }
     }
 }

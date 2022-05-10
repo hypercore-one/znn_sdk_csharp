@@ -1,10 +1,11 @@
-﻿using Zenon.Model.Primitives;
+﻿using Zenon.Model.Embedded.Json;
+using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class SwapLegacyPillarEntry
+    public class SwapLegacyPillarEntry : IJsonConvertible<JSwapLegacyPillarEntry>
     {
-        public SwapLegacyPillarEntry(Json.JSwapLegacyPillarEntry json)
+        public SwapLegacyPillarEntry(JSwapLegacyPillarEntry json)
         {
             NumPillars = json.numPillars;
             KeyIdHash = Hash.Parse(json.keyIdHash);
@@ -19,9 +20,9 @@ namespace Zenon.Model.Embedded
         public long NumPillars { get; }
         public Hash KeyIdHash { get; }
 
-        public virtual Json.JSwapLegacyPillarEntry ToJson()
+        public virtual JSwapLegacyPillarEntry ToJson()
         {
-            return new Json.JSwapLegacyPillarEntry()
+            return new JSwapLegacyPillarEntry()
             {
                 numPillars = NumPillars,
                 keyIdHash = KeyIdHash.ToString(),

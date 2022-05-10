@@ -3,7 +3,7 @@ using Zenon.Model.Embedded.Json;
 
 namespace Zenon.Model.Embedded
 {
-    public class RewardHistoryList
+    public class RewardHistoryList : IJsonConvertible<JRewardHistoryList>
     {
         public RewardHistoryList(JRewardHistoryList json)
         {

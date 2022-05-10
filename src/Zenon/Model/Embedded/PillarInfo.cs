@@ -3,7 +3,7 @@ using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class PillarInfo
+    public class PillarInfo : IJsonConvertible<JPillarInfo>
     {
         public const int UnknownType = 0;
         public const int LegacyPillarType = 1;

@@ -3,8 +3,8 @@
     public class JVoteBreakdown
     {
         public string id { get; set; }
+        public long total { get; set; }
         public long yes { get; set; }
         public long no { get; set; }
-        public long total { get; set; }
     }
 }

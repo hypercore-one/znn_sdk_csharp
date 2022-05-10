@@ -3,7 +3,7 @@ using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
-    public class DelegationInfo
+    public class DelegationInfo : IJsonConvertible<JDelegationInfo>
     {
         public DelegationInfo(JDelegationInfo json)
         {

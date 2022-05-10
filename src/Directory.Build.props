@@ -5,13 +5,11 @@
 		<Copyright>2022</Copyright>
 		<Description>Reference implementation for the Zenon SDK for C#</Description>
 		<PackageTags>zenon, nom, znn, qsr, zts, sdk, dotnet, csharp</PackageTags>
-		<PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
-		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<EnableTrimAnalyzer>true</EnableTrimAnalyzer>
-		<LangVersion>10.0</LangVersion>
 		<OutputPath>..\..\bin\$(MSBuildProjectName)\$(Configuration.ToLower())\</OutputPath>
+		<ProjectUrl>https://zenon.network</ProjectUrl>
 		<RepositoryUrl>https://github.com/KingGorrin/znn_sdk_csharp</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>

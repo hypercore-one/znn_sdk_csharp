@@ -1,10 +1,11 @@
 ﻿using System.Linq;
+using Zenon.Model.Embedded.Json;
 
 namespace Zenon.Model.Embedded
 {
-    public class StakeList
+    public class StakeList : IJsonConvertible<JStakeList>
     {
-        public StakeList(Json.JStakeList json)
+        public StakeList(JStakeList json)
         {
             TotalAmount = json.totalAmount;
             TotalWeightedAmount = json.totalWeightedAmount;
@@ -25,9 +26,9 @@ namespace Zenon.Model.Embedded
         public long Count { get; }
         public StakeEntry[] List { get; }
 
-        public virtual Json.JStakeList ToJson()
+        public virtual JStakeList ToJson()
         {
-            return new Json.JStakeList()
+            return new JStakeList()
             {
                 totalAmount = TotalAmount,
                 totalWeightedAmount = TotalWeightedAmount,

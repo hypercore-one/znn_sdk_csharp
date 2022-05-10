@@ -5,7 +5,7 @@ using Zenon.Model.Primitives;
 
 namespace Zenon.Model.NoM
 {
-    public class Momentum
+    public class Momentum : IJsonConvertible<JMomentum>
     {
         public Momentum(JMomentum json)
         {
@@ -40,18 +40,18 @@ namespace Zenon.Model.NoM
         {
             return new JMomentum()
             {
-                version = Version,
-                chainIdentifier = ChainIdentifier,
-                hash = Hash.ToString(),
-                previousHash = PreviousHash.ToString(),
-                height = Height,
-                timestamp = Timestamp,
-                data = Data != null && Data.Length != 0 ? Convert.ToBase64String(Data) : string.Empty,
-                content = Content.Select(x => x.ToJson()).ToArray(),
-                changesHash = ChangesHash.ToString(),
-                publicKey = PublicKey,
-                signature = Signature,
-                producer = Producer.ToString()
+                version = this.Version,
+                chainIdentifier = this.ChainIdentifier,
+                hash = this.Hash.ToString(),
+                previousHash = this.PreviousHash.ToString(),
+                height = this.Height,
+                timestamp = this.Timestamp,
+                data = this.Data != null && this.Data.Length != 0 ? Convert.ToBase64String(Data) : string.Empty,
+                content = this.Content.Select(x => x.ToJson()).ToArray(),
+                changesHash = this.ChangesHash.ToString(),
+                publicKey = this.PublicKey,
+                signature = this.Signature,
+                producer = this.Producer.ToString()
             };
         }
     }

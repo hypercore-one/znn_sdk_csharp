@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,16 +7,44 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="TestData\AccountBlockListTestData.json" />
+    <None Remove="TestData\AccountBlockTestData.json" />
+    <None Remove="TestData\AccountInfoTestData.json" />
+    <None Remove="TestData\DetailedMomentumListTestData.json" />
+    <None Remove="TestData\Model\Embedded\ProjectListTestData.json" />
+    <None Remove="TestData\Model\Embedded\ProjectTestData.json" />
+    <None Remove="TestData\Model\NetworkInfoTestData.json" />
+    <None Remove="TestData\Model\ProcessInfoTestData.json" />
+    <None Remove="TestData\Model\SyncInfoTestData.json" />
+    <None Remove="TestData\MomentumListTestData.json" />
+    <None Remove="TestData\MomentumTestData.json" />
+    <None Remove="TestData\OsInfoTestData.json" />
     <None Remove="TestData\TokenTestData.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="TestData\TokenTestData.json" />
+    <EmbeddedResource Include="TestData\Model\Embedded\ProjectListTestData.json" />
+    <EmbeddedResource Include="TestData\Model\Embedded\ProjectTestData.json" />
+    <EmbeddedResource Include="TestData\Model\NetworkInfoTestData.json" />
+    <EmbeddedResource Include="TestData\Model\ProcessInfoTestData.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="TestData\Model\NoM\AccountBlockListTestData.json" />
+    <EmbeddedResource Include="TestData\Model\NoM\AccountBlockTestData.json" />
+    <EmbeddedResource Include="TestData\Model\NoM\AccountInfoTestData.json" />
+    <EmbeddedResource Include="TestData\Model\NoM\DetailedMomentumListTestData.json" />
+    <EmbeddedResource Include="TestData\Model\NoM\MomentumListTestData.json" />
+    <EmbeddedResource Include="TestData\Model\NoM\MomentumTestData.json" />
+    <EmbeddedResource Include="TestData\Model\OsInfoTestData.json" />
+    <EmbeddedResource Include="TestData\Model\NoM\TokenListTestData.json" />
+    <EmbeddedResource Include="TestData\Model\SyncInfoTestData.json" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.6.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="Moq" Version="4.17.2" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

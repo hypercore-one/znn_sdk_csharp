@@ -3,7 +3,7 @@ using Zenon.Model.Embedded.Json;
 
 namespace Zenon.Model.Embedded
 {
-    public class PillarEpochHistoryList
+    public class PillarEpochHistoryList : IJsonConvertible<JPillarEpochHistoryList>
     {
         public PillarEpochHistoryList(JPillarEpochHistoryList json)
         {

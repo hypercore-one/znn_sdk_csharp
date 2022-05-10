@@ -3,7 +3,7 @@ using Zenon.Model.Embedded.Json;
 
 namespace Zenon.Model.Embedded
 {
-    public class PillarInfoList
+    public class PillarInfoList : IJsonConvertible<JPillarInfoList>
     {
         public PillarInfoList(JPillarInfoList json)
         {

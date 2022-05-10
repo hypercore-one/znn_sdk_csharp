@@ -1,10 +1,11 @@
-﻿using Zenon.Model.Primitives;
+﻿using Zenon.Model.Embedded.Json;
+using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class PillarVote
+    public class PillarVote : IJsonConvertible<JPillarVote>
     {
-        public PillarVote(Json.JPillarVote json)
+        public PillarVote(JPillarVote json)
         {
             Id = Hash.Parse(json.id);
             Name = json.name;
@@ -15,9 +16,9 @@ namespace Zenon.Model.Embedded
         public string Name { get; }
         public long Vote { get; }
 
-        public virtual Json.JPillarVote ToJson()
+        public virtual JPillarVote ToJson()
         {
-            return new Json.JPillarVote()
+            return new JPillarVote()
             {
                 id = Id.ToString(),
                 name = Name,

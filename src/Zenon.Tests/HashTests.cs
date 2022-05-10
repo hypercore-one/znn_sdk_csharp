@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Xunit;
 using Zenon.Model.Primitives;
-using Zenon.Tests.TestData;
+using Zenon.Tests.TestData.Model.Primatives;
 
 namespace Zenon.Tests
 {

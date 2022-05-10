@@ -2,7 +2,7 @@
 
 namespace Zenon.Model.Embedded
 {
-    public class PlasmaInfo
+    public class PlasmaInfo : IJsonConvertible<JPlasmaInfo>
     {
         public PlasmaInfo(JPlasmaInfo json)
         {

@@ -18,16 +18,15 @@ namespace Zenon.Client
 
     public class WsClient : IClient
     {
-        public WsClient(Uri url)
+        public WsClient()
         {
-            Url = url;
             Status = WebsocketStatus.Uninitialized;
         }
 
         private ClientWebSocket _socket;
         private JsonRpc _wsRpcClient;
 
-        public Uri Url { get; }
+        public Uri Url { get; private set; }
 
         public WebsocketStatus Status { get; private set; }
 
@@ -53,11 +52,13 @@ namespace Zenon.Client
             await _wsRpcClient.InvokeAsync(method, parameters);
         }
 
-        public async Task<bool> Start(bool rety = true)
+        public async Task<bool> StartAsync(Uri url, bool retry = true, CancellationToken cancellationToken = default(CancellationToken))
         {
+            this.Url = url;
+
             Debug.WriteLine("Initializing websocket connection ...");
 
-            Status = WebsocketStatus.Connecting;
+            this.Status = WebsocketStatus.Connecting;
 
             do
             {
@@ -66,13 +67,13 @@ namespace Zenon.Client
 
                 try
                 {
-                    await _socket.ConnectAsync(Url, CancellationToken.None);
+                    await _socket.ConnectAsync(Url, cancellationToken);
 
                     Debug.WriteLine("Websocket connection successfully established");
 
                     _wsRpcClient = new JsonRpc(new WebSocketMessageHandler(_socket));
 
-                    Status = WebsocketStatus.Running;
+                    this.Status = WebsocketStatus.Running;
 
                     _wsRpcClient.StartListening();
 
@@ -80,24 +81,30 @@ namespace Zenon.Client
                 }
                 catch (SocketException)
                 {
-                    if (rety)
+                    if (retry)
                     {
                         await Task.Delay(TimeSpan.FromSeconds(5));
                     }
                 }
+                catch (OperationCanceledException)
+                {
+                    retry = false;
+
+                    await _socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client closing", CancellationToken.None);
+                }
             }
-            while (rety);
+            while (retry);
 
             return false;
         }
 
-        public async Task Stop()
+        public async Task StopAsync()
         {
-            if (Status != WebsocketStatus.Running)
+            if (this.Status != WebsocketStatus.Running)
             {
                 return;
             }
-            Status = WebsocketStatus.Stopped;
+            this.Status = WebsocketStatus.Stopped;
 
             Debug.WriteLine("Websocket client closed");
 

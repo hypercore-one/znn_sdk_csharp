@@ -3,7 +3,7 @@ using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class StakeEntry
+    public class StakeEntry : IJsonConvertible<JStakeEntry>
     {
         public StakeEntry(JStakeEntry json)
         {

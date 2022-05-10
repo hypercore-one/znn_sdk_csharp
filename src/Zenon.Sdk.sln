@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zenon.Sdk", "Zenon\Zenon.csproj", "{082A2CDD-9AEB-43A1-B269-1A8DF9C01C8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zenon", "Zenon\Zenon.csproj", "{082A2CDD-9AEB-43A1-B269-1A8DF9C01C8B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zenon.Sdk.Tests", "Zenon.Tests\Zenon.Tests.csproj", "{E634D66C-7086-4E45-A78C-8435B206B115}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zenon.Tests", "Zenon.Tests\Zenon.Tests.csproj", "{E634D66C-7086-4E45-A78C-8435B206B115}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EE7F9BF0-E07B-4CC6-B202-52373833D9C4}"
+	ProjectSection(SolutionItems) = preProject
+		..\version.json = ..\version.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

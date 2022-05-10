@@ -4,7 +4,7 @@ using Zenon.Model.Primitives;
 
 namespace Zenon.Model.NoM
 {
-    public class AccountHeader
+    public class AccountHeader : IJsonConvertible<JAccountHeader>
     {
         public AccountHeader(JAccountHeader json)
         {

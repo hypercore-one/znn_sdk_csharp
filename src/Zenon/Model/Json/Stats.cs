@@ -4,25 +4,27 @@
     {
         public string publicKey { get; set; }
         public string ip { get; set; }
+        public string name { get; set; }
     }
 
     public class JNetworkInfo
     {
         public long numPeers { get; set; }
-        public JPeer self { get; set; }
         public JPeer[] peers { get; set; }
+        public JPeer self { get; set; }
     }
 
     public class JProcessInfo
     {
-        public string commit { get; set; }
         public string version { get; set; }
+        public string commit { get; set; }
     }
 
     public class JOsInfo
     {
         public string os { get; set; }
         public string platform { get; set; }
+        public string platformFamily { get; set; }
         public string platformVersion { get; set; }
         public string kernelVersion { get; set; }
         public long memoryTotal { get; set; }

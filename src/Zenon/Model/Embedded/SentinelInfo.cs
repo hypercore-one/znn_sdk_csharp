@@ -3,7 +3,7 @@ using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class SentinelInfo
+    public class SentinelInfo : IJsonConvertible<JSentinelInfo>
     {
         public SentinelInfo(JSentinelInfo json)
         {

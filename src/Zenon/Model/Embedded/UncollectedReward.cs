@@ -3,7 +3,7 @@ using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
 {
-    public class UncollectedReward
+    public class UncollectedReward : IJsonConvertible<JUncollectedReward>
     {
         public UncollectedReward(JUncollectedReward json)
         {
