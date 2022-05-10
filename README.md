@@ -6,7 +6,7 @@ Reference implementation for the Zenon SDK for .NET
 
 ## Installation
 
-Install the Zenon.Sdk package from [NuGet][https://www.nuget.org/packages/Zenon.Sdk]
+Install the Zenon.Sdk package from [NuGet](https://www.nuget.org/packages/Zenon.Sdk)
 
 ```
 dotnet add package Zenon.Sdk
