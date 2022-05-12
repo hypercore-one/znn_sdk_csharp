@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Zenon.Client;
+using Zenon.Embedded;
 using Zenon.Model.Embedded;
 using Zenon.Model.Embedded.Json;
+using Zenon.Model.NoM;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Api.Embedded
@@ -77,6 +79,92 @@ namespace Zenon.Api.Embedded
         {
             var response = await Client.SendRequest<JPillarEpochHistoryList>("embedded.pillar.getPillarsHistoryByEpoch", epoch, pageIndex, pageSize);
             return new PillarEpochHistoryList(response);
+        }
+
+        // Contract methods
+        public AccountBlockTemplate Register(string name, Address producerAddress, Address rewardAddress,
+            int giveBlockRewardPercentage = 0, int giveDelegateRewardPercentage = 100)
+        {
+            return AccountBlockTemplate.CallContract(
+                Address.PillarAddress,
+                TokenStandard.ZnnZts,
+                Constants.PillarRegisterZnnAmount,
+                Definitions.Pillar.EncodeFunction("Register",
+                    name,
+                    producerAddress,
+                    rewardAddress,
+                    giveBlockRewardPercentage,
+                    giveDelegateRewardPercentage));
+        }
+
+        public AccountBlockTemplate RegisterLegacy(string name, Address producerAddress,
+            Address rewardAddress, string publicKey, string signature,
+            int giveBlockRewardPercentage = 0, int giveDelegateRewardPercentage = 100)
+        {
+            return AccountBlockTemplate.CallContract(
+                Address.PillarAddress,
+                TokenStandard.ZnnZts,
+                Constants.PillarRegisterZnnAmount,
+                Definitions.Pillar.EncodeFunction("RegisterLegacy",
+                    name,
+                    producerAddress,
+                    rewardAddress,
+                    giveBlockRewardPercentage,
+                    giveDelegateRewardPercentage,
+                    publicKey,
+                    signature));
+        }
+
+        public AccountBlockTemplate UpdatePillar(string name, Address producerAddress, Address rewardAddress,
+            int giveBlockRewardPercentage, int giveDelegateRewardPercentage)
+        {
+            return AccountBlockTemplate.CallContract(
+                Address.PillarAddress,
+                TokenStandard.ZnnZts,
+                0,
+                Definitions.Pillar.EncodeFunction("UpdatePillar",
+                    name,
+                    producerAddress,
+                    rewardAddress,
+                    giveBlockRewardPercentage,
+                    giveDelegateRewardPercentage));
+        }
+
+        public AccountBlockTemplate Revoke(string name)
+        {
+            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, 0,
+                Definitions.Pillar.EncodeFunction("Revoke", name));
+        }
+
+        public AccountBlockTemplate Delegate(string name)
+        {
+            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, 0,
+            Definitions.Pillar.EncodeFunction("Delegate", name));
+        }
+
+        public AccountBlockTemplate Undelegate()
+        {
+            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, 0,
+            Definitions.Pillar.EncodeFunction("Undelegate"));
+        }
+
+        // Common contract methods
+        public AccountBlockTemplate CollectReward()
+        {
+            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, 0,
+            Definitions.Pillar.EncodeFunction("CollectReward"));
+        }
+
+        public AccountBlockTemplate DepositQsr(long amount)
+        {
+            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.QsrZts, amount,
+            Definitions.Pillar.EncodeFunction("DepositQsr"));
+        }
+
+        public AccountBlockTemplate WithdrawQsr()
+        {
+            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, 0,
+            Definitions.Pillar.EncodeFunction("WithdrawQsr"));
         }
     }
 }

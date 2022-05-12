@@ -90,7 +90,7 @@ namespace Zenon.Model.Primitives
             }
         }
 
-        private Address(string hrp, byte[] core)
+        public Address(string hrp, byte[] core)
         {
             Hrp = hrp;
             Bytes = core;

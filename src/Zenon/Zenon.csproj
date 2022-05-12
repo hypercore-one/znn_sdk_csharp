@@ -10,12 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Abi\**" />
-    <EmbeddedResource Remove="Abi\**" />
-    <None Remove="Abi\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="icon.png" Pack="true" PackagePath="" />
     <None Include="..\..\README.md" Pack="true" PackagePath="" />
     <None Include="..\..\LICENSE" Pack="true" PackagePath="" />

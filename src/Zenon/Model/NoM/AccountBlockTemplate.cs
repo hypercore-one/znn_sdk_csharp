@@ -20,10 +20,10 @@ namespace Zenon.Model.NoM
         public static AccountBlockTemplate Receive(Hash fromBlockHash) =>
             new AccountBlockTemplate(blockType: BlockTypeEnum.UserReceive, fromBlockHash: fromBlockHash);
 
-        public static AccountBlockTemplate Send(Address toAddress, TokenStandard tokenStandard, int amount, byte[] data = null) =>
+        public static AccountBlockTemplate Send(Address toAddress, TokenStandard tokenStandard, long amount, byte[] data = null) =>
             new AccountBlockTemplate(blockType: BlockTypeEnum.UserSend, toAddress: toAddress, tokenStandard: tokenStandard, amount: amount, data: data);
 
-        public static AccountBlockTemplate CallContract(Address toAddress, TokenStandard tokenStandard, int amount, byte[] data) =>
+        public static AccountBlockTemplate CallContract(Address toAddress, TokenStandard tokenStandard, long amount, byte[] data) =>
             new AccountBlockTemplate(blockType: BlockTypeEnum.UserSend, toAddress: toAddress, tokenStandard: tokenStandard, amount: amount, data: data);
 
         public AccountBlockTemplate(Json.JAccountBlockTemplate json)

@@ -62,5 +62,16 @@ namespace Zenon.Utils
         {
             return (bb.Length == 0) ? BigInteger.Zero : DecodeBigInt(bb);
         }
+
+        public static byte[] LeftPadBytes(byte[] bytes, int size)
+        {
+            if (bytes.Length >= size)
+            {
+                return bytes;
+            }
+            var result = new byte[size];
+            Buffer.BlockCopy(bytes, 0, result, size - bytes.Length, bytes.Length);
+            return result;
+        }
     }
 }

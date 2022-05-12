@@ -1,7 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Zenon.Client;
+using Zenon.Embedded;
 using Zenon.Model.Embedded;
 using Zenon.Model.Embedded.Json;
+using Zenon.Model.NoM;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Api.Embedded
@@ -31,6 +33,26 @@ namespace Zenon.Api.Embedded
         {
             var response = await Client.SendRequest<JRewardHistoryList>("embedded.stake.getFrontierRewardByPage", address.ToString(), pageIndex, pageSize);
             return new RewardHistoryList(response);
+        }
+
+        // Contract methods
+        public AccountBlockTemplate Stake(long durationInSec, long amount)
+        {
+            return AccountBlockTemplate.CallContract(Address.StakeAddress, TokenStandard.ZnnZts, amount,
+                Definitions.Stake.EncodeFunction("Stake", durationInSec));
+        }
+
+        public AccountBlockTemplate Cancel(Hash id)
+        {
+            return AccountBlockTemplate.CallContract(Address.StakeAddress, TokenStandard.ZnnZts, 0,
+                Definitions.Stake.EncodeFunction("Cancel", id.Bytes));
+        }
+
+        // Common contract methods
+        public AccountBlockTemplate CollectReward()
+        {
+            return AccountBlockTemplate.CallContract(Address.StakeAddress, TokenStandard.ZnnZts, 0,
+                Definitions.Common.EncodeFunction("CollectReward"));
         }
     }
 }

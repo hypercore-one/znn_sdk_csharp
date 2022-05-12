@@ -1,7 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Zenon.Client;
+using Zenon.Embedded;
 using Zenon.Model.Embedded;
 using Zenon.Model.Embedded.Json;
+using Zenon.Model.NoM;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Api.Embedded
@@ -42,6 +44,38 @@ namespace Zenon.Api.Embedded
         {
             var response = await Client.SendRequest<JRewardHistoryList>("embedded.sentinel.getFrontierRewardByPage", address.ToString(), pageIndex, pageSize);
             return new RewardHistoryList(response);
+        }
+
+        // Contract methods
+        public AccountBlockTemplate Register()
+        {
+            return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, Constants.SentinelRegisterZnnAmount,
+                Definitions.Sentinel.EncodeFunction("Register"));
+        }
+
+        public AccountBlockTemplate Revoke()
+        {
+            return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, 0,
+                Definitions.Sentinel.EncodeFunction("Revoke"));
+        }
+
+        // Common contract methods
+        public AccountBlockTemplate CollectReward()
+        {
+            return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, 0,
+            Definitions.Pillar.EncodeFunction("CollectReward"));
+        }
+
+        public AccountBlockTemplate DepositQsr(long amount)
+        {
+            return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.QsrZts, amount,
+            Definitions.Pillar.EncodeFunction("DepositQsr"));
+        }
+
+        public AccountBlockTemplate WithdrawQsr()
+        {
+            return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, 0,
+            Definitions.Pillar.EncodeFunction("WithdrawQsr"));
         }
     }
 }
