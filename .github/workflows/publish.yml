@@ -27,8 +27,14 @@ jobs:
     - name: Build
       run: dotnet build src/Zenon.Sdk.sln --no-restore
     - name: Test
-      run: dotnet test src/Zenon.Sdk.sln --no-build --verbosity normal
+      run: dotnet test src/Zenon.Sdk.sln --no-build --verbosity normal --collect:"XPlat Code Coverage"
     - name: Pack
       run: dotnet pack src/Zenon.Sdk.sln
     - name: Publish
       run: dotnet nuget push packages/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+    - name: Codecov
+      uses: codecov/codecov-action@v3.1.0
+      with:
+        directory: src/Zenon.Tests/TestResults
+        flags: unittests
+        verbose: true
