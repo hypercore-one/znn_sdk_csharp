@@ -6,9 +6,9 @@ namespace Zenon.Utils
 {
     public static class BytesUtils
     {
-        public static BigInteger DecodeBigInt(byte[] bytes)
+        public static BigInteger DecodeBigInt(byte[] bytes, bool unsigned = true)
         {
-            return new BigInteger(bytes, true, true);
+            return new BigInteger(bytes, unsigned, true);
             /*
             var result = new BigInteger.Zero;
             for (var i = 0; i < bytes.Length; i++)
@@ -41,7 +41,7 @@ namespace Zenon.Utils
         public static byte[] BigIntToBytes(BigInteger b, int numBytes)
         {
             var bytes = new byte[numBytes];
-            var biBytes = EncodeBigInt(b);
+            var biBytes = EncodeBigInt(b, true);
             var start = (biBytes.Length == numBytes + 1) ? 1 : 0;
             var length = Math.Min(biBytes.Length, numBytes);
             Buffer.BlockCopy(biBytes, start, bytes, numBytes - length, length);
@@ -51,7 +51,7 @@ namespace Zenon.Utils
         public static byte[] BigIntToBytesSigned(BigInteger b, int numBytes)
         {
             var bytes = b.Sign < 0 ? Enumerable.Repeat((byte)0xFF, numBytes).ToArray() : new byte[numBytes];
-            var biBytes = EncodeBigInt(b);
+            var biBytes = EncodeBigInt(b, false);
             var start = (biBytes.Length == numBytes + 1) ? 1 : 0;
             var length = Math.Min(biBytes.Length, numBytes);
             Buffer.BlockCopy(biBytes, start, bytes, numBytes - length, length);

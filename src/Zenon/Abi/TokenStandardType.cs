@@ -22,7 +22,8 @@ namespace Zenon.Abi
             {
                 return BytesUtils.LeftPadBytes(((TokenStandard)value).Bytes, Int32Size);
             }
-            throw new ArgumentException();
+
+            throw new NotSupportedException($"Value type '{value.GetType().Name}' is not supported.");
         }
 
         public override dynamic Decode(byte[] encoded, int offset = 0)

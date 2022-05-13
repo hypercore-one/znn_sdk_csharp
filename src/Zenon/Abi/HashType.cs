@@ -48,7 +48,7 @@ namespace Zenon.Abi
         {
             var result = new byte[AbiType.Int32Size];
             Buffer.BlockCopy(encoded, offset, result, 0, FixedSize);
-            return Hash.Digest(result);
+            return Hash.FromBytes(result);
         }
     }
 }

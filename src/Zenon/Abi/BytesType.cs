@@ -24,7 +24,7 @@ namespace Zenon.Abi
             }
             else
             {
-                throw new NotSupportedException("Value type is not supported.");
+                throw new NotSupportedException($"Value type '{value.GetType().Name}' is not supported.");
             }
 
             var resultLength = ((int)((bytes.Length - 1) / AbiType.Int32Size) + 1) * AbiType.Int32Size;

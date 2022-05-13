@@ -1,5 +1,4 @@
-﻿using System;
-using Zenon.Utils;
+﻿using Zenon.Utils;
 
 namespace Zenon.Abi
 {
@@ -14,10 +13,10 @@ namespace Zenon.Abi
         public object[] Decode(byte[] encoded)
         {
             return Param.DecodeList(
-                this.Inputs, new ArraySegment<byte>(encoded, EncodedSignLength, encoded.Length).ToArray());
+                this.Inputs, encoded.Sublist(EncodedSignLength, encoded.Length));
         }
 
-        public byte[] Encode(params object[] args)
+        public byte[] Encode(object[] args)
         {
             return ArrayUtils.Concat(this.EncodeSignature(), this.EncodeArguments(args));
         }
@@ -29,7 +28,7 @@ namespace Zenon.Abi
 
         public static byte[] ExtractSignature(byte[] data)
         {
-            return new ArraySegment<byte>(data, 0, EncodedSignLength).ToArray();
+            return data.Sublist(0, EncodedSignLength);
         }
     }
 }

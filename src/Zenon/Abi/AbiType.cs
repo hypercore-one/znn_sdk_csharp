@@ -46,7 +46,7 @@ namespace Zenon.Abi
             if (typeName.StartsWith("bytes"))
                 return new Bytes32Type(typeName);
 
-            throw new NotSupportedException($"The type {typeName} is not supported");
+            throw new NotSupportedException($"The type '{typeName}' is not supported");
         }
         
         public abstract byte[] Encode(object value);

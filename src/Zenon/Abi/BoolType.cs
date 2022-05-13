@@ -14,7 +14,7 @@ namespace Zenon.Abi
         {
             if (value is string)
             {
-                return base.Encode(Boolean.TrueString.Equals(value) ? 1 : 0);
+                return base.Encode(Boolean.TrueString.Equals((string)value, StringComparison.InvariantCultureIgnoreCase) ? 1 : 0);
             }
             else if (value is bool)
             {

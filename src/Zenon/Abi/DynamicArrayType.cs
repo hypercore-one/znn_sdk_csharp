@@ -1,4 +1,5 @@
-﻿using Zenon.Utils;
+﻿using System;
+using Zenon.Utils;
 
 namespace Zenon.Abi
 {
@@ -8,11 +9,11 @@ namespace Zenon.Abi
             : base(name)
         { }
 
-        public override string CanonicalName => "[]";
+        public override string CanonicalName => $"{this.ElementType.CanonicalName}[]";
 
-        public override byte[] EncodeList(byte[] bytes)
+        public override byte[] EncodeList(Array l)
         {
-            return ArrayUtils.Concat(IntType.EncodeInt(bytes.Length), EncodeTuple(bytes));
+            return ArrayUtils.Concat(IntType.EncodeInt(l.Length), EncodeTuple(l));
         }
 
         public override object Decode(byte[] encoded, int origOffset = 0)
@@ -20,18 +21,18 @@ namespace Zenon.Abi
             var len = (int)IntType.DecodeInt(encoded, origOffset);
             origOffset += 32;
             var offset = origOffset;
-            var ret = new byte[len][];
+            var ret = new object[len];
 
             for (var i = 0; i < len; i++)
             {
                 if (this.ElementType.IsDynamicType)
                 {
-                    ret[i] = (byte[])this.ElementType.Decode(
+                    ret[i] = this.ElementType.Decode(
                         encoded, origOffset + (int)IntType.DecodeInt(encoded, offset));
                 }
                 else
                 {
-                    ret[i] = (byte[])this.ElementType.Decode(encoded, offset);
+                    ret[i] = this.ElementType.Decode(encoded, offset);
                 }
 
                 offset += this.ElementType.FixedSize;

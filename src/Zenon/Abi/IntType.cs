@@ -18,7 +18,7 @@ namespace Zenon.Abi
 
         public static BigInteger DecodeInt(byte[] encoded, int offset)
         {
-            return BytesUtils.DecodeBigInt(new ArraySegment<byte>(encoded, offset, offset + 32).ToArray());
+            return BytesUtils.DecodeBigInt(encoded.Sublist(offset, offset + 32), false);
         }
 
         public IntType(string name)
@@ -29,8 +29,7 @@ namespace Zenon.Abi
 
         public override byte[] Encode(object value)
         {
-            var encoded = this.EncodeInternal(value);
-            return EncodeIntBig(encoded);
+            return EncodeIntBig(this.EncodeInternal(value));
         }
 
         public override object Decode(byte[] encoded, int offset = 0)

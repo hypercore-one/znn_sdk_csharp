@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using Zenon.Abi.Json;
 using Zenon.Embedded;
 using Zenon.Model.Primitives;
 
@@ -7,6 +10,37 @@ namespace Zenon.Tests.TestData
 {
     internal class AbiFunctionTestData : IEnumerable<object[]>
     {
+        // Test functions
+        private static Abi.Abi TestDefinition = new Abi.Abi(
+            new JEntry[] {
+                    new JEntry() { type = "function", name = "TestDynamicArray", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "uint8[]" } } },
+                    new JEntry() { type = "function", name = "TestStaticArray", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "uint8[5]" } } },
+                    new JEntry() { type = "function", name = "TestBoolean", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "bool" } } },
+                    new JEntry() { type = "function", name = "TestInt64", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "int64" } } },
+                    new JEntry() { type = "function", name = "TestUInt8", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "uint8" } } },
+                    new JEntry() { type = "function", name = "TestUInt256", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "uint256" } } },
+                    new JEntry() { type = "function", name = "TestAddress", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "address" } } },
+                    new JEntry() { type = "function", name = "TestTokenStandard", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "tokenStandard" } } },
+                    new JEntry() { type = "function", name = "TestString", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "string" } } },
+                    new JEntry() { type = "function", name = "TestBytes", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "bytes" } } },
+                    new JEntry() { type = "function", name = "TestFunction", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "function" } } },
+                    new JEntry() { type = "function", name = "TestHash", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "hash" } } },
+                    new JEntry() { type = "function", name = "TestBytes32", inputs = new JParam[] {
+                        new JParam() { name = "param", type = "bytes32" } } }
+            });
+
         public IEnumerator<object[]> GetEnumerator()
         {
             var address = Address.Parse("z1qq0hffeyj0htmnr4gc6grd8zmqfvwzgrydt402");
@@ -209,6 +243,94 @@ namespace Zenon.Tests.TestData
                 new object[] { TokenStandard.ZnnZts, address, true, true },
                 new byte[] { 42, 60, 243, 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 230, 99, 24, 198, 49, 140, 99, 24, 198, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 116, 167, 36, 147, 238, 189, 204, 117, 70, 52, 129, 180, 226, 216, 18, 199, 9, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
             };
+
+            // Test functions
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestDynamicArray",
+                new object[] { new int[] { 1,2,3,4,5,6,7,8,9 } },
+                Convert.FromHexString("D9E4255900000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000009000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000050000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000700000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000009")
+            };
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestStaticArray",
+                new object[] { new int[] { 1,2,3,4,5 } },
+                Convert.FromHexString("9348A0EC00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000005")
+            };
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestBoolean",
+                new object[] { true },
+                Convert.FromHexString("B190C4EB0000000000000000000000000000000000000000000000000000000000000001")
+            };
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestBoolean",
+                new object[] { false },
+                Convert.FromHexString("B190C4EB0000000000000000000000000000000000000000000000000000000000000000")
+            };
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestBoolean",
+                new object[] { "true" },
+                Convert.FromHexString("B190C4EB0000000000000000000000000000000000000000000000000000000000000001")
+            };
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestBoolean",
+                new object[] { "False" },
+                Convert.FromHexString("B190C4EB0000000000000000000000000000000000000000000000000000000000000000")
+            };
+            
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestInt64",
+                new object[] { Int64.MaxValue },
+                Convert.FromHexString("0CA5DC080000000000000000000000000000000000000000000000007FFFFFFFFFFFFFFF")
+            };
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestInt64",
+                new object[] { Int64.MinValue },
+                Convert.FromHexString("0CA5DC08FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000000000000000")
+            };
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestUInt8",
+                new object[] { Byte.MaxValue },
+                Convert.FromHexString("1E636A8D00000000000000000000000000000000000000000000000000000000000000FF")
+            };
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestUInt8",
+                new object[] { 59 },
+                Convert.FromHexString("1E636A8D000000000000000000000000000000000000000000000000000000000000003B")
+            };
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestUInt256",
+                new object[] { UInt64.MaxValue },
+                Convert.FromHexString("2B6A53CC000000000000000000000000000000000000000000000000FFFFFFFFFFFFFFFF")
+            };
+            yield return new object[]
+            {
+                TestDefinition,
+                "TestUInt256",
+                new object[] { Decimal.MaxValue },
+                Convert.FromHexString("2B6A53CC0000000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF")
+            };
+
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

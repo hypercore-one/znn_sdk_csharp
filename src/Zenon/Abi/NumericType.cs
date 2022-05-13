@@ -29,26 +29,6 @@ namespace Zenon.Abi
             return BigInteger.Parse(value);
         }
 
-        public BigInteger EncodeInternal(int value)
-        {
-            return new BigInteger((int)value);
-        }
-
-        public BigInteger EncodeInternal(long value)
-        {
-            return new BigInteger((long)value);
-        }
-
-        public BigInteger EncodeInternal(double value)
-        {
-            return new BigInteger((double)value);
-        }
-
-        public BigInteger EncodeInternal(byte[] value)
-        {
-            return BytesUtils.BytesToBigInt(value);
-        }
-
         public BigInteger EncodeInternal(object value)
         {
             if (value is string)
@@ -59,25 +39,53 @@ namespace Zenon.Abi
             {
                 return (BigInteger)value;
             }
+            else if (value is byte)
+            {
+                return new BigInteger((byte)value);
+            }
+            else if (value is ushort)
+            {
+                return new BigInteger((ushort)value);
+            }
+            else if (value is uint)
+            {
+                return new BigInteger((uint)value);
+            }
+            else if (value is ulong)
+            {
+                return new BigInteger((ulong)value);
+            }
+            else if (value is sbyte)
+            {
+                return new BigInteger((sbyte)value);
+            }
+            else if (value is short)
+            {
+                return new BigInteger((short)value);
+            }
             else if (value is int)
             {
-                return this.EncodeInternal((int)value);
+                return new BigInteger((int)value);
             }
             else if (value is long)
             {
-                return this.EncodeInternal((long)value);
+                return new BigInteger((long)value);
             }
             else if (value is double)
             {
-                return this.EncodeInternal((double)value);
+                return new BigInteger((double)value);
+            }
+            else if (value is decimal)
+            {
+                return new BigInteger((decimal)value);
             }
             else if (value is byte[])
             {
-                return this.EncodeInternal((byte[])value);
+                return BytesUtils.BytesToBigInt((byte[])value);
             }
             else
             {
-                throw new NotSupportedException("Value type is not supported.");
+                throw new NotSupportedException($"Value type '{value.GetType().Name}' is not supported.");
             }
         }
     }

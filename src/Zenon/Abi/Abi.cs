@@ -49,7 +49,7 @@ namespace Zenon.Abi
             return f.Encode(args);
         }
 
-        public dynamic DecodeFunction(byte[] encoded)
+        public object[] DecodeFunction(byte[] encoded)
         {
             var f = this.Entries
                 .Where(x => AbiFunction.ExtractSignature(x.EncodeSignature()).SequenceEqual(AbiFunction.ExtractSignature(encoded)))

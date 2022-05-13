@@ -6,13 +6,7 @@ namespace Zenon.Abi
 {
     public class UnsignedIntType : NumericType
     {
-        public UnsignedIntType(string name)
-            : base(name)
-        { }
-
-        public override string CanonicalName => this.Name == "uint" ? "uint256" : base.CanonicalName;
-
-        public static byte[] EncodeInt(ulong i)
+        public static byte[] EncodeInt(long i)
         {
             return EncodeIntBig(new BigInteger(i));
         }
@@ -28,13 +22,18 @@ namespace Zenon.Abi
 
         public static BigInteger DecodeInt(byte[] encoded, int offset)
         {
-            return BytesUtils.DecodeBigInt(new ArraySegment<byte>(encoded, offset, offset + 32).ToArray());
+            return BytesUtils.DecodeBigInt(encoded.Sublist(offset, offset + 32), true);
         }
+
+        public UnsignedIntType(string name)
+            : base(name)
+        { }
+
+        public override string CanonicalName => this.Name == "uint" ? "uint256" : base.CanonicalName;
 
         public override byte[] Encode(object value)
         {
-            var bigInt = EncodeInternal(value);
-            return EncodeIntBig(bigInt);
+            return EncodeIntBig(this.EncodeInternal(value));
         }
 
         public override object Decode(byte[] encoded, int offset = 0)

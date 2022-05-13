@@ -34,45 +34,45 @@ namespace Zenon.Abi
 
         public override byte[] Encode(object value)
         {
-            if (value is byte[])
+            if (value is Array)
             {
-                return EncodeList((byte[])value);
+                return EncodeList((Array)value);
             }
             else if (value is string)
             {
-                var array = JsonConvert.DeserializeObject<byte[]>((string)value);
+                var array = JsonConvert.DeserializeObject<Array>((string)value);
                 return EncodeList(array);
             }
             else
             {
-                throw new NotSupportedException("Vlaue type is not supported");
+                throw new NotSupportedException($"Value type '{value.GetType().Name}' is not supported.");
             }
         }
 
-        public abstract byte[] EncodeList(byte[] bytes);
+        public abstract byte[] EncodeList(Array l);
 
-        public byte[] EncodeTuple(byte[] bytes)
+        public byte[] EncodeTuple(Array l)
         {
             byte[][] elems;
             if (ElementType.IsDynamicType)
             {
-                elems = new byte[bytes.Length * 2][];
-                var offset = bytes.Length * AbiType.Int32Size;
+                elems = new byte[l.Length * 2][];
+                var offset = l.Length * AbiType.Int32Size;
 
-                for (var i = 0; i < bytes.Length; i++)
+                for (var i = 0; i < l.Length; i++)
                 {
                     elems[i] = IntType.EncodeInt(offset);
-                    byte[] encoded = this.ElementType.Encode(bytes[i]);
-                    elems[bytes.Length + i] = encoded;
+                    byte[] encoded = this.ElementType.Encode(l.GetValue(i));
+                    elems[l.Length + i] = encoded;
                     offset += (int)(AbiType.Int32Size * ((encoded.Length - 1) / AbiType.Int32Size + 1));
                 }
             }
             else
             {
-                elems = new byte[bytes.Length][];
-                for (var i = 0; i < bytes.Length; i++)
+                elems = new byte[l.Length][];
+                for (var i = 0; i < l.Length; i++)
                 {
-                    elems[i] = this.ElementType.Encode(bytes[i]);
+                    elems[i] = this.ElementType.Encode(l.GetValue(i));
                 }
             }
             return ArrayUtils.Concat(elems);
@@ -86,17 +86,17 @@ namespace Zenon.Abi
         public dynamic DecodeTuple(byte[] encoded, int origOffset, int len)
         {
             var offset = origOffset;
-            var ret = new byte[0];
+            var ret = new object[len];
 
             for (var i = 0; i < len; i++)
             {
                 if (this.ElementType.IsDynamicType)
                 {
-                    ret[i] = (byte)this.ElementType.Decode(encoded, origOffset + (int)IntType.DecodeInt(encoded, offset));
+                    ret[i] = this.ElementType.Decode(encoded, origOffset + (int)IntType.DecodeInt(encoded, offset));
                 }
                 else
                 {
-                    ret[i] = (byte)this.ElementType.Decode(encoded, offset);
+                    ret[i] = this.ElementType.Decode(encoded, offset);
                 }
                 offset += this.ElementType.FixedSize;
             }

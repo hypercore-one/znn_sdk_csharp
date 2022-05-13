@@ -18,7 +18,7 @@ namespace Zenon.Tests
         [ClassData(typeof(TestData.Model.NoM.MomentumListTestData))]
         [ClassData(typeof(TestData.Model.NoM.MomentumTestData))]
         [ClassData(typeof(TestData.Model.NoM.TokenListTestData))]
-        public async void When_CreateModel_ExpectSuccess(string expectedJson, Type dataType, Type modelType)
+        public void When_CreateModel_ExpectSuccess(string expectedJson, Type dataType, Type modelType)
         {
             // Setup
             var data = JsonConvert.DeserializeObject(expectedJson, dataType);
@@ -40,7 +40,7 @@ namespace Zenon.Tests
         [ClassData(typeof(TestData.Model.NoM.MomentumListTestData))]
         [ClassData(typeof(TestData.Model.NoM.MomentumTestData))]
         [ClassData(typeof(TestData.Model.NoM.TokenListTestData))]
-        public async void When_ConvertModel_ExpectSuccess(string expectedJson, Type dataType, Type modelType)
+        public void When_ConvertModel_ExpectSuccess(string expectedJson, Type dataType, Type modelType)
         {
             // Setup
             var data = JsonConvert.DeserializeObject(expectedJson, dataType);
