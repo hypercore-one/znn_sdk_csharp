@@ -1,6 +1,6 @@
 # Zenon Sdk for .NET
 
-[![NuGet package](https://img.shields.io/nuget/v/Zenon.Sdk.svg)](https://nuget.org/packages/Zenon.Sdk) [![Zenon.Sdk.NET](https://github.com/KingGorrin/znn_sdk_csharp/actions/workflows/publish.yml/badge.svg)](https://github.com/KingGorrin/znn_sdk_csharp/actions/workflows/publish.yml) [![codecov](https://codecov.io/gh/KingGorrin/znn_sdk_csharp/branch/main/graph/badge.svg?token=FWKGWMWO7U)](https://codecov.io/gh/KingGorrin/znn_sdk_csharp)
+[![nuget](https://img.shields.io/nuget/vpre/Zenon.Sdk)](https://nuget.org/packages/Zenon.Sdk) [![build](https://img.shields.io/github/workflow/status/kingGorrin/znn_sdk_csharp/Zenon.Sdk.NET)](https://github.com/KingGorrin/znn_sdk_csharp/actions/workflows/publish.yml) [![codecov](https://img.shields.io/codecov/c/github/KingGorrin/znn_sdk_csharp?token=FWKGWMWO7U)](https://codecov.io/gh/KingGorrin/znn_sdk_csharp)
 
 Reference implementation for the Zenon SDK for .NET. Compatible with the Zenon Alphanet - Network of Momentum Phase 0. 
 It provides a simple integration with any .NET based projects
@@ -10,7 +10,7 @@ It provides a simple integration with any .NET based projects
 Install the Zenon.Sdk package from [NuGet](https://www.nuget.org/packages/Zenon.Sdk)
 
 ```
-dotnet add package Zenon.Sdk
+dotnet add package Zenon.Sdk --prerelease
 ```
 
 ## Usage
