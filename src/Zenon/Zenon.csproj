@@ -6,7 +6,10 @@
     <PackageIcon>icon.png</PackageIcon>
     <PackageId>$(AssemblyName).Sdk</PackageId>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Description>Reference implementation for the Zenon SDK for .NET</Description>
+    <PackageTags>zenon, nom, znn, qsr, zts, sdk, dao, dotnet, csharp</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
