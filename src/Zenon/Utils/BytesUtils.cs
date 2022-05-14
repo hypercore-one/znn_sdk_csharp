@@ -9,33 +9,13 @@ namespace Zenon.Utils
         public static BigInteger DecodeBigInt(byte[] bytes, bool unsigned = true)
         {
             return new BigInteger(bytes, unsigned, true);
-            /*
-            var result = new BigInteger.Zero;
-            for (var i = 0; i < bytes.Length; i++)
-            {
-                result *= new BigInteger(256);
-                result += new BigInteger(bytes[i]);
-            }
-            return result;
-            */
+            
         }
 
         public static byte[] EncodeBigInt(BigInteger value, bool unsigned = true)
         {
             return value.ToByteArray(unsigned, true);
-
-            // Not handling negative numbers. Decide how you want to do that.
-            /*
-            var size = (value.GetBitLength() + 7) >> 3;
-            var result = new byte[size];
-            var _byteMask = new BigInteger(0xff);
-            for (var i = 0; i < size; i++)
-            {
-                result[size - i - 1] = (byte)(number & _byteMask);
-                number = number >> 8;
-            }
-            return result;
-            */
+            
         }
 
         public static byte[] BigIntToBytes(BigInteger b, int numBytes)

@@ -17,12 +17,12 @@ namespace Zenon.Abi
             {
                 throw new ArgumentException("Value must be unsigned", "bigInt");
             }
-            return BytesUtils.BigIntToBytes(bigInt, 32);
+            return BytesUtils.BigIntToBytes(bigInt, Int32Size);
         }
 
         public static BigInteger DecodeInt(byte[] encoded, int offset)
         {
-            return BytesUtils.DecodeBigInt(encoded.Sublist(offset, offset + 32), true);
+            return BytesUtils.DecodeBigInt(encoded.Sublist(offset, offset + Int32Size), true);
         }
 
         public UnsignedIntType(string name)

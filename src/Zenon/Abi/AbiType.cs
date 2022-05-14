@@ -6,30 +6,15 @@ namespace Zenon.Abi
     {
         public const int Int32Size = 32;
 
-        protected AbiType(string name)
-        {
-            this.Name = name;
-        }
-
-        public virtual string Name { get; }
-
-        public virtual string CanonicalName
-        {
-            get
-            {
-                return this.Name;
-            }
-        }
-        
         public static AbiType GetType(string typeName)
         {
-            if (typeName.Contains("[")) 
+            if (typeName.Contains("["))
                 return ArrayType.GetType(typeName);
             if (typeName == "bool")
                 return new BoolType();
             if (typeName.StartsWith("int"))
                 return new IntType(typeName);
-            if (typeName.StartsWith("uint")) 
+            if (typeName.StartsWith("uint"))
                 return new UnsignedIntType(typeName);
             if (typeName == "address")
                 return new AddressType();
@@ -46,9 +31,24 @@ namespace Zenon.Abi
             if (typeName.StartsWith("bytes"))
                 return new Bytes32Type(typeName);
 
-            throw new NotSupportedException($"The type '{typeName}' is not supported");
+            throw new NotSupportedException($"The type '{typeName}' is not supported.");
         }
-        
+
+        protected AbiType(string name)
+        {
+            this.Name = name;
+        }
+
+        public virtual string Name { get; }
+
+        public virtual string CanonicalName
+        {
+            get
+            {
+                return this.Name;
+            }
+        }
+
         public abstract byte[] Encode(object value);
 
         public abstract object Decode(byte[] encoded, int offset = 0);

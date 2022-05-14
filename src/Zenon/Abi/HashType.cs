@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Numerics;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Abi
@@ -12,19 +11,7 @@ namespace Zenon.Abi
 
         public override byte[] Encode(object value)
         {
-            if (value is int)
-            {
-                return IntType.EncodeIntBig(new BigInteger((int)value));
-            }
-            else if (value is long)
-            {
-                return IntType.EncodeIntBig(new BigInteger((long)value));
-            }
-            else if (value is double)
-            {
-                return IntType.EncodeIntBig(new BigInteger((double)value));
-            }
-            else if (value is string)
+            if (value is string)
             {
                 var result = new byte[AbiType.Int32Size];
                 var bytes = Convert.FromHexString((string)value);
@@ -40,7 +27,7 @@ namespace Zenon.Abi
             }
             else
             {
-                throw new ArgumentException();
+                return IntType.EncodeIntBig(NumericType.ToBigInt(value));
             }
         }
 

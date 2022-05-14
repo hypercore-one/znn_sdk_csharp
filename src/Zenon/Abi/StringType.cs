@@ -12,7 +12,7 @@ namespace Zenon.Abi
         public override byte[] Encode(object value)
         {
             if (!(value is string))
-                throw new ArgumentException();
+                throw new NotSupportedException($"Value type '{value.GetType().Name}' is not supported.");
 
             return base.Encode(Encoding.UTF8.GetBytes((string)value));
         }

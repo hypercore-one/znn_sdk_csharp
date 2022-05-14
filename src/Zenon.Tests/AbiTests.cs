@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using System;
 using System.Collections;
-using System.Linq;
+using System.Numerics;
 using System.Text;
 using Xunit;
 using Zenon.Model.Primitives;
@@ -29,6 +29,10 @@ namespace Zenon.Tests
                 {
                     builder.Append(ArgumentsToString(((Hash)arg).Bytes)!.ToLower());
                 }
+                else if (arg is BigInteger)
+                {
+                    builder.Append(arg.ToString()!.ToLower());
+                }
                 else
                 {
                     builder.Append(arg.ToString()!.ToLower());
@@ -38,25 +42,58 @@ namespace Zenon.Tests
         }
 
         [Theory]
-        [ClassData(typeof(AbiFunctionTestData))]
-        public void When_EncodeFunction_ExpectToEqual(Abi.Abi definition, string name, object[] args, byte[] expectedEncoded)
+        [ClassData(typeof(AbiFunctionValidTestData))]
+        public void When_DecodeFunction_ExpectToEqual(Abi.Abi definition, string name, object[] args, byte[] expectedResult)
         {
             // Execute
-            var encoded = definition.EncodeFunction(name, args);
+            var result = definition.DecodeFunction(expectedResult);
 
             // Validate
-            expectedEncoded.Should().BeEquivalentTo(encoded);
+            ArgumentsToString(result).Should().BeEquivalentTo(ArgumentsToString(args));
         }
 
         [Theory]
-        [ClassData(typeof(AbiFunctionTestData))]
-        public void When_DecodeFunction_ExpectToEqual(Abi.Abi definition, string name, object[] args, byte[] encoded)
+        [ClassData(typeof(AbiFunctionValidTestData))]
+        public void When_EncodeFunction_ExpectToEqual(Abi.Abi definition, string name, object[] args, byte[] expectedResult)
         {
             // Execute
-            var decoded = definition.DecodeFunction(encoded);
+            var result = definition.EncodeFunction(name, args);
 
             // Validate
-            ArgumentsToString(args).Should().Be(ArgumentsToString(decoded));
+            result.Should().BeEquivalentTo(expectedResult);
+        }
+
+        [Theory]
+        [ClassData(typeof(AbiTypeEncodeValidTestData))]
+        public void When_EncodeAbiType_ExpectToEqual(Abi.AbiType type, object value, byte[] expectedResult)
+        {
+            // Execute
+            var result = type.Encode(value);
+
+            // Validate
+            result.Should().BeEquivalentTo(expectedResult);
+        }
+
+        [Theory]
+        [ClassData(typeof(AbiTypeEncodeInvalidTestData))]
+        public void When_EncodeAbiType_ExpectToFail(Abi.AbiType type, object value)
+        {
+            // Execute
+            var action = new Action(() => type.Encode(value));
+
+            // Validate
+            action.Should().Throw<Exception>();
+        }
+
+        [Theory]
+        [ClassData(typeof(AbiTypeDecodeValidTestData))]
+        public void When_DecodeAbiType_ExpectToEqual(Abi.AbiType type, byte[] value, object expectedResult)
+        {
+            // Execute
+            var result = type.Decode(value, 0);
+
+            // Validate
+            result.Should().BeEquivalentTo(expectedResult);
         }
     }
 }

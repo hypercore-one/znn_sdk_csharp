@@ -7,33 +7,26 @@ namespace Zenon.Abi
 {
     public abstract class NumericType : AbiType
     {
-        public NumericType(string name)
-            : base(name)
-        { }
-
-        public BigInteger EncodeInternal(string value)
-        {
-            if (value.StartsWith("0x"))
-            {
-                return BigInteger.Parse(value.Substring(2), NumberStyles.HexNumber);
-            }
-            else if (value.Contains('a') ||
-                value.Contains('b') ||
-                value.Contains('c') ||
-                value.Contains('d') ||
-                value.Contains('e') ||
-                value.Contains('f'))
-            {
-                return BigInteger.Parse(value.Substring(2), NumberStyles.HexNumber);
-            }
-            return BigInteger.Parse(value);
-        }
-
-        public BigInteger EncodeInternal(object value)
+        public static BigInteger ToBigInt(object value)
         {
             if (value is string)
             {
-                return this.EncodeInternal((string)value);
+                var str = (string)value;
+
+                if (str.StartsWith("0x"))
+                {
+                    return BigInteger.Parse(str.Substring(2), NumberStyles.HexNumber);
+                }
+                else if (str.Contains('a') ||
+                    str.Contains('b') ||
+                    str.Contains('c') ||
+                    str.Contains('d') ||
+                    str.Contains('e') ||
+                    str.Contains('f'))
+                {
+                    return BigInteger.Parse(str, NumberStyles.HexNumber);
+                }
+                return BigInteger.Parse(str);
             }
             else if (value is BigInteger)
             {
@@ -71,6 +64,10 @@ namespace Zenon.Abi
             {
                 return new BigInteger((long)value);
             }
+            else if (value is float)
+            {
+                return new BigInteger((float)value);
+            }
             else if (value is double)
             {
                 return new BigInteger((double)value);
@@ -87,6 +84,14 @@ namespace Zenon.Abi
             {
                 throw new NotSupportedException($"Value type '{value.GetType().Name}' is not supported.");
             }
+        }
+        public NumericType(string name)
+            : base(name)
+        { }
+
+        protected BigInteger EncodeInternal(object value)
+        {
+            return ToBigInt(value);
         }
     }
 }

@@ -18,11 +18,11 @@ namespace Zenon.Abi
             {
                 return BytesUtils.LeftPadBytes(Address.Parse((string)value).Bytes, 32);
             }
-            if (value is Address)
+            else if (value is Address)
             {
                 return BytesUtils.LeftPadBytes(((Address)value).Bytes, 32);
             }
-            throw new NotSupportedException("Value type is not supported.");
+            throw new NotSupportedException($"Value type '{value.GetType().Name}' is not supported.");
         }
 
         public override object Decode(byte[] encoded, int offset = 0)

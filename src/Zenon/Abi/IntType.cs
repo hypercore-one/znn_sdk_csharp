@@ -18,7 +18,7 @@ namespace Zenon.Abi
 
         public static BigInteger DecodeInt(byte[] encoded, int offset)
         {
-            return BytesUtils.DecodeBigInt(encoded.Sublist(offset, offset + 32), false);
+            return BytesUtils.DecodeBigInt(encoded.Sublist(offset, offset + Int32Size), false);
         }
 
         public IntType(string name)

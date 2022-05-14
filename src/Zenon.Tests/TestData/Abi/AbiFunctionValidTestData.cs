@@ -1,52 +1,18 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using Zenon.Abi.Json;
 using Zenon.Embedded;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Tests.TestData
 {
-    internal class AbiFunctionTestData : IEnumerable<object[]>
+    internal class AbiFunctionValidTestData : IEnumerable<object[]>
     {
-        // Test functions
-        private static Abi.Abi TestDefinition = new Abi.Abi(
-            new JEntry[] {
-                    new JEntry() { type = "function", name = "TestDynamicArray", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "uint8[]" } } },
-                    new JEntry() { type = "function", name = "TestStaticArray", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "uint8[5]" } } },
-                    new JEntry() { type = "function", name = "TestBoolean", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "bool" } } },
-                    new JEntry() { type = "function", name = "TestInt64", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "int64" } } },
-                    new JEntry() { type = "function", name = "TestUInt8", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "uint8" } } },
-                    new JEntry() { type = "function", name = "TestUInt256", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "uint256" } } },
-                    new JEntry() { type = "function", name = "TestAddress", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "address" } } },
-                    new JEntry() { type = "function", name = "TestTokenStandard", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "tokenStandard" } } },
-                    new JEntry() { type = "function", name = "TestString", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "string" } } },
-                    new JEntry() { type = "function", name = "TestBytes", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "bytes" } } },
-                    new JEntry() { type = "function", name = "TestFunction", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "function" } } },
-                    new JEntry() { type = "function", name = "TestHash", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "hash" } } },
-                    new JEntry() { type = "function", name = "TestBytes32", inputs = new JParam[] {
-                        new JParam() { name = "param", type = "bytes32" } } }
-            });
-
         public IEnumerator<object[]> GetEnumerator()
         {
             var address = Address.Parse("z1qq0hffeyj0htmnr4gc6grd8zmqfvwzgrydt402");
             var hash = Hash.Parse("05a0fef85008e63f0680b68d11743ba5caf199994d642590febe570b2a84b612");
 
-            // Common functions
+            #region Common functions
             yield return new object[]
             {
                 Definitions.Common,
@@ -68,8 +34,9 @@ namespace Zenon.Tests.TestData
                 new object[0],
                 new byte[] { 179, 214, 88, 253 }
             };
+            #endregion
 
-            // Accelerator functions
+            #region Accelerator functions
             yield return new object[]
             {
                 Definitions.Accelerator,
@@ -112,8 +79,9 @@ namespace Zenon.Tests.TestData
                 new object[] { hash.Bytes, 10 },
                 new byte[] { 144, 237, 0, 28, 5, 160, 254, 248, 80, 8, 230, 63, 6, 128, 182, 141, 17, 116, 59, 165, 202, 241, 153, 153, 77, 100, 37, 144, 254, 190, 87, 11, 42, 132, 182, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10 }
             };
+            #endregion
 
-            // Pillar functions
+            #region Pillar functions
             yield return new object[]
             {
                 Definitions.Pillar,
@@ -156,8 +124,9 @@ namespace Zenon.Tests.TestData
                 new object[0],
                 new byte[] { 126, 137, 82, 200 }
             };
+            #endregion
 
-            // Plasma functions
+            #region Plasma functions
             yield return new object[]
             {
                 Definitions.Plasma,
@@ -172,8 +141,9 @@ namespace Zenon.Tests.TestData
                 new object[] { hash.Bytes },
                 new byte[] { 249, 202, 157, 195, 5, 160, 254, 248, 80, 8, 230, 63, 6, 128, 182, 141, 17, 116, 59, 165, 202, 241, 153, 153, 77, 100, 37, 144, 254, 190, 87, 11, 42, 132, 182, 18 }
             };
+            #endregion
 
-            // Sentinel functions
+            #region Sentinel functions
             yield return new object[]
             {
                 Definitions.Sentinel,
@@ -188,8 +158,9 @@ namespace Zenon.Tests.TestData
                 new object[0],
                 new byte[] { 88, 54, 62, 36 }
             };
+            #endregion
 
-            // Stake functions
+            #region Stake functions
             yield return new object[]
             {
                 Definitions.Stake,
@@ -204,8 +175,9 @@ namespace Zenon.Tests.TestData
                 new object[] { hash.Bytes },
                 new byte[] { 90, 146, 254, 50, 5, 160, 254, 248, 80, 8, 230, 63, 6, 128, 182, 141, 17, 116, 59, 165, 202, 241, 153, 153, 77, 100, 37, 144, 254, 190, 87, 11, 42, 132, 182, 18 }
             };
+            #endregion
 
-            // Swap functions
+            #region Swap functions
             yield return new object[]
             {
                 Definitions.Swap,
@@ -213,8 +185,9 @@ namespace Zenon.Tests.TestData
                 new object[] { "pPM27W6X3qngoo+wjt5D9BSNrNkLnyHZcmYr+UB8r7A=", "8TMpgC8O/VYhjLxUj2gHK7jcvH+SBELkYixicx5eA5jlxQTpzqohXRv93BkSdtmDAdpvzF1ADtnJo9uF0Gb5DQ==" },
                 new byte[] { 71, 241, 44, 129, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 160, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 44, 112, 80, 77, 50, 55, 87, 54, 88, 51, 113, 110, 103, 111, 111, 43, 119, 106, 116, 53, 68, 57, 66, 83, 78, 114, 78, 107, 76, 110, 121, 72, 90, 99, 109, 89, 114, 43, 85, 66, 56, 114, 55, 65, 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88, 56, 84, 77, 112, 103, 67, 56, 79, 47, 86, 89, 104, 106, 76, 120, 85, 106, 50, 103, 72, 75, 55, 106, 99, 118, 72, 43, 83, 66, 69, 76, 107, 89, 105, 120, 105, 99, 120, 53, 101, 65, 53, 106, 108, 120, 81, 84, 112, 122, 113, 111, 104, 88, 82, 118, 57, 51, 66, 107, 83, 100, 116, 109, 68, 65, 100, 112, 118, 122, 70, 49, 65, 68, 116, 110, 74, 111, 57, 117, 70, 48, 71, 98, 53, 68, 81, 61, 61, 0, 0, 0, 0, 0, 0, 0, 0 }
             };
+            #endregion
 
-            // Token functions
+            #region Token functions
             yield return new object[]
             {
                 Definitions.Token,
@@ -243,94 +216,7 @@ namespace Zenon.Tests.TestData
                 new object[] { TokenStandard.ZnnZts, address, true, true },
                 new byte[] { 42, 60, 243, 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 230, 99, 24, 198, 49, 140, 99, 24, 198, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 116, 167, 36, 147, 238, 189, 204, 117, 70, 52, 129, 180, 226, 216, 18, 199, 9, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
             };
-
-            // Test functions
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestDynamicArray",
-                new object[] { new int[] { 1,2,3,4,5,6,7,8,9 } },
-                Convert.FromHexString("D9E4255900000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000009000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000050000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000700000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000009")
-            };
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestStaticArray",
-                new object[] { new int[] { 1,2,3,4,5 } },
-                Convert.FromHexString("9348A0EC00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000005")
-            };
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestBoolean",
-                new object[] { true },
-                Convert.FromHexString("B190C4EB0000000000000000000000000000000000000000000000000000000000000001")
-            };
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestBoolean",
-                new object[] { false },
-                Convert.FromHexString("B190C4EB0000000000000000000000000000000000000000000000000000000000000000")
-            };
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestBoolean",
-                new object[] { "true" },
-                Convert.FromHexString("B190C4EB0000000000000000000000000000000000000000000000000000000000000001")
-            };
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestBoolean",
-                new object[] { "False" },
-                Convert.FromHexString("B190C4EB0000000000000000000000000000000000000000000000000000000000000000")
-            };
-            
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestInt64",
-                new object[] { Int64.MaxValue },
-                Convert.FromHexString("0CA5DC080000000000000000000000000000000000000000000000007FFFFFFFFFFFFFFF")
-            };
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestInt64",
-                new object[] { Int64.MinValue },
-                Convert.FromHexString("0CA5DC08FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000000000000000")
-            };
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestUInt8",
-                new object[] { Byte.MaxValue },
-                Convert.FromHexString("1E636A8D00000000000000000000000000000000000000000000000000000000000000FF")
-            };
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestUInt8",
-                new object[] { 59 },
-                Convert.FromHexString("1E636A8D000000000000000000000000000000000000000000000000000000000000003B")
-            };
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestUInt256",
-                new object[] { UInt64.MaxValue },
-                Convert.FromHexString("2B6A53CC000000000000000000000000000000000000000000000000FFFFFFFFFFFFFFFF")
-            };
-            yield return new object[]
-            {
-                TestDefinition,
-                "TestUInt256",
-                new object[] { Decimal.MaxValue },
-                Convert.FromHexString("2B6A53CC0000000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF")
-            };
-
+            #endregion
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
