@@ -8,7 +8,9 @@ namespace Zenon.Model.Embedded
         public PillarEpochHistoryList(JPillarEpochHistoryList json)
         {
             Count = json.count;
-            List = json.list.Select(x => new PillarEpochHistory(x)).ToArray();
+            List = json.list != null
+                ? json.list.Select(x => new PillarEpochHistory(x)).ToArray()
+                : new PillarEpochHistory[0];
         }
 
         public long Count { get; }

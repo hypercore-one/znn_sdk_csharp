@@ -5,30 +5,36 @@ using Zenon.Tests.TestData.Model.Primatives;
 
 namespace Zenon.Tests
 {
-    public class HashTests
+    public partial class ModelTests
     {
-        [Fact]
-        public void When_ParseEmpty_ExpectToEqualEmpty()
+        public partial class Primatives
         {
-            // Setup
-            var emptyHash = "0000000000000000000000000000000000000000000000000000000000000000";
+            public class HashType
+            {
+                [Fact]
+                public void When_ParseEmpty_ExpectToEqualEmpty()
+                {
+                    // Setup
+                    var emptyHash = "0000000000000000000000000000000000000000000000000000000000000000";
 
-            // Execute
-            var hash = Hash.Parse(emptyHash);
+                    // Execute
+                    var hash = Hash.Parse(emptyHash);
 
-            // Validate
-            hash.ToString().Should().BeEquivalentTo(emptyHash);
-        }
+                    // Validate
+                    hash.ToString().Should().BeEquivalentTo(emptyHash);
+                }
 
-        [Theory]
-        [ClassData(typeof(HashTestData))]
-        public void When_ParseHash_ExpectToEqualHash(string hashString)
-        {
-            // Execute
-            var hash = Hash.Parse(hashString);
+                [Theory]
+                [ClassData(typeof(HashTestData))]
+                public void When_ParseHash_ExpectToEqualHash(string hashString)
+                {
+                    // Execute
+                    var hash = Hash.Parse(hashString);
 
-            // Validate
-            hash.ToString().Should().BeEquivalentTo(hashString);
+                    // Validate
+                    hash.ToString().Should().BeEquivalentTo(hashString);
+                }
+            }
         }
     }
 }

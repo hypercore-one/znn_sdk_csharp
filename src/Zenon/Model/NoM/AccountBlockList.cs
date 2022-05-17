@@ -8,7 +8,9 @@ namespace Zenon.Model.NoM
         public AccountBlockList(JAccountBlockList json)
         {
             Count = json.count;
-            List = json.list.Select(x => new AccountBlock(x)).ToArray();
+            List = json.list != null
+                ? json.list.Select(x => new AccountBlock(x)).ToArray()
+                : new AccountBlock[0];
             More = json.more;
         }
 

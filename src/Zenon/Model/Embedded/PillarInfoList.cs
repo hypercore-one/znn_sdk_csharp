@@ -8,7 +8,9 @@ namespace Zenon.Model.Embedded
         public PillarInfoList(JPillarInfoList json)
         {
             Count = json.count;
-            List = json.list.Select(x => new PillarInfo(x)).ToArray();
+            List = json.list != null
+                ? json.list.Select(x => new PillarInfo(x)).ToArray()
+                : new PillarInfo[0];
         }
 
         public long Count { get; }

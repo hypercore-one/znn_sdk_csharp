@@ -20,10 +20,10 @@ namespace Zenon.Api.Embedded
 
         public IClient Client { get; }
 
-        public async Task<SwapAssetEntry> GetAssetsByKeyIdHash(string keyIdHash)
+        public async Task<SwapAssetEntry> GetAssetsByKeyIdHash(Hash keyIdHash)
         {
-            var response = await Client.SendRequest<JSwapAssetEntry>("embedded.swap.getAssetsByKeyIdHash", keyIdHash);
-            return new SwapAssetEntry(Hash.Parse(keyIdHash), response);
+            var response = await Client.SendRequest<JSwapAssetEntry>("embedded.swap.getAssetsByKeyIdHash", keyIdHash.ToString());
+            return new SwapAssetEntry(keyIdHash, response);
         }
 
         public async Task<SwapAssetEntry[]> GetAssets()

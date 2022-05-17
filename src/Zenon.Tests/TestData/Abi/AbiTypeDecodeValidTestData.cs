@@ -213,7 +213,7 @@ namespace Zenon.Tests.TestData
                 TokenStandardType,
                 Convert.FromHexString("0000000000000000000000000000000000000000000014E66318C6318C6318C6"),
                 TokenStandard.ZnnZts,
-                
+
             };
             #endregion
 

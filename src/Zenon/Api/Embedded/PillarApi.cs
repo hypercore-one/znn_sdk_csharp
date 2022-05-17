@@ -23,7 +23,7 @@ namespace Zenon.Api.Embedded
             return await Client.SendRequest<long>("embedded.pillar.getDepositedQsr", address.ToString());
         }
 
-        public async Task<UncollectedReward> getUncollectedReward(Address address)
+        public async Task<UncollectedReward> GetUncollectedReward(Address address)
         {
             var response = await Client.SendRequest<JUncollectedReward>("embedded.pillar.getUncollectedReward", address.ToString());
             return new UncollectedReward(response);
@@ -69,7 +69,7 @@ namespace Zenon.Api.Embedded
             return response != null ? new DelegationInfo(response) : null;
         }
 
-        public async Task<PillarEpochHistoryList> getPillarEpochHistory(string name, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<PillarEpochHistoryList> GetPillarEpochHistory(string name, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequest<JPillarEpochHistoryList>("embedded.pillar.getPillarEpochHistory", name, pageIndex, pageSize);
             return new PillarEpochHistoryList(response);

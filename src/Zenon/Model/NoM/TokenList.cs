@@ -11,13 +11,13 @@ namespace Zenon.Model.NoM
             List = json.list != null ? json.list.Select(x => new Token(x)).ToArray() : new Token[0];
         }
 
-        public TokenList(long? count, Token[] list)
+        public TokenList(long count, Token[] list)
         {
             Count = count;
             List = list;
         }
 
-        public long? Count { get; }
+        public long Count { get; }
         public Token[] List { get; }
 
         public virtual JTokenList ToJson()

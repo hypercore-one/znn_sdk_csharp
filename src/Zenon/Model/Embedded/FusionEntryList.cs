@@ -9,7 +9,9 @@ namespace Zenon.Model.Embedded
         {
             QsrAmount = json.qsrAmount;
             Count = json.count;
-            List = json.list.Select(x => new FusionEntry(x)).ToArray();
+            List = json.list != null
+                ? json.list.Select(x => new FusionEntry(x)).ToArray()
+                : new FusionEntry[0];
         }
 
         public FusionEntryList(long qsrAmount, long count, FusionEntry[] list)

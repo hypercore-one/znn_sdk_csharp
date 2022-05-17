@@ -10,7 +10,9 @@ namespace Zenon.Model.Embedded
             TotalAmount = json.totalAmount;
             TotalWeightedAmount = json.totalWeightedAmount;
             Count = json.count;
-            List = json.list.Select(x => new StakeEntry(x)).ToArray();
+            List = json.list != null
+                ? json.list.Select(x => new StakeEntry(x)).ToArray()
+                : new StakeEntry[0]; 
         }
 
         public StakeList(long totalAmount, long totalWeightedAmount, long count, StakeEntry[] list)

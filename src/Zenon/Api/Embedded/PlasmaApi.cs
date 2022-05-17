@@ -30,6 +30,7 @@ namespace Zenon.Api.Embedded
             return new FusionEntryList(response);
         }
 
+        [Obsolete("See issue https://github.com/zenon-network/znn_sdk_dart/issues/5", true)]
         public async Task<long> GetRequiredFusionAmount(long requiredPlasma)
         {
             return await Client.SendRequest<long>("embedded.plasma.getRequiredFusionAmount", requiredPlasma);

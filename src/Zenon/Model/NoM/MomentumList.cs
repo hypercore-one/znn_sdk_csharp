@@ -8,7 +8,9 @@ namespace Zenon.Model.NoM
         public MomentumList(JMomentumList json)
         {
             Count = json.count;
-            List = json.list.Select(x => new Momentum(x)).ToArray();
+            List = json.list != null
+                ? json.list.Select(x => new Momentum(x)).ToArray()
+                : new Momentum[0];
         }
 
         public long Count { get; }

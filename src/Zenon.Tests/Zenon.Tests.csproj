@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -10,6 +10,45 @@
     <None Remove="TestData\AccountBlockListTestData.json" />
     <None Remove="TestData\AccountBlockTestData.json" />
     <None Remove="TestData\AccountInfoTestData.json" />
+    <None Remove="TestData\Api\Embedded\Accelerator\GetAll.json" />
+    <None Remove="TestData\Api\Embedded\Accelerator\GetPhaseById.json" />
+    <None Remove="TestData\Api\Embedded\Accelerator\GetPillarVotes.json" />
+    <None Remove="TestData\Api\Embedded\Accelerator\GetProjectById.json" />
+    <None Remove="TestData\Api\Embedded\Accelerator\GetVoteBreakdown.json" />
+    <None Remove="TestData\Api\Embedded\Pillar\GetAll.json" />
+    <None Remove="TestData\Api\Embedded\Pillar\GetByName.json" />
+    <None Remove="TestData\Api\Embedded\Pillar\GetByOwner.json" />
+    <None Remove="TestData\Api\Embedded\Pillar\GetDelegatedPillar.json" />
+    <None Remove="TestData\Api\Embedded\Pillar\GetFrontierRewardByPage.json" />
+    <None Remove="TestData\Api\Embedded\Pillar\GetPillarEpochHistory.json" />
+    <None Remove="TestData\Api\Embedded\Pillar\GetPillarsHistoryByEpoch.json" />
+    <None Remove="TestData\Api\Embedded\Pillar\GetUncollectedReward.json" />
+    <None Remove="TestData\Api\Embedded\Plasma\Get.json" />
+    <None Remove="TestData\Api\Embedded\Plasma\GetEntriesByAddress.json" />
+    <None Remove="TestData\Api\Embedded\Plasma\GetRequiredPoWForAccountBlock.json" />
+    <None Remove="TestData\Api\Embedded\Sentinel\GetAllActive.json" />
+    <None Remove="TestData\Api\Embedded\Sentinel\GetByOwner.json" />
+    <None Remove="TestData\Api\Embedded\Sentinel\GetFrontierRewardByPage.json" />
+    <None Remove="TestData\Api\Embedded\Sentinel\GetUncollectedReward.json" />
+    <None Remove="TestData\Api\Embedded\Stake\GetEntriesByAddress.json" />
+    <None Remove="TestData\Api\Embedded\Stake\GetFrontierRewardByPage.json" />
+    <None Remove="TestData\Api\Embedded\Stake\GetUncollectedReward.json" />
+    <None Remove="TestData\Api\Embedded\Swap\GetAssets.json" />
+    <None Remove="TestData\Api\Embedded\Swap\GetAssetsByKeyIdHash.json" />
+    <None Remove="TestData\Api\Embedded\Swap\GetLegacyPillars.json" />
+    <None Remove="TestData\Api\Embedded\Token\GetAll.json" />
+    <None Remove="TestData\Api\Embedded\Token\GetByOwner.json" />
+    <None Remove="TestData\Api\Embedded\Token\GetByZts.json" />
+    <None Remove="TestData\Api\Ledger\GetAccountBlockByHash.json" />
+    <None Remove="TestData\Api\Ledger\GetAccountBlocksByHeight.json" />
+    <None Remove="TestData\Api\Ledger\GetAccountBlocksByPage.json" />
+    <None Remove="TestData\Api\Ledger\GetFrontierAccountBlock.json" />
+    <None Remove="TestData\Api\Ledger\GetFrontierMomentum.json" />
+    <None Remove="TestData\Api\Ledger\GetMomentumBeforeTime.json" />
+    <None Remove="TestData\Api\Ledger\GetMomentumByHash.json" />
+    <None Remove="TestData\Api\Ledger\GetMomentumsByHeight.json" />
+    <None Remove="TestData\Api\Ledger\GetUnconfirmedBlocksByAddress.json" />
+    <None Remove="TestData\Api\Ledger\GetUnreceivedBlocksByAddress.json" />
     <None Remove="TestData\DetailedMomentumListTestData.json" />
     <None Remove="TestData\Model\Embedded\ProjectListTestData.json" />
     <None Remove="TestData\Model\Embedded\ProjectTestData.json" />
@@ -23,6 +62,45 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="TestData\Api\Embedded\Accelerator\GetAll.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Accelerator\GetPhaseById.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Accelerator\GetPillarVotes.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Accelerator\GetProjectById.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Accelerator\GetVoteBreakdown.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Pillar\GetAll.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Pillar\GetByName.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Pillar\GetByOwner.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Pillar\GetDelegatedPillar.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Pillar\GetFrontierRewardByPage.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Pillar\GetPillarEpochHistory.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Pillar\GetPillarsHistoryByEpoch.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Pillar\GetUncollectedReward.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Plasma\Get.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Plasma\GetEntriesByAddress.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Plasma\GetRequiredPoWForAccountBlock.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Sentinel\GetAllActive.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Sentinel\GetByOwner.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Sentinel\GetFrontierRewardByPage.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Sentinel\GetUncollectedReward.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Stake\GetEntriesByAddress.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Stake\GetFrontierRewardByPage.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Stake\GetUncollectedReward.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Swap\GetAssets.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Swap\GetAssetsByKeyIdHash.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Swap\GetLegacyPillars.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Token\GetAll.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Token\GetByOwner.json" />
+    <EmbeddedResource Include="TestData\Api\Embedded\Token\GetByZts.json" />
+    <EmbeddedResource Include="TestData\Api\Ledger\GetMomentumsByHeight.json" />
+    <EmbeddedResource Include="TestData\Api\Ledger\GetMomentumByHash.json" />
+    <EmbeddedResource Include="TestData\Api\Ledger\GetMomentumBeforeTime.json" />
+    <EmbeddedResource Include="TestData\Api\Ledger\GetFrontierMomentum.json" />
+    <EmbeddedResource Include="TestData\Api\Ledger\GetAccountBlocksByPage.json" />
+    <EmbeddedResource Include="TestData\Api\Ledger\GetAccountBlocksByHeight.json" />
+    <EmbeddedResource Include="TestData\Api\Ledger\GetAccountBlockByHash.json" />
+    <EmbeddedResource Include="TestData\Api\Ledger\GetFrontierAccountBlock.json" />
+    <EmbeddedResource Include="TestData\Api\Ledger\GetUnreceivedBlocksByAddress.json" />
+    <EmbeddedResource Include="TestData\Api\Ledger\GetUnconfirmedBlocksByAddress.json" />
     <EmbeddedResource Include="TestData\Model\Embedded\ProjectListTestData.json" />
     <EmbeddedResource Include="TestData\Model\Embedded\ProjectTestData.json" />
     <EmbeddedResource Include="TestData\Model\NetworkInfoTestData.json" />

@@ -28,10 +28,10 @@ namespace Zenon.Api.Embedded
             return new TokenList(response);
         }
 
-        public async Task<TokenList> GetByZts(TokenStandard tokenStandard)
+        public async Task<Token> GetByZts(TokenStandard tokenStandard)
         {
-            var response = await Client.SendRequest<JTokenList>("embedded.token.getByZts", tokenStandard.ToString());
-            return response != null ? new TokenList(response) : null;
+            var response = await Client.SendRequest<JToken>("embedded.token.getByZts", tokenStandard.ToString());
+            return response != null ? new Token(response) : null;
         }
 
         // Contract methods

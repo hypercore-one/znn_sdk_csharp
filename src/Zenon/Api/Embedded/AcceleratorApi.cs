@@ -26,9 +26,9 @@ namespace Zenon.Api.Embedded
             return new ProjectList(response);
         }
 
-        public async Task<Project> GetProjectById(string id)
+        public async Task<Project> GetProjectById(Hash id)
         {
-            var response = await Client.SendRequest<JProject>("embedded.accelerator.getProjectById", id);
+            var response = await Client.SendRequest<JProject>("embedded.accelerator.getProjectById", id.ToString());
             return new Project(response);
         }
 

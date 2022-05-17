@@ -5,21 +5,27 @@ using Zenon.Tests.TestData.Model.Primatives;
 
 namespace Zenon.Tests
 {
-    public class AddressTests
+    public partial class ModelTests
     {
-        [Theory]
-        [ClassData(typeof(AddressTestData))]
-        public void When_ParseAddress_ExpectToEqual(string addressString, string shortString, string hrp, byte[] bytes, bool embedded)
+        public partial class Primatives
         {
-            // Execute
-            var address = Address.Parse(addressString);
+            public class AddressType
+            {
+                [Theory]
+                [ClassData(typeof(AddressTestData))]
+                public void When_ParseAddress_ExpectToEqual(string addressString, string shortString, string hrp, byte[] bytes, bool embedded)
+                {
+                    // Execute
+                    var address = Address.Parse(addressString);
 
-            // Validate
-            address.ToString().Should().Be(addressString);
-            address.ToShortString().Should().Be(shortString);
-            address.Hrp.Should().Be(hrp);
-            address.Bytes.Should().BeEquivalentTo(bytes);
-            address.IsEmbedded.Should().Be(embedded);
+                    // Validate
+                    address.ToString().Should().Be(addressString);
+                    address.ToShortString().Should().Be(shortString);
+                    address.Hrp.Should().Be(hrp);
+                    address.Bytes.Should().BeEquivalentTo(bytes);
+                    address.IsEmbedded.Should().Be(embedded);
+                }
+            }
         }
     }
 }

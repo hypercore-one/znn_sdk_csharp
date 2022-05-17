@@ -8,7 +8,9 @@ namespace Zenon.Model.Embedded
         public SentinelInfoList(JSentinelInfoList json)
         {
             Count = json.count;
-            List = json.list.Select(x => new SentinelInfo(x)).ToArray();
+            List = json.list != null
+                ? json.list.Select(x => new SentinelInfo(x)).ToArray()
+                : new SentinelInfo[0];
         }
 
         public SentinelInfoList(long count, SentinelInfo[] list)

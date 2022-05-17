@@ -8,7 +8,9 @@ namespace Zenon.Model.Embedded
         public RewardHistoryList(JRewardHistoryList json)
         {
             Count = json.count;
-            List = json.list.Select(x => new RewardHistoryEntry(x)).ToArray();
+            List = json.list != null
+                ? json.list.Select(x => new RewardHistoryEntry(x)).ToArray()
+                : new RewardHistoryEntry[0];
         }
 
         public long Count { get; }
