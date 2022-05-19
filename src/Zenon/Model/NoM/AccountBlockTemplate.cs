@@ -57,6 +57,7 @@ namespace Zenon.Model.NoM
         {
             Version = 1;
             ChainIdentifier = Constants.NetId;
+            BlockType = blockType;
             Hash = Hash.Empty;
             PreviousHash = Hash.Empty;
             Height = 0;

@@ -76,13 +76,13 @@ namespace Zenon.Api.Embedded
                 Definitions.Accelerator.EncodeFunction("Donate"));
         }
 
-        public AccountBlockTemplate VoteByName(Hash id, string pillarName, long vote)
+        public AccountBlockTemplate VoteByName(Hash id, string pillarName, int vote)
         {
             return AccountBlockTemplate.CallContract(Address.AcceleratorAddress, TokenStandard.ZnnZts, 0,
                 Definitions.Accelerator.EncodeFunction("VoteByName", id.Bytes, pillarName, vote));
         }
 
-        public AccountBlockTemplate VoteByProdAddress(Hash id, long vote)
+        public AccountBlockTemplate VoteByProdAddress(Hash id, int vote)
         {
             return AccountBlockTemplate.CallContract(Address.AcceleratorAddress, TokenStandard.ZnnZts, 0,
                 Definitions.Accelerator.EncodeFunction("VoteByProdAddress", id.Bytes, vote));

@@ -36,7 +36,7 @@ namespace Zenon.Api.Embedded
 
         // Contract methods
         public AccountBlockTemplate IssueToken(string tokenName, string tokenSymbol, string tokenDomain,
-            long totalSupply, long maxSupply, long decimals,
+            long totalSupply, long maxSupply, int decimals,
             bool mintable, bool burnable, bool utility)
         {
             return AccountBlockTemplate.CallContract(Address.TokenAddress, TokenStandard.ZnnZts, Constants.TokenZtsIssueFeeInZnn,
@@ -52,7 +52,7 @@ namespace Zenon.Api.Embedded
                     utility));
         }
 
-        public AccountBlockTemplate Mint(TokenStandard tokenStandard, long amount, Address receiveAddress)
+        public AccountBlockTemplate MintToken(TokenStandard tokenStandard, long amount, Address receiveAddress)
         {
             return AccountBlockTemplate.CallContract(Address.TokenAddress, TokenStandard.ZnnZts, 0,
                 Definitions.Token.EncodeFunction("Mint", tokenStandard, amount, receiveAddress));

@@ -25,11 +25,11 @@ namespace Zenon.Model.NoM
             string name,
             string symbol,
             string domain,
-            ulong totalSupply,
+            long totalSupply,
             long decimals,
             Address owner,
             TokenStandard tokenStandard,
-            ulong maxSupply,
+            long maxSupply,
             bool isBurnable,
             bool isMintable,
             bool isUtility)
@@ -50,11 +50,11 @@ namespace Zenon.Model.NoM
         public string Name { get; }
         public string Symbol { get; }
         public string Domain { get; }
-        public ulong TotalSupply { get; }
+        public long TotalSupply { get; }
         public long Decimals { get; }
         public Address Owner { get; }
         public TokenStandard TokenStandard { get; }
-        public ulong MaxSupply { get; }
+        public long MaxSupply { get; }
         public bool IsBurnable { get; }
         public bool IsMintable { get; }
         public bool IsUtility { get; }

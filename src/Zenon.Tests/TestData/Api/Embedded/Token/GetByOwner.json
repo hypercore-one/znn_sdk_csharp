@@ -18,11 +18,11 @@
       "name": "SultanOfStaking",
       "symbol": "SOS",
       "domain": "SultanOfStaking.com",
-      "totalSupply": 9223372036854776000,
+      "totalSupply": 9223372036854775807,
       "decimals": 16,
       "owner": "z1qpgdtn89u9365jr7ltdxu29fy52pnzwe4fl7zc",
       "tokenStandard": "zts1s5l6z3aseq6gce8xf8nsv9",
-      "maxSupply": 9223372036854776000,
+      "maxSupply": 9223372036854775807,
       "isBurnable": true,
       "isMintable": true,
       "isUtility": true

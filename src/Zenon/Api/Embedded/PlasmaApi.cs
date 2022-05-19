@@ -48,7 +48,7 @@ namespace Zenon.Api.Embedded
         }
 
         // Contract methods
-        public AccountBlockTemplate Fuse(Address beneficiary, int amount)
+        public AccountBlockTemplate Fuse(Address beneficiary, long amount)
         {
             return AccountBlockTemplate.CallContract(Address.PlasmaAddress, TokenStandard.QsrZts, amount,
                 Definitions.Plasma.EncodeFunction("Fuse", beneficiary));

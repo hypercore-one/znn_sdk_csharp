@@ -99,10 +99,10 @@ namespace Zenon.Tests
     }
     #endregion
 
-    public class ApiTests
+    public partial class ApiTests
     {
         #region Embedded
-        public class Accelerator
+        public partial class Accelerator
         {
             public class GetAll
             {
