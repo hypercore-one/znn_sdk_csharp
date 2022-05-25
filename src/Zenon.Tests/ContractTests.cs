@@ -15,7 +15,7 @@ namespace Zenon.Tests
         {
             public EmbeddedApiFixture()
             {
-                this.Api = new EmbeddedApi(new Mock<IClient>().Object);
+                this.Api = new EmbeddedApi(new Lazy<IClient>(() => new Mock<TestClient>().Object));
             }
 
             public EmbeddedApi Api { get; }
@@ -273,6 +273,25 @@ namespace Zenon.Tests
             }
 
             [Fact]
+            public void When_CollectReward_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate(
+                    "z1qxemdeddedxpyllarxxxxxxxxxxxxxxxsy3fmg",
+                    "zts1znnxxxxxxxxxxxxx9z4ulx",
+                    0,
+                    "r0PT8A==");
+
+                // Execute
+                var block = this.Api.CollectReward();
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+
+            [Fact]
             public void When_DepositQsr_ExpectResultToEqual()
             {
                 // Setup
@@ -407,7 +426,7 @@ namespace Zenon.Tests
             }
 
             [Fact]
-            public void When_Undelegate_ExpectResultToEqual()
+            public void When_CollectReward_ExpectResultToEqual()
             {
                 // Setup
                 var expectedResult = TestHelper.CreateAccountBlockTemplate(

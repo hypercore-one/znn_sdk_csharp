@@ -79,12 +79,12 @@ namespace Zenon.Model.NoM
         public int ChainIdentifier { get; }
         public BlockTypeEnum BlockType { get; }
 
-        public Hash Hash { get; }
-        public Hash PreviousHash { get; }
-        public long Height { get; }
-        public HashHeight MomentumAcknowledged { get; }
+        public Hash Hash { get; internal set; }
+        public Hash PreviousHash { get; internal set; }
+        public long Height { get; internal set; }
+        public HashHeight MomentumAcknowledged { get; internal set; }
 
-        public Address Address { get; }
+        public Address Address { get; set; }
 
         // Send information
         public Address ToAddress { get; }
@@ -98,15 +98,15 @@ namespace Zenon.Model.NoM
         public byte[] Data { get; }
 
         // PoW
-        public long FusedPlasma { get; }
-        public long Difficulty { get; }
+        public long FusedPlasma { get; internal set; }
+        public long Difficulty { get; internal set; }
 
         // Hex representation of 8 byte nonce
-        public string Nonce { get; }
+        public string Nonce { get; internal set; }
 
         // Verification
-        public byte[] PublicKey { get; }
-        public byte[] Signature { get; }
+        public byte[] PublicKey { get; internal set; }
+        public byte[] Signature { get; internal set;  }
 
         public virtual JAccountBlockTemplate ToJson()
         {

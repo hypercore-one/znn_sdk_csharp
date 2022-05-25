@@ -1,5 +1,6 @@
 ﻿using System;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Abi
 {
@@ -14,7 +15,7 @@ namespace Zenon.Abi
             if (value is string)
             {
                 var result = new byte[AbiType.Int32Size];
-                var bytes = Convert.FromHexString((string)value);
+                var bytes = BytesUtils.FromHexString((string)value);
                 Buffer.BlockCopy(bytes, 0, result, 0, bytes.Length);
                 return result;
             }

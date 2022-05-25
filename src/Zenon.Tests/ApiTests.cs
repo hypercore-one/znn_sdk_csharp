@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Newtonsoft.Json;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using Zenon.Api;
@@ -61,6 +62,21 @@ namespace Zenon.Tests
             });
         }
 
+        public Task<bool> StartAsync(Uri url, bool retry = true, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task StopAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Subscribe(string method, Delegate callback)
+        {
+            throw new NotImplementedException();
+        }
+
         public TestClient WithMethod(string methodName, params object[] parameters)
         {
             this.Request = new TestClientRequest(methodName, parameters);
@@ -117,9 +133,9 @@ namespace Zenon.Tests
                 public async Task EmptyResponseAsync()
                 {
                     // Setup
-                    var api = new AcceleratorApi(new TestClient()
+                    var api = new AcceleratorApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, 0, Constants.RpcMaxPageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetAll();
@@ -135,9 +151,9 @@ namespace Zenon.Tests
                 public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
                 {
                     // Setup
-                    var api = new AcceleratorApi(new TestClient()
+                    var api = new AcceleratorApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetAll();
@@ -165,9 +181,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var hash = Hash.Parse(id);
-                    var api = new AcceleratorApi(new TestClient()
+                    var api = new AcceleratorApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, hash.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetProjectById(hash);
@@ -194,9 +210,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var hash = Hash.Parse(id);
-                    var api = new AcceleratorApi(new TestClient()
+                    var api = new AcceleratorApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, hash.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetPhaseById(hash);
@@ -222,9 +238,9 @@ namespace Zenon.Tests
                 public async Task ArrayResponseAsync(string name, string[] hashes, string resourceName)
                 {
                     // Setup
-                    var api = new AcceleratorApi(new TestClient()
+                    var api = new AcceleratorApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, name, hashes)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetPillarVotes(name, hashes);
@@ -250,9 +266,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var hash = Hash.Parse(id);
-                    var api = new AcceleratorApi(new TestClient()
+                    var api = new AcceleratorApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, hash.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetVoteBreakdown(hash);
@@ -281,9 +297,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString())
-                        .WithResponse(() => response));
+                        .WithResponse(() => response)));
 
                     // Execute
                     var result = await api.GetDepositedQsr(addr);
@@ -309,9 +325,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetUncollectedReward(addr);
@@ -337,9 +353,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetFrontierRewardByPage(addr, pageIndex, pageSize);
@@ -357,9 +373,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetFrontierRewardByPage(addr, pageIndex, pageSize);
@@ -385,9 +401,9 @@ namespace Zenon.Tests
                 public async Task SingleResponseAsync(string response)
                 {
                     // Setup
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName)
-                        .WithResponse(() => response));
+                        .WithResponse(() => response)));
 
                     // Execute
                     var result = await api.GetQsrRegistrationCost();
@@ -411,9 +427,9 @@ namespace Zenon.Tests
                 public async Task EmptyResponseAsync(int pageIndex, int pageSize)
                 {
                     // Setup
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetAll(pageIndex, pageSize);
@@ -430,9 +446,9 @@ namespace Zenon.Tests
                 public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
                 {
                     // Setup
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetAll(pageIndex, pageSize);
@@ -459,9 +475,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString())
-                        .WithResponse(() => "[]"));
+                        .WithResponse(() => "[]")));
 
                     // Execute
                     var result = await api.GetByOwner(addr);
@@ -477,9 +493,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetByOwner(addr);
@@ -504,9 +520,9 @@ namespace Zenon.Tests
                 public async Task SingleResponseAsync(string name, string resourceName)
                 {
                     // Setup
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, name)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetByName(name);
@@ -530,9 +546,9 @@ namespace Zenon.Tests
                 public async Task SingleResponseAsync(string name, string response)
                 {
                     // Setup
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, name)
-                        .WithResponse(() => response));
+                        .WithResponse(() => response)));
 
                     // Execute
                     var result = await api.CheckNameAvailability(name);
@@ -558,9 +574,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, address.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetDelegatedPillar(addr);
@@ -585,9 +601,9 @@ namespace Zenon.Tests
                 public async Task EmptyResponseAsync(string name, int pageIndex, int pageSize)
                 {
                     // Setup
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, name, pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetPillarEpochHistory(name, pageIndex, pageSize);
@@ -604,9 +620,9 @@ namespace Zenon.Tests
                 public async Task ListResponseAsync(string name, int pageIndex, int pageSize, string resourceName)
                 {
                     // Setup
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, name, pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetPillarEpochHistory(name, pageIndex, pageSize);
@@ -632,9 +648,9 @@ namespace Zenon.Tests
                 public async Task EmptyResponseAsync(int epoch, int pageIndex, int pageSize)
                 {
                     // Setup
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, epoch, pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetPillarsHistoryByEpoch(epoch, pageIndex, pageSize);
@@ -651,9 +667,9 @@ namespace Zenon.Tests
                 public async Task ListResponseAsync(int epoch, int pageIndex, int pageSize, string resourceName)
                 {
                     // Setup
-                    var api = new PillarApi(new TestClient()
+                    var api = new PillarApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, epoch, pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetPillarsHistoryByEpoch(epoch, pageIndex, pageSize);
@@ -684,9 +700,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new PlasmaApi(new TestClient()
+                    var api = new PlasmaApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.Get(addr);
@@ -711,9 +727,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new PlasmaApi(new TestClient()
+                    var api = new PlasmaApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetEntriesByAddress(addr, pageIndex, pageSize);
@@ -731,9 +747,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new PlasmaApi(new TestClient()
+                    var api = new PlasmaApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetEntriesByAddress(addr, pageIndex, pageSize);
@@ -752,7 +768,7 @@ namespace Zenon.Tests
                 public async Task SingleResponseAsync(double qsrAmount, long expectedResult)
                 {
                     // Setup
-                    var api = new PlasmaApi(new TestClient());
+                    var api = new PlasmaApi(new Lazy<IClient>(() => new TestClient()));
 
                     // Execute
                     var result = await api.GetPlasmaByQsr(qsrAmount);
@@ -778,9 +794,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var param = new GetRequiredParam(Address.Parse(address), blockType, Address.Parse(toAddress), data);
-                    var api = new PlasmaApi(new TestClient()
+                    var api = new PlasmaApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, param.ToJson())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetRequiredPoWForAccountBlock(param);
@@ -807,9 +823,9 @@ namespace Zenon.Tests
                 public async Task EmptyResponseAsync(int pageIndex, int pageSize)
                 {
                     // Setup
-                    var api = new SentinelApi(new TestClient()
+                    var api = new SentinelApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetAllActive(pageIndex, pageSize);
@@ -826,9 +842,9 @@ namespace Zenon.Tests
                 public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
                 {
                     // Setup
-                    var api = new SentinelApi(new TestClient()
+                    var api = new SentinelApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetAllActive(pageIndex, pageSize);
@@ -856,9 +872,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new SentinelApi(new TestClient()
+                    var api = new SentinelApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetByOwner(addr);
@@ -884,9 +900,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new SentinelApi(new TestClient()
+                    var api = new SentinelApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString())
-                        .WithResponse(() => response));
+                        .WithResponse(() => response)));
 
                     // Execute
                     var result = await api.GetDepositedQsr(addr);
@@ -912,9 +928,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new SentinelApi(new TestClient()
+                    var api = new SentinelApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetUncollectedReward(addr);
@@ -939,9 +955,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new SentinelApi(new TestClient()
+                    var api = new SentinelApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetFrontierRewardByPage(addr, pageIndex, pageSize);
@@ -959,9 +975,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new SentinelApi(new TestClient()
+                    var api = new SentinelApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetFrontierRewardByPage(addr, pageIndex, pageSize);
@@ -991,9 +1007,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new StakeApi(new TestClient()
+                    var api = new StakeApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetEntriesByAddress(addr, pageIndex, pageSize);
@@ -1011,9 +1027,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new StakeApi(new TestClient()
+                    var api = new StakeApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetEntriesByAddress(addr, pageIndex, pageSize);
@@ -1040,9 +1056,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new StakeApi(new TestClient()
+                    var api = new StakeApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetFrontierRewardByPage(addr, pageIndex, pageSize);
@@ -1060,9 +1076,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new StakeApi(new TestClient()
+                    var api = new StakeApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetFrontierRewardByPage(addr, pageIndex, pageSize);
@@ -1090,9 +1106,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new StakeApi(new TestClient()
+                    var api = new StakeApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetUncollectedReward(addr);
@@ -1119,9 +1135,9 @@ namespace Zenon.Tests
                 public async Task EmptyResponseAsync()
                 {
                     // Setup
-                    var api = new SwapApi(new TestClient()
+                    var api = new SwapApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetAssets();
@@ -1135,9 +1151,9 @@ namespace Zenon.Tests
                 public async Task ArrayResponseAsync(string resourceName)
                 {
                     // Setup
-                    var api = new SwapApi(new TestClient()
+                    var api = new SwapApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetAssets();
@@ -1163,9 +1179,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var hash = Hash.Parse(keyIdHash);
-                    var api = new SwapApi(new TestClient()
+                    var api = new SwapApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, hash.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetAssetsByKeyIdHash(hash);
@@ -1190,9 +1206,9 @@ namespace Zenon.Tests
                 public async Task ArrayResponseAsync(string resourceName)
                 {
                     // Setup
-                    var api = new SwapApi(new TestClient()
+                    var api = new SwapApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetLegacyPillars();
@@ -1218,9 +1234,9 @@ namespace Zenon.Tests
                 public async Task EmptyResponseAsync()
                 {
                     // Setup
-                    var api = new TokenApi(new TestClient()
+                    var api = new TokenApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, 0, Constants.RpcMaxPageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetAll();
@@ -1236,9 +1252,9 @@ namespace Zenon.Tests
                 public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
                 {
                     // Setup
-                    var api = new TokenApi(new TestClient()
+                    var api = new TokenApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetAll();
@@ -1266,9 +1282,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new TokenApi(new TestClient()
+                    var api = new TokenApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetByOwner(addr);
@@ -1296,9 +1312,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var zts = TokenStandard.Parse(tokenStandard);
-                    var api = new TokenApi(new TestClient()
+                    var api = new TokenApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, zts.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetByZts(zts);
@@ -1328,9 +1344,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetUnconfirmedBlocksByAddress(addr, pageIndex, pageSize);
@@ -1348,9 +1364,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetUnconfirmedBlocksByAddress(addr, pageIndex, pageSize);
@@ -1377,9 +1393,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetUnreceivedBlocksByAddress(addr, pageIndex, pageSize);
@@ -1397,9 +1413,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetUnreceivedBlocksByAddress(addr, pageIndex, pageSize);
@@ -1427,9 +1443,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetFrontierAccountBlock(addr);
@@ -1456,9 +1472,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var h = Hash.Parse(hash);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, h.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetAccountBlockByHash(h);
@@ -1484,9 +1500,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetAccountBlocksByHeight(addr, pageIndex, pageSize);
@@ -1504,9 +1520,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetAccountBlocksByHeight(addr, pageIndex, pageSize);
@@ -1533,9 +1549,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetAccountBlocksByPage(addr, pageIndex, pageSize);
@@ -1553,9 +1569,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var addr = Address.Parse(address);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetAccountBlocksByPage(addr, pageIndex, pageSize);
@@ -1581,9 +1597,9 @@ namespace Zenon.Tests
                 public async Task SingleResponseAsync(string resourceName)
                 {
                     // Setup
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetFrontierMomentum();
@@ -1607,9 +1623,9 @@ namespace Zenon.Tests
                 public async Task NullResponseAsync(long time)
                 {
                     // Setup
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, time)
-                        .WithNullResponse());
+                        .WithNullResponse()));
 
                     // Execute
                     var result = await api.GetMomentumBeforeTime(time);
@@ -1623,9 +1639,9 @@ namespace Zenon.Tests
                 public async Task SingleResponseAsync(long time, string resourceName)
                 {
                     // Setup
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, time)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetMomentumBeforeTime(time);
@@ -1650,9 +1666,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var h = Hash.Parse(hash);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, h.ToString())
-                        .WithNullResponse());
+                        .WithNullResponse()));
 
                     // Execute
                     var result = await api.GetMomentumByHash(h);
@@ -1667,9 +1683,9 @@ namespace Zenon.Tests
                 {
                     // Setup
                     var h = Hash.Parse(hash);
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, h.ToString())
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetMomentumByHash(h);
@@ -1693,9 +1709,9 @@ namespace Zenon.Tests
                 public async Task EmptyResponseAsync(long height, long count)
                 {
                     // Setup
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, height, count)
-                        .WithEmptyResponse());
+                        .WithEmptyResponse()));
 
                     // Execute
                     var result = await api.GetMomentumsByHeight(height, count);
@@ -1712,9 +1728,9 @@ namespace Zenon.Tests
                 public async Task ListResponseAsync(long height, long count, string resourceName)
                 {
                     // Setup
-                    var api = new LedgerApi(new TestClient()
+                    var api = new LedgerApi(new Lazy<IClient>(() => new TestClient()
                         .WithMethod(this.MethodName, height, count)
-                        .WithManifestResourceTextResponse(resourceName));
+                        .WithManifestResourceTextResponse(resourceName)));
 
                     // Execute
                     var result = await api.GetMomentumsByHeight(height, count);

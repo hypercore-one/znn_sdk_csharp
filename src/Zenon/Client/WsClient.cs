@@ -1,5 +1,6 @@
 ﻿using StreamJsonRpc;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.Net.WebSockets;
@@ -24,7 +25,7 @@ namespace Zenon.Client
         }
 
         private ClientWebSocket _socket;
-        private JsonRpc _wsRpcClient;
+        public JsonRpc _wsRpcClient;
 
         public Uri Url { get; private set; }
 
@@ -52,6 +53,18 @@ namespace Zenon.Client
             await _wsRpcClient.InvokeAsync(method, parameters);
         }
 
+        public void Subscribe(string method, Delegate callback)
+        {
+            if (IsClosed)
+            {
+                throw new NoConnectionException();
+            }
+
+            _wsRpcClient.AllowModificationWhileListening = true;
+            _wsRpcClient.AddLocalRpcMethod(method, callback);
+            _wsRpcClient.AllowModificationWhileListening = false;
+        }
+
         public async Task<bool> StartAsync(Uri url, bool retry = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             this.Url = url;
@@ -72,6 +85,8 @@ namespace Zenon.Client
                     Debug.WriteLine("Websocket connection successfully established");
 
                     _wsRpcClient = new JsonRpc(new WebSocketMessageHandler(_socket));
+                    _wsRpcClient.TraceSource.Listeners.Add(new ConsoleTraceListener());
+                    _wsRpcClient.TraceSource.Switch.Level = SourceLevels.All;
 
                     this.Status = WebsocketStatus.Running;
 

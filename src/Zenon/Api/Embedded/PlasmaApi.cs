@@ -11,29 +11,29 @@ namespace Zenon.Api.Embedded
 {
     public class PlasmaApi
     {
-        public PlasmaApi(IClient client)
+        public PlasmaApi(Lazy<IClient> client)
         {
             Client = client;
         }
 
-        public IClient Client { get; }
+        public Lazy<IClient> Client { get; }
 
         public async Task<PlasmaInfo> Get(Address address)
         {
-            var response = await Client.SendRequest<JPlasmaInfo>("embedded.plasma.get", address.ToString());
+            var response = await Client.Value.SendRequest<JPlasmaInfo>("embedded.plasma.get", address.ToString());
             return new PlasmaInfo(response);
         }
 
         public async Task<FusionEntryList> GetEntriesByAddress(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
         {
-            var response = await Client.SendRequest<JFusionEntryList>("embedded.plasma.getEntriesByAddress", address.ToString(), pageIndex, pageSize);
+            var response = await Client.Value.SendRequest<JFusionEntryList>("embedded.plasma.getEntriesByAddress", address.ToString(), pageIndex, pageSize);
             return new FusionEntryList(response);
         }
 
         [Obsolete("See issue https://github.com/zenon-network/znn_sdk_dart/issues/5", true)]
         public async Task<long> GetRequiredFusionAmount(long requiredPlasma)
         {
-            return await Client.SendRequest<long>("embedded.plasma.getRequiredFusionAmount", requiredPlasma);
+            return await Client.Value.SendRequest<long>("embedded.plasma.getRequiredFusionAmount", requiredPlasma);
         }
 
         public async Task<long> GetPlasmaByQsr(double qsrAmount)
@@ -43,7 +43,7 @@ namespace Zenon.Api.Embedded
 
         public async Task<GetRequiredResponse> GetRequiredPoWForAccountBlock(GetRequiredParam powParam) 
         {
-            var response = await Client.SendRequest<JGetRequiredResponse>("embedded.plasma.getRequiredPoWForAccountBlock", powParam.ToJson());
+            var response = await Client.Value.SendRequest<JGetRequiredResponse>("embedded.plasma.getRequiredPoWForAccountBlock", powParam.ToJson());
             return new GetRequiredResponse(response);
         }
 

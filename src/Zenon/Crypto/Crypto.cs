@@ -1,63 +1,32 @@
-﻿using NSec.Cryptography;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using Chaos.NaCl;
+using P3.Ed25519.HdKey;
 
 namespace Zenon.Crypto
 {
     public static class Crypto
     {
-        /*
-        private static async Task<List<ushort>> ed25519HashFunc(List<ushort> m) 
+        public static byte[] GetPublicKey(byte[] privateKey)
         {
-            final sink = const DartSha512().newHashSink();
-                sink.add(m!);
-            sink.close();
-            var hash = await sink.hash();
-            return Uint8List.fromList(hash.bytes);
-        }
-        */
-
-        public static Task<List<byte>> getPublicKey(List<byte> privateKey)
-        {
-            return Task.Run(() =>
-            {
-                var algorithm = SignatureAlgorithm.Ed25519;
-                using var key = Key.Import(algorithm, privateKey.ToArray(), KeyBlobFormat.RawPrivateKey);
-
-                return new List<byte>(key.PublicKey.Export(KeyBlobFormat.RawPublicKey));
-            });
+            return Ed25519.PublicKeyFromSeed(privateKey);
         }
 
-        public static async Task<List<byte>> Sign(
-            List<byte> message, List<byte> privateKey, List<byte> publicKey)
+        public static byte[] Sign(
+            byte[] message, byte[] privateKey, byte[] publicKey)
         {
-            return await Task.Run(() =>
-            {
-                var algorithm = SignatureAlgorithm.Ed25519;
-                using var key = Key.Import(algorithm, privateKey.ToArray(), KeyBlobFormat.RawPrivateKey);
-
-                return new List<byte>(algorithm.Sign(key, message.ToArray()));
-            });
+            var expKey = Ed25519.ExpandedPrivateKeyFromSeed(privateKey == null ? publicKey : privateKey);
+            return Ed25519.Sign(message, expKey);
         }
 
-        public static async Task<bool> Verify(
-            List<byte> signature, List<byte> message, List<byte> publicKey)
+        public static bool Verify(
+            byte[] signature, byte[] message, byte[] publicKey)
         {
-            return await Task.Run(() =>
-            {
-                var algorithm = SignatureAlgorithm.Ed25519;
-                var key = PublicKey.Import(algorithm, publicKey.ToArray(), KeyBlobFormat.RawPublicKey);
-
-                return SignatureAlgorithm.Ed25519.Verify(key, message.ToArray(), signature.ToArray());
-            });
+            return Ed25519.Verify(signature, message, signature);
         }
 
-        /*
-        static List<int> deriveKey(String path, String seed)
+        public static byte[] DeriveKey(string path, byte[] seed)
         {
-            return ed25519.Ed25519.derivePath(path, seed).key!;
+            return Ed25519HdKey.DerivePath(path, seed).Key!;
         }
-        */
 
         public static byte[] Digest(byte[] data, int digestSize = 32)
         {

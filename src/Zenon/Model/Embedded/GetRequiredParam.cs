@@ -21,6 +21,7 @@ namespace Zenon.Model.Embedded
             Address = address;
             BlockType = blockType;
             Data = data;
+            ToAddress = toAddress;
 
             if (blockType == BlockTypeEnum.UserReceive)
             {

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Model.Json;
 
@@ -6,31 +7,31 @@ namespace Zenon.Api
 {
     public class StatsApi
     {
-        public StatsApi(IClient client)
+        public StatsApi(Lazy<IClient> client)
         {
             this.Client = client;
         }
 
-        public IClient Client { get; }
+        public Lazy<IClient> Client { get; }
 
         public async Task<JOsInfo> OsInfo()
         {
-            return await Client.SendRequest<JOsInfo>("stats.osInfo");
+            return await Client.Value.SendRequest<JOsInfo>("stats.osInfo");
         }
 
         public async Task<JProcessInfo> ProcessInfo()
         {
-            return await Client.SendRequest<JProcessInfo>("stats.processInfo");
+            return await Client.Value.SendRequest<JProcessInfo>("stats.processInfo");
         }
 
         public async Task<JNetworkInfo> NetworkInfo()
         {
-            return await Client.SendRequest<JNetworkInfo>("stats.networkInfo");
+            return await Client.Value.SendRequest<JNetworkInfo>("stats.networkInfo");
         }
 
         public async Task<JSyncInfo> SyncInfo()
         {
-            return await Client.SendRequest<JSyncInfo>("stats.syncInfo");
+            return await Client.Value.SendRequest<JSyncInfo>("stats.syncInfo");
         }
     }
 }

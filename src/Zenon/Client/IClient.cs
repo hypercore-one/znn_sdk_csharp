@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Zenon.Client
 {
@@ -7,5 +9,11 @@ namespace Zenon.Client
         Task<T> SendRequest<T>(string method, params object[] parameters);
 
         Task SendRequest(string method, params object[] parameters);
+
+        Task<bool> StartAsync(Uri url, bool retry = true, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task StopAsync();
+
+        void Subscribe(string method, Delegate callback);
     }
 }

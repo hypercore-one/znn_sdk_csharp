@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Zenon.Client;
@@ -13,40 +14,40 @@ namespace Zenon.Api.Embedded
 {
     public class AcceleratorApi
     {
-        public AcceleratorApi(IClient client)
+        public AcceleratorApi(Lazy<IClient> client)
         {
             Client = client;
         }
 
-        public IClient Client { get; }
+        public Lazy<IClient> Client { get; }
 
         public async Task<ProjectList> GetAll(int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
         {
-            var response = await Client.SendRequest<JProjectList>("embedded.accelerator.getAll", pageIndex, pageSize);
+            var response = await Client.Value.SendRequest<JProjectList>("embedded.accelerator.getAll", pageIndex, pageSize);
             return new ProjectList(response);
         }
 
         public async Task<Project> GetProjectById(Hash id)
         {
-            var response = await Client.SendRequest<JProject>("embedded.accelerator.getProjectById", id.ToString());
+            var response = await Client.Value.SendRequest<JProject>("embedded.accelerator.getProjectById", id.ToString());
             return new Project(response);
         }
 
         public async Task<Phase> GetPhaseById(Hash id)
         {
-            var response = await Client.SendRequest<JObject>("embedded.accelerator.getPhaseById", id.ToString());
+            var response = await Client.Value.SendRequest<JObject>("embedded.accelerator.getPhaseById", id.ToString());
             return new Phase(JPhase.FromJObject(response));
         }
 
         public async Task<PillarVote[]> GetPillarVotes(string name, string[] hashes)
         {
-            var response = await Client.SendRequest<JPillarVote[]>("embedded.accelerator.getPillarVotes", name, hashes);
+            var response = await Client.Value.SendRequest<JPillarVote[]>("embedded.accelerator.getPillarVotes", name, hashes);
             return response.Select(x => new PillarVote(x)).ToArray();
         }
 
         public async Task<VoteBreakdown> GetVoteBreakdown(Hash id)
         {
-            var response = await Client.SendRequest<JVoteBreakdown>("embedded.accelerator.getVoteBreakdown", id.ToString());
+            var response = await Client.Value.SendRequest<JVoteBreakdown>("embedded.accelerator.getVoteBreakdown", id.ToString());
             return new VoteBreakdown(response);
         }
 

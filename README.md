@@ -15,32 +15,67 @@ dotnet add package Zenon.Sdk --prerelease
 
 ## Usage
 
-## Examples
-
-### Example 1 - APIs
+### Connect node
 
 ```csharp
-using Zenon.Api;
-using Zenon.Api.Embedded;
-using Zenon.Client;
-using Zenon.Model.Primitives;
+using Zenon;
+await Znn.Instance.Client.Value.StartAsync(new Uri("ws://nodes.zenon.place:35998"));
+...
+await Znn.Instance.Client.Value.StopAsync();
+```
 
-var client = new WsClient();
+### Generate wallet
+
+```csharp
+using Zenon;
+Znn.Instance.DefaultKeyStore = Znn.Instance.KeyStoreManager.CreateNew("secret", "name");
+```
+
+### Generate wallet from mnemonic
+
+```csharp
+using Zenon;
+Znn.Instance.DefaultKeyStore = Znn.Instance.KeyStoreManager.CreateFromMnemonic("mnemonic", "secret", "name");
+```
+
+### Sending a transaction
+
+```csharp
+using Zenon;
+
+var passphrase = "secret";
+var keyStorePath = Path.Combine(Constants.ZnnDefaultWalletDirectory, "name");
+
+Znn.Instance.DefaultKeyStore = Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, keyStorePath);
+Znn.Instance.DefaultKeyPair = Znn.Instance.DefaultKeyStore.GetKeyPair();
+
+await Znn.Instance.Client.Value.StartAsync(new Uri("ws://nodes.zenon.place:35998"));
+
+var tx = Znn.Instance.Embedded.Pillar.CollectReward();
+
+await Znn.Instance.Send(tx);
+```
+
+### Receive a transaction
+
+```csharp
+using Zenon;
+using Zenon.Model.NoM;
+
+var passphrase = "secret";
+var keyStorePath = Path.Combine(Constants.ZnnDefaultWalletDirectory, "name");
+
+Znn.Instance.DefaultKeyStore = Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, keyStorePath);
+Znn.Instance.DefaultKeyPair = Znn.Instance.DefaultKeyStore.GetKeyPair();
+
+await Znn.Instance.Client.Value.StartAsync(new Uri("ws://nodes.zenon.place:35998"));
+
+var address = Address.Parse("address");
+
+await Znn.Instance.Subscribe.ToUnreceivedAccountBlocksByAddress(address, result =>
 {
-    await client.StartAsync(new Uri("ws://nodes.zenon.place:35998"));
-
-    var pillarList = await new PillarApi(client)
-        .GetAll();
-
-    Console.WriteLine($"Number of pillars: {pillarList.Count}");
-
-    var accountInfo = await new LedgerApi(client)
-        .GetAccountInfoByAddress(Address.Parse("z1qq0hffeyj0htmnr4gc6grd8zmqfvwzgrydt402"));
-
-    Console.WriteLine($"Account info: {accountInfo}");
-
-    await client.StopAsync();
-}
+    var hash = result[0].Value<string>("hash");
+});
 ```
 
 ## Contributing

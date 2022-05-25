@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,22 +14,22 @@ namespace Zenon.Api.Embedded
 {
     public class SwapApi
     {
-        public SwapApi(IClient client)
+        public SwapApi(Lazy<IClient> client)
         {
             Client = client;
         }
 
-        public IClient Client { get; }
+        public Lazy<IClient> Client { get; }
 
         public async Task<SwapAssetEntry> GetAssetsByKeyIdHash(Hash keyIdHash)
         {
-            var response = await Client.SendRequest<JSwapAssetEntry>("embedded.swap.getAssetsByKeyIdHash", keyIdHash.ToString());
+            var response = await Client.Value.SendRequest<JSwapAssetEntry>("embedded.swap.getAssetsByKeyIdHash", keyIdHash.ToString());
             return new SwapAssetEntry(keyIdHash, response);
         }
 
         public async Task<SwapAssetEntry[]> GetAssets()
         {
-            var response = await Client.SendRequest<JObject>("embedded.swap.getAssets");
+            var response = await Client.Value.SendRequest<JObject>("embedded.swap.getAssets");
             var result = new List<SwapAssetEntry>();
             foreach (var token in response)
             {
@@ -39,7 +40,7 @@ namespace Zenon.Api.Embedded
 
         public async Task<SwapLegacyPillarEntry[]> GetLegacyPillars()
         {
-            var response = await Client.SendRequest<JSwapLegacyPillarEntry[]>("embedded.swap.getLegacyPillars");
+            var response = await Client.Value.SendRequest<JSwapLegacyPillarEntry[]>("embedded.swap.getLegacyPillars");
             return response == null ? null : response.Select(x => new SwapLegacyPillarEntry(x)).ToArray();
         }
 

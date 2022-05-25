@@ -24,7 +24,7 @@ namespace Zenon.Model.Primitives
 
         public byte[] GetBytes()
         {
-            return ArrayUtils.Concat(Hash.Bytes, EndianBitConverter.Big.GetBytes(Height.Value));
+            return ArrayUtils.Concat(Hash.Bytes, BytesUtils.GetBytes(Height.Value));
         }
 
         public Json.JHashHeight ToJson()

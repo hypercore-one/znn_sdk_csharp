@@ -20,7 +20,7 @@ namespace Zenon.Abi
             }
             else if (value is string)
             {
-                bytes = Convert.FromHexString((string)value);
+                bytes = BytesUtils.FromHexString((string)value);
             }
             else
             {

@@ -78,7 +78,7 @@ namespace Zenon.Model.Primitives
 
         public static Address FromPublicKey(byte[] publicKey)
         {
-            using (var shaAlg = SHA3.Net.Sha3.Sha3224())
+            using (var shaAlg = SHA3.Net.Sha3.Sha3256())
             {
                 var hash = shaAlg.ComputeHash(publicKey);
 

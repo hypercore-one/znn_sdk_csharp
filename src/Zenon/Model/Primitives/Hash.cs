@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Zenon.Utils;
 
 namespace Zenon.Model.Primitives
 {
@@ -39,7 +40,7 @@ namespace Zenon.Model.Primitives
                 throw new ArgumentException("Invalid hash length");
             }
 
-            return new Hash(Convert.FromHexString(hashString));
+            return new Hash(BytesUtils.FromHexString(hashString));
         }
 
         public static Hash Digest(byte[] byteArray)
@@ -56,7 +57,7 @@ namespace Zenon.Model.Primitives
 
         public override string ToString()
         {
-            return Convert.ToHexString(Bytes).ToLower();
+            return BytesUtils.ToHexString(Bytes).ToLower();
         }
 
         public string ToShortString()

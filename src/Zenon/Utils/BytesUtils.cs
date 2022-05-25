@@ -53,5 +53,46 @@ namespace Zenon.Utils
             Buffer.BlockCopy(bytes, 0, result, size - bytes.Length, bytes.Length);
             return result;
         }
+
+        public static byte[] GetBytes(int value)
+        {
+            return EndianBitConverter.Big.GetBytes(value);
+        }
+
+        public static byte[] GetBytes(long value)
+        {
+            return EndianBitConverter.Big.GetBytes(value);
+        }
+
+
+        /// <summary>
+        /// Converts an array of 8-bit unsigned integers to its equivalent string representation
+        /// that is encoded with lowercase or uppercase hex characters.
+        /// </summary>
+        /// <param name="bytes">The array of 8-bit unsigned integers to encode</param>
+        /// <param name="uppercase">True to encode with uppercase hex characters; otherwise lowercase</param>
+        /// <returns>The hex encoded representation of the bytes</returns>
+        public static string ToHexString(byte[] bytes, bool uppercase = false)
+        {
+            if (uppercase)
+            {
+                return Convert.ToHexString(bytes);
+            }
+            else
+            {
+                return Convert.ToHexString(bytes).ToLowerInvariant();
+            }
+        }
+
+        /// <summary>
+        /// Converts the specified string, which encodes binary data as hex characters, to
+        /// an equivalent 8-bit unsigned integer array.
+        /// </summary>
+        /// <param name="value">The string to convert.</param>
+        /// <returns>An array of 8-bit unsigned integers that is equivalent to <paramref name="value"/>.</returns>
+        public static byte[] FromHexString(string value)
+        {
+            return Convert.FromHexString(value);
+        }
     }
 }

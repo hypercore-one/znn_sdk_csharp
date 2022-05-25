@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
 using Zenon.Model.Embedded;
@@ -10,28 +11,28 @@ namespace Zenon.Api.Embedded
 {
     public class StakeApi
     {
-        public StakeApi(IClient client)
+        public StakeApi(Lazy<IClient> client)
         {
             Client = client;
         }
 
-        public IClient Client { get; }
+        public Lazy<IClient> Client { get; }
 
         public async Task<StakeList> GetEntriesByAddress(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
         {
-            var response = await Client.SendRequest<JStakeList>("embedded.stake.getEntriesByAddress", address.ToString(), pageIndex, pageSize);
+            var response = await Client.Value.SendRequest<JStakeList>("embedded.stake.getEntriesByAddress", address.ToString(), pageIndex, pageSize);
             return new StakeList(response);
         }
 
         public async Task<UncollectedReward> GetUncollectedReward(Address address)
         {
-            var response = await Client.SendRequest<JUncollectedReward>("embedded.stake.getUncollectedReward", address.ToString());
+            var response = await Client.Value.SendRequest<JUncollectedReward>("embedded.stake.getUncollectedReward", address.ToString());
             return new UncollectedReward(response);
         }
 
         public async Task<RewardHistoryList> GetFrontierRewardByPage(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
         {
-            var response = await Client.SendRequest<JRewardHistoryList>("embedded.stake.getFrontierRewardByPage", address.ToString(), pageIndex, pageSize);
+            var response = await Client.Value.SendRequest<JRewardHistoryList>("embedded.stake.getFrontierRewardByPage", address.ToString(), pageIndex, pageSize);
             return new RewardHistoryList(response);
         }
 
