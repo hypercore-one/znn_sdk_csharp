@@ -38,7 +38,7 @@ namespace Zenon.Model.NoM
                 x => x.Token!.TokenStandard == tokenStandard);
             return info?.Balance ?? 0;
         }
-        public double GgetBalanceWithDecimals(TokenStandard tokenStandard)
+        public double GetBalanceWithDecimals(TokenStandard tokenStandard)
         {
             var info = BalanceInfoList!.FirstOrDefault(
                 x => x.Token!.TokenStandard == tokenStandard);

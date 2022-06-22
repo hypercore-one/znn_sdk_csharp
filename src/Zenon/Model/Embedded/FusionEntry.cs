@@ -17,7 +17,7 @@ namespace Zenon.Model.Embedded
         {
             Beneficiary = beneficiary;
             ExpirationHeight = expirationHeight;
-            Id = Id;
+            Id = id;
             QsrAmount = qsrAmount;
         }
 

@@ -57,7 +57,7 @@ namespace Zenon.Abi
         {
             get
             {
-                return 32;
+                return Int32Size;
             }
         }
 

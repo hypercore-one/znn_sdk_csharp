@@ -27,7 +27,8 @@ namespace Zenon.Abi
                 throw new NotSupportedException($"Value type '{value.GetType().Name}' is not supported.");
             }
 
-            var resultLength = ((int)((bytes.Length - 1) / AbiType.Int32Size) + 1) * AbiType.Int32Size;
+            var size = this.FixedSize;
+            var resultLength = ((int)((bytes.Length - 1) / size) + 1) * size;
             var result = new byte[resultLength];
 
             Buffer.BlockCopy(bytes, 0, result, 0, bytes.Length);
@@ -35,7 +36,7 @@ namespace Zenon.Abi
             return ArrayUtils.Concat(IntType.EncodeInt(bytes.Length), result);
         }
 
-        public override dynamic Decode(byte[] encoded, int offset = 0)
+        public override object Decode(byte[] encoded, int offset = 0)
         {
             var len = (int)IntType.DecodeInt(encoded, offset);
             if (len == 0)

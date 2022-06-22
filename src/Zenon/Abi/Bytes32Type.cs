@@ -13,14 +13,14 @@ namespace Zenon.Abi
         {
             if (value is string)
             {
-                var result = new byte[AbiType.Int32Size];
+                var result = new byte[this.FixedSize];
                 var bytes = BytesUtils.FromHexString((string)value);
                 Buffer.BlockCopy(bytes, 0, result, 0, bytes.Length);
                 return result;
             }
             else if (value is byte[])
             {
-                var result = new byte[AbiType.Int32Size];
+                var result = new byte[this.FixedSize];
                 var bytes = (byte[])value;
                 Buffer.BlockCopy(bytes, 0, result, 0, bytes.Length);
                 return result;
@@ -31,9 +31,9 @@ namespace Zenon.Abi
             }
         }
 
-        public override dynamic Decode(byte[] encoded, int offset = 0)
+        public override object Decode(byte[] encoded, int offset = 0)
         {
-            var result = new byte[AbiType.Int32Size];
+            var result = new byte[this.FixedSize];
             Buffer.BlockCopy(encoded, offset, result, 0, FixedSize);
             return result;
         }

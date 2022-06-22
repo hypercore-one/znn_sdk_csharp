@@ -11,7 +11,7 @@ namespace Zenon.Embedded
             {
                 if (String.IsNullOrEmpty(value))
                 {
-                    return "Token name can\"t be empty";
+                    return "Token name cannot be empty";
                 }
                 if (!Constants.TokenNameRegExp.IsMatch(value))
                 {
@@ -35,7 +35,7 @@ namespace Zenon.Embedded
             {
                 if (String.IsNullOrEmpty(value))
                 {
-                    return "Token symbol can\"t be empty";
+                    return "Token symbol cannot be empty";
                 }
                 if (!Constants.TokenSymbolRegExp.IsMatch(value))
                 {
@@ -63,7 +63,7 @@ namespace Zenon.Embedded
             {
                 if (String.IsNullOrEmpty(value))
                 {
-                    return "Token domain can\"t be empty";
+                    return "Token domain cannot be empty";
                 }
                 if (!Constants.TokenDomainRegExp.IsMatch(value))
                 {
@@ -83,7 +83,7 @@ namespace Zenon.Embedded
             {
                 if (String.IsNullOrEmpty(value))
                 {
-                    return "Pillar name can\"t be empty";
+                    return "Pillar name cannot be empty";
                 }
                 if (!Constants.PillarNameRegExp.IsMatch(value))
                 {
@@ -107,7 +107,7 @@ namespace Zenon.Embedded
             {
                 if (String.IsNullOrEmpty(value))
                 {
-                    return "Project name can\"t be empty";
+                    return "Project name cannot be empty";
                 }
                 if (value.Length > Constants.ProjectNameMaxLength)
                 {
@@ -121,13 +121,13 @@ namespace Zenon.Embedded
             }
         }
 
-        public static string projectDescription(string value)
+        public static string ProjectDescription(string value)
         {
             if (value != null)
             {
                 if (String.IsNullOrEmpty(value))
                 {
-                    return "Project description can\"t be empty";
+                    return "Project description cannot be empty";
                 }
                 if (value.Length > Constants.ProjectDescriptionMaxLength)
                 {

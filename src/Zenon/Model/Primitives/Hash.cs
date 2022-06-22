@@ -57,7 +57,7 @@ namespace Zenon.Model.Primitives
 
         public override string ToString()
         {
-            return BytesUtils.ToHexString(Bytes).ToLower();
+            return BytesUtils.ToHexString(Bytes);
         }
 
         public string ToShortString()

@@ -118,7 +118,7 @@ namespace Zenon.Tests
     public partial class ApiTests
     {
         #region Embedded
-        public partial class Accelerator
+        public class Accelerator
         {
             public class GetAll
             {
@@ -529,6 +529,7 @@ namespace Zenon.Tests
 
                     // Validate
                     result.Should().NotBeNull();
+                    result.Name.Should().Be(name);
                 }
             }
 

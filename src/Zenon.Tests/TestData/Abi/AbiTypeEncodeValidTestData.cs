@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Numerics;
 using Zenon.Abi;
 using Zenon.Model.Primitives;
@@ -139,7 +138,7 @@ namespace Zenon.Tests.TestData
             yield return new object[]
             {
                 IntType,
-                Enumerable.Repeat<byte>(0xFF, 32).ToArray(),
+                Convert.FromHexString("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"),
                 Convert.FromHexString("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
             };
             #endregion
@@ -214,8 +213,8 @@ namespace Zenon.Tests.TestData
             yield return new object[]
             {
                 UIntType,
-                Enumerable.Repeat<byte>(0xFF, 32).ToArray(),
-                Convert.FromHexString("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
+                Convert.FromHexString("7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"),
+                Convert.FromHexString("7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
             };
             #endregion
 
@@ -280,7 +279,7 @@ namespace Zenon.Tests.TestData
             yield return new object[]
             {
                 Bytes32Type,
-                Enumerable.Repeat((byte)0x20, 32).ToArray(),
+                Convert.FromHexString("2020202020202020202020202020202020202020202020202020202020202020"),
                 Convert.FromHexString("2020202020202020202020202020202020202020202020202020202020202020")
             };
             #endregion
@@ -295,7 +294,7 @@ namespace Zenon.Tests.TestData
             yield return new object[]
             {
                 BytesType,
-                Enumerable.Repeat((byte)0x20, 32).ToArray(),
+                Convert.FromHexString("2020202020202020202020202020202020202020202020202020202020202020"),
                 Convert.FromHexString("00000000000000000000000000000000000000000000000000000000000000202020202020202020202020202020202020202020202020202020202020202020")
             };
             #endregion
@@ -373,7 +372,7 @@ namespace Zenon.Tests.TestData
             yield return new object[]
             {
                 HashType,
-                Enumerable.Repeat<byte>(0xFF, 32).ToArray(),
+                Convert.FromHexString("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"),
                 Hash.Parse("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF").Bytes
             };
             #endregion

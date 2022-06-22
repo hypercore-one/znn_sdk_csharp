@@ -57,14 +57,14 @@ namespace Zenon.Abi
             if (ElementType.IsDynamicType)
             {
                 elems = new byte[l.Length * 2][];
-                var offset = l.Length * AbiType.Int32Size;
+                var offset = l.Length * this.FixedSize;
 
                 for (var i = 0; i < l.Length; i++)
                 {
                     elems[i] = IntType.EncodeInt(offset);
                     byte[] encoded = this.ElementType.Encode(l.GetValue(i));
                     elems[l.Length + i] = encoded;
-                    offset += (int)(AbiType.Int32Size * ((encoded.Length - 1) / AbiType.Int32Size + 1));
+                    offset += (int)(this.FixedSize * ((encoded.Length - 1) / this.FixedSize + 1));
                 }
             }
             else

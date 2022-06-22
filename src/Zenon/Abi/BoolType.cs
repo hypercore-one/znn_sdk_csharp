@@ -20,7 +20,7 @@ namespace Zenon.Abi
             {
                 return base.Encode((bool)value == true ? 1 : 0);
             }
-            throw new ArgumentException();
+            throw new NotSupportedException($"Value type '{value.GetType().Name}' is not supported.");
         }
 
         public override object Decode(byte[] encoded, int offset = 0)

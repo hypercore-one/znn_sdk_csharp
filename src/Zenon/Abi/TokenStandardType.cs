@@ -26,7 +26,7 @@ namespace Zenon.Abi
             throw new NotSupportedException($"Value type '{value.GetType().Name}' is not supported.");
         }
 
-        public override dynamic Decode(byte[] encoded, int offset = 0)
+        public override object Decode(byte[] encoded, int offset = 0)
         {
             var result = new byte[10];
             Buffer.BlockCopy(encoded, offset + 22, result, 0, 10);

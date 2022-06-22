@@ -4,7 +4,7 @@ namespace Zenon.Abi
 {
     public class StaticArrayType : ArrayType
     {
-        public int size = 0;
+        public readonly int size;
 
         public StaticArrayType(string name) 
             : base(name) 
