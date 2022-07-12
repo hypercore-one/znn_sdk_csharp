@@ -3,9 +3,9 @@
     /// <summary>
     /// BIP44 https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki
     /// </summary>
-    /// <remars>
+    /// <remarks>
     /// m / purpose' / coin_type' / account' / change / address_index
-    /// </remars>
+    /// </remarks>
     public static class Derivation
     {
         public const string CoinType = "73404";

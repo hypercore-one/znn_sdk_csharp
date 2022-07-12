@@ -38,7 +38,7 @@ namespace Zenon.Wallet
                 {
                     Salt = this.Crypto.Argon2Params.Salt,
                     Iterations = 1, // Number of iterations to perform
-                    MemorySize = 64 * 1024, // Amount of memory (in kibibytes) to use
+                    MemorySize = 64 * 1024, // Amount of memory (in kilobytes) to use
                     DegreeOfParallelism = 4 // Degree of parallelism (i.e. number of threads)
                 }
                 .GetBytes(32); // Using AES-256-GCM, you’ll need a key 256-bits (32-bytes) in length.

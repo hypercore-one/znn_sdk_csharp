@@ -17,7 +17,7 @@ namespace Zenon.Wallet
 
             if (!bip39.ValidateMnemonic(mnemonic, BIP39Wordlist.English))
             {
-                throw new ArgumentException("Invlid mnemonic.", "mnemonic");
+                throw new ArgumentException("Invalid mnemonic.", "mnemonic");
             }
 
             var entropy = bip39.MnemonicToEntropy(mnemonic, BIP39Wordlist.English);
