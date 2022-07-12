@@ -1,5 +1,5 @@
-﻿using dotnetstandard_bip39;
-using System;
+﻿using System;
+using Zenon.Wallet.BIP39;
 
 namespace Zenon.Wallet
 {
@@ -7,12 +7,12 @@ namespace Zenon.Wallet
     {
         public static string GenerateMnemonic(int strength)
         {
-            return new BIP39().GenerateMnemonic(strength, BIP39Wordlist.English);
+            return new BIP39.BIP39().GenerateMnemonic(strength, BIP39Wordlist.English);
         }
 
         public static bool ValidateMnemonic(params string[] words)
         {
-            return new BIP39().ValidateMnemonic(String.Concat(" ", words), BIP39Wordlist.English);
+            return new BIP39.BIP39().ValidateMnemonic(String.Concat(" ", words), BIP39Wordlist.English);
         }
 
         public static bool IsValidWord(string word)

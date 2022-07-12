@@ -7,7 +7,7 @@ namespace Zenon.Tests
 {
     public class WalletTests
     {
-        public const string MNEMONIC = 
+        public const string MNEMONIC =
             "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
         public const string ENTROPY = "bc827d0a00a72354dce4c44a59485288500b49382f9ba88a016351787b7b15ca";
         public const string SEED = "19f1d107d49f42ebc14d46b51001c731569f142590fdd20167ddeedbb201516731ad5ac9b58d3a1c9c09debfe62538379461e4ea9f038124c428784fecc645b7";

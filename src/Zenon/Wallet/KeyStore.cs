@@ -1,10 +1,10 @@
-﻿using dotnetstandard_bip39;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using Zenon.Model.Primitives;
 using Zenon.Utils;
+using Zenon.Wallet.BIP39;
 using Zenon.Wallet.Json;
 
 namespace Zenon.Wallet
@@ -13,7 +13,7 @@ namespace Zenon.Wallet
     {
         public static KeyStore FromMnemonic(string mnemonic)
         {
-            var bip39 = new BIP39();
+            var bip39 = new BIP39.BIP39();
 
             if (!bip39.ValidateMnemonic(mnemonic, BIP39Wordlist.English))
             {
@@ -33,7 +33,7 @@ namespace Zenon.Wallet
 
         public static KeyStore FromEntropy(string entropy)
         {
-            return FromMnemonic(new BIP39().EntropyToMnemonic(entropy, BIP39Wordlist.English));
+            return FromMnemonic(new BIP39.BIP39().EntropyToMnemonic(entropy, BIP39Wordlist.English));
         }
 
         public static KeyStore NewRandom()
