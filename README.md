@@ -10,7 +10,7 @@ It provides a simple integration with any .NET based projects.
 Install the Zenon.Sdk package from [NuGet](https://www.nuget.org/packages/Zenon.Sdk)
 
 ```
-dotnet add package Zenon.Sdk --prerelease
+dotnet add package Zenon.Sdk
 ```
 
 ## Usage
@@ -32,8 +32,13 @@ await Znn.Instance.Client.Value.StopAsync();
 ```csharp
 using Zenon;
 
+var wallet = "name";
+var passphrase = "secret";
+
+Znn.Instance.DefaultKeyStorePath = 
+    Znn.Instance.KeyStoreManager.CreateNew(passphrase, wallet);
 Znn.Instance.DefaultKeyStore = 
-    Znn.Instance.KeyStoreManager.CreateNew("secret", "name");
+    Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, Znn.Instance.DefaultKeyStorePath);
 ```
 
 ### Generate wallet from mnemonic
@@ -41,8 +46,15 @@ Znn.Instance.DefaultKeyStore =
 ```csharp
 using Zenon;
 
+var wallet = "name";
+var passphrase = "secret";
+var mnemonic =
+      "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
+
 Znn.Instance.DefaultKeyStore = 
-    Znn.Instance.KeyStoreManager.CreateFromMnemonic("mnemonic", "secret", "name");
+    Znn.Instance.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
+Znn.Instance.DefaultKeyStore = 
+    Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, Znn.Instance.DefaultKeyStorePath);
 ```
 
 ### Sending a transaction
@@ -51,19 +63,25 @@ Znn.Instance.DefaultKeyStore =
 using Zenon;
 
 var nodeUrl = new Uri("ws://nodes.zenon.place:35998");
+var wallet = "name";
 var passphrase = "secret";
-var keyStorePath = Path.Combine(Constants.ZnnDefaultWalletDirectory, "name");
+var mnemonic =
+      "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
 
 Znn.Instance.DefaultKeyStore = 
-    Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, keyStorePath);
+    Znn.Instance.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
+Znn.Instance.DefaultKeyStore = 
+    Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, Znn.Instance.DefaultKeyStorePath);
 Znn.Instance.DefaultKeyPair = 
-    Znn.Instance.DefaultKeyStore.GetKeyPair(0); // Use primary address
+    Znn.Instance.DefaultKeyStore.GetKeyPair(); // Use primary address
 
 await Znn.Instance.Client.Value.StartAsync(nodeUrl);
 
 var tx = Znn.Instance.Embedded.Pillar.CollectReward();
 
 await Znn.Instance.Send(tx);
+
+await Znn.Instance.Client.Value.StopAsync();
 ```
 
 ### Receive a transaction
@@ -73,13 +91,17 @@ using Zenon;
 using Zenon.Model.NoM;
 
 var nodeUrl = new Uri("ws://nodes.zenon.place:35998");
+var wallet = "name";
 var passphrase = "secret";
-var keyStorePath = Path.Combine(Constants.ZnnDefaultWalletDirectory, "name");
+var mnemonic =
+      "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
 
 Znn.Instance.DefaultKeyStore = 
-    Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, keyStorePath);
+    Znn.Instance.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
+Znn.Instance.DefaultKeyStore = 
+    Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, Znn.Instance.DefaultKeyStorePath);
 Znn.Instance.DefaultKeyPair = 
-    Znn.Instance.DefaultKeyStore.GetKeyPair(0); // Use primary address
+    Znn.Instance.DefaultKeyStore.GetKeyPair(); // Use primary address
 
 await Znn.Instance.Client.Value.StartAsync(nodeUrl);
 
@@ -95,6 +117,8 @@ if (result.Count != 0)
         await Znn.Instance.Send(tx, true);
     }
 }
+
+await Znn.Instance.Client.Value.StopAsync();
 ```
 
 ## Contributing
