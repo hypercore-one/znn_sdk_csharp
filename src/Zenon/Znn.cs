@@ -11,6 +11,8 @@ namespace Zenon
 {
     public class Znn
     {
+        public static Znn Instance = new Znn();
+
         public int NetId { get; set; }
 
         public KeyPair DefaultKeyPair { get; set; }
