@@ -56,7 +56,7 @@ namespace Zenon.Model.NoM
             byte[] data = null)
         {
             Version = 1;
-            ChainIdentifier = Constants.NetId;
+            ChainIdentifier = Znn.Instance.NetId;
             BlockType = blockType;
             Hash = Hash.Empty;
             PreviousHash = Hash.Empty;

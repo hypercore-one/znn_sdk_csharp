@@ -11,7 +11,7 @@ namespace Zenon
 {
     public class Znn
     {
-        public static readonly Znn Instance = new Znn();
+        public int NetId { get; set; }
 
         public KeyPair DefaultKeyPair { get; set; }
         public KeyStore DefaultKeyStore { get; set; }
@@ -27,6 +27,7 @@ namespace Zenon
 
         private Znn()
         {
+            NetId = Constants.NetId;
             KeyStoreManager = new KeyStoreManager(Constants.ZnnDefaultWalletDirectory);
             Client = new Lazy<IClient>(() => new WsClient());
             Ledger = new Api.LedgerApi(Client);
