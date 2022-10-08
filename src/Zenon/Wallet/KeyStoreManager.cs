@@ -23,6 +23,7 @@ namespace Zenon.Wallet
 
             var encrypted = KeyFile.Encrypt(store, password);
             var filePath = Path.Join(WalletPath, name);
+            Directory.CreateDirectory(WalletPath);
             File.WriteAllText(filePath, JsonConvert.SerializeObject(encrypted.ToJson()));
             return filePath;
         }
