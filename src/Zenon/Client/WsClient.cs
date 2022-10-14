@@ -1,6 +1,5 @@
 ﻿using StreamJsonRpc;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.Net.WebSockets;
@@ -22,12 +21,15 @@ namespace Zenon.Client
         public WsClient()
         {
             Status = WebsocketStatus.Uninitialized;
+            TraceSourceLevels = SourceLevels.Warning;
         }
 
         private ClientWebSocket _socket;
         public JsonRpc _wsRpcClient;
 
         public Uri Url { get; private set; }
+
+        public SourceLevels TraceSourceLevels { get; set; }
 
         public WebsocketStatus Status { get; private set; }
 
@@ -86,7 +88,7 @@ namespace Zenon.Client
 
                     _wsRpcClient = new JsonRpc(new WebSocketMessageHandler(_socket));
                     _wsRpcClient.TraceSource.Listeners.Add(new ConsoleTraceListener());
-                    _wsRpcClient.TraceSource.Switch.Level = SourceLevels.All;
+                    _wsRpcClient.TraceSource.Switch.Level = TraceSourceLevels;
 
                     this.Status = WebsocketStatus.Running;
 
