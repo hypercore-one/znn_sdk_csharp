@@ -2,9 +2,12 @@ name: Zenon.Sdk.NET
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - htlc
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
