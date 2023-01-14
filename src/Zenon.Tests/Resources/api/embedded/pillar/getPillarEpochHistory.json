@@ -1,0 +1,1562 @@
+{
+  "count": 173,
+  "list": [
+    {
+      "name": "SultanOfStaking",
+      "epoch": 172,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 182,
+      "expectedBlockNum": 189,
+      "weight": 12534110634209
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 171,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 185,
+      "expectedBlockNum": 186,
+      "weight": 11958531922677
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 170,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 172,
+      "expectedBlockNum": 172,
+      "weight": 11015649785309
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 169,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 160,
+      "expectedBlockNum": 160,
+      "weight": 10398617192717
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 168,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 173,
+      "expectedBlockNum": 173,
+      "weight": 10400345374710
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 167,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 172,
+      "expectedBlockNum": 172,
+      "weight": 10422705924822
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 166,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 185,
+      "expectedBlockNum": 185,
+      "weight": 10425390173748
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 165,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 165,
+      "expectedBlockNum": 165,
+      "weight": 10576494422286
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 164,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 187,
+      "expectedBlockNum": 188,
+      "weight": 10836539657933
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 163,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 163,
+      "expectedBlockNum": 163,
+      "weight": 10809064316326
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 162,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 176,
+      "expectedBlockNum": 176,
+      "weight": 10803695541349
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 161,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 168,
+      "expectedBlockNum": 168,
+      "weight": 10792961489701
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 160,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 177,
+      "expectedBlockNum": 177,
+      "weight": 10779257369032
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 159,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 182,
+      "expectedBlockNum": 182,
+      "weight": 10801350620905
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 158,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 177,
+      "expectedBlockNum": 177,
+      "weight": 10787670363814
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 157,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 172,
+      "expectedBlockNum": 172,
+      "weight": 10778226470910
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 156,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 174,
+      "expectedBlockNum": 174,
+      "weight": 10787156303609
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 155,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 182,
+      "expectedBlockNum": 182,
+      "weight": 10779410265685
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 154,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 186,
+      "expectedBlockNum": 186,
+      "weight": 10799752231410
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 153,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 171,
+      "expectedBlockNum": 171,
+      "weight": 11045001256913
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 152,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 186,
+      "expectedBlockNum": 186,
+      "weight": 11425589075090
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 151,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 194,
+      "expectedBlockNum": 194,
+      "weight": 11057282548771
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 150,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 180,
+      "expectedBlockNum": 180,
+      "weight": 13082070366042
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 149,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 171,
+      "expectedBlockNum": 171,
+      "weight": 14310253708131
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 148,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 176,
+      "expectedBlockNum": 176,
+      "weight": 10749791478375
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 147,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 173,
+      "expectedBlockNum": 173,
+      "weight": 10431901207157
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 146,
+      "giveBlockRewardPercentage": 66,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 168,
+      "expectedBlockNum": 171,
+      "weight": 10454618875685
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 145,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 184,
+      "expectedBlockNum": 186,
+      "weight": 10436318802336
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 144,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 167,
+      "expectedBlockNum": 170,
+      "weight": 10229541136801
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 143,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 178,
+      "expectedBlockNum": 180,
+      "weight": 10037081140055
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 142,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 190,
+      "expectedBlockNum": 190,
+      "weight": 10450141427273
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 141,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 178,
+      "expectedBlockNum": 179,
+      "weight": 11220979689010
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 140,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 170,
+      "expectedBlockNum": 170,
+      "weight": 11228644399530
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 139,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 186,
+      "expectedBlockNum": 186,
+      "weight": 11248178747248
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 138,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 183,
+      "expectedBlockNum": 183,
+      "weight": 11304647467995
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 137,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 185,
+      "expectedBlockNum": 186,
+      "weight": 11504882202861
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 136,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 178,
+      "expectedBlockNum": 178,
+      "weight": 11491795942395
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 135,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 182,
+      "expectedBlockNum": 182,
+      "weight": 11504672421990
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 134,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 172,
+      "expectedBlockNum": 172,
+      "weight": 11526313345168
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 133,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 180,
+      "expectedBlockNum": 180,
+      "weight": 11864019035420
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 132,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 179,
+      "expectedBlockNum": 179,
+      "weight": 11789108785555
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 131,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 173,
+      "expectedBlockNum": 173,
+      "weight": 11610544673784
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 130,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 187,
+      "expectedBlockNum": 187,
+      "weight": 11608192914655
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 129,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 173,
+      "expectedBlockNum": 173,
+      "weight": 11637876787069
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 128,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 166,
+      "expectedBlockNum": 166,
+      "weight": 11704177361348
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 127,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 194,
+      "expectedBlockNum": 194,
+      "weight": 11708931991168
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 126,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 187,
+      "expectedBlockNum": 187,
+      "weight": 11608481431941
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 125,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 184,
+      "expectedBlockNum": 184,
+      "weight": 11704359997945
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 124,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 178,
+      "expectedBlockNum": 178,
+      "weight": 11579112568297
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 123,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 173,
+      "expectedBlockNum": 173,
+      "weight": 11495761600145
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 122,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 184,
+      "expectedBlockNum": 184,
+      "weight": 11458401521214
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 121,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 176,
+      "expectedBlockNum": 176,
+      "weight": 11459571259819
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 120,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 190,
+      "expectedBlockNum": 190,
+      "weight": 11462673619719
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 119,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 180,
+      "expectedBlockNum": 180,
+      "weight": 11478709753780
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 118,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 186,
+      "expectedBlockNum": 186,
+      "weight": 11557333767119
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 117,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 191,
+      "expectedBlockNum": 191,
+      "weight": 11469214496278
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 116,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 168,
+      "expectedBlockNum": 168,
+      "weight": 11433350205864
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 115,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 192,
+      "expectedBlockNum": 192,
+      "weight": 11427793105842
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 114,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 170,
+      "expectedBlockNum": 170,
+      "weight": 11443865572439
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 113,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 167,
+      "expectedBlockNum": 168,
+      "weight": 11426251159672
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 112,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 188,
+      "expectedBlockNum": 188,
+      "weight": 11382725872922
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 111,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 177,
+      "expectedBlockNum": 177,
+      "weight": 11481632275209
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 110,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 187,
+      "expectedBlockNum": 187,
+      "weight": 11540310213599
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 109,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 176,
+      "expectedBlockNum": 176,
+      "weight": 11516332612690
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 108,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 169,
+      "expectedBlockNum": 169,
+      "weight": 11410185916327
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 107,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 178,
+      "expectedBlockNum": 178,
+      "weight": 11433377140799
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 106,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 178,
+      "expectedBlockNum": 178,
+      "weight": 11423961672849
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 105,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 175,
+      "expectedBlockNum": 176,
+      "weight": 11404816412845
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 104,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 181,
+      "expectedBlockNum": 181,
+      "weight": 11334448405072
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 103,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 178,
+      "expectedBlockNum": 178,
+      "weight": 11162126452065
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 102,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 180,
+      "expectedBlockNum": 180,
+      "weight": 11793045718949
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 101,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 166,
+      "expectedBlockNum": 166,
+      "weight": 12780314254694
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 100,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 189,
+      "expectedBlockNum": 189,
+      "weight": 12625939917156
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 99,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 189,
+      "expectedBlockNum": 189,
+      "weight": 12501634854616
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 98,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 164,
+      "expectedBlockNum": 164,
+      "weight": 12628298839581
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 97,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 176,
+      "expectedBlockNum": 176,
+      "weight": 13179187012850
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 96,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 196,
+      "expectedBlockNum": 196,
+      "weight": 13355034073937
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 95,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 188,
+      "expectedBlockNum": 188,
+      "weight": 13352375292894
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 94,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 178,
+      "expectedBlockNum": 178,
+      "weight": 13330102175946
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 93,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 185,
+      "expectedBlockNum": 185,
+      "weight": 13403786602316
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 92,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 188,
+      "expectedBlockNum": 188,
+      "weight": 13264841464477
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 91,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 175,
+      "expectedBlockNum": 175,
+      "weight": 13235251152805
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 90,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 128,
+      "expectedBlockNum": 165,
+      "weight": 13408928175765
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 89,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 170,
+      "expectedBlockNum": 171,
+      "weight": 14110404519939
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 88,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 165,
+      "expectedBlockNum": 165,
+      "weight": 14008031899788
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 87,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 179,
+      "expectedBlockNum": 179,
+      "weight": 13858929599352
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 86,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 188,
+      "expectedBlockNum": 188,
+      "weight": 13761525290288
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 85,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 174,
+      "expectedBlockNum": 174,
+      "weight": 13888089410368
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 84,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 180,
+      "expectedBlockNum": 180,
+      "weight": 14141579921587
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 83,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 188,
+      "expectedBlockNum": 188,
+      "weight": 13834077327865
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 82,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 174,
+      "expectedBlockNum": 174,
+      "weight": 13646639908462
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 81,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 171,
+      "expectedBlockNum": 171,
+      "weight": 13676167504025
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 80,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 191,
+      "expectedBlockNum": 192,
+      "weight": 13700495458388
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 79,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 186,
+      "expectedBlockNum": 186,
+      "weight": 13879190534876
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 78,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 190,
+      "expectedBlockNum": 190,
+      "weight": 13889754860250
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 77,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 177,
+      "expectedBlockNum": 177,
+      "weight": 13359047607972
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 76,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 181,
+      "expectedBlockNum": 182,
+      "weight": 12964262674166
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 75,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 176,
+      "expectedBlockNum": 176,
+      "weight": 12949592974407
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 74,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 191,
+      "expectedBlockNum": 191,
+      "weight": 12922729973943
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 73,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 184,
+      "expectedBlockNum": 184,
+      "weight": 12992062016912
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 72,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 177,
+      "expectedBlockNum": 178,
+      "weight": 13588525316502
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 71,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 182,
+      "expectedBlockNum": 182,
+      "weight": 13711838199892
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 70,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 175,
+      "expectedBlockNum": 175,
+      "weight": 13614825666650
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 69,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 184,
+      "expectedBlockNum": 184,
+      "weight": 13587554731649
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 68,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 189,
+      "expectedBlockNum": 189,
+      "weight": 13633578464738
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 67,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 178,
+      "expectedBlockNum": 178,
+      "weight": 14117658728116
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 66,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 169,
+      "expectedBlockNum": 169,
+      "weight": 14073335882288
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 65,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 185,
+      "expectedBlockNum": 185,
+      "weight": 14331777032316
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 64,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 180,
+      "expectedBlockNum": 180,
+      "weight": 14622988940950
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 63,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 183,
+      "expectedBlockNum": 186,
+      "weight": 14593647358784
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 62,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 175,
+      "expectedBlockNum": 177,
+      "weight": 14078730084178
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 61,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 171,
+      "expectedBlockNum": 171,
+      "weight": 13635022623867
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 60,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 188,
+      "expectedBlockNum": 188,
+      "weight": 13595876085661
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 59,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 186,
+      "expectedBlockNum": 186,
+      "weight": 13624565131960
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 58,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 194,
+      "expectedBlockNum": 194,
+      "weight": 14099163223696
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 57,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 177,
+      "expectedBlockNum": 177,
+      "weight": 14066080654248
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 56,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 192,
+      "expectedBlockNum": 192,
+      "weight": 13964247479296
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 55,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 182,
+      "expectedBlockNum": 182,
+      "weight": 13534176048646
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 54,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 186,
+      "expectedBlockNum": 186,
+      "weight": 13846762779373
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 53,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 176,
+      "expectedBlockNum": 176,
+      "weight": 13900054681381
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 52,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 182,
+      "expectedBlockNum": 182,
+      "weight": 13716616134084
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 51,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 188,
+      "expectedBlockNum": 188,
+      "weight": 13706572878083
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 50,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 197,
+      "expectedBlockNum": 197,
+      "weight": 13750808487195
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 49,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 185,
+      "expectedBlockNum": 185,
+      "weight": 13799384860198
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 48,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 180,
+      "expectedBlockNum": 180,
+      "weight": 14006003674861
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 47,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 189,
+      "expectedBlockNum": 189,
+      "weight": 14355405629993
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 46,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 188,
+      "expectedBlockNum": 188,
+      "weight": 14598013263313
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 45,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 175,
+      "expectedBlockNum": 175,
+      "weight": 14745548693742
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 44,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 166,
+      "expectedBlockNum": 166,
+      "weight": 14828427128108
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 43,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 174,
+      "expectedBlockNum": 174,
+      "weight": 15051907960736
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 42,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 180,
+      "expectedBlockNum": 180,
+      "weight": 12979878968968
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 41,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 183,
+      "expectedBlockNum": 183,
+      "weight": 12723084462578
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 40,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 195,
+      "expectedBlockNum": 195,
+      "weight": 13033577272803
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 39,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 194,
+      "expectedBlockNum": 194,
+      "weight": 13930806778936
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 38,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 203,
+      "expectedBlockNum": 203,
+      "weight": 14519890553346
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 37,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 192,
+      "expectedBlockNum": 192,
+      "weight": 14390006737741
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 36,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 183,
+      "expectedBlockNum": 183,
+      "weight": 13983516476234
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 35,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 183,
+      "expectedBlockNum": 187,
+      "weight": 13937585831017
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 34,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 181,
+      "expectedBlockNum": 187,
+      "weight": 13814963356695
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 33,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 196,
+      "expectedBlockNum": 197,
+      "weight": 13816391725306
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 32,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 202,
+      "expectedBlockNum": 202,
+      "weight": 13042352225103
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 31,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 196,
+      "expectedBlockNum": 196,
+      "weight": 12987381122714
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 30,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 181,
+      "expectedBlockNum": 182,
+      "weight": 13817285942207
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 29,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 200,
+      "expectedBlockNum": 200,
+      "weight": 13314183702283
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 28,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 194,
+      "expectedBlockNum": 194,
+      "weight": 13448238060069
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 27,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 190,
+      "expectedBlockNum": 190,
+      "weight": 13495391787438
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 26,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 186,
+      "expectedBlockNum": 186,
+      "weight": 13760026531116
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 25,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 178,
+      "expectedBlockNum": 178,
+      "weight": 12373200708547
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 24,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 194,
+      "expectedBlockNum": 194,
+      "weight": 11630672992270
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 23,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 184,
+      "expectedBlockNum": 184,
+      "weight": 12141362496902
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 22,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 190,
+      "expectedBlockNum": 193,
+      "weight": 11900235215742
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 21,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 174,
+      "expectedBlockNum": 174,
+      "weight": 10364460890576
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 20,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 188,
+      "expectedBlockNum": 188,
+      "weight": 9995010149167
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 19,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 183,
+      "expectedBlockNum": 183,
+      "weight": 9293242100679
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 18,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 201,
+      "expectedBlockNum": 201,
+      "weight": 9090762325758
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 17,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 195,
+      "expectedBlockNum": 195,
+      "weight": 8037721802892
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 16,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 181,
+      "expectedBlockNum": 181,
+      "weight": 7123796574754
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 15,
+      "giveBlockRewardPercentage": 61,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 199,
+      "expectedBlockNum": 199,
+      "weight": 6761754259822
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 14,
+      "giveBlockRewardPercentage": 51,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 186,
+      "expectedBlockNum": 186,
+      "weight": 8543905253678
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 13,
+      "giveBlockRewardPercentage": 51,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 212,
+      "expectedBlockNum": 212,
+      "weight": 8515366441958
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 12,
+      "giveBlockRewardPercentage": 51,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 197,
+      "expectedBlockNum": 197,
+      "weight": 7786341534306
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 11,
+      "giveBlockRewardPercentage": 41,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 201,
+      "expectedBlockNum": 201,
+      "weight": 8315090981708
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 10,
+      "giveBlockRewardPercentage": 33,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 218,
+      "expectedBlockNum": 218,
+      "weight": 8132120373448
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 9,
+      "giveBlockRewardPercentage": 33,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 201,
+      "expectedBlockNum": 201,
+      "weight": 8135030928451
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 8,
+      "giveBlockRewardPercentage": 33,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 214,
+      "expectedBlockNum": 214,
+      "weight": 9992799113940
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 7,
+      "giveBlockRewardPercentage": 11,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 202,
+      "expectedBlockNum": 202,
+      "weight": 16100971691192
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 6,
+      "giveBlockRewardPercentage": 11,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 200,
+      "expectedBlockNum": 200,
+      "weight": 26870633266232
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 5,
+      "giveBlockRewardPercentage": 11,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 203,
+      "expectedBlockNum": 204,
+      "weight": 13922947943679
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 4,
+      "giveBlockRewardPercentage": 11,
+      "giveDelegateRewardPercentage": 99,
+      "producedBlockNum": 213,
+      "expectedBlockNum": 213,
+      "weight": 10421524854064
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 3,
+      "giveBlockRewardPercentage": 10,
+      "giveDelegateRewardPercentage": 90,
+      "producedBlockNum": 196,
+      "expectedBlockNum": 240,
+      "weight": 12162787070988
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 2,
+      "giveBlockRewardPercentage": 10,
+      "giveDelegateRewardPercentage": 90,
+      "producedBlockNum": 303,
+      "expectedBlockNum": 303,
+      "weight": 6715522774891
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 1,
+      "giveBlockRewardPercentage": 10,
+      "giveDelegateRewardPercentage": 90,
+      "producedBlockNum": 339,
+      "expectedBlockNum": 339,
+      "weight": 0
+    },
+    {
+      "name": "SultanOfStaking",
+      "epoch": 0,
+      "giveBlockRewardPercentage": 10,
+      "giveDelegateRewardPercentage": 90,
+      "producedBlockNum": 329,
+      "expectedBlockNum": 329,
+      "weight": 0
+    }
+  ]
+}

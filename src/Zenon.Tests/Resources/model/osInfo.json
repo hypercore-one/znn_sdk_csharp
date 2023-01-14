@@ -1,0 +1,24 @@
+[
+  {
+    "os": "windows",
+    "platform": "Microsoft Windows 10 Pro",
+    "platformFamily": "Standalone Workstation",
+    "platformVersion": "10.0.18362 Build 18362",
+    "kernelVersion": "10.0.18362 Build 18362",
+    "memoryTotal": 16920707072,
+    "memoryFree": 6971826176,
+    "numCPU": 4,
+    "numGoroutine": 1432057
+  },
+  {
+    "os": "linux",
+    "platform": "ubuntu",
+    "platformFamily": "debian",
+    "platformVersion": "20.04",
+    "kernelVersion": "5.13.0-1022-aws",
+    "memoryTotal": 16777961472,
+    "memoryFree": 12365844480,
+    "numCPU": 4,
+    "numGoroutine": 227447
+  }
+]

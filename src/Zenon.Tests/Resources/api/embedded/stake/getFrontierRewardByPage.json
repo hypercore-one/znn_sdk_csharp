@@ -1,0 +1,870 @@
+{
+  "count": 173,
+  "list": [
+    {
+      "epoch": 172,
+      "znnAmount": 0,
+      "qsrAmount": 1316268889
+    },
+    {
+      "epoch": 171,
+      "znnAmount": 0,
+      "qsrAmount": 1316390029
+    },
+    {
+      "epoch": 170,
+      "znnAmount": 0,
+      "qsrAmount": 1320426897
+    },
+    {
+      "epoch": 169,
+      "znnAmount": 0,
+      "qsrAmount": 1326790874
+    },
+    {
+      "epoch": 168,
+      "znnAmount": 0,
+      "qsrAmount": 1327202958
+    },
+    {
+      "epoch": 167,
+      "znnAmount": 0,
+      "qsrAmount": 1327391034
+    },
+    {
+      "epoch": 166,
+      "znnAmount": 0,
+      "qsrAmount": 1329070160
+    },
+    {
+      "epoch": 165,
+      "znnAmount": 0,
+      "qsrAmount": 1331317178
+    },
+    {
+      "epoch": 164,
+      "znnAmount": 0,
+      "qsrAmount": 1315413381
+    },
+    {
+      "epoch": 163,
+      "znnAmount": 0,
+      "qsrAmount": 1283499102
+    },
+    {
+      "epoch": 162,
+      "znnAmount": 0,
+      "qsrAmount": 1283247364
+    },
+    {
+      "epoch": 161,
+      "znnAmount": 0,
+      "qsrAmount": 1283263568
+    },
+    {
+      "epoch": 160,
+      "znnAmount": 0,
+      "qsrAmount": 1285821748
+    },
+    {
+      "epoch": 159,
+      "znnAmount": 0,
+      "qsrAmount": 1294646407
+    },
+    {
+      "epoch": 158,
+      "znnAmount": 0,
+      "qsrAmount": 1283758885
+    },
+    {
+      "epoch": 157,
+      "znnAmount": 0,
+      "qsrAmount": 1285061431
+    },
+    {
+      "epoch": 156,
+      "znnAmount": 0,
+      "qsrAmount": 1285312490
+    },
+    {
+      "epoch": 155,
+      "znnAmount": 0,
+      "qsrAmount": 1283626899
+    },
+    {
+      "epoch": 154,
+      "znnAmount": 0,
+      "qsrAmount": 1282538859
+    },
+    {
+      "epoch": 153,
+      "znnAmount": 0,
+      "qsrAmount": 1282283181
+    },
+    {
+      "epoch": 152,
+      "znnAmount": 0,
+      "qsrAmount": 1278801050
+    },
+    {
+      "epoch": 151,
+      "znnAmount": 0,
+      "qsrAmount": 1279362174
+    },
+    {
+      "epoch": 150,
+      "znnAmount": 0,
+      "qsrAmount": 1290020394
+    },
+    {
+      "epoch": 149,
+      "znnAmount": 0,
+      "qsrAmount": 1299290689
+    },
+    {
+      "epoch": 148,
+      "znnAmount": 0,
+      "qsrAmount": 1342178881
+    },
+    {
+      "epoch": 147,
+      "znnAmount": 0,
+      "qsrAmount": 1355569597
+    },
+    {
+      "epoch": 146,
+      "znnAmount": 0,
+      "qsrAmount": 1354623345
+    },
+    {
+      "epoch": 145,
+      "znnAmount": 0,
+      "qsrAmount": 1361718233
+    },
+    {
+      "epoch": 144,
+      "znnAmount": 0,
+      "qsrAmount": 1367439248
+    },
+    {
+      "epoch": 143,
+      "znnAmount": 0,
+      "qsrAmount": 1367025479
+    },
+    {
+      "epoch": 142,
+      "znnAmount": 0,
+      "qsrAmount": 1361542957
+    },
+    {
+      "epoch": 141,
+      "znnAmount": 0,
+      "qsrAmount": 1401792539
+    },
+    {
+      "epoch": 140,
+      "znnAmount": 0,
+      "qsrAmount": 1462945751
+    },
+    {
+      "epoch": 139,
+      "znnAmount": 0,
+      "qsrAmount": 1495894679
+    },
+    {
+      "epoch": 138,
+      "znnAmount": 0,
+      "qsrAmount": 1494928612
+    },
+    {
+      "epoch": 137,
+      "znnAmount": 0,
+      "qsrAmount": 1495681879
+    },
+    {
+      "epoch": 136,
+      "znnAmount": 0,
+      "qsrAmount": 1497446841
+    },
+    {
+      "epoch": 135,
+      "znnAmount": 0,
+      "qsrAmount": 1493737718
+    },
+    {
+      "epoch": 134,
+      "znnAmount": 0,
+      "qsrAmount": 1502754736
+    },
+    {
+      "epoch": 133,
+      "znnAmount": 0,
+      "qsrAmount": 1529601185
+    },
+    {
+      "epoch": 132,
+      "znnAmount": 0,
+      "qsrAmount": 1561630763
+    },
+    {
+      "epoch": 131,
+      "znnAmount": 0,
+      "qsrAmount": 1621806582
+    },
+    {
+      "epoch": 130,
+      "znnAmount": 0,
+      "qsrAmount": 1650800667
+    },
+    {
+      "epoch": 129,
+      "znnAmount": 0,
+      "qsrAmount": 1657828272
+    },
+    {
+      "epoch": 128,
+      "znnAmount": 0,
+      "qsrAmount": 1658514548
+    },
+    {
+      "epoch": 127,
+      "znnAmount": 0,
+      "qsrAmount": 1670861799
+    },
+    {
+      "epoch": 126,
+      "znnAmount": 0,
+      "qsrAmount": 1577456042
+    },
+    {
+      "epoch": 125,
+      "znnAmount": 0,
+      "qsrAmount": 1553526007
+    },
+    {
+      "epoch": 124,
+      "znnAmount": 0,
+      "qsrAmount": 1560774608
+    },
+    {
+      "epoch": 123,
+      "znnAmount": 0,
+      "qsrAmount": 1580615480
+    },
+    {
+      "epoch": 122,
+      "znnAmount": 0,
+      "qsrAmount": 1591798333
+    },
+    {
+      "epoch": 121,
+      "znnAmount": 0,
+      "qsrAmount": 1599192328
+    },
+    {
+      "epoch": 120,
+      "znnAmount": 0,
+      "qsrAmount": 1595962612
+    },
+    {
+      "epoch": 119,
+      "znnAmount": 0,
+      "qsrAmount": 2143473562
+    },
+    {
+      "epoch": 118,
+      "znnAmount": 0,
+      "qsrAmount": 2151724721
+    },
+    {
+      "epoch": 117,
+      "znnAmount": 0,
+      "qsrAmount": 2148398681
+    },
+    {
+      "epoch": 116,
+      "znnAmount": 0,
+      "qsrAmount": 2148894157
+    },
+    {
+      "epoch": 115,
+      "znnAmount": 0,
+      "qsrAmount": 2161402982
+    },
+    {
+      "epoch": 114,
+      "znnAmount": 0,
+      "qsrAmount": 2166256219
+    },
+    {
+      "epoch": 113,
+      "znnAmount": 0,
+      "qsrAmount": 2181217836
+    },
+    {
+      "epoch": 112,
+      "znnAmount": 0,
+      "qsrAmount": 2167889081
+    },
+    {
+      "epoch": 111,
+      "znnAmount": 0,
+      "qsrAmount": 2142232343
+    },
+    {
+      "epoch": 110,
+      "znnAmount": 0,
+      "qsrAmount": 2134849793
+    },
+    {
+      "epoch": 109,
+      "znnAmount": 0,
+      "qsrAmount": 2134595939
+    },
+    {
+      "epoch": 108,
+      "znnAmount": 0,
+      "qsrAmount": 2125265222
+    },
+    {
+      "epoch": 107,
+      "znnAmount": 0,
+      "qsrAmount": 2129393377
+    },
+    {
+      "epoch": 106,
+      "znnAmount": 0,
+      "qsrAmount": 2139687174
+    },
+    {
+      "epoch": 105,
+      "znnAmount": 0,
+      "qsrAmount": 2146964084
+    },
+    {
+      "epoch": 104,
+      "znnAmount": 0,
+      "qsrAmount": 2159102616
+    },
+    {
+      "epoch": 103,
+      "znnAmount": 0,
+      "qsrAmount": 2161860315
+    },
+    {
+      "epoch": 102,
+      "znnAmount": 0,
+      "qsrAmount": 2165226163
+    },
+    {
+      "epoch": 101,
+      "znnAmount": 0,
+      "qsrAmount": 2157747722
+    },
+    {
+      "epoch": 100,
+      "znnAmount": 0,
+      "qsrAmount": 2155405243
+    },
+    {
+      "epoch": 99,
+      "znnAmount": 0,
+      "qsrAmount": 2154409838
+    },
+    {
+      "epoch": 98,
+      "znnAmount": 0,
+      "qsrAmount": 2140809669
+    },
+    {
+      "epoch": 97,
+      "znnAmount": 0,
+      "qsrAmount": 2092105112
+    },
+    {
+      "epoch": 96,
+      "znnAmount": 0,
+      "qsrAmount": 1494550065
+    },
+    {
+      "epoch": 95,
+      "znnAmount": 0,
+      "qsrAmount": 1510030362
+    },
+    {
+      "epoch": 94,
+      "znnAmount": 0,
+      "qsrAmount": 1693494119
+    },
+    {
+      "epoch": 93,
+      "znnAmount": 0,
+      "qsrAmount": 3660926708
+    },
+    {
+      "epoch": 92,
+      "znnAmount": 0,
+      "qsrAmount": 3664957428
+    },
+    {
+      "epoch": 91,
+      "znnAmount": 0,
+      "qsrAmount": 3620298036
+    },
+    {
+      "epoch": 90,
+      "znnAmount": 0,
+      "qsrAmount": 3615757011
+    },
+    {
+      "epoch": 89,
+      "znnAmount": 0,
+      "qsrAmount": 3620565746
+    },
+    {
+      "epoch": 88,
+      "znnAmount": 0,
+      "qsrAmount": 3631554034
+    },
+    {
+      "epoch": 87,
+      "znnAmount": 0,
+      "qsrAmount": 3649609479
+    },
+    {
+      "epoch": 86,
+      "znnAmount": 0,
+      "qsrAmount": 3653168587
+    },
+    {
+      "epoch": 85,
+      "znnAmount": 0,
+      "qsrAmount": 3661345213
+    },
+    {
+      "epoch": 84,
+      "znnAmount": 0,
+      "qsrAmount": 3736736405
+    },
+    {
+      "epoch": 83,
+      "znnAmount": 0,
+      "qsrAmount": 3811601686
+    },
+    {
+      "epoch": 82,
+      "znnAmount": 0,
+      "qsrAmount": 3834822979
+    },
+    {
+      "epoch": 81,
+      "znnAmount": 0,
+      "qsrAmount": 3889630481
+    },
+    {
+      "epoch": 80,
+      "znnAmount": 0,
+      "qsrAmount": 3928293639
+    },
+    {
+      "epoch": 79,
+      "znnAmount": 0,
+      "qsrAmount": 3933832694
+    },
+    {
+      "epoch": 78,
+      "znnAmount": 0,
+      "qsrAmount": 3944289659
+    },
+    {
+      "epoch": 77,
+      "znnAmount": 0,
+      "qsrAmount": 4012295118
+    },
+    {
+      "epoch": 76,
+      "znnAmount": 0,
+      "qsrAmount": 4028893459
+    },
+    {
+      "epoch": 75,
+      "znnAmount": 0,
+      "qsrAmount": 4028864859
+    },
+    {
+      "epoch": 74,
+      "znnAmount": 0,
+      "qsrAmount": 4032625907
+    },
+    {
+      "epoch": 73,
+      "znnAmount": 0,
+      "qsrAmount": 4033696550
+    },
+    {
+      "epoch": 72,
+      "znnAmount": 0,
+      "qsrAmount": 4038530098
+    },
+    {
+      "epoch": 71,
+      "znnAmount": 0,
+      "qsrAmount": 4058272581
+    },
+    {
+      "epoch": 70,
+      "znnAmount": 0,
+      "qsrAmount": 4052142440
+    },
+    {
+      "epoch": 69,
+      "znnAmount": 0,
+      "qsrAmount": 4067494247
+    },
+    {
+      "epoch": 68,
+      "znnAmount": 0,
+      "qsrAmount": 4117963783
+    },
+    {
+      "epoch": 67,
+      "znnAmount": 0,
+      "qsrAmount": 4177420648
+    },
+    {
+      "epoch": 66,
+      "znnAmount": 0,
+      "qsrAmount": 4188710853
+    },
+    {
+      "epoch": 65,
+      "znnAmount": 0,
+      "qsrAmount": 4184532421
+    },
+    {
+      "epoch": 64,
+      "znnAmount": 0,
+      "qsrAmount": 4272536651
+    },
+    {
+      "epoch": 63,
+      "znnAmount": 0,
+      "qsrAmount": 4459318613
+    },
+    {
+      "epoch": 62,
+      "znnAmount": 0,
+      "qsrAmount": 4508151299
+    },
+    {
+      "epoch": 61,
+      "znnAmount": 0,
+      "qsrAmount": 4511636844
+    },
+    {
+      "epoch": 60,
+      "znnAmount": 0,
+      "qsrAmount": 4553142513
+    },
+    {
+      "epoch": 59,
+      "znnAmount": 0,
+      "qsrAmount": 4995126449
+    },
+    {
+      "epoch": 58,
+      "znnAmount": 0,
+      "qsrAmount": 8857485430
+    },
+    {
+      "epoch": 57,
+      "znnAmount": 0,
+      "qsrAmount": 8726650275
+    },
+    {
+      "epoch": 56,
+      "znnAmount": 0,
+      "qsrAmount": 7944546934
+    },
+    {
+      "epoch": 55,
+      "znnAmount": 0,
+      "qsrAmount": 7989236822
+    },
+    {
+      "epoch": 54,
+      "znnAmount": 0,
+      "qsrAmount": 7980091665
+    },
+    {
+      "epoch": 53,
+      "znnAmount": 0,
+      "qsrAmount": 7890353207
+    },
+    {
+      "epoch": 52,
+      "znnAmount": 0,
+      "qsrAmount": 7991806911
+    },
+    {
+      "epoch": 51,
+      "znnAmount": 0,
+      "qsrAmount": 8057518474
+    },
+    {
+      "epoch": 50,
+      "znnAmount": 0,
+      "qsrAmount": 8124782353
+    },
+    {
+      "epoch": 49,
+      "znnAmount": 0,
+      "qsrAmount": 8325815633
+    },
+    {
+      "epoch": 48,
+      "znnAmount": 0,
+      "qsrAmount": 8493486226
+    },
+    {
+      "epoch": 47,
+      "znnAmount": 0,
+      "qsrAmount": 8511889518
+    },
+    {
+      "epoch": 46,
+      "znnAmount": 0,
+      "qsrAmount": 8636198737
+    },
+    {
+      "epoch": 45,
+      "znnAmount": 0,
+      "qsrAmount": 8765140446
+    },
+    {
+      "epoch": 44,
+      "znnAmount": 0,
+      "qsrAmount": 8911649791
+    },
+    {
+      "epoch": 43,
+      "znnAmount": 0,
+      "qsrAmount": 8961172901
+    },
+    {
+      "epoch": 42,
+      "znnAmount": 0,
+      "qsrAmount": 9151282926
+    },
+    {
+      "epoch": 41,
+      "znnAmount": 0,
+      "qsrAmount": 9202801546
+    },
+    {
+      "epoch": 40,
+      "znnAmount": 0,
+      "qsrAmount": 9310486689
+    },
+    {
+      "epoch": 39,
+      "znnAmount": 0,
+      "qsrAmount": 9546503491
+    },
+    {
+      "epoch": 38,
+      "znnAmount": 0,
+      "qsrAmount": 9769228351
+    },
+    {
+      "epoch": 37,
+      "znnAmount": 0,
+      "qsrAmount": 9585967907
+    },
+    {
+      "epoch": 36,
+      "znnAmount": 0,
+      "qsrAmount": 8083209211
+    },
+    {
+      "epoch": 35,
+      "znnAmount": 0,
+      "qsrAmount": 7508915149
+    },
+    {
+      "epoch": 34,
+      "znnAmount": 0,
+      "qsrAmount": 7373797722
+    },
+    {
+      "epoch": 33,
+      "znnAmount": 0,
+      "qsrAmount": 7279902615
+    },
+    {
+      "epoch": 32,
+      "znnAmount": 0,
+      "qsrAmount": 7210173089
+    },
+    {
+      "epoch": 31,
+      "znnAmount": 0,
+      "qsrAmount": 7256422235
+    },
+    {
+      "epoch": 30,
+      "znnAmount": 0,
+      "qsrAmount": 7298349003
+    },
+    {
+      "epoch": 29,
+      "znnAmount": 0,
+      "qsrAmount": 6334965902
+    },
+    {
+      "epoch": 28,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 27,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 26,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 25,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 24,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 23,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 22,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 21,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 20,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 19,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 18,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 17,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 16,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 15,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 14,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 13,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 12,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 11,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 10,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 9,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 8,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 7,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 6,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 5,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 4,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 3,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 2,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 1,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 0,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    }
+  ]
+}

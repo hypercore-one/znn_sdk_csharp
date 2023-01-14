@@ -64,6 +64,15 @@ namespace Zenon.Utils
             return EndianBitConverter.Big.GetBytes(value);
         }
 
+        public static string ToBase64String(byte[] data)
+        {
+            return Convert.ToBase64String(data);
+        }
+
+        public static byte[] FromBase64String(String data)
+        {
+            return Convert.FromBase64String(data);
+        }
 
         /// <summary>
         /// Converts an array of 8-bit unsigned integers to its equivalent string representation

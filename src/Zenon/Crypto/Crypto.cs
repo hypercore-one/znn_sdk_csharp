@@ -20,7 +20,7 @@ namespace Zenon.Crypto
         public static bool Verify(
             byte[] signature, byte[] message, byte[] publicKey)
         {
-            return Ed25519.Verify(signature, message, signature);
+            return Ed25519.Verify(signature, message, publicKey);
         }
 
         public static byte[] DeriveKey(string path, byte[] seed)

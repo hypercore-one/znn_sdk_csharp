@@ -2,10 +2,9 @@
 using System.Reflection;
 using Zenon.Model.NoM;
 using Zenon.Model.NoM.Json;
-using Zenon.Model.Primitives;
 using Zenon.Model.Primitives.Json;
 
-namespace Zenon.Tests
+namespace Zenon
 {
     internal static class TestHelper
     {

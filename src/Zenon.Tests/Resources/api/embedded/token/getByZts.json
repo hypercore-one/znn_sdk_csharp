@@ -1,0 +1,13 @@
+{
+  "name": "Shiden",
+  "symbol": "SDN",
+  "domain": "SultanOfStaking.com",
+  "totalSupply": 7000000000000000,
+  "decimals": 8,
+  "owner": "z1qpgdtn89u9365jr7ltdxu29fy52pnzwe4fl7zc",
+  "tokenStandard": "zts10esqvg76658fhzg9t5ctd3",
+  "maxSupply": 7000000000000000,
+  "isBurnable": true,
+  "isMintable": true,
+  "isUtility": true
+}

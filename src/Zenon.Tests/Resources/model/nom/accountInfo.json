@@ -1,0 +1,24 @@
+[
+  {
+    "address": "z1qq0hffeyj0htmnr4gc6grd8zmqfvwzgrydt402",
+    "accountHeight": 6,
+    "balanceInfoMap": {
+      "zts1znnxxxxxxxxxxxxx9z4ulx": {
+        "token": {
+          "name": "ZNN",
+          "symbol": "ZNN",
+          "domain": "zenon.network",
+          "totalSupply": 782974085850471,
+          "decimals": 8,
+          "owner": "z1qxemdeddedxt0kenxxxxxxxxxxxxxxxxh9amk0",
+          "tokenStandard": "zts1znnxxxxxxxxxxxxx9z4ulx",
+          "maxSupply": 9007199254740991,
+          "isBurnable": true,
+          "isMintable": true,
+          "isUtility": true
+        },
+        "balance": 500000000
+      }
+    }
+  }
+]

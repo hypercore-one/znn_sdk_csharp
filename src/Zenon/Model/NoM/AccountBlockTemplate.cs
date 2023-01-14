@@ -2,6 +2,7 @@
 using System;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.NoM
 {
@@ -40,12 +41,12 @@ namespace Zenon.Model.NoM
             Amount = json.amount;
             TokenStandard = TokenStandard.Parse(json.tokenStandard);
             FromBlockHash = Hash.Parse(json.fromBlockHash);
-            Data = string.IsNullOrEmpty(json.data) ? new byte[0] : Convert.FromBase64String(json.data);
+            Data = string.IsNullOrEmpty(json.data) ? new byte[0] : BytesUtils.FromBase64String(json.data);
             FusedPlasma = json.fusedPlasma;
             Difficulty = json.difficulty;
             Nonce = json.nonce;
-            PublicKey = string.IsNullOrEmpty(json.publicKey) ? new byte[0] : Convert.FromBase64String(json.publicKey);
-            Signature = string.IsNullOrEmpty(json.signature) ? new byte[0] : Convert.FromBase64String(json.signature);
+            PublicKey = string.IsNullOrEmpty(json.publicKey) ? new byte[0] : BytesUtils.FromBase64String(json.publicKey);
+            Signature = string.IsNullOrEmpty(json.signature) ? new byte[0] : BytesUtils.FromBase64String(json.signature);
         }
 
         public AccountBlockTemplate(BlockTypeEnum blockType,
@@ -129,12 +130,12 @@ namespace Zenon.Model.NoM
             json.amount = this.Amount;
             json.tokenStandard = this.TokenStandard.ToString();
             json.fromBlockHash = this.FromBlockHash.ToString();
-            json.data = Convert.ToBase64String(this.Data);
+            json.data = BytesUtils.ToBase64String(this.Data);
             json.fusedPlasma = this.FusedPlasma;
             json.difficulty = this.Difficulty;
             json.nonce = this.Nonce;
-            json.publicKey = Convert.ToBase64String(this.PublicKey);
-            json.signature = Convert.ToBase64String(this.Signature);
+            json.publicKey = BytesUtils.ToBase64String(this.PublicKey);
+            json.signature = BytesUtils.ToBase64String(this.Signature);
         }
 
         public override string ToString()

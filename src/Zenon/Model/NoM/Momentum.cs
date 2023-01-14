@@ -2,6 +2,7 @@
 using System.Linq;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.NoM
 {
@@ -15,7 +16,7 @@ namespace Zenon.Model.NoM
             PreviousHash = Hash.Parse(json.previousHash);
             Height = json.height;
             Timestamp = json.timestamp;
-            Data = string.IsNullOrEmpty(json.data) ? new byte[0] : Convert.FromBase64String(json.data);
+            Data = string.IsNullOrEmpty(json.data) ? new byte[0] : BytesUtils.FromBase64String(json.data);
             Content = json.content.Select(x => new AccountHeader(x)).ToArray();
             ChangesHash = Hash.Parse(json.changesHash);
             PublicKey = json.publicKey ?? string.Empty;
@@ -46,7 +47,7 @@ namespace Zenon.Model.NoM
                 previousHash = this.PreviousHash.ToString(),
                 height = this.Height,
                 timestamp = this.Timestamp,
-                data = this.Data != null && this.Data.Length != 0 ? Convert.ToBase64String(Data) : string.Empty,
+                data = this.Data != null && this.Data.Length != 0 ? BytesUtils.ToBase64String(Data) : string.Empty,
                 content = this.Content.Select(x => x.ToJson()).ToArray(),
                 changesHash = this.ChangesHash.ToString(),
                 publicKey = this.PublicKey,

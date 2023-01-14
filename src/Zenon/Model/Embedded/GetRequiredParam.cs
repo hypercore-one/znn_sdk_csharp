@@ -3,6 +3,7 @@ using System;
 using Zenon.Model.Embedded.Json;
 using Zenon.Model.NoM;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -13,7 +14,7 @@ namespace Zenon.Model.Embedded
             Address = Address.Parse(json.address);
             BlockType = (BlockTypeEnum)json.blockType;
             ToAddress = json.address != null ? Address.Parse(json.address) : null;
-            Data = Convert.FromBase64String(json.data);
+            Data = BytesUtils.FromBase64String(json.data);
         }
 
         public GetRequiredParam(Address address, BlockTypeEnum blockType, Address toAddress, byte[] data)
@@ -41,7 +42,7 @@ namespace Zenon.Model.Embedded
                 address = Address.ToString(),
                 blockType = (int)BlockType,
                 toAddress = ToAddress != null ? ToAddress.ToString() : null,
-                data = Convert.ToBase64String(Data)
+                data = BytesUtils.ToBase64String(Data)
             };
         }
 

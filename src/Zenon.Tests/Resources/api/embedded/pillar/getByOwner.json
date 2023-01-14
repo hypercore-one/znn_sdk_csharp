@@ -1,0 +1,20 @@
+[
+  {
+    "name": "SultanOfStaking",
+    "rank": 3,
+    "type": 1,
+    "ownerAddress": "z1qzlaadsmar8pm0rdfwkctvxc8n2g5gaadxvmqj",
+    "producerAddress": "z1qz5tr9z8nvcgncg70mytgc5k2m5qr9w252p055",
+    "withdrawAddress": "z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y",
+    "isRevocable": true,
+    "revokeCooldown": 516590,
+    "revokeTimestamp": 0,
+    "giveMomentumRewardPercentage": 66,
+    "giveDelegateRewardPercentage": 99,
+    "currentStats": {
+      "producedMomentums": 3,
+      "expectedMomentums": 4
+    },
+    "weight": 12866325593640
+  }
+]

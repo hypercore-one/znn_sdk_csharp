@@ -1,0 +1,27 @@
+{
+  "count": 3,
+  "list":
+  [
+    {
+      "id": "2ac372d2d9d1dc8679519225d107bff319a72231b1189be2840b5381d0834489",
+      "name": "genesis-spork",
+      "description": "genesis-spork",
+      "activated": true,
+      "enforcementHeight": 0
+    },
+    {
+      "id": "6d2b1e6cb4025f2f45533f0fe22e9b7ce2014d91cc960471045fa64eee5a6ba3",
+      "name": "genesis-spork",
+      "description": "genesis-spork",
+      "activated": true,
+      "enforcementHeight": 0
+    },
+    {
+      "id": "59e43a0095b363379118c9e2838442dc2b1ea59624b18aeadc5cd6615607941e",
+      "name": "TestSpork",
+      "description": "This is a test spork",
+      "activated": false,
+      "enforcementHeight": 0
+    }
+  ]
+}

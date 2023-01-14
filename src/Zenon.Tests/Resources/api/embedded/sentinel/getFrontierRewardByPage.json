@@ -1,0 +1,870 @@
+{
+  "count": 173,
+  "list": [
+    {
+      "epoch": 172,
+      "znnAmount": 516413793,
+      "qsrAmount": 2586206896
+    },
+    {
+      "epoch": 171,
+      "znnAmount": 520000000,
+      "qsrAmount": 2604166666
+    },
+    {
+      "epoch": 170,
+      "znnAmount": 520000000,
+      "qsrAmount": 2604166666
+    },
+    {
+      "epoch": 169,
+      "znnAmount": 520000000,
+      "qsrAmount": 2604166666
+    },
+    {
+      "epoch": 168,
+      "znnAmount": 520000000,
+      "qsrAmount": 2604166666
+    },
+    {
+      "epoch": 167,
+      "znnAmount": 520000000,
+      "qsrAmount": 2604166666
+    },
+    {
+      "epoch": 166,
+      "znnAmount": 520000000,
+      "qsrAmount": 2604166666
+    },
+    {
+      "epoch": 165,
+      "znnAmount": 520000000,
+      "qsrAmount": 2604166666
+    },
+    {
+      "epoch": 164,
+      "znnAmount": 520000000,
+      "qsrAmount": 2604166666
+    },
+    {
+      "epoch": 163,
+      "znnAmount": 520000000,
+      "qsrAmount": 2604166666
+    },
+    {
+      "epoch": 162,
+      "znnAmount": 542608695,
+      "qsrAmount": 2717391304
+    },
+    {
+      "epoch": 161,
+      "znnAmount": 546569343,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 160,
+      "znnAmount": 546569343,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 159,
+      "znnAmount": 542608695,
+      "qsrAmount": 2717391304
+    },
+    {
+      "epoch": 158,
+      "znnAmount": 542608695,
+      "qsrAmount": 2717391304
+    },
+    {
+      "epoch": 157,
+      "znnAmount": 542608695,
+      "qsrAmount": 2717391304
+    },
+    {
+      "epoch": 156,
+      "znnAmount": 542608695,
+      "qsrAmount": 2717391304
+    },
+    {
+      "epoch": 155,
+      "znnAmount": 534857142,
+      "qsrAmount": 2678571428
+    },
+    {
+      "epoch": 154,
+      "znnAmount": 534857142,
+      "qsrAmount": 2678571428
+    },
+    {
+      "epoch": 153,
+      "znnAmount": 534857142,
+      "qsrAmount": 2678571428
+    },
+    {
+      "epoch": 152,
+      "znnAmount": 534857142,
+      "qsrAmount": 2678571428
+    },
+    {
+      "epoch": 151,
+      "znnAmount": 534857142,
+      "qsrAmount": 2678571428
+    },
+    {
+      "epoch": 150,
+      "znnAmount": 534857142,
+      "qsrAmount": 2678571428
+    },
+    {
+      "epoch": 149,
+      "znnAmount": 668571428,
+      "qsrAmount": 2678571428
+    },
+    {
+      "epoch": 148,
+      "znnAmount": 668571428,
+      "qsrAmount": 2678571428
+    },
+    {
+      "epoch": 147,
+      "znnAmount": 673381294,
+      "qsrAmount": 2697841726
+    },
+    {
+      "epoch": 146,
+      "znnAmount": 673381294,
+      "qsrAmount": 2697841726
+    },
+    {
+      "epoch": 145,
+      "znnAmount": 673381294,
+      "qsrAmount": 2697841726
+    },
+    {
+      "epoch": 144,
+      "znnAmount": 673381294,
+      "qsrAmount": 2697841726
+    },
+    {
+      "epoch": 143,
+      "znnAmount": 673381294,
+      "qsrAmount": 2697841726
+    },
+    {
+      "epoch": 142,
+      "znnAmount": 678260869,
+      "qsrAmount": 2717391304
+    },
+    {
+      "epoch": 141,
+      "znnAmount": 678260869,
+      "qsrAmount": 2717391304
+    },
+    {
+      "epoch": 140,
+      "znnAmount": 678260869,
+      "qsrAmount": 2717391304
+    },
+    {
+      "epoch": 139,
+      "znnAmount": 678260869,
+      "qsrAmount": 2717391304
+    },
+    {
+      "epoch": 138,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 137,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 136,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 135,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 134,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 133,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 132,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 131,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 130,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 129,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 128,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 127,
+      "znnAmount": 683211678,
+      "qsrAmount": 2737226277
+    },
+    {
+      "epoch": 126,
+      "znnAmount": 688235294,
+      "qsrAmount": 2757352941
+    },
+    {
+      "epoch": 125,
+      "znnAmount": 688235294,
+      "qsrAmount": 2757352941
+    },
+    {
+      "epoch": 124,
+      "znnAmount": 688235294,
+      "qsrAmount": 2757352941
+    },
+    {
+      "epoch": 123,
+      "znnAmount": 688235294,
+      "qsrAmount": 2757352941
+    },
+    {
+      "epoch": 122,
+      "znnAmount": 688235294,
+      "qsrAmount": 2757352941
+    },
+    {
+      "epoch": 121,
+      "znnAmount": 688235294,
+      "qsrAmount": 2757352941
+    },
+    {
+      "epoch": 120,
+      "znnAmount": 688235294,
+      "qsrAmount": 2757352941
+    },
+    {
+      "epoch": 119,
+      "znnAmount": 963529411,
+      "qsrAmount": 3676470588
+    },
+    {
+      "epoch": 118,
+      "znnAmount": 963529411,
+      "qsrAmount": 3676470588
+    },
+    {
+      "epoch": 117,
+      "znnAmount": 963529411,
+      "qsrAmount": 3676470588
+    },
+    {
+      "epoch": 116,
+      "znnAmount": 963529411,
+      "qsrAmount": 3676470588
+    },
+    {
+      "epoch": 115,
+      "znnAmount": 963529411,
+      "qsrAmount": 3676470588
+    },
+    {
+      "epoch": 114,
+      "znnAmount": 963529411,
+      "qsrAmount": 3676470588
+    },
+    {
+      "epoch": 113,
+      "znnAmount": 963529411,
+      "qsrAmount": 3676470588
+    },
+    {
+      "epoch": 112,
+      "znnAmount": 963529411,
+      "qsrAmount": 3676470588
+    },
+    {
+      "epoch": 111,
+      "znnAmount": 963529411,
+      "qsrAmount": 3676470588
+    },
+    {
+      "epoch": 110,
+      "znnAmount": 963529411,
+      "qsrAmount": 3676470588
+    },
+    {
+      "epoch": 109,
+      "znnAmount": 970666666,
+      "qsrAmount": 3703703703
+    },
+    {
+      "epoch": 108,
+      "znnAmount": 970666666,
+      "qsrAmount": 3703703703
+    },
+    {
+      "epoch": 107,
+      "znnAmount": 992727272,
+      "qsrAmount": 3787878787
+    },
+    {
+      "epoch": 106,
+      "znnAmount": 977910447,
+      "qsrAmount": 3731343283
+    },
+    {
+      "epoch": 105,
+      "znnAmount": 977910447,
+      "qsrAmount": 3731343283
+    },
+    {
+      "epoch": 104,
+      "znnAmount": 985263157,
+      "qsrAmount": 3759398496
+    },
+    {
+      "epoch": 103,
+      "znnAmount": 992727272,
+      "qsrAmount": 3787878787
+    },
+    {
+      "epoch": 102,
+      "znnAmount": 1000305343,
+      "qsrAmount": 3816793893
+    },
+    {
+      "epoch": 101,
+      "znnAmount": 1000305343,
+      "qsrAmount": 3816793893
+    },
+    {
+      "epoch": 100,
+      "znnAmount": 1000305343,
+      "qsrAmount": 3816793893
+    },
+    {
+      "epoch": 99,
+      "znnAmount": 1008000000,
+      "qsrAmount": 3846153846
+    },
+    {
+      "epoch": 98,
+      "znnAmount": 1008000000,
+      "qsrAmount": 3846153846
+    },
+    {
+      "epoch": 97,
+      "znnAmount": 1008000000,
+      "qsrAmount": 3846153846
+    },
+    {
+      "epoch": 96,
+      "znnAmount": 1000305343,
+      "qsrAmount": 3816793893
+    },
+    {
+      "epoch": 95,
+      "znnAmount": 1008000000,
+      "qsrAmount": 3846153846
+    },
+    {
+      "epoch": 94,
+      "znnAmount": 1015813953,
+      "qsrAmount": 3875968992
+    },
+    {
+      "epoch": 93,
+      "znnAmount": 1015813953,
+      "qsrAmount": 3875968992
+    },
+    {
+      "epoch": 92,
+      "znnAmount": 1015813953,
+      "qsrAmount": 3875968992
+    },
+    {
+      "epoch": 91,
+      "znnAmount": 1015813953,
+      "qsrAmount": 3875968992
+    },
+    {
+      "epoch": 90,
+      "znnAmount": 1015813953,
+      "qsrAmount": 3875968992
+    },
+    {
+      "epoch": 89,
+      "znnAmount": 725581395,
+      "qsrAmount": 3875968992
+    },
+    {
+      "epoch": 88,
+      "znnAmount": 725581395,
+      "qsrAmount": 3875968992
+    },
+    {
+      "epoch": 87,
+      "znnAmount": 725581395,
+      "qsrAmount": 3875968992
+    },
+    {
+      "epoch": 86,
+      "znnAmount": 725581395,
+      "qsrAmount": 3875968992
+    },
+    {
+      "epoch": 85,
+      "znnAmount": 725581395,
+      "qsrAmount": 3875968992
+    },
+    {
+      "epoch": 84,
+      "znnAmount": 737007874,
+      "qsrAmount": 3937007874
+    },
+    {
+      "epoch": 83,
+      "znnAmount": 742857142,
+      "qsrAmount": 3968253968
+    },
+    {
+      "epoch": 82,
+      "znnAmount": 742857142,
+      "qsrAmount": 3968253968
+    },
+    {
+      "epoch": 81,
+      "znnAmount": 742857142,
+      "qsrAmount": 3968253968
+    },
+    {
+      "epoch": 80,
+      "znnAmount": 742857142,
+      "qsrAmount": 3968253968
+    },
+    {
+      "epoch": 79,
+      "znnAmount": 742857142,
+      "qsrAmount": 3968253968
+    },
+    {
+      "epoch": 78,
+      "znnAmount": 742857142,
+      "qsrAmount": 3968253968
+    },
+    {
+      "epoch": 77,
+      "znnAmount": 748800000,
+      "qsrAmount": 4000000000
+    },
+    {
+      "epoch": 76,
+      "znnAmount": 748800000,
+      "qsrAmount": 4000000000
+    },
+    {
+      "epoch": 75,
+      "znnAmount": 754838709,
+      "qsrAmount": 4032258064
+    },
+    {
+      "epoch": 74,
+      "znnAmount": 754838709,
+      "qsrAmount": 4032258064
+    },
+    {
+      "epoch": 73,
+      "znnAmount": 754838709,
+      "qsrAmount": 4032258064
+    },
+    {
+      "epoch": 72,
+      "znnAmount": 754838709,
+      "qsrAmount": 4032258064
+    },
+    {
+      "epoch": 71,
+      "znnAmount": 754838709,
+      "qsrAmount": 4032258064
+    },
+    {
+      "epoch": 70,
+      "znnAmount": 754838709,
+      "qsrAmount": 4032258064
+    },
+    {
+      "epoch": 69,
+      "znnAmount": 767213114,
+      "qsrAmount": 4098360655
+    },
+    {
+      "epoch": 68,
+      "znnAmount": 767213114,
+      "qsrAmount": 4098360655
+    },
+    {
+      "epoch": 67,
+      "znnAmount": 767213114,
+      "qsrAmount": 4098360655
+    },
+    {
+      "epoch": 66,
+      "znnAmount": 767213114,
+      "qsrAmount": 4098360655
+    },
+    {
+      "epoch": 65,
+      "znnAmount": 767213114,
+      "qsrAmount": 4098360655
+    },
+    {
+      "epoch": 64,
+      "znnAmount": 773553719,
+      "qsrAmount": 4132231404
+    },
+    {
+      "epoch": 63,
+      "znnAmount": 806896551,
+      "qsrAmount": 4310344827
+    },
+    {
+      "epoch": 62,
+      "znnAmount": 806896551,
+      "qsrAmount": 4310344827
+    },
+    {
+      "epoch": 61,
+      "znnAmount": 821052631,
+      "qsrAmount": 4385964912
+    },
+    {
+      "epoch": 60,
+      "znnAmount": 821052631,
+      "qsrAmount": 4385964912
+    },
+    {
+      "epoch": 59,
+      "znnAmount": 976695652,
+      "qsrAmount": 4347826086
+    },
+    {
+      "epoch": 58,
+      "znnAmount": 976695652,
+      "qsrAmount": 4347826086
+    },
+    {
+      "epoch": 57,
+      "znnAmount": 976695652,
+      "qsrAmount": 4347826086
+    },
+    {
+      "epoch": 56,
+      "znnAmount": 976695652,
+      "qsrAmount": 4347826086
+    },
+    {
+      "epoch": 55,
+      "znnAmount": 976695652,
+      "qsrAmount": 4347826086
+    },
+    {
+      "epoch": 54,
+      "znnAmount": 985263157,
+      "qsrAmount": 4385964912
+    },
+    {
+      "epoch": 53,
+      "znnAmount": 985263157,
+      "qsrAmount": 4385964912
+    },
+    {
+      "epoch": 52,
+      "znnAmount": 985263157,
+      "qsrAmount": 4385964912
+    },
+    {
+      "epoch": 51,
+      "znnAmount": 993982300,
+      "qsrAmount": 4424778761
+    },
+    {
+      "epoch": 50,
+      "znnAmount": 993982300,
+      "qsrAmount": 4424778761
+    },
+    {
+      "epoch": 49,
+      "znnAmount": 993982300,
+      "qsrAmount": 4424778761
+    },
+    {
+      "epoch": 48,
+      "znnAmount": 1021090909,
+      "qsrAmount": 4545454545
+    },
+    {
+      "epoch": 47,
+      "znnAmount": 1049719626,
+      "qsrAmount": 4672897196
+    },
+    {
+      "epoch": 46,
+      "znnAmount": 1112079207,
+      "qsrAmount": 4950495049
+    },
+    {
+      "epoch": 45,
+      "znnAmount": 1112079207,
+      "qsrAmount": 4950495049
+    },
+    {
+      "epoch": 44,
+      "znnAmount": 1112079207,
+      "qsrAmount": 4950495049
+    },
+    {
+      "epoch": 43,
+      "znnAmount": 1112079207,
+      "qsrAmount": 4950495049
+    },
+    {
+      "epoch": 42,
+      "znnAmount": 1134545454,
+      "qsrAmount": 5050505050
+    },
+    {
+      "epoch": 41,
+      "znnAmount": 1134545454,
+      "qsrAmount": 5050505050
+    },
+    {
+      "epoch": 40,
+      "znnAmount": 1134545454,
+      "qsrAmount": 5050505050
+    },
+    {
+      "epoch": 39,
+      "znnAmount": 1146122448,
+      "qsrAmount": 5102040816
+    },
+    {
+      "epoch": 38,
+      "znnAmount": 1146122448,
+      "qsrAmount": 5102040816
+    },
+    {
+      "epoch": 37,
+      "znnAmount": 1146122448,
+      "qsrAmount": 5102040816
+    },
+    {
+      "epoch": 36,
+      "znnAmount": 1234285714,
+      "qsrAmount": 5494505494
+    },
+    {
+      "epoch": 35,
+      "znnAmount": 1234285714,
+      "qsrAmount": 5494505494
+    },
+    {
+      "epoch": 34,
+      "znnAmount": 1248000000,
+      "qsrAmount": 5555555555
+    },
+    {
+      "epoch": 33,
+      "znnAmount": 1262022471,
+      "qsrAmount": 5617977528
+    },
+    {
+      "epoch": 32,
+      "znnAmount": 1248000000,
+      "qsrAmount": 5555555555
+    },
+    {
+      "epoch": 31,
+      "znnAmount": 1194893617,
+      "qsrAmount": 5319148936
+    },
+    {
+      "epoch": 30,
+      "znnAmount": 1194893617,
+      "qsrAmount": 5319148936
+    },
+    {
+      "epoch": 29,
+      "znnAmount": 2080000000,
+      "qsrAmount": 5555555555
+    },
+    {
+      "epoch": 28,
+      "znnAmount": 2228571428,
+      "qsrAmount": 5952380952
+    },
+    {
+      "epoch": 27,
+      "znnAmount": 2255421686,
+      "qsrAmount": 6024096385
+    },
+    {
+      "epoch": 26,
+      "znnAmount": 2311111111,
+      "qsrAmount": 6172839506
+    },
+    {
+      "epoch": 25,
+      "znnAmount": 2311111111,
+      "qsrAmount": 6172839506
+    },
+    {
+      "epoch": 24,
+      "znnAmount": 2340000000,
+      "qsrAmount": 6250000000
+    },
+    {
+      "epoch": 23,
+      "znnAmount": 2369620253,
+      "qsrAmount": 6329113924
+    },
+    {
+      "epoch": 22,
+      "znnAmount": 2431168831,
+      "qsrAmount": 6493506493
+    },
+    {
+      "epoch": 21,
+      "znnAmount": 2431168831,
+      "qsrAmount": 6493506493
+    },
+    {
+      "epoch": 20,
+      "znnAmount": 2463157894,
+      "qsrAmount": 6578947368
+    },
+    {
+      "epoch": 19,
+      "znnAmount": 2463157894,
+      "qsrAmount": 6578947368
+    },
+    {
+      "epoch": 18,
+      "znnAmount": 2463157894,
+      "qsrAmount": 6578947368
+    },
+    {
+      "epoch": 17,
+      "znnAmount": 2463157894,
+      "qsrAmount": 6578947368
+    },
+    {
+      "epoch": 16,
+      "znnAmount": 2463157894,
+      "qsrAmount": 6578947368
+    },
+    {
+      "epoch": 15,
+      "znnAmount": 2463157894,
+      "qsrAmount": 6578947368
+    },
+    {
+      "epoch": 14,
+      "znnAmount": 2496000000,
+      "qsrAmount": 6666666666
+    },
+    {
+      "epoch": 13,
+      "znnAmount": 2600000000,
+      "qsrAmount": 6944444444
+    },
+    {
+      "epoch": 12,
+      "znnAmount": 2674285714,
+      "qsrAmount": 7142857142
+    },
+    {
+      "epoch": 11,
+      "znnAmount": 2752941176,
+      "qsrAmount": 7352941176
+    },
+    {
+      "epoch": 10,
+      "znnAmount": 3068852459,
+      "qsrAmount": 8196721311
+    },
+    {
+      "epoch": 9,
+      "znnAmount": 3227586206,
+      "qsrAmount": 8620689655
+    },
+    {
+      "epoch": 8,
+      "znnAmount": 3227586206,
+      "qsrAmount": 8620689655
+    },
+    {
+      "epoch": 7,
+      "znnAmount": 3600000000,
+      "qsrAmount": 9615384615
+    },
+    {
+      "epoch": 6,
+      "znnAmount": 4254545454,
+      "qsrAmount": 11363636363
+    },
+    {
+      "epoch": 5,
+      "znnAmount": 4565853658,
+      "qsrAmount": 12195121951
+    },
+    {
+      "epoch": 4,
+      "znnAmount": 8139130434,
+      "qsrAmount": 21739130434
+    },
+    {
+      "epoch": 3,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 2,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 1,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    },
+    {
+      "epoch": 0,
+      "znnAmount": 0,
+      "qsrAmount": 0
+    }
+  ]
+}

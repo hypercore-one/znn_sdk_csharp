@@ -1,0 +1,31 @@
+{
+  "count": 2,
+  "list": [
+    {
+      "name": "Shiden",
+      "symbol": "SDN",
+      "domain": "SultanOfStaking.com",
+      "totalSupply": 7000000000000000,
+      "decimals": 8,
+      "owner": "z1qpgdtn89u9365jr7ltdxu29fy52pnzwe4fl7zc",
+      "tokenStandard": "zts10esqvg76658fhzg9t5ctd3",
+      "maxSupply": 7000000000000000,
+      "isBurnable": true,
+      "isMintable": true,
+      "isUtility": true
+    },
+    {
+      "name": "SultanOfStaking",
+      "symbol": "SOS",
+      "domain": "SultanOfStaking.com",
+      "totalSupply": 9223372036854775807,
+      "decimals": 16,
+      "owner": "z1qpgdtn89u9365jr7ltdxu29fy52pnzwe4fl7zc",
+      "tokenStandard": "zts1s5l6z3aseq6gce8xf8nsv9",
+      "maxSupply": 9223372036854775807,
+      "isBurnable": true,
+      "isMintable": true,
+      "isUtility": true
+    }
+  ]
+}
