@@ -6,25 +6,26 @@ namespace Zenon
 {
     public class ZnnPaths
     {
-        public static ZnnPaths Default;
+        public static ZnnPaths Default = 
+            new ZnnPaths(new DotNetRuntimeInformation(), new DotNetEnvironment());
 
-        static ZnnPaths()
+        public ZnnPaths(IRuntimeInformation runtimeInfo, IEnvironment environment)
         {
             string main;
 
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            if (runtimeInfo.IsOSPlatform(OSPlatform.Linux))
             {
-                main = Path.Join(Environment.GetEnvironmentVariable("HOME"),
+                main = Path.Join(environment.GetEnvironmentVariable("HOME"),
                     $".{Constants.ZnnRootDirectory}");
             }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            else if (runtimeInfo.IsOSPlatform(OSPlatform.OSX))
             {
-                main = Path.Join(Environment.GetEnvironmentVariable("HOME"),
+                main = Path.Join(environment.GetEnvironmentVariable("HOME"),
                     "Library", Constants.ZnnRootDirectory);
             }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            else if (runtimeInfo.IsOSPlatform(OSPlatform.Windows))
             {
-                main = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                main = Path.Join(environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                     Constants.ZnnRootDirectory);
             }
             else
@@ -33,9 +34,9 @@ namespace Zenon
                     Constants.ZnnRootDirectory);
             }
 
-            Default = new ZnnPaths(main,
-                Path.Join(main, "wallet"),
-                Path.Join(main, "syrius"));
+            Main = main;
+            Wallet = Path.Join(main, "wallet");
+            Cache = Path.Join(main, "syrius");
         }
 
         public ZnnPaths(string main, string wallet, string cache)
