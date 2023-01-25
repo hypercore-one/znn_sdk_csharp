@@ -30,7 +30,7 @@ namespace Zenon
             }
             else
             {
-                main = Path.Join(Environment.GetEnvironmentVariable("HOME"),
+                main = Path.Join(environment.GetEnvironmentVariable("HOME"),
                     Constants.ZnnRootDirectory);
             }
 
