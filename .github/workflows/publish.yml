@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - htlc
+      - ptlc
   pull_request:
     branches:
       - main
