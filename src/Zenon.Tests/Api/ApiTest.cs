@@ -13,6 +13,39 @@ namespace Zenon.Api
     public partial class ApiTest
     {
         #region Embedded
+
+        public class Ptlc
+        {
+            public class GetById
+            {
+                public GetById()
+                {
+                    this.MethodName = "embedded.ptlc.getById";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("11ac76e40cc23674300f68ca87f5ebeb7210fc327fd43f35081b75a839c9c632",
+                    "Zenon.Resources.api.embedded.ptlc.getById.json")]
+                public async Task SingleResponseAsync(string id, string resourceName)
+                {
+                    // Setup
+                    var hash = Hash.Parse(id);
+                    var api = new PtlcApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, hash.ToString())
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetById(hash);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Id.Should().Be(hash);
+                }
+            }
+        }
+
         public class Accelerator
         {
             public class GetAll

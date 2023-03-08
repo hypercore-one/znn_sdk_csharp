@@ -154,6 +154,25 @@ namespace Zenon.Embedded
             } },
         };
 
+        private static readonly JEntry[] PtlcDefinition = new JEntry[]
+        {
+            new JEntry() { type = "function", name = "Create", inputs = new JParam[]
+            {
+                new JParam() { name = "expirationTime", type = "int64" },
+                new JParam() { name = "pointType", type = "uint8" },
+                new JParam() { name = "pointLock", type = "bytes" }
+            } },
+            new JEntry() { type = "function", name = "Reclaim", inputs = new JParam[]
+            {
+                new JParam() { name = "id", type = "hash" }
+            } },
+            new JEntry() { type = "function", name = "Unlock", inputs = new JParam[]
+            {
+                new JParam() { name = "id", type = "hash" },
+                new JParam() { name = "signature", type = "bytes" }
+            } }
+        };
+
         // Common definitions of embedded methods
         private static readonly JEntry[] CommonDefinition = new JEntry[]
         {
@@ -170,6 +189,7 @@ namespace Zenon.Embedded
         public static readonly Abi.Abi Swap = new Abi.Abi(SwapDefinition);
         public static readonly Abi.Abi Stake = new Abi.Abi(StakeDefinition);
         public static readonly Abi.Abi Accelerator = new Abi.Abi(AcceleratorDefinition);
+        public static readonly Abi.Abi Ptlc = new Abi.Abi(PtlcDefinition);
         public static readonly Abi.Abi Common = new Abi.Abi(CommonDefinition);
 }
 }

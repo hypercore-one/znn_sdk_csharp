@@ -17,6 +17,7 @@ namespace Zenon.Api
             Swap = new SwapApi(client);
             Token = new TokenApi(client);
             Accelerator = new AcceleratorApi(client);
+            Ptlc = new PtlcApi(client);
         }
 
         public Lazy<IClient> Client { get; }
@@ -28,5 +29,6 @@ namespace Zenon.Api
         public SwapApi Swap { get; }
         public TokenApi Token { get; }
         public AcceleratorApi Accelerator { get; }
+        public PtlcApi Ptlc { get; }
     }
 }

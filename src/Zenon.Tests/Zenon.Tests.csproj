@@ -13,9 +13,6 @@
     <None Remove="Resources\api\embedded\accelerator\getPillarVotes.json" />
     <None Remove="Resources\api\embedded\accelerator\getProjectById.json" />
     <None Remove="Resources\api\embedded\accelerator\getVoteBreakdown.json" />
-    <None Remove="Resources\api\embedded\htlc\getHtlcInfoById.json" />
-    <None Remove="Resources\api\embedded\htlc\getHtlcInfosByHashLockedAddress.json" />
-    <None Remove="Resources\api\embedded\htlc\getHtlcInfosByTimeLockedAddress.json" />
     <None Remove="Resources\api\embedded\pillar\getAll.json" />
     <None Remove="Resources\api\embedded\pillar\getByName.json" />
     <None Remove="Resources\api\embedded\pillar\getByOwner.json" />
@@ -27,6 +24,7 @@
     <None Remove="Resources\api\embedded\plasma\get.json" />
     <None Remove="Resources\api\embedded\plasma\getEntriesByAddress.json" />
     <None Remove="Resources\api\embedded\plasma\getRequiredPoWForAccountBlock.json" />
+    <None Remove="Resources\api\embedded\ptlc\getById.json" />
     <None Remove="Resources\api\embedded\sentinel\getAllActive.json" />
     <None Remove="Resources\api\embedded\sentinel\getByOwner.json" />
     <None Remove="Resources\api\embedded\sentinel\getFrontierRewardByPage.json" />
@@ -72,9 +70,7 @@
     <EmbeddedResource Include="Resources\api\embedded\accelerator\getPillarVotes.json" />
     <EmbeddedResource Include="Resources\api\embedded\accelerator\getProjectById.json" />
     <EmbeddedResource Include="Resources\api\embedded\accelerator\getVoteBreakdown.json" />
-    <EmbeddedResource Include="Resources\api\embedded\htlc\getHtlcInfoById.json" />
-    <EmbeddedResource Include="Resources\api\embedded\htlc\getHtlcInfosByHashLockedAddress.json" />
-    <EmbeddedResource Include="Resources\api\embedded\htlc\getHtlcInfosByTimeLockedAddress.json" />
+    <EmbeddedResource Include="Resources\api\embedded\ptlc\getById.json" />
     <EmbeddedResource Include="Resources\api\embedded\pillar\getAll.json" />
     <EmbeddedResource Include="Resources\api\embedded\pillar\getByName.json" />
     <EmbeddedResource Include="Resources\api\embedded\pillar\getByOwner.json" />

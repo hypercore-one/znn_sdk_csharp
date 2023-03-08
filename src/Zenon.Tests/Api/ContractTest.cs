@@ -1,10 +1,12 @@
 ﻿using FluentAssertions;
 using Moq;
 using System;
+using System.Text;
 using Xunit;
 using Zenon.Api.Embedded;
 using Zenon.Client;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Api
 {
@@ -19,6 +21,68 @@ namespace Zenon.Api
 
             public EmbeddedApi Api { get; }
         }
+
+        #region Ptlc
+        public class Ptlc : IClassFixture<EmbeddedApiFixture>
+        {
+            public PtlcApi Api { get; }
+
+            public Ptlc(EmbeddedApiFixture fixture)
+            {
+                this.Api = fixture.Api.Ptlc;
+            }
+
+            [Fact]
+            public void When_Create_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxptlcxxxxxxxxxxxxxxxxx6lqady", "zts1znnxxxxxxxxxxxxx9z4ulx", 10000000000L,
+                    "rg9xZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABjbNhKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg3lQ6bKuNtb3AhtFyC5ew8JdFiEHNAmTXiTUOOwdYf1s=");
+
+                // Execute
+                var block = this.Api.Create(
+                    TokenStandard.ZnnZts, 10000000000L,
+                        1668077642L, 0, BytesUtils.FromHexString("de543a6cab8db5bdc086d1720b97b0f097458841cd0264d789350e3b07587f5b"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Reclaim_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxptlcxxxxxxxxxxxxxxxxx6lqady",
+                    "zts1znnxxxxxxxxxxxxx9z4ulx", 0, "fgA8jVnkOgCVs2M3kRjJ4oOEQtwrHqWWJLGK6txc1mFWB5Qe");
+
+                // Execute
+                var block = this.Api.Reclaim(
+                        Hash.Parse("59e43a0095b363379118c9e2838442dc2b1ea59624b18aeadc5cd6615607941e"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Unlock_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxptlcxxxxxxxxxxxxxxxxx6lqady", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                        "0zeR059uMIjiaH5kL0wPPyn7IZEfpcoaumbcBUP7xu7gFmTtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGWFsbCB5b3VyIHpubiBiZWxvbmcgdG8gdXMAAAAAAAAA");
+
+                // Execute
+                var block = this.Api.Unlock(
+                        Hash.Parse("9f6e3088e2687e642f4c0f3f29fb21911fa5ca1aba66dc0543fbc6eee01664ed"),
+                        Encoding.UTF8.GetBytes("all your znn belong to us"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+        }
+        #endregion
 
         #region Accelerator
         public partial class Accelerator : IClassFixture<EmbeddedApiFixture>
