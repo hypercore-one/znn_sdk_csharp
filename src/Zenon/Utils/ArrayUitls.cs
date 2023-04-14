@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Zenon.Utils
 {
-    internal static class ArrayUtils
+    public static class ArrayUtils
     {
         /// <summary>
         /// Concatenates an abritary set of one-dimensional arrays of the same type.

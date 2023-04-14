@@ -31,8 +31,6 @@ namespace Zenon.Model.Primitives
             Parse("z1qxemdeddedxaccelerat0rxxxxxxxxxxp4tk22");
         public static readonly Address PtlcAddress =
             Parse("z1qxemdeddedxptlcxxxxxxxxxxxxxxxxx6lqady");
-        public static readonly Address BridgeAddress =
-            Parse("z1qzlytaqdahg5t02nz5096frflfv7dm3y7yxmg7");
         
         public static readonly Address[] EmbeddedContractAddresses = new Address[]
         {
