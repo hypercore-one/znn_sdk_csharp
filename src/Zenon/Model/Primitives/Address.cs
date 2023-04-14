@@ -29,8 +29,6 @@ namespace Zenon.Model.Primitives
             Parse("z1qxemdeddedxsp0rkxxxxxxxxxxxxxxxx956u48");
         public static readonly Address AcceleratorAddress =
             Parse("z1qxemdeddedxaccelerat0rxxxxxxxxxxp4tk22");
-        public static readonly Address BridgeAddress =
-            Parse("z1qzlytaqdahg5t02nz5096frflfv7dm3y7yxmg7");
 
         public static readonly Address[] EmbeddedContractAddresses = new Address[]
         {
