@@ -13,6 +13,7 @@
     <None Remove="Resources\api\embedded\accelerator\getPillarVotes.json" />
     <None Remove="Resources\api\embedded\accelerator\getProjectById.json" />
     <None Remove="Resources\api\embedded\accelerator\getVoteBreakdown.json" />
+    <None Remove="Resources\api\embedded\htlc\getById.json" />
     <None Remove="Resources\api\embedded\pillar\getAll.json" />
     <None Remove="Resources\api\embedded\pillar\getByName.json" />
     <None Remove="Resources\api\embedded\pillar\getByOwner.json" />
@@ -69,6 +70,7 @@
     <EmbeddedResource Include="Resources\api\embedded\accelerator\getPillarVotes.json" />
     <EmbeddedResource Include="Resources\api\embedded\accelerator\getProjectById.json" />
     <EmbeddedResource Include="Resources\api\embedded\accelerator\getVoteBreakdown.json" />
+    <EmbeddedResource Include="Resources\api\embedded\htlc\getById.json" />
     <EmbeddedResource Include="Resources\api\embedded\pillar\getAll.json" />
     <EmbeddedResource Include="Resources\api\embedded\pillar\getByName.json" />
     <EmbeddedResource Include="Resources\api\embedded\pillar\getByOwner.json" />
