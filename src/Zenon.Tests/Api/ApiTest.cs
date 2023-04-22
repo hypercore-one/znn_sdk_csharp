@@ -13,6 +13,67 @@ namespace Zenon.Api
     public partial class ApiTest
     {
         #region Embedded
+        
+        public class Htlc
+        {
+            public class GetById
+            {
+                public GetById()
+                {
+                    this.MethodName = "embedded.htlc.getById";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("11ac76e40cc23674300f68ca87f5ebeb7210fc327fd43f35081b75a839c9c632",
+                    "Zenon.Resources.api.embedded.htlc.getById.json")]
+                public async Task SingleResponseAsync(string id, string resourceName)
+                {
+                    // Setup
+                    var hash = Hash.Parse(id);
+                    var api = new HtlcApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, hash.ToString())
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetById(hash);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Id.Should().Be(hash);
+                }
+            }
+
+            public class GetProxyUnlockStatus
+            {
+                public GetProxyUnlockStatus()
+                {
+                    this.MethodName = "embedded.htlc.getProxyUnlockStatus";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", "true", true)]
+                [InlineData("z1qpsjv3wzzuuzdudg7tf6uhvr6sk4ag8me42ua4", "false", false)]
+                public async Task SingleResponseAsync(string address, string response, bool expectedResult)
+                {
+                    // Setup
+                    var addr = Address.Parse(address);
+                    var api = new HtlcApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, addr.ToString())
+                        .WithResponse(() => response)));
+
+                    // Execute
+                    var result = await api.GetProxyUnlockStatus(addr);
+
+                    // Validate
+                    result.Should().Be(expectedResult);
+                }
+            }
+        }
+        
         public class Spork
         {
             public class GetAll
@@ -61,7 +122,7 @@ namespace Zenon.Api
                 }
             }
         }
-
+        
         public class Accelerator
         {
             public class GetAll
@@ -73,12 +134,13 @@ namespace Zenon.Api
 
                 public string MethodName { get; }
 
-                [Fact]
-                public async Task EmptyResponseAsync()
+                [Theory]
+                [InlineData(0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
                 {
                     // Setup
                     var api = new AcceleratorApi(new Lazy<IClient>(() => new TestClient()
-                        .WithMethod(this.MethodName, 0, Constants.RpcMaxPageSize)
+                        .WithMethod(this.MethodName, pageIndex, pageSize)
                         .WithEmptyResponse()));
 
                     // Execute

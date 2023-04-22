@@ -84,5 +84,13 @@ namespace Zenon
         public const int SwapAssetDecayEpochsOffset = 30 * 3;
         public const int SwapAssetDecayTickEpochs = 30;
         public const int SwapAssetDecayTickValuePercentage = 10;
+
+        // Htlc
+        public const int HtlcPreimageMinLength = 1;
+        public const int HtlcPreimageMaxLength = 255;
+        public const int HtlcPreimageDefaultLength = 32;
+        public const int HtlcTimelockUnitSec = 60 * 60; // 1 hour
+        public const int HtlcTimelockMinSec = HtlcTimelockUnitSec * 1; // 1 hour
+        public const int HtlcTimelockMaxSec = HtlcTimelockUnitSec * 24 * 30 * 12; // ~1 year
     }
 }
