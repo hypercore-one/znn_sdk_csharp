@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - main
-      - htlc
-      - ptlc
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:

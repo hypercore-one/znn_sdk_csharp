@@ -6,7 +6,7 @@ namespace Zenon
     public static class Constants
     {
         // Global constants
-        public const string ZnnSdkVersion = "0.0.4";
+        public const string ZnnSdkVersion = "0.0.5";
         public const string ZnnRootDirectory = "znn";
 
         // https://github.com/zenon-network/go-zenon/blob/b2e6a98fa154d763571bb7af6b1c685d0d82497d/zenon/zenon.go#L41
@@ -74,10 +74,23 @@ namespace Zenon
         public const int ProjectClosedStatus = 3;
         public static readonly Regex ProjectUrlRegExp = new Regex("^[a-zA-Z0-9]{2,60}.[a-zA-Z]{1,6}([a-zA-Z0-9()@:%_\\+.~#?&/=-]{0,100})$");
 
+        // Spork
+        public const int SporkNameMinLength = 5;
+        public const int SporkNameMaxLength = 40;
+        public const int SporkDescriptionMaxLength = 400;
+
         // Swap
         public const int SwapAssetDecayTimestampStart = 1645531200;
         public const int SwapAssetDecayEpochsOffset = 30 * 3;
         public const int SwapAssetDecayTickEpochs = 30;
         public const int SwapAssetDecayTickValuePercentage = 10;
+
+        // Htlc
+        public const int HtlcPreimageMinLength = 1;
+        public const int HtlcPreimageMaxLength = 255;
+        public const int HtlcPreimageDefaultLength = 32;
+        public const int HtlcTimelockUnitSec = 60 * 60; // 1 hour
+        public const int HtlcTimelockMinSec = HtlcTimelockUnitSec * 1; // 1 hour
+        public const int HtlcTimelockMaxSec = HtlcTimelockUnitSec * 24 * 30 * 12; // ~1 year
     }
 }
