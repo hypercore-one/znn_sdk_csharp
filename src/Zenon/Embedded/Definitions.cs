@@ -154,6 +154,19 @@ namespace Zenon.Embedded
             } },
         };
 
+        private static readonly JEntry[] SporkDefinition = new JEntry[]
+        {
+            new JEntry() { type = "function", name = "CreateSpork", inputs = new JParam[]
+            {
+                new JParam() { name = "name", type = "string" },
+                new JParam() { name = "description", type = "string" }
+            } },
+            new JEntry() { type = "function", name = "ActivateSpork", inputs = new JParam[]
+            {
+                new JParam() { name = "id", type = "hash" }
+            } }
+        };
+
         // Common definitions of embedded methods
         private static readonly JEntry[] CommonDefinition = new JEntry[]
         {
@@ -170,6 +183,7 @@ namespace Zenon.Embedded
         public static readonly Abi.Abi Swap = new Abi.Abi(SwapDefinition);
         public static readonly Abi.Abi Stake = new Abi.Abi(StakeDefinition);
         public static readonly Abi.Abi Accelerator = new Abi.Abi(AcceleratorDefinition);
+        public static readonly Abi.Abi Spork = new Abi.Abi(SporkDefinition);
         public static readonly Abi.Abi Common = new Abi.Abi(CommonDefinition);
 }
 }

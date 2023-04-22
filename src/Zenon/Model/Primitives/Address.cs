@@ -38,6 +38,7 @@ namespace Zenon.Model.Primitives
             SentinelAddress,
             SwapAddress,
             StakeAddress,
+            SporkAddress,
             AcceleratorAddress
         };
 

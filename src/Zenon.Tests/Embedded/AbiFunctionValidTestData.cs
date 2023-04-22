@@ -36,6 +36,23 @@ namespace Zenon.Embedded.TestData
             };
             #endregion
 
+            #region Spork functions
+            yield return new object[]
+            {
+                Definitions.Spork,
+                "CreateSpork",
+                new object[] { "TestSpork", "This is a test spork" },
+                Convert.FromHexString("b602e3110000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000095465737453706f726b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001454686973206973206120746573742073706f726b000000000000000000000000")
+            };
+            yield return new object[]
+            {
+                Definitions.Spork,
+                "ActivateSpork",
+                new object[] { hash.Bytes },
+                Convert.FromHexString("25c54e9605a0fef85008e63f0680b68d11743ba5caf199994d642590febe570b2a84b612")
+            };
+            #endregion
+
             #region Accelerator functions
             yield return new object[]
             {

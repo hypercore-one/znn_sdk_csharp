@@ -72,7 +72,7 @@ namespace Zenon.Model.Primitives
                 "z1qxemd...956u48",
                 "z",
                 Convert.FromHexString("01b3b6e5adcb4d00bc76318c6318c6318c6318c6"),
-                false
+                true
             };
             yield return new object[]
             {

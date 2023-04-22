@@ -20,6 +20,51 @@ namespace Zenon.Api
             public EmbeddedApi Api { get; }
         }
 
+        #region Spork
+        public class Spork : IClassFixture<EmbeddedApiFixture>
+        {
+            public SporkApi Api { get; }
+
+            public Spork(EmbeddedApiFixture fixture)
+            {
+                this.Api = fixture.Api.Spork;
+            }
+
+            [Fact]
+            public void When_CreateSpork_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxsp0rkxxxxxxxxxxxxxxxx956u48", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                        "tgLjEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACVRlc3RTcG9yawAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRUaGlzIGlzIGEgdGVzdCBzcG9yawAAAAAAAAAAAAAAAA==");
+
+                // Execute
+                var block = this.Api.CreateSpork(
+                        "TestSpork", "This is a test spork");
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_ActivateSpork_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate(
+                        "z1qxemdeddedxsp0rkxxxxxxxxxxxxxxxx956u48", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                        "JcVOllnkOgCVs2M3kRjJ4oOEQtwrHqWWJLGK6txc1mFWB5Qe");
+
+                // Execute
+                var block = this.Api.ActivateSpork(
+                        Hash.Parse("59e43a0095b363379118c9e2838442dc2b1ea59624b18aeadc5cd6615607941e"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+        }
+        #endregion
+
         #region Accelerator
         public partial class Accelerator : IClassFixture<EmbeddedApiFixture>
         {

@@ -13,6 +13,55 @@ namespace Zenon.Api
     public partial class ApiTest
     {
         #region Embedded
+        public class Spork
+        {
+            public class GetAll
+            {
+                public GetAll()
+                {
+                    this.MethodName = "embedded.spork.getAll";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData(0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var api = new SporkApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetAll();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.spork.getAll.json")]
+                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var api = new SporkApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetAll();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+        }
+
         public class Accelerator
         {
             public class GetAll
