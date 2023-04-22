@@ -74,6 +74,11 @@ namespace Zenon
         public const int ProjectClosedStatus = 3;
         public static readonly Regex ProjectUrlRegExp = new Regex("^[a-zA-Z0-9]{2,60}.[a-zA-Z]{1,6}([a-zA-Z0-9()@:%_\\+.~#?&/=-]{0,100})$");
 
+        // Spork
+        public const int SporkNameMinLength = 5;
+        public const int SporkNameMaxLength = 40;
+        public const int SporkDescriptionMaxLength = 400;
+
         // Swap
         public const int SwapAssetDecayTimestampStart = 1645531200;
         public const int SwapAssetDecayEpochsOffset = 30 * 3;

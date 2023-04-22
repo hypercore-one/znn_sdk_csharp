@@ -17,6 +17,7 @@ namespace Zenon.Api
             Swap = new SwapApi(client);
             Token = new TokenApi(client);
             Accelerator = new AcceleratorApi(client);
+            Spork = new SporkApi(client);
             Htlc = new HtlcApi(client);
         }
 
@@ -29,6 +30,7 @@ namespace Zenon.Api
         public SwapApi Swap { get; }
         public TokenApi Token { get; }
         public AcceleratorApi Accelerator { get; }
+        public SporkApi Spork { get; }
         public HtlcApi Htlc { get; }
     }
 }

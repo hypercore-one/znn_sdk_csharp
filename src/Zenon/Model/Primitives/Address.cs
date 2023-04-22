@@ -25,7 +25,8 @@ namespace Zenon.Model.Primitives
             Parse("z1qxemdeddedxswapxxxxxxxxxxxxxxxxxxl4yww");
         public static readonly Address StakeAddress =
             Parse("z1qxemdeddedxstakexxxxxxxxxxxxxxxxjv8v62");
-        
+        public static readonly Address SporkAddress =
+            Parse("z1qxemdeddedxsp0rkxxxxxxxxxxxxxxxx956u48");
         public static readonly Address AcceleratorAddress =
             Parse("z1qxemdeddedxaccelerat0rxxxxxxxxxxp4tk22");
         public static readonly Address HtlcAddress =
@@ -39,6 +40,7 @@ namespace Zenon.Model.Primitives
             SentinelAddress,
             SwapAddress,
             StakeAddress,
+            SporkAddress,
             AcceleratorAddress,
             HtlcAddress
         };

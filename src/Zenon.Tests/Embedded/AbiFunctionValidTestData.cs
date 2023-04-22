@@ -44,7 +44,6 @@ namespace Zenon.Embedded.TestData
                 Definitions.Htlc,
                 "Create",
                 new object[] { address, 1668077642L, 0, 32, BytesUtils.FromHexString("de543a6cab8db5bdc086d1720b97b0f097458841cd0264d789350e3b07587f5b") },
-
                 Convert.FromHexString("5c7e7110000000000000000000000000001f74a72493eebdcc75463481b4e2d812c7090300000000000000000000000000000000000000000000000000000000636cd84a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000020de543a6cab8db5bdc086d1720b97b0f097458841cd0264d789350e3b07587f5b")
             };
             yield return new object[]
@@ -76,7 +75,24 @@ namespace Zenon.Embedded.TestData
                 Convert.FromHexString("57758f10")
             };
             #endregion
-
+            
+            #region Spork functions
+            yield return new object[]
+            {
+                Definitions.Spork,
+                "CreateSpork",
+                new object[] { "TestSpork", "This is a test spork" },
+                Convert.FromHexString("b602e3110000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000095465737453706f726b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001454686973206973206120746573742073706f726b000000000000000000000000")
+            };
+            yield return new object[]
+            {
+                Definitions.Spork,
+                "ActivateSpork",
+                new object[] { hash.Bytes },
+                Convert.FromHexString("25c54e9605a0fef85008e63f0680b68d11743ba5caf199994d642590febe570b2a84b612")
+            }
+            #endregion
+            
             #region Accelerator functions
             yield return new object[]
             {

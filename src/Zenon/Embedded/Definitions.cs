@@ -154,6 +154,19 @@ namespace Zenon.Embedded
             } },
         };
 
+        private static readonly JEntry[] SporkDefinition = new JEntry[]
+        {
+            new JEntry() { type = "function", name = "CreateSpork", inputs = new JParam[]
+            {
+                new JParam() { name = "name", type = "string" },
+                new JParam() { name = "description", type = "string" }
+            } },
+            new JEntry() { type = "function", name = "ActivateSpork", inputs = new JParam[]
+            {
+                new JParam() { name = "id", type = "hash" }
+            } }
+        };
+        
         private static readonly JEntry[] HtlcDefinition = new JEntry[]
         {
             new JEntry() { type = "function", name = "Create", inputs = new JParam[]
@@ -193,7 +206,8 @@ namespace Zenon.Embedded
         public static readonly Abi.Abi Swap = new Abi.Abi(SwapDefinition);
         public static readonly Abi.Abi Stake = new Abi.Abi(StakeDefinition);
         public static readonly Abi.Abi Accelerator = new Abi.Abi(AcceleratorDefinition);
+        public static readonly Abi.Abi Spork = new Abi.Abi(SporkDefinition);
         public static readonly Abi.Abi Htlc = new Abi.Abi(HtlcDefinition);
         public static readonly Abi.Abi Common = new Abi.Abi(CommonDefinition);
-}
+    }
 }
