@@ -1,0 +1,871 @@
+[
+  {
+    "count": 39,
+    "list": [
+      {
+        "owner": "z1qrgvkphk0cfzrjy2xk63xfajj7ntqcllc5rjjh",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651909450,
+        "id": "e4438ee3bb9f1817f4a1f5bf4440076b389d30a3bb3d064f39fa2c995536d8d5",
+        "name": "vote no if znn a shitcoin",
+        "description": "dump it all",
+        "url": "forum.zenon.org",
+        "znnFundsNeeded": 66600000000,
+        "qsrFundsNeeded": 66600000000,
+        "creationTimestamp": 1651909450,
+        "status": 0,
+        "votes": {
+          "id": "e4438ee3bb9f1817f4a1f5bf4440076b389d30a3bb3d064f39fa2c995536d8d5",
+          "total": 9,
+          "yes": 0,
+          "no": 6
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651890100,
+        "id": "6de62fa7f4c587d1bfdba7dd00d1f1ba616f019c14b10367cb7e78f7165b61f0",
+        "name": "Trololo",
+        "description": "Upcoming daily spamming?",
+        "url": "www.rekt.com",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651890100,
+        "status": 0,
+        "votes": {
+          "id": "6de62fa7f4c587d1bfdba7dd00d1f1ba616f019c14b10367cb7e78f7165b61f0",
+          "total": 8,
+          "yes": 0,
+          "no": 5
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889890,
+        "id": "1c442eb99ed196f342dc726b5b640eae36d09e071e1b70d8ba445abd063dc09f",
+        "name": "If only you were decent beings",
+        "description": "You would have avoided the upcomong weeks of all day spamming",
+        "url": "https://www.youtube.com/watch?v=tBbiVKPGjho",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889890,
+        "status": 0,
+        "votes": {
+          "id": "1c442eb99ed196f342dc726b5b640eae36d09e071e1b70d8ba445abd063dc09f",
+          "total": 8,
+          "yes": 0,
+          "no": 5
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889890,
+        "id": "ec5ffb54075b6ba0711a6a1cbf751e4ff22f90da203abffdf7a76df73227c90e",
+        "name": "There were other ways",
+        "description": "And you can't stop it now",
+        "url": "www.lmao.com",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889890,
+        "status": 0,
+        "votes": {
+          "id": "ec5ffb54075b6ba0711a6a1cbf751e4ff22f90da203abffdf7a76df73227c90e",
+          "total": 8,
+          "yes": 0,
+          "no": 5
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889750,
+        "id": "277cc99e46ce02d5757a841cdaeedc2f4e76081cdec810319380853b358561e4",
+        "name": "Educational community sm",
+        "description": "Watch",
+        "url": "https://www.youtube.com/watch?v=GK87AKIPyZY",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889750,
+        "status": 0,
+        "votes": {
+          "id": "277cc99e46ce02d5757a841cdaeedc2f4e76081cdec810319380853b358561e4",
+          "total": 8,
+          "yes": 0,
+          "no": 5
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889750,
+        "id": "362b2c7d85c9bf4c97a01df2eb2f1af781e70194905100cd61be928925de4991",
+        "name": "if only you had half a brain",
+        "description": "You would have thought about this",
+        "url": "https://youtu.be/CyMUt8cBRsg",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889750,
+        "status": 0,
+        "votes": {
+          "id": "362b2c7d85c9bf4c97a01df2eb2f1af781e70194905100cd61be928925de4991",
+          "total": 8,
+          "yes": 0,
+          "no": 5
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889750,
+        "id": "3bf333638a411954c12b120cc874e0019cea6653e1d3fce296f879da076b661c",
+        "name": "10 Hours of non stop farting",
+        "description": "10 Hours of non stop farting",
+        "url": "https://www.youtube.com/watch?v=o2Is1oTUPHE",
+        "znnFundsNeeded": 10000000000,
+        "qsrFundsNeeded": 20000000000,
+        "creationTimestamp": 1651889750,
+        "status": 0,
+        "votes": {
+          "id": "3bf333638a411954c12b120cc874e0019cea6653e1d3fce296f879da076b661c",
+          "total": 8,
+          "yes": 0,
+          "no": 5
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889750,
+        "id": "50b11503397f9fe9f1d1b34c363b227b5eadd9cf85d96894c8183df668a28a3d",
+        "name": "You asked for this",
+        "description": "Good luck",
+        "url": "https://www.youtube.com/watch?v=GK87AKIPyZY",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889750,
+        "status": 0,
+        "votes": {
+          "id": "50b11503397f9fe9f1d1b34c363b227b5eadd9cf85d96894c8183df668a28a3d",
+          "total": 9,
+          "yes": 0,
+          "no": 6
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889750,
+        "id": "5a115960502e82bed3dd6467bcf0bdb898c38d0b8d3f7254ace92e27a8707833",
+        "name": "Spammong",
+        "description": "Communism 1 / Fucktards 0",
+        "url": "https://www.youtube.com/watch?v=GK87AKIPyZY",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889750,
+        "status": 0,
+        "votes": {
+          "id": "5a115960502e82bed3dd6467bcf0bdb898c38d0b8d3f7254ace92e27a8707833",
+          "total": 9,
+          "yes": 0,
+          "no": 6
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889750,
+        "id": "a3fa2748b46e92af9e3173f96a8bee3d9295abb5150238cb8001c2a2be7677e7",
+        "name": "Communism education #2",
+        "description": "Watch, lubertarian",
+        "url": "https://www.youtube.com/watch?v=DRsrYi-wXro",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889750,
+        "status": 0,
+        "votes": {
+          "id": "a3fa2748b46e92af9e3173f96a8bee3d9295abb5150238cb8001c2a2be7677e7",
+          "total": 9,
+          "yes": 0,
+          "no": 6
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889750,
+        "id": "f0ff3b22b6c3e37b920630868a4538afa67f560e6c6c5c3e79fc86a17c3c42a9",
+        "name": "10 Hours of non stop farting",
+        "description": "10 Hours of non stop farting",
+        "url": "https://www.youtube.com/watch?v=o2Is1oTUPHE",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889750,
+        "status": 0,
+        "votes": {
+          "id": "f0ff3b22b6c3e37b920630868a4538afa67f560e6c6c5c3e79fc86a17c3c42a9",
+          "total": 8,
+          "yes": 0,
+          "no": 5
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889380,
+        "id": "2f7268ed58d201c220273848c61c270d9424791235c031ca955fd8b0b820abdc",
+        "name": "Vote democratic socialists",
+        "description": "You know what to do",
+        "url": "https://berniesanders.com/",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889380,
+        "status": 0,
+        "votes": {
+          "id": "2f7268ed58d201c220273848c61c270d9424791235c031ca955fd8b0b820abdc",
+          "total": 8,
+          "yes": 0,
+          "no": 5
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889380,
+        "id": "51db3d7474921601ee6818b74d6f4d9f451c7348a40d664ea4ffb0081c8c61b3",
+        "name": "To the idiots",
+        "description": "Watch",
+        "url": "https://www.youtube.com/watch?v=kugiufHh800",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889380,
+        "status": 0,
+        "votes": {
+          "id": "51db3d7474921601ee6818b74d6f4d9f451c7348a40d664ea4ffb0081c8c61b3",
+          "total": 8,
+          "yes": 0,
+          "no": 5
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889380,
+        "id": "8c5ad01849909877eef1f4f60839e5ec47b85bf70ed4bb095f7600bb5f48396a",
+        "name": "Watch communists videos 1",
+        "description": "Just watch",
+        "url": "https://www.youtube.com/watch?v=thLgkQBFTPw",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889380,
+        "status": 0,
+        "votes": {
+          "id": "8c5ad01849909877eef1f4f60839e5ec47b85bf70ed4bb095f7600bb5f48396a",
+          "total": 8,
+          "yes": 0,
+          "no": 5
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651889150,
+        "id": "4749de0fb94ac239e3875e267975922d7eafcee9c36944f044371aa162ce014b",
+        "name": "Libertarians have small dicks",
+        "description": "Money make you men",
+        "url": "www.smolpp.com",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651889150,
+        "status": 0,
+        "votes": {
+          "id": "4749de0fb94ac239e3875e267975922d7eafcee9c36944f044371aa162ce014b",
+          "total": 8,
+          "yes": 0,
+          "no": 5
+        }
+      },
+      {
+        "owner": "z1qrw7gnpntxh599yyrsfydrtzu5c9re3ndnj4m2",
+        "phaseIds": [ "05a0fef85008e63f0680b68d11743ba5caf199994d642590febe570b2a84b612" ],
+        "phases": [
+          {
+            "phase": {
+              "projectID": "4c3e1d166ef563bdb2db9ea5b03d9c0d54f748e65d6c455b22632747c684f35c",
+              "acceptedTimestamp": 0,
+              "id": "05a0fef85008e63f0680b68d11743ba5caf199994d642590febe570b2a84b612",
+              "name": "creating a website",
+              "description": "https://medium.com/@domznn/zenon-projects-43d93ee5ca9b",
+              "url": "https://medium.com/@domznn/zenon-projects-43d93ee5ca9b",
+              "znnFundsNeeded": 42500000000,
+              "qsrFundsNeeded": 1250000000000,
+              "creationTimestamp": 1651862710,
+              "status": 0
+            },
+            "votes": {
+              "id": "05a0fef85008e63f0680b68d11743ba5caf199994d642590febe570b2a84b612",
+              "total": 7,
+              "yes": 7,
+              "no": 0
+            }
+          }
+        ],
+        "lastUpdateTimestamp": 1651862710,
+        "id": "4c3e1d166ef563bdb2db9ea5b03d9c0d54f748e65d6c455b22632747c684f35c",
+        "name": "Zenoinformative web + promotional marketing",
+        "description": null,
+        "url": "https://medium.com/@domznn/zenon-projects-ecee320426ba",
+        "znnFundsNeeded": 85000000000,
+        "qsrFundsNeeded": 2499900000000,
+        "creationTimestamp": 1650809630,
+        "status": 1,
+        "votes": {
+          "id": "4c3e1d166ef563bdb2db9ea5b03d9c0d54f748e65d6c455b22632747c684f35c",
+          "total": 28,
+          "yes": 27,
+          "no": 1
+        }
+      },
+      {
+        "owner": "z1qq0hffeyj0htmnr4gc6grd8zmqfvwzgrydt402",
+        "phaseIds": [ "54946aa46c4f8d4bb5a98b2aca8e90311d9388f2d47ab754ad012cb5cd40448d" ],
+        "phases": [
+          {
+            "phase": {
+              "projectID": "2acf48da2bcc420b4d997299807d8b50b4229871214069c9afc39bdad0e27a76",
+              "acceptedTimestamp": 0,
+              "id": "54946aa46c4f8d4bb5a98b2aca8e90311d9388f2d47ab754ad012cb5cd40448d",
+              "name": "Phase 1 - The crypto",
+              "description": "This phase will cover all crypto related aspects of the SDK. The crypto primitives/algorithms (Argon2, Bech, Hash, etc.) and the wallet functionality.",
+              "url": "https://github.com/2bonahill/znn_sdk_rust/blob/main/AZ.md",
+              "znnFundsNeeded": 53300000000,
+              "qsrFundsNeeded": 0,
+              "creationTimestamp": 1651836940,
+              "status": 0
+            },
+            "votes": {
+              "id": "54946aa46c4f8d4bb5a98b2aca8e90311d9388f2d47ab754ad012cb5cd40448d",
+              "total": 8,
+              "yes": 8,
+              "no": 0
+            }
+          }
+        ],
+        "lastUpdateTimestamp": 1651836940,
+        "id": "2acf48da2bcc420b4d997299807d8b50b4229871214069c9afc39bdad0e27a76",
+        "name": "Zenon Rust SDK",
+        "description": "Reference implementation for the Zenon SDK for Rust. Compatible with the Zenon Alphanet - Network of Momentum.",
+        "url": "https://github.com/2bonahill/znn_sdk_rust",
+        "znnFundsNeeded": 143000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1651170200,
+        "status": 1,
+        "votes": {
+          "id": "2acf48da2bcc420b4d997299807d8b50b4229871214069c9afc39bdad0e27a76",
+          "total": 28,
+          "yes": 28,
+          "no": 0
+        }
+      },
+      {
+        "owner": "z1qq36yyfx4wcqpg0rhup57mqwc5mqhct42z99tn",
+        "phaseIds": [ "8ced6574ffcb4f4920d76abc10ca8bb1aa360f126bcefb4140d4a4d698fde861" ],
+        "phases": [
+          {
+            "phase": {
+              "projectID": "1974cdd34f0b9acf646f0013dffdf03f5c853cf26ace0afb6a5e482dfa402a5d",
+              "acceptedTimestamp": 0,
+              "id": "8ced6574ffcb4f4920d76abc10ca8bb1aa360f126bcefb4140d4a4d698fde861",
+              "name": "Phase 0",
+              "description": "Phase 0 covers the build, configure and recruitment phase of the forum. The supplied URL provides specifics around Phase 0 tasks and objectives",
+              "url": "https://forum.zenon.org/t/proposal-zenon-community-forum/253",
+              "znnFundsNeeded": 150000000000,
+              "qsrFundsNeeded": 1500000000000,
+              "creationTimestamp": 1651735030,
+              "status": 0
+            },
+            "votes": {
+              "id": "8ced6574ffcb4f4920d76abc10ca8bb1aa360f126bcefb4140d4a4d698fde861",
+              "total": 8,
+              "yes": 8,
+              "no": 0
+            }
+          }
+        ],
+        "lastUpdateTimestamp": 1651706650,
+        "id": "1974cdd34f0b9acf646f0013dffdf03f5c853cf26ace0afb6a5e482dfa402a5d",
+        "name": "Zenon Community Forum",
+        "description": "Deploy a community forum for Zenon Network where people can post questions, ideas or thoughts. Initially, the forum will focus on general discussion, technical support, how-to’s, development, marketing and Accelerator-Z proposals.",
+        "url": "https://forum.zenon.org/t/proposal-zenon-community-forum/253",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651206060,
+        "status": 1,
+        "votes": {
+          "id": "1974cdd34f0b9acf646f0013dffdf03f5c853cf26ace0afb6a5e482dfa402a5d",
+          "total": 28,
+          "yes": 24,
+          "no": 3
+        }
+      },
+      {
+        "owner": "z1qp6xekrla3dsnrc86wtfqnq0m0cu8la4xvxlng",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651686440,
+        "id": "4356e2c1e636e944b1d9322b32fb0d87637861ab1edf591ac2c443856b4e5397",
+        "name": "Mercatox Listing",
+        "description": "Requesting funds to list again $wZNN on Mercatox CeX, gathering more accessibility. ",
+        "url": "https://medium.com/@john_84734/zenon-listing-on-mercatox-e0eca27a2966",
+        "znnFundsNeeded": 100000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1651686440,
+        "status": 0,
+        "votes": {
+          "id": "4356e2c1e636e944b1d9322b32fb0d87637861ab1edf591ac2c443856b4e5397",
+          "total": 14,
+          "yes": 2,
+          "no": 8
+        }
+      },
+      {
+        "owner": "z1qqrzn9xwjr7re5rytj7mtgvje3lxv56970tl6x",
+        "phaseIds": [ "f45667fd8d590ad4e7850997fdda7ea6ecfcfe8cdb76a9babc8bcdf4574a916f" ],
+        "phases": [
+          {
+            "phase": {
+              "id": "f45667fd8d590ad4e7850997fdda7ea6ecfcfe8cdb76a9babc8bcdf4574a916f",
+              "projectID": "ef1868ea7ccf0fbb5af182f20cb244eaf038b721c0ea96729704f9f70854b44b",
+              "name": "Phase 1",
+              "description": "I've made a plan for phases 1 + 2 on a medium article will refine phase 2 later on.",
+              "url": "https://medium.com/@Zyler9985/zyler-proposal-the-phased-plan-4ec5fac82ae8",
+              "znnFundsNeeded": 10000000000,
+              "qsrFundsNeeded": 200000000000,
+              "creationTimestamp": 1651561570,
+              "acceptedTimestamp": 0,
+              "status": 0
+            },
+            "votes": {
+              "id": "f45667fd8d590ad4e7850997fdda7ea6ecfcfe8cdb76a9babc8bcdf4574a916f",
+              "total": 8,
+              "yes": 8,
+              "no": 0
+            }
+          }
+        ],
+        "lastUpdateTimestamp": 1651561570,
+        "id": "ef1868ea7ccf0fbb5af182f20cb244eaf038b721c0ea96729704f9f70854b44b",
+        "name": "Zyler 1: A series of articles",
+        "description": "A series of articles for marketing Zenon, see link below explaining this.",
+        "url": "https://medium.com/@Zyler9985/zyler-proposal-1-a-series-of-articles-f105b698fedf",
+        "znnFundsNeeded": 10000000000,
+        "qsrFundsNeeded": 500000000000,
+        "creationTimestamp": 1650631980,
+        "status": 1,
+        "votes": {
+          "id": "ef1868ea7ccf0fbb5af182f20cb244eaf038b721c0ea96729704f9f70854b44b",
+          "total": 28,
+          "yes": 26,
+          "no": 2
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651427020,
+        "id": "e893b78db8933829d8840fa4b97513e90f72de31ad41df9a5f66a8246b5cb10e",
+        "name": "Decentralize Wikifeet",
+        "description": "Let's move Wikifeet on the NoM",
+        "url": "https://www.wikifeet.com/",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651427020,
+        "status": 0,
+        "votes": {
+          "id": "e893b78db8933829d8840fa4b97513e90f72de31ad41df9a5f66a8246b5cb10e",
+          "total": 25,
+          "yes": 1,
+          "no": 23
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651185240,
+        "id": "05ca2fb38eb8c8dc760e51471dd02f84537bf27448f0199fc3af5834951ccd31",
+        "name": "Elondrop",
+        "description": "Why is it morally, economically, and politically necessary for Elon to tap into those 179 million global swing votes with an Elondrop?",
+        "url": "https://balajis.com/elondrop/",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1651185240,
+        "status": 0,
+        "votes": {
+          "id": "05ca2fb38eb8c8dc760e51471dd02f84537bf27448f0199fc3af5834951ccd31",
+          "total": 27,
+          "yes": 1,
+          "no": 26
+        }
+      },
+      {
+        "owner": "z1qq6pkmdtlalvnyk30us3mckgr4yzcurgp3a9nf",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1651079300,
+        "id": "481f2f61b3c8bf5fa933359161df5615f7313dfa12dd359be29025e8b7177d5a",
+        "name": "ZNN Aliens Club",
+        "description": "3D printed high-tech NFTs",
+        "url": "https://medium.com/@dr.greenthumb421/znn-aliens-club-3d-printed-high-tech-nfts-cd4e6da77648",
+        "znnFundsNeeded": 400000000000,
+        "qsrFundsNeeded": 4000000000000,
+        "creationTimestamp": 1651079300,
+        "status": 0,
+        "votes": {
+          "id": "481f2f61b3c8bf5fa933359161df5615f7313dfa12dd359be29025e8b7177d5a",
+          "total": 27,
+          "yes": 0,
+          "no": 27
+        }
+      },
+      {
+        "owner": "z1qqt0vslj97pzd0y4ustzfer27xymj6y2pjtp9y",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650807270,
+        "id": "6eba6658128a22b406e10cf23e413df8952b86c8557dd5c737805ff3838aa8cd",
+        "name": "MilkyWay v.2 - NFT Platform",
+        "description": "Non-Fungible-Token Marketplace for Zenon Network ecosystem",
+        "url": "https://forum.zenon.org/t/milky-way-nft-marketplace-for-znn-ecosystem/261",
+        "znnFundsNeeded": 280000000000,
+        "qsrFundsNeeded": 500000000000,
+        "creationTimestamp": 1650807270,
+        "status": 3,
+        "votes": {
+          "id": "6eba6658128a22b406e10cf23e413df8952b86c8557dd5c737805ff3838aa8cd",
+          "total": 28,
+          "yes": 1,
+          "no": 26
+        }
+      },
+      {
+        "owner": "z1qqt0vslj97pzd0y4ustzfer27xymj6y2pjtp9y",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650799520,
+        "id": "fa28cf7b75a5144c0874540e025171ab7b1ed3b71cc9c2ea900d22fcfda6fd52",
+        "name": "MilkyWay - NFT Marketplace",
+        "description": "MilkyWay will be the NFT platform for Zenon ecosystem.",
+        "url": "milkyway.space",
+        "znnFundsNeeded": 280000000000,
+        "qsrFundsNeeded": 500000000000,
+        "creationTimestamp": 1650799520,
+        "status": 3,
+        "votes": {
+          "id": "fa28cf7b75a5144c0874540e025171ab7b1ed3b71cc9c2ea900d22fcfda6fd52",
+          "total": 28,
+          "yes": 0,
+          "no": 27
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650730370,
+        "id": "7a32b7136df5bb9eb692d87aeb2fbfdaeeb867fdfc16d373bc32e8457425a6df",
+        "name": "Holo Network - AMM, better",
+        "description": "A fully decentralized AMM with no slippage and no fee. Built on ZNN.",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1650730370,
+        "status": 3,
+        "votes": {
+          "id": "7a32b7136df5bb9eb692d87aeb2fbfdaeeb867fdfc16d373bc32e8457425a6df",
+          "total": 29,
+          "yes": 2,
+          "no": 27
+        }
+      },
+      {
+        "owner": "z1qq0hffeyj0htmnr4gc6grd8zmqfvwzgrydt402",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650660730,
+        "id": "6cc3dadd9d1ff201e50042cd20ee1bef1117114f5a32dd326959431c20c64d3b",
+        "name": "Zenon Rust SDK",
+        "description": "Reference implementation for the Zenon SDK for Rust. Compatible with the Zenon Alphanet - Network of Momentum. It provides a simple integration with any Rust based project.",
+        "url": "https://github.com/2bonahill/znn_sdk_rust_az",
+        "znnFundsNeeded": 500000000000,
+        "qsrFundsNeeded": 5000000000000,
+        "creationTimestamp": 1650660730,
+        "status": 3,
+        "votes": {
+          "id": "6cc3dadd9d1ff201e50042cd20ee1bef1117114f5a32dd326959431c20c64d3b",
+          "total": 30,
+          "yes": 1,
+          "no": 27
+        }
+      },
+      {
+        "owner": "z1qqrzn9xwjr7re5rytj7mtgvje3lxv56970tl6x",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650632410,
+        "id": "95a1f9d80e43ca7a9d3a1d2b0d9feb7d324d157455bf8ac1675babfcb2c5edfb",
+        "name": "Zyler 2: Zenon Culture",
+        "description": "A twitter account as a source of zenon culture, inspired by Publius, aiming to be more varied and active.",
+        "url": "https://medium.com/@Zyler9985/zyler-proposal-2-zenon-culture-29cacf649fe7",
+        "znnFundsNeeded": 10000000000,
+        "qsrFundsNeeded": 500000000000,
+        "creationTimestamp": 1650632410,
+        "status": 3,
+        "votes": {
+          "id": "95a1f9d80e43ca7a9d3a1d2b0d9feb7d324d157455bf8ac1675babfcb2c5edfb",
+          "total": 25,
+          "yes": 18,
+          "no": 7
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650587080,
+        "id": "ebc41be98356e434edd462b49aa20a9265f5a7c970dc8a8ba5619d78e50cf36d",
+        "name": "Can I have a free haircut?",
+        "description": "Give a free haircut to bambam",
+        "url": "freebambam.com",
+        "znnFundsNeeded": 1000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1650587080,
+        "status": 3,
+        "votes": {
+          "id": "ebc41be98356e434edd462b49aa20a9265f5a7c970dc8a8ba5619d78e50cf36d",
+          "total": 27,
+          "yes": 1,
+          "no": 26
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650586940,
+        "id": "38eb13b900f06900af9a511f7b8131b9588f849d1f7dcc3695d0b102b9c25930",
+        "name": "Decentralize money",
+        "description": "Let's create an electronic peer to peer currency based on crypto stuffs",
+        "url": "bithewwo.com",
+        "znnFundsNeeded": 1000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1650586940,
+        "status": 3,
+        "votes": {
+          "id": "38eb13b900f06900af9a511f7b8131b9588f849d1f7dcc3695d0b102b9c25930",
+          "total": 27,
+          "yes": 1,
+          "no": 26
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650586650,
+        "id": "5f30e475dcf61b0e0925197f1d056b92d0eda0c110241a2f85b046b44463558a",
+        "name": "Zenon Cash",
+        "description": "Zenon Network with bigger momentoums",
+        "url": "zenon.cash",
+        "znnFundsNeeded": 1000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1650586650,
+        "status": 3,
+        "votes": {
+          "id": "5f30e475dcf61b0e0925197f1d056b92d0eda0c110241a2f85b046b44463558a",
+          "total": 26,
+          "yes": 1,
+          "no": 25
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650586420,
+        "id": "5b80c850db0f1f095ee8640f500c17bbce5dd4416dbdfa8073a2a0133b19fe20",
+        "name": "Pump the price",
+        "description": "Let's go on the moon like bobu",
+        "url": "bobu.com",
+        "znnFundsNeeded": 1000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1650586420,
+        "status": 3,
+        "votes": {
+          "id": "5b80c850db0f1f095ee8640f500c17bbce5dd4416dbdfa8073a2a0133b19fe20",
+          "total": 26,
+          "yes": 1,
+          "no": 25
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650586320,
+        "id": "28a3918e2938e430ca8ab0936bc7cf44b637fdd6472955b1bddba8c5d72b7375",
+        "name": "Buy Twitter",
+        "description": "Let's buy Twitter",
+        "url": "twitter.com",
+        "znnFundsNeeded": 1000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1650586320,
+        "status": 3,
+        "votes": {
+          "id": "28a3918e2938e430ca8ab0936bc7cf44b637fdd6472955b1bddba8c5d72b7375",
+          "total": 26,
+          "yes": 1,
+          "no": 25
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650586320,
+        "id": "b3697901ed4f8ed8da859c8f0cc8e63397a2c3f90f999d4e5158e6a5b8fd5b77",
+        "name": "Enlarge my pp",
+        "description": "I'd love more centimeters, thick and long",
+        "url": "ppbig.com",
+        "znnFundsNeeded": 1000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1650586320,
+        "status": 3,
+        "votes": {
+          "id": "b3697901ed4f8ed8da859c8f0cc8e63397a2c3f90f999d4e5158e6a5b8fd5b77",
+          "total": 26,
+          "yes": 1,
+          "no": 25
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650586260,
+        "id": "22a6669dbccce29b3344dda030a447bf6b27cdec5a7e0d874d5c924947e8f43c",
+        "name": "Cancel Joker 2",
+        "description": "The one was a drop mic. Don't come back on stage plz",
+        "url": "joker2no.com",
+        "znnFundsNeeded": 1000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1650586260,
+        "status": 3,
+        "votes": {
+          "id": "22a6669dbccce29b3344dda030a447bf6b27cdec5a7e0d874d5c924947e8f43c",
+          "total": 26,
+          "yes": 1,
+          "no": 25
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650586260,
+        "id": "5eac88a8f22cd688e36255b9ee89d870d9487bd9a6a9cd0a103d7d87875988bc",
+        "name": "Hookers for hewwo",
+        "description": "A hooker a day to make hewwo happy",
+        "url": "sexemodel.com",
+        "znnFundsNeeded": 1000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1650586260,
+        "status": 3,
+        "votes": {
+          "id": "5eac88a8f22cd688e36255b9ee89d870d9487bd9a6a9cd0a103d7d87875988bc",
+          "total": 24,
+          "yes": 1,
+          "no": 23
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650586040,
+        "id": "e7d907a702bf3d671d05d7afa6508b556f80ab1ad83517d0d9b983a70552572d",
+        "name": "Fartn",
+        "description": "Stepn but with farts",
+        "url": "https://fartn.net",
+        "znnFundsNeeded": 1000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1650586040,
+        "status": 3,
+        "votes": {
+          "id": "e7d907a702bf3d671d05d7afa6508b556f80ab1ad83517d0d9b983a70552572d",
+          "total": 26,
+          "yes": 1,
+          "no": 25
+        }
+      },
+      {
+        "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650585700,
+        "id": "181d796b08ee088bf91bc180d1bf70ff9c3a7b2e763e5481ac959d7a131567fa",
+        "name": "Big Fat Zendaya NFT feet",
+        "description": "A collection of 10000 NFT of Zendaya extra large feet",
+        "url": "https://www.wikifeet.com/Zendaya",
+        "znnFundsNeeded": 1000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1650585700,
+        "status": 3,
+        "votes": {
+          "id": "181d796b08ee088bf91bc180d1bf70ff9c3a7b2e763e5481ac959d7a131567fa",
+          "total": 26,
+          "yes": 1,
+          "no": 25
+        }
+      },
+      {
+        "owner": "z1qqkxle5chuhk2x0p598qwxyv7gc3604qf9c0a5",
+        "phaseIds": [],
+        "phases": [],
+        "lastUpdateTimestamp": 1650573460,
+        "id": "cc88a7b3ba8bb6a26619d8a4688c32dc0d54c065e8b685c9cbbb5cc83de83287",
+        "name": "Test",
+        "description": "Test",
+        "url": "Test.com",
+        "znnFundsNeeded": 1000000000,
+        "qsrFundsNeeded": 10000000000,
+        "creationTimestamp": 1650573460,
+        "status": 3,
+        "votes": {
+          "id": "cc88a7b3ba8bb6a26619d8a4688c32dc0d54c065e8b685c9cbbb5cc83de83287",
+          "total": 26,
+          "yes": 1,
+          "no": 24
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "version": 1,
+    "chainIdentifier": 1,
+    "hash": "e72c3485209ccd72ab61bb807a1e04e7861642f10683bea353575f4296b03ecc",
+    "previousHash": "8bf0f71c4d6bd8f52663885722ab4862deb41a62e99c530027f413404b177c0d",
+    "height": 1390966,
+    "timestamp": 1652165930,
+    "data": null,
+    "content": [],
+    "changesHash": "a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a",
+    "publicKey": "pPM27W6X3qngoo+wjt5D9BSNrNkLnyHZcmYr+UB8r7A=",
+    "signature": "8TMpgC8O/VYhjLxUj2gHK7jcvH+SBELkYixicx5eA5jlxQTpzqohXRv93BkSdtmDAdpvzF1ADtnJo9uF0Gb5DQ==",
+    "producer": "z1qzj9lsa6aceay3uxrd499nw04wk947rja76et0"
+  }
+]

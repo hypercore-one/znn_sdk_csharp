@@ -1,0 +1,155 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Zenon</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\api\embedded\accelerator\getAll.json" />
+    <None Remove="Resources\api\embedded\accelerator\getPhaseById.json" />
+    <None Remove="Resources\api\embedded\accelerator\getPillarVotes.json" />
+    <None Remove="Resources\api\embedded\accelerator\getProjectById.json" />
+    <None Remove="Resources\api\embedded\accelerator\getVoteBreakdown.json" />
+    <None Remove="Resources\api\embedded\htlc\getHtlcInfoById.json" />
+    <None Remove="Resources\api\embedded\htlc\getHtlcInfosByHashLockedAddress.json" />
+    <None Remove="Resources\api\embedded\htlc\getHtlcInfosByTimeLockedAddress.json" />
+    <None Remove="Resources\api\embedded\pillar\getAll.json" />
+    <None Remove="Resources\api\embedded\pillar\getByName.json" />
+    <None Remove="Resources\api\embedded\pillar\getByOwner.json" />
+    <None Remove="Resources\api\embedded\pillar\getDelegatedPillar.json" />
+    <None Remove="Resources\api\embedded\pillar\getFrontierRewardByPage.json" />
+    <None Remove="Resources\api\embedded\pillar\getPillarEpochHistory.json" />
+    <None Remove="Resources\api\embedded\pillar\getPillarsHistoryByEpoch.json" />
+    <None Remove="Resources\api\embedded\pillar\getUncollectedReward.json" />
+    <None Remove="Resources\api\embedded\plasma\get.json" />
+    <None Remove="Resources\api\embedded\plasma\getEntriesByAddress.json" />
+    <None Remove="Resources\api\embedded\plasma\getRequiredPoWForAccountBlock.json" />
+    <None Remove="Resources\api\embedded\sentinel\getAllActive.json" />
+    <None Remove="Resources\api\embedded\sentinel\getByOwner.json" />
+    <None Remove="Resources\api\embedded\sentinel\getFrontierRewardByPage.json" />
+    <None Remove="Resources\api\embedded\sentinel\getUncollectedReward.json" />
+    <None Remove="Resources\api\embedded\spork\getAll.json" />
+    <None Remove="Resources\api\embedded\stake\getEntriesByAddress.json" />
+    <None Remove="Resources\api\embedded\stake\getFrontierRewardByPage.json" />
+    <None Remove="Resources\api\embedded\stake\getUncollectedReward.json" />
+    <None Remove="Resources\api\embedded\swap\getAssets.json" />
+    <None Remove="Resources\api\embedded\swap\getAssetsByKeyIdHash.json" />
+    <None Remove="Resources\api\embedded\swap\getLegacyPillars.json" />
+    <None Remove="Resources\api\embedded\token\getAll.json" />
+    <None Remove="Resources\api\embedded\token\getByOwner.json" />
+    <None Remove="Resources\api\embedded\token\getByZts.json" />
+    <None Remove="Resources\api\ledger\getAccountBlockByHash.json" />
+    <None Remove="Resources\api\ledger\getAccountBlocksByHeight.json" />
+    <None Remove="Resources\api\ledger\getAccountBlocksByPage.json" />
+    <None Remove="Resources\api\ledger\getFrontierAccountBlock.json" />
+    <None Remove="Resources\api\ledger\getFrontierMomentum.json" />
+    <None Remove="Resources\api\ledger\getMomentumBeforeTime.json" />
+    <None Remove="Resources\api\ledger\getMomentumByHash.json" />
+    <None Remove="Resources\api\ledger\getMomentumsByHeight.json" />
+    <None Remove="Resources\api\ledger\getUnconfirmedBlocksByAddress.json" />
+    <None Remove="Resources\api\ledger\getUnreceivedBlocksByAddress.json" />
+    <None Remove="Resources\model\embedded\project.json" />
+    <None Remove="Resources\model\embedded\projectList.json" />
+    <None Remove="Resources\model\networkInfo.json" />
+    <None Remove="Resources\model\nom\accountBlock.json" />
+    <None Remove="Resources\model\nom\accountBlockList.json" />
+    <None Remove="Resources\model\nom\accountInfo.json" />
+    <None Remove="Resources\model\nom\detailedMomentumList.json" />
+    <None Remove="Resources\model\nom\momentum.json" />
+    <None Remove="Resources\model\nom\momentumList.json" />
+    <None Remove="Resources\model\nom\tokenList.json" />
+    <None Remove="Resources\model\osInfo.json" />
+    <None Remove="Resources\model\processInfo.json" />
+    <None Remove="Resources\model\syncInfo.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\api\embedded\accelerator\getAll.json" />
+    <EmbeddedResource Include="Resources\api\embedded\accelerator\getPhaseById.json" />
+    <EmbeddedResource Include="Resources\api\embedded\accelerator\getPillarVotes.json" />
+    <EmbeddedResource Include="Resources\api\embedded\accelerator\getProjectById.json" />
+    <EmbeddedResource Include="Resources\api\embedded\accelerator\getVoteBreakdown.json" />
+    <EmbeddedResource Include="Resources\api\embedded\htlc\getHtlcInfoById.json" />
+    <EmbeddedResource Include="Resources\api\embedded\htlc\getHtlcInfosByHashLockedAddress.json" />
+    <EmbeddedResource Include="Resources\api\embedded\htlc\getHtlcInfosByTimeLockedAddress.json" />
+    <EmbeddedResource Include="Resources\api\embedded\pillar\getAll.json" />
+    <EmbeddedResource Include="Resources\api\embedded\pillar\getByName.json" />
+    <EmbeddedResource Include="Resources\api\embedded\pillar\getByOwner.json" />
+    <EmbeddedResource Include="Resources\api\embedded\pillar\getDelegatedPillar.json" />
+    <EmbeddedResource Include="Resources\api\embedded\pillar\getFrontierRewardByPage.json" />
+    <EmbeddedResource Include="Resources\api\embedded\pillar\getPillarEpochHistory.json" />
+    <EmbeddedResource Include="Resources\api\embedded\pillar\getPillarsHistoryByEpoch.json" />
+    <EmbeddedResource Include="Resources\api\embedded\pillar\getUncollectedReward.json" />
+    <EmbeddedResource Include="Resources\api\embedded\plasma\get.json" />
+    <EmbeddedResource Include="Resources\api\embedded\plasma\getEntriesByAddress.json" />
+    <EmbeddedResource Include="Resources\api\embedded\plasma\getRequiredPoWForAccountBlock.json" />
+    <EmbeddedResource Include="Resources\api\embedded\sentinel\getAllActive.json" />
+    <EmbeddedResource Include="Resources\api\embedded\sentinel\getByOwner.json" />
+    <EmbeddedResource Include="Resources\api\embedded\sentinel\getFrontierRewardByPage.json" />
+    <EmbeddedResource Include="Resources\api\embedded\sentinel\getUncollectedReward.json" />
+    <EmbeddedResource Include="Resources\api\embedded\spork\getAll.json" />
+    <EmbeddedResource Include="Resources\api\embedded\stake\getEntriesByAddress.json" />
+    <EmbeddedResource Include="Resources\api\embedded\stake\getFrontierRewardByPage.json" />
+    <EmbeddedResource Include="Resources\api\embedded\stake\getUncollectedReward.json" />
+    <EmbeddedResource Include="Resources\api\embedded\swap\getAssets.json" />
+    <EmbeddedResource Include="Resources\api\embedded\swap\getAssetsByKeyIdHash.json" />
+    <EmbeddedResource Include="Resources\api\embedded\swap\getLegacyPillars.json" />
+    <EmbeddedResource Include="Resources\api\embedded\token\getAll.json" />
+    <EmbeddedResource Include="Resources\api\embedded\token\getByOwner.json" />
+    <EmbeddedResource Include="Resources\api\embedded\token\getByZts.json" />
+    <EmbeddedResource Include="Resources\api\ledger\getAccountBlockByHash.json" />
+    <EmbeddedResource Include="Resources\api\ledger\getAccountBlocksByHeight.json" />
+    <EmbeddedResource Include="Resources\api\ledger\getAccountBlocksByPage.json" />
+    <EmbeddedResource Include="Resources\api\ledger\getFrontierAccountBlock.json" />
+    <EmbeddedResource Include="Resources\api\ledger\getFrontierMomentum.json" />
+    <EmbeddedResource Include="Resources\api\ledger\getMomentumBeforeTime.json" />
+    <EmbeddedResource Include="Resources\api\ledger\getMomentumByHash.json" />
+    <EmbeddedResource Include="Resources\api\ledger\getMomentumsByHeight.json" />
+    <EmbeddedResource Include="Resources\api\ledger\getUnconfirmedBlocksByAddress.json" />
+    <EmbeddedResource Include="Resources\api\ledger\getUnreceivedBlocksByAddress.json" />
+    <EmbeddedResource Include="Resources\model\embedded\project.json" />
+    <EmbeddedResource Include="Resources\model\embedded\projectList.json" />
+    <EmbeddedResource Include="Resources\model\networkInfo.json" />
+    <EmbeddedResource Include="Resources\model\nom\accountBlock.json" />
+    <EmbeddedResource Include="Resources\model\nom\accountBlockList.json" />
+    <EmbeddedResource Include="Resources\model\nom\accountInfo.json" />
+    <EmbeddedResource Include="Resources\model\nom\detailedMomentumList.json" />
+    <EmbeddedResource Include="Resources\model\nom\momentum.json" />
+    <EmbeddedResource Include="Resources\model\nom\momentumList.json" />
+    <EmbeddedResource Include="Resources\model\nom\tokenList.json" />
+    <EmbeddedResource Include="Resources\model\osInfo.json" />
+    <EmbeddedResource Include="Resources\model\processInfo.json" />
+    <EmbeddedResource Include="Resources\model\syncInfo.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="6.7.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageReference Include="Moq" Version="4.18.1" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.1.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Zenon\Zenon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.5.107" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Model\" />
+  </ItemGroup>
+
+</Project>

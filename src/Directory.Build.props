@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<Authors>CryptoFish</Authors>
+		<Copyright>2022</Copyright>
+		<Description>Reference implementation for the Zenon SDK for C#</Description>
+		<PackageTags>zenon, nom, znn, qsr, zts, sdk, dotnet, csharp</PackageTags>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+		<OutputPath>..\..\bin\$(MSBuildProjectName)\$(Configuration.ToLower())\</OutputPath>
+		<ProjectUrl>https://zenon.network</ProjectUrl>
+		<RepositoryUrl>https://github.com/KingGorrin/znn_sdk_csharp</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IsTestProject>$(MSBuildProjectName.Contains('Tests'))</IsTestProject>
+		<SourceLinkEnabled>true</SourceLinkEnabled>
+		<GenerateDocumentationFile Condition="'$(Configuration)' == 'Release' and '$(IsTestProject)' != 'true'">false</GenerateDocumentationFile>
+		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+		<PackageOutputPath>..\..\packages</PackageOutputPath>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Nerdbank.GitVersioning" Condition="!Exists('packages.config')">
+			<PrivateAssets>all</PrivateAssets>
+			<Version>3.5.103</Version>
+		</PackageReference>
+	</ItemGroup>
+</Project>

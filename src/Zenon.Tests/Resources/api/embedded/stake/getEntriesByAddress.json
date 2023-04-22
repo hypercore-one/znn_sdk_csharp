@@ -1,0 +1,23 @@
+{
+  "totalAmount": 150000000000,
+  "totalWeightedAmount": 160000000000,
+  "count": 2,
+  "list": [
+    {
+      "amount": 100000000000,
+      "weightedAmount": 110000000000,
+      "startTimestamp": 1640960600,
+      "expirationTimestamp": 1646144600,
+      "address": "z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y",
+      "id": "ac02074302bfe831b994578fe7b5f0970055f781fd4d30a7a72c3f0c9eecdbab"
+    },
+    {
+      "amount": 50000000000,
+      "weightedAmount": 50000000000,
+      "startTimestamp": 1646143090,
+      "expirationTimestamp": 1648735090,
+      "address": "z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y",
+      "id": "ab34b4626b3d76e1a3e4e7bfcd916069e8d8d2303b5baf3a5614514194e66be9"
+    }
+  ]
+}

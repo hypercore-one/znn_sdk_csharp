@@ -1,0 +1,43 @@
+[
+  {
+    "owner": "z1qqrzn9xwjr7re5rytj7mtgvje3lxv56970tl6x",
+    "phaseIds": [ "f45667fd8d590ad4e7850997fdda7ea6ecfcfe8cdb76a9babc8bcdf4574a916f" ],
+    "phases": [
+      {
+        "phase": {
+          "id": "f45667fd8d590ad4e7850997fdda7ea6ecfcfe8cdb76a9babc8bcdf4574a916f",
+          "projectID": "ef1868ea7ccf0fbb5af182f20cb244eaf038b721c0ea96729704f9f70854b44b",
+          "name": "Phase 1",
+          "description": "I've made a plan for phases 1 + 2  on a medium article, will refine phase 2 later on.",
+          "url": "https://medium.com/@Zyler9985/zyler-proposal-the-phased-plan-4ec5fac82ae8",
+          "znnFundsNeeded": 10000000000,
+          "qsrFundsNeeded": 200000000000,
+          "creationTimestamp": 1651561570,
+          "acceptedTimestamp": 0,
+          "status": 0
+        },
+        "votes": {
+          "id": "f45667fd8d590ad4e7850997fdda7ea6ecfcfe8cdb76a9babc8bcdf4574a916f",
+          "total": 9,
+          "yes": 9,
+          "no": 0
+        }
+      }
+    ],
+    "lastUpdateTimestamp": 1651561570,
+    "id": "ef1868ea7ccf0fbb5af182f20cb244eaf038b721c0ea96729704f9f70854b44b",
+    "name": "Zyler 1: A series of articles",
+    "description": "A series of articles for marketing Zenon, see link below explaining this.",
+    "url": "https://medium.com/@Zyler9985/zyler-proposal-1-a-series-of-articles-f105b698fedf",
+    "znnFundsNeeded": 10000000000,
+    "qsrFundsNeeded": 500000000000,
+    "creationTimestamp": 1650631980,
+    "status": 1,
+    "votes": {
+      "id": "ef1868ea7ccf0fbb5af182f20cb244eaf038b721c0ea96729704f9f70854b44b",
+      "total": 28,
+      "yes": 26,
+      "no": 2
+    }
+  }
+]

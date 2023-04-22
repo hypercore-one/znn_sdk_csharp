@@ -1,0 +1,92 @@
+[
+  {
+    "numPeers": 16,
+    "peers": [
+      {
+        "publicKey": "db3de09472c37eb7ce6a73e161705534719cc59e589873950d187b301ed66232a47508167a97e2ea938c64a36b15ff6465ac912f84a8f817e69da975dd927100",
+        "ip": "167.99.45.34",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "81ce7179e4fb25d9bef53b2c981a4c2c917afe12f1d90aae765a274c47b34d9a3c0eb71ee1361c689459ee9316d2f0bd610ff29476b39354e8308017da36e6f2",
+        "ip": "51.178.138.91",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "8da3624a825e9cc3536c6065f06f0dd38c4703bf32299f171a1d0e69d249c887220b875e1a82a38f8ecb37971d6c6d7741889abe942a1ddef75ac9dce3aa0575",
+        "ip": "62.171.148.56",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "8a248e0401bdd75cff75fa51127f191e76a7a8a51190150c0134ec0280e0b2d0e41c02c35ecfbf9e6743a6f37dc6ad29137ccfa4edddd603beb18a5f7815a83f",
+        "ip": "83.136.253.45",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "916aa48165071bf1e86bc4bca272c86e092e981d210b3d7a29b099bdbda1aec362f7e085e603c3ae6a25833b44000519658e8aaa72c9ad13477a2a548ebb62ad",
+        "ip": "167.99.47.146",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "4c38beeab6bc5531fbe49ebc8c2297d708631a41431b1fd624ddaecd2adda516b25e6de6483a59dededd92b763ad5afc805dcc9b49d6acfdf58c8d244387ff18",
+        "ip": "216.128.178.220",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "39e3663c80022fcd2316f304852cceb333a948b84468d0a3c91f4e8884ee0b58ea28e17d83de7c49e57e662678fd17649526235a25538f798ccf32c1aa04807e",
+        "ip": "192.153.57.243",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "8101aa3b1c8a9e4d1fb7adc8b7a85953a00e88b53522b3e83bb274b27090b11422f75b78d49ce352d064d4e37d97e7e49af9cad45965102b1c35fd1174d71694",
+        "ip": "51.79.167.98",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "58157c8aa8ab2522f2692e6915edb0ddc2955feaa3edc30e8856eec8274b66a2278b69c6b8a3a23f9dcdb898cd8a69384cf26e513b2607e6065b4faeb98eda01",
+        "ip": "188.166.54.149",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "fbb0db8326feb56058a8cfa5d91d73f098e1b4a69ca0613a0babe44303d56edb68434209cae0f7ffa4364628d2a15e9781e9f4f1cad6b6723341624eaad29e0b",
+        "ip": "139.59.210.101",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "66c8bdfd255d4396fcc266ba10d2be09e1cdc62b4599bbc0a638e3ec858e8d3042c3a0a8d12b62141d7f683686fefae37c3393c7917be993d51d143e1951bad9",
+        "ip": "94.237.89.84",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "f0e3e1f507c7cc5a2d2cf0eb173c204c820786c7cecbc0118d1cf76e5eaba90348ce57e5c9dee35c27a40f5a44dafc61b8996f00bb33647c66f66c997ce6592b",
+        "ip": "206.188.197.194",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "58d37ec958e19e4fcc30de449c86859999872a1de722c8a9bbfce666e38ea8386f8bcb83d4be7edc3593fd7e823d6f116cc5980c99c3c6f776941fbb6dd9c65c",
+        "ip": "157.245.58.189",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "e65a83e5c4b3976f80b60ce39cb461fbfffa00b3d7390c654e30816713e6567e907aeb75c59130fb4369879ad6e072ff507cd7fe4a020c8ac6732ed61024915c",
+        "ip": "178.18.250.182",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "05a237f3ce1b60c8bd7a5ac8067985e672d9637018166e4f92dab1a2941d7476843f3185394181965611cf0c074361ce55adca4e4f8ce27af9f19317c135fd1a",
+        "ip": "172.105.250.174",
+        "name": "v0.0.4"
+      },
+      {
+        "publicKey": "d55cab15a4a5611addb5821406db727768ec8d60fe896bcc8e992150d45f88839c86c1b2a80b5105208d28a49f6eb4dba7efd60b6204f098e037401a7654f016",
+        "ip": "206.166.251.172",
+        "name": "v0.0.4"
+      }
+    ],
+    "self": {
+      "publicKey": "4003fba9e3fa0dc7a2065149f9ffabf8d39723bf67c93e5a4a61f29881ed709190984fb7db381fc6cd0dee99b6840d89d78af4f345052cb5c8fc7ecce1ac3e14",
+      "ip": "127.0.0.1",
+      "name": "*self*"
+    }
+  }
+]

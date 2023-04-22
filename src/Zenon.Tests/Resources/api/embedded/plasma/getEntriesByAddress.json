@@ -1,0 +1,12 @@
+{
+  "qsrAmount": 1000000000,
+  "count": 1,
+  "list": [
+    {
+      "qsrAmount": 1000000000,
+      "beneficiary": "z1qqylpfyyrj5t8pe99n4nf4x634vxse96fg7sge",
+      "expirationHeight": 824951,
+      "id": "6b3dc54c6637c464dc233c1df40b7979dee20084c395087a99a0639747d691bd"
+    }
+  ]
+}

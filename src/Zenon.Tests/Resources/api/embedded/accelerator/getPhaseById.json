@@ -1,0 +1,20 @@
+{
+  "phase": {
+    "projectID": "2acf48da2bcc420b4d997299807d8b50b4229871214069c9afc39bdad0e27a76",
+    "acceptedTimestamp": 0,
+    "id": "54946aa46c4f8d4bb5a98b2aca8e90311d9388f2d47ab754ad012cb5cd40448d",
+    "name": "Phase 1 - The crypto",
+    "description": "This phase will cover all crypto related aspects of the SDK. The crypto primitives/algorithms (Argon2, Bech, Hash, etc.) and the wallet functionality.",
+    "url": "https://github.com/2bonahill/znn_sdk_rust/blob/main/AZ.md",
+    "znnFundsNeeded": 53300000000,
+    "qsrFundsNeeded": 0,
+    "creationTimestamp": 1651836940,
+    "status": 0
+  },
+  "votes": {
+    "id": "54946aa46c4f8d4bb5a98b2aca8e90311d9388f2d47ab754ad012cb5cd40448d",
+    "total": 8,
+    "yes": 8,
+    "no": 0
+  }
+}
