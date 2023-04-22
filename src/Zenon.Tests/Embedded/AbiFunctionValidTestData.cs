@@ -90,7 +90,7 @@ namespace Zenon.Embedded.TestData
                 "ActivateSpork",
                 new object[] { hash.Bytes },
                 Convert.FromHexString("25c54e9605a0fef85008e63f0680b68d11743ba5caf199994d642590febe570b2a84b612")
-            }
+            };
             #endregion
             
             #region Accelerator functions
