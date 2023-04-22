@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Embedded.TestData
 {
@@ -33,6 +35,45 @@ namespace Zenon.Embedded.TestData
                 "WithdrawQsr",
                 new object[0],
                 Convert.FromHexString("B3D658FD")
+            };
+            #endregion
+
+            #region Htlc functions
+            yield return new object[]
+            {
+                Definitions.Htlc,
+                "Create",
+                new object[] { address, 1668077642L, 0, 32, BytesUtils.FromHexString("de543a6cab8db5bdc086d1720b97b0f097458841cd0264d789350e3b07587f5b") },
+
+                Convert.FromHexString("5c7e7110000000000000000000000000001f74a72493eebdcc75463481b4e2d812c7090300000000000000000000000000000000000000000000000000000000636cd84a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000020de543a6cab8db5bdc086d1720b97b0f097458841cd0264d789350e3b07587f5b")
+            };
+            yield return new object[]
+            {
+                Definitions.Htlc,
+                "Reclaim",
+                new object[] { hash.Bytes },
+                Convert.FromHexString("7e003c8d05a0fef85008e63f0680b68d11743ba5caf199994d642590febe570b2a84b612")
+            };
+            yield return new object[]
+            {
+                Definitions.Htlc,
+                "Unlock",
+                new object[] { hash.Bytes, Encoding.UTF8.GetBytes("all your znn belong to us") },
+                Convert.FromHexString("d33791d305a0fef85008e63f0680b68d11743ba5caf199994d642590febe570b2a84b61200000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000019616c6c20796f7572207a6e6e2062656c6f6e6720746f20757300000000000000")
+            };
+            yield return new object[]
+            {
+                Definitions.Htlc,
+                "DenyProxyUnlock",
+                new object[] { },
+                Convert.FromHexString("e17c39ed")
+            };
+            yield return new object[]
+            {
+                Definitions.Htlc,
+                "AllowProxyUnlock",
+                new object[] { },
+                Convert.FromHexString("57758f10")
             };
             #endregion
 

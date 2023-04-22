@@ -25,11 +25,12 @@ namespace Zenon.Model.Primitives
             Parse("z1qxemdeddedxswapxxxxxxxxxxxxxxxxxxl4yww");
         public static readonly Address StakeAddress =
             Parse("z1qxemdeddedxstakexxxxxxxxxxxxxxxxjv8v62");
-        public static readonly Address SporkAddress =
-            Parse("z1qxemdeddedxsp0rkxxxxxxxxxxxxxxxx956u48");
+        
         public static readonly Address AcceleratorAddress =
             Parse("z1qxemdeddedxaccelerat0rxxxxxxxxxxp4tk22");
-
+        public static readonly Address HtlcAddress =
+            Parse("z1qxemdeddedxhtlcxxxxxxxxxxxxxxxxxygecvw");
+        
         public static readonly Address[] EmbeddedContractAddresses = new Address[]
         {
             PlasmaAddress,
@@ -38,7 +39,8 @@ namespace Zenon.Model.Primitives
             SentinelAddress,
             SwapAddress,
             StakeAddress,
-            AcceleratorAddress
+            AcceleratorAddress,
+            HtlcAddress
         };
 
         public static bool operator ==(Address obj1, Address obj2)
@@ -109,7 +111,6 @@ namespace Zenon.Model.Primitives
             var longString = ToString();
             return longString.Substring(0, 7) + "..." + longString.Substring(longString.Length - 6);
         }
-
 
         public override int GetHashCode()
         {

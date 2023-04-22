@@ -1,10 +1,12 @@
 ﻿using FluentAssertions;
 using Moq;
 using System;
+using System.Text;
 using Xunit;
 using Zenon.Api.Embedded;
 using Zenon.Client;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Api
 {
@@ -19,6 +21,97 @@ namespace Zenon.Api
 
             public EmbeddedApi Api { get; }
         }
+
+        #region Htlc
+        public class Htlc : IClassFixture<EmbeddedApiFixture>
+        {
+            public HtlcApi Api { get; }
+
+            public Htlc(EmbeddedApiFixture fixture)
+            {
+                this.Api = fixture.Api.Htlc;
+            }
+
+            [Fact]
+            public void When_Create_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxhtlcxxxxxxxxxxxxxxxxxygecvw", "zts1znnxxxxxxxxxxxxx9z4ulx", 10000000000L,
+                    "XH5xEAAAAAAAAAAAAAAAAABhJkXCFzgm8ajy065dg9QtXqD7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGNs2EoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIN5UOmyrjbW9wIbRcguXsPCXRYhBzQJk14k1DjsHWH9b");
+
+                // Execute
+                var block = this.Api.Create(
+                    TokenStandard.ZnnZts, 10000000000L,
+                        Address.Parse("z1qpsjv3wzzuuzdudg7tf6uhvr6sk4ag8me42ua4"), 1668077642L,
+                        0, 32, BytesUtils.FromHexString("de543a6cab8db5bdc086d1720b97b0f097458841cd0264d789350e3b07587f5b"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Reclaim_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxhtlcxxxxxxxxxxxxxxxxxygecvw",
+                    "zts1znnxxxxxxxxxxxxx9z4ulx", 0, "fgA8jVnkOgCVs2M3kRjJ4oOEQtwrHqWWJLGK6txc1mFWB5Qe");
+                
+                // Execute
+                var block = this.Api.Reclaim(
+                        Hash.Parse("59e43a0095b363379118c9e2838442dc2b1ea59624b18aeadc5cd6615607941e"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Unlock_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxhtlcxxxxxxxxxxxxxxxxxygecvw", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                        "0zeR059uMIjiaH5kL0wPPyn7IZEfpcoaumbcBUP7xu7gFmTtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGWFsbCB5b3VyIHpubiBiZWxvbmcgdG8gdXMAAAAAAAAA");
+
+                // Execute
+                var block = this.Api.Unlock(
+                        Hash.Parse("9f6e3088e2687e642f4c0f3f29fb21911fa5ca1aba66dc0543fbc6eee01664ed"),
+                        Encoding.UTF8.GetBytes("all your znn belong to us"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_DenyProxyUnlock_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxhtlcxxxxxxxxxxxxxxxxxygecvw", "zts1znnxxxxxxxxxxxxx9z4ulx", 0, "4Xw57Q==");
+
+                // Execute
+                var block = this.Api.DenyProxyUnlock();
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_AllowProxyUnlock_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxhtlcxxxxxxxxxxxxxxxxxygecvw", "zts1znnxxxxxxxxxxxxx9z4ulx", 0, "V3WPEA==");
+
+                // Execute
+                var block = this.Api.AllowProxyUnlock();
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+        }
+        #endregion
 
         #region Accelerator
         public partial class Accelerator : IClassFixture<EmbeddedApiFixture>

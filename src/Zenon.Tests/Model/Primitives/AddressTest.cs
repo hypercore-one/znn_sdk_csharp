@@ -68,14 +68,6 @@ namespace Zenon.Model.Primitives
             };
             yield return new object[]
             {
-                "z1qxemdeddedxsp0rkxxxxxxxxxxxxxxxx956u48",
-                "z1qxemd...956u48",
-                "z",
-                Convert.FromHexString("01b3b6e5adcb4d00bc76318c6318c6318c6318c6"),
-                false
-            };
-            yield return new object[]
-            {
                 "z1qxemdeddedxaccelerat0rxxxxxxxxxxp4tk22",
                 "z1qxemd...p4tk22",
                 "z",
