@@ -166,7 +166,7 @@ namespace Zenon.Embedded
                 new JParam() { name = "id", type = "hash" }
             } }
         };
-        
+
         private static readonly JEntry[] HtlcDefinition = new JEntry[]
         {
             new JEntry() { type = "function", name = "Create", inputs = new JParam[]
@@ -190,6 +190,60 @@ namespace Zenon.Embedded
             new JEntry() { type = "function", name = "AllowProxyUnlock", inputs = new JParam[0] }
         };
 
+        private static readonly JEntry[] LiquidityDefinition = new JEntry[]
+        {
+            new JEntry() { type = "function", name = "Update", inputs = new JParam[0] },
+            new JEntry() { type = "function", name = "Donate", inputs = new JParam[0] },
+            new JEntry() { type = "function", name = "Fund", inputs = new JParam[]
+            {
+                new JParam() { name = "znnReward", type = "uint256" },
+                new JParam() { name = "qsrReward", type = "uint256" }
+            } },
+            new JEntry() { type = "function", name = "BurnZnn", inputs = new JParam[]
+            {
+                new JParam() { name = "burnAmount", type = "uint256" }
+            } },
+            new JEntry() { type = "function", name = "SetTokenTuple", inputs = new JParam[]
+            {
+                new JParam() { name = "tokenStandards", type = "string[]" },
+                new JParam() { name = "znnPercentages", type = "uint32[]" },
+                new JParam() { name = "qsrPercentages", type = "uint32[]" },
+                new JParam() { name = "minAmounts", type = "uint256[]" }
+            } },
+            new JEntry() { type = "function", name = "NominateGuardians", inputs = new JParam[]
+            {
+                new JParam() { name = "guardians", type = "address[]" }
+            } },
+            new JEntry() { type = "function", name = "ProposeAdministrator", inputs = new JParam[]
+            {
+                new JParam() { name = "address", type = "address[]" }
+            } },
+            new JEntry() { type = "function", name = "Emergency", inputs = new JParam[0] },
+            new JEntry() { type = "function", name = "SetIsHalted", inputs = new JParam[]
+            {
+                new JParam() { name = "isHalted", type = "bool" }
+            } },
+            new JEntry() { type = "function", name = "LiquidityStake", inputs = new JParam[]
+            {
+                new JParam() { name = "durationInSec", type = "int64" }
+            } },
+            new JEntry() { type = "function", name = "CancelLiquidityStake", inputs = new JParam[]
+            {
+                new JParam() { name = "id", type = "hash" }
+            } },
+            new JEntry() { type = "function", name = "UnlockLiquidityStakeEntries", inputs = new JParam[0] },
+            new JEntry() { type = "function", name = "SetAdditionalReward", inputs = new JParam[]
+            {
+                new JParam() { name = "znnReward", type = "uint256" },
+                new JParam() { name = "qsrReward", type = "uint256" }
+            } },
+            new JEntry() { type = "function", name = "CollectReward", inputs = new JParam[0] },
+            new JEntry() { type = "function", name = "ChangeAdministrator", inputs = new JParam[]
+            {
+                new JParam() { name = "administrator", type = "address" }
+            } }
+        };
+
         // Common definitions of embedded methods
         private static readonly JEntry[] CommonDefinition = new JEntry[]
         {
@@ -208,6 +262,7 @@ namespace Zenon.Embedded
         public static readonly Abi.Abi Accelerator = new Abi.Abi(AcceleratorDefinition);
         public static readonly Abi.Abi Spork = new Abi.Abi(SporkDefinition);
         public static readonly Abi.Abi Htlc = new Abi.Abi(HtlcDefinition);
+        public static readonly Abi.Abi Liquidity = new Abi.Abi(LiquidityDefinition);
         public static readonly Abi.Abi Common = new Abi.Abi(CommonDefinition);
     }
 }
