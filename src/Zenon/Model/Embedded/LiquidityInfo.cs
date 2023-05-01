@@ -12,7 +12,9 @@ namespace Zenon.Model.Embedded
             IsHalted = json.isHalted;
             ZnnReward = json.znnReward;
             QsrReward = json.qsrReward;
-            //TokenTuples = json.tokenTuples.Select(x => TokenTuple.Parse(x)).ToArray();
+            TokenTuples = json.tokenTuples != null
+                ? json.tokenTuples.Select(x => new TokenTuple(x)).ToArray()
+                : new TokenTuple[0];
         }
 
         public Address Administrator { get; }
@@ -29,7 +31,7 @@ namespace Zenon.Model.Embedded
                 isHalted = IsHalted,
                 znnReward = ZnnReward,
                 qsrReward = QsrReward,
-                tokenTuples = TokenTuples.Select(x => x.ToString()).ToArray()
+                tokenTuples = TokenTuples.Select(x => x.ToJson()).ToArray()
             };
         }
     }

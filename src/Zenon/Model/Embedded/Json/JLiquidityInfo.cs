@@ -6,6 +6,6 @@
         public bool isHalted { get; set; }
         public long znnReward { get; set; }
         public long qsrReward { get; set; }
-        public string[] tokenTuples { get; set; }
+        public JTokenTuple[] tokenTuples { get; set; }
     }
 }
