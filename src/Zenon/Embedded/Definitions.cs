@@ -216,7 +216,7 @@ namespace Zenon.Embedded
             } },
             new JEntry() { type = "function", name = "ProposeAdministrator", inputs = new JParam[]
             {
-                new JParam() { name = "address", type = "address[]" }
+                new JParam() { name = "address", type = "address" }
             } },
             new JEntry() { type = "function", name = "Emergency", inputs = new JParam[0] },
             new JEntry() { type = "function", name = "SetIsHalted", inputs = new JParam[]
@@ -237,7 +237,6 @@ namespace Zenon.Embedded
                 new JParam() { name = "znnReward", type = "uint256" },
                 new JParam() { name = "qsrReward", type = "uint256" }
             } },
-            new JEntry() { type = "function", name = "CollectReward", inputs = new JParam[0] },
             new JEntry() { type = "function", name = "ChangeAdministrator", inputs = new JParam[]
             {
                 new JParam() { name = "administrator", type = "address" }

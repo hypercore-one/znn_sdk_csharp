@@ -56,67 +56,158 @@ namespace Zenon.Api.Embedded
 		}
 
 		// Contract methods
+
+		/// <summary>
+		/// Method for staking the liquidity for the Orbital Program.
+		/// </summary>
+		public AccountBlockTemplate LiquidityStake(TokenStandard zts, long amount, long durationInSec)
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, zts, amount,
+				Definitions.Liquidity.EncodeFunction(nameof(LiquidityStake),
+					durationInSec));
+		}
+
+		/// <summary>
+		/// Method for cancelling the liquidity stake for the Orbital Program.
+		/// </summary>
+		public AccountBlockTemplate CancelLiquidityStake(Hash id)
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(CancelLiquidityStake), id));
+		}
+
+		/// <summary>
+		/// Method for unlocking the liquidity staking entries for a ZTS that is no longer allowed for staking.
+		/// </summary>
+		public AccountBlockTemplate UnlockLiquidityStakeEntries(TokenStandard zts)
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, zts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(UnlockLiquidityStakeEntries)));
+		}
+
+		public AccountBlockTemplate BurnZnn(long burnAmount)
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(BurnZnn), burnAmount));
+		}
+
+		public AccountBlockTemplate Fund(long znnReward, long qsrReward)
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(Fund), znnReward, qsrReward));
+		}
+
+		public AccountBlockTemplate Donate()
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(Donate)));
+		}
+
+		public AccountBlockTemplate Update()
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(Update)));
+		}
+
+		// Contract methods for administrator only
+
+		/// <summary>
+		/// Method for putting the liquidity embedded contract into emergency mode.
+		/// </summary>
+		/// <remarks>
+		/// Can only be called by the Administrator.
+		/// </remarks>
+		public AccountBlockTemplate Emergency()
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(Emergency)));
+		}
+
+		/// <summary>
+		/// Method for nominating the guardians for the liquidity embedded contract. 
+		/// </summary>
+		/// <remarks>
+		/// Can only be called by the Administrator. Guarded by a time challenge.
+		/// </remarks>
+		public AccountBlockTemplate NominateGuardians(Address[] guardians)
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(NominateGuardians), guardians.Select(x => x.ToString()).ToArray()));
+		}
+
+		/// <summary>
+		/// Method for changing the administrator for the liquidity embedded contract.
+		/// </summary>
+		/// <remarks>
+		/// Can only be called by the administrator.
+		/// </remarks>
+		public AccountBlockTemplate ChangeAdministrator(Address administrator)
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(ChangeAdministrator),
+					administrator.ToString()));
+		}
+
+		/// <summary>
+		/// Method for proposing a new administrator for the liquidity embedded contract.
+		/// </summary>
+		/// <remarks>
+		/// Can only be called by the Administrator.
+		/// </remarks>
+		public AccountBlockTemplate ProposeAdministrator(Address administrator)
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(ProposeAdministrator),
+					administrator.ToString()));
+		}
+
+		/// <summary>
+		/// Method for setting an additional reward for the liquidity staking.
+		/// </summary>
+		/// <remarks>
+		/// Can only be called by the administrator.
+		/// </remarks>
+		public AccountBlockTemplate SetAdditionalReward(long znnAmount, long qsrAmount)
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(SetAdditionalReward), znnAmount, qsrAmount));
+		}
+
+		/// <summary>
+		/// Method for halting or unhalting the liquidity staking.
+		/// </summary>
+		/// <remarks>
+		/// Can only be called by the administrator.
+		/// </remarks>
+		public AccountBlockTemplate SetIsHalted(bool value)
+		{
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(SetIsHalted),
+					value));
+		}
+
+		/// <summary>
+		/// Method for setting a token tuple and their corresponding reward percentages for the Orbital Program.
+		/// </summary>
+		/// <remarks>
+		/// Can only be called by the administrator.
+		/// </remarks>
 		public AccountBlockTemplate SetTokenTuple(string[] tokenStandards, int[] znnPercentages, int[] qsrPercentages, long[] minAmounts)
 		{
-			return AccountBlockTemplate.CallContract(
-				Address.LiquidityAddress,
-				TokenStandard.ZnnZts,
-				0,
-				Definitions.Liquidity.EncodeFunction("SetTokenTuple",
+			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+				Definitions.Liquidity.EncodeFunction(nameof(SetTokenTuple),
 					tokenStandards,
 					znnPercentages,
 					qsrPercentages,
 					minAmounts));
 		}
 
-		public AccountBlockTemplate LiquidityStake(TokenStandard zts, long amount, long durationInSec)
-		{
-			return AccountBlockTemplate.CallContract(
-				Address.LiquidityAddress,
-				zts,
-				amount,
-				Definitions.Liquidity.EncodeFunction("LiquidityStake",
-					durationInSec));
-		}
-
-		public AccountBlockTemplate SetIsHalted(bool value)
-		{
-			return AccountBlockTemplate.CallContract(
-				Address.LiquidityAddress,
-				TokenStandard.ZnnZts,
-				0,
-				Definitions.Liquidity.EncodeFunction("SetIsHalted",
-					value));
-		}
+		// Common contract methods
 
 		public AccountBlockTemplate CollectReward()
 		{
 			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
-				Definitions.Liquidity.EncodeFunction("CollectReward"));
+				Definitions.Common.EncodeFunction(nameof(CollectReward)));
 		}
-
-		public AccountBlockTemplate CancelLiquidity(Hash id)
-		{
-			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
-				Definitions.Liquidity.EncodeFunction("CancelLiquidity", id));
-		}
-
-		public AccountBlockTemplate UnlockLiquidityStakeEntries(TokenStandard zts)
-		{
-			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, zts, 0,
-				Definitions.Common.EncodeFunction("UnlockLiquidityStakeEntries"));
-		}
-
-		public AccountBlockTemplate SetAdditionalReward(long znnAmount, long qsrAmount)
-		{
-			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
-				Definitions.Common.EncodeFunction("SetAdditionalReward", znnAmount, qsrAmount));
-		}
-
-		public AccountBlockTemplate NominateGuardians(Address[] guardians)
-		{
-			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
-				Definitions.Common.EncodeFunction("NominateGuardians", guardians.Select(x => x.ToString()).ToArray()));
-		}
-    }
+	}
 }
