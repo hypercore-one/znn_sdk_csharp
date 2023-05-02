@@ -1,4 +1,15 @@
 ﻿{
-  "count": 0,
-  "list": []
+  "count": 2,
+  "list": [
+    {
+      "epoch": 10,
+      "znnAmount": 1000000000,
+      "qsrAmount": 10000000000
+    },
+    {
+      "epoch": 20,
+      "znnAmount": 1000000000,
+      "qsrAmount": 10000000000
+    }
+  ]
 }

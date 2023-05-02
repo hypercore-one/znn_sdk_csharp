@@ -21,13 +21,13 @@ namespace Zenon.Api.Embedded
 
 		public async Task<UncollectedReward> GetUncollectedReward(Address address)
 		{
-			var response = await Client.Value.SendRequest<JUncollectedReward>("embedded.liquidity.getUncollectedReward", address.ToString());
+			var response = await Client.Value.SendRequest<JUncollectedReward>("embedded.liquidity.getUncollectedReward", address);
 			return new UncollectedReward(response);
 		}
 
 		public async Task<RewardHistoryList> GetFrontierRewardByPage(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
 		{
-			var response = await Client.Value.SendRequest<JRewardHistoryList>("embedded.liquidity.getFrontierRewardByPage", address.ToString(), pageIndex, pageSize);
+			var response = await Client.Value.SendRequest<JRewardHistoryList>("embedded.liquidity.getFrontierRewardByPage", address, pageIndex, pageSize);
 			return new RewardHistoryList(response);
 		}
 
@@ -45,11 +45,11 @@ namespace Zenon.Api.Embedded
 
 		public async Task<LiquidityStakeList> GetLiquidityStakeEntriesByAddress(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
 		{
-			var response = await Client.Value.SendRequest<JLiquidityStakeList>("embedded.liquidity.getLiquidityStakeEntriesByAddress", address.ToString(), pageIndex, pageSize);
+			var response = await Client.Value.SendRequest<JLiquidityStakeList>("embedded.liquidity.getLiquidityStakeEntriesByAddress", address, pageIndex, pageSize);
 			return new LiquidityStakeList(response);
 		}
 
-		public async Task<TimeChallengesList> GetTimeChallengesInfo(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+		public async Task<TimeChallengesList> GetTimeChallengesInfo()
 		{
 			var response = await Client.Value.SendRequest<JTimeChallengesList>("embedded.liquidity.getTimeChallengesInfo");
 			return new TimeChallengesList(response);
@@ -60,7 +60,7 @@ namespace Zenon.Api.Embedded
 		/// <summary>
 		/// Method for staking the liquidity for the Orbital Program.
 		/// </summary>
-		public AccountBlockTemplate LiquidityStake(TokenStandard zts, long amount, long durationInSec)
+		public AccountBlockTemplate LiquidityStake(long durationInSec, long amount, TokenStandard zts)
 		{
 			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, zts, amount,
 				Definitions.Liquidity.EncodeFunction(nameof(LiquidityStake),
@@ -132,7 +132,7 @@ namespace Zenon.Api.Embedded
 		public AccountBlockTemplate NominateGuardians(Address[] guardians)
 		{
 			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
-				Definitions.Liquidity.EncodeFunction(nameof(NominateGuardians), guardians.Select(x => x.ToString()).ToArray()));
+				Definitions.Liquidity.EncodeFunction(nameof(NominateGuardians), new object[] { guardians } ));
 		}
 
 		/// <summary>
@@ -145,7 +145,7 @@ namespace Zenon.Api.Embedded
 		{
 			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
 				Definitions.Liquidity.EncodeFunction(nameof(ChangeAdministrator),
-					administrator.ToString()));
+					administrator));
 		}
 
 		/// <summary>
@@ -158,7 +158,7 @@ namespace Zenon.Api.Embedded
 		{
 			return AccountBlockTemplate.CallContract(Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
 				Definitions.Liquidity.EncodeFunction(nameof(ProposeAdministrator),
-					administrator.ToString()));
+					administrator));
 		}
 
 		/// <summary>

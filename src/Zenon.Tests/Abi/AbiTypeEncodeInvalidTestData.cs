@@ -63,11 +63,6 @@ namespace Zenon.Abi
             };
             yield return new object[]
             {
-                HashType,
-                Hash.Empty
-            };
-            yield return new object[]
-            {
                 AddressType,
                 Address.Parse("z1qq0hffeyj0htmnr4gc6grd8zmqfvwzgrydt402").Bytes
             };

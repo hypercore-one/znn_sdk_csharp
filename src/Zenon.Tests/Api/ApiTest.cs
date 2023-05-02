@@ -13,7 +13,232 @@ namespace Zenon.Api
     public partial class ApiTest
     {
         #region Embedded
-        
+
+        public class Liquidity
+        {
+            public class GetUncollectedReward
+            {
+                public GetUncollectedReward()
+                {
+                    this.MethodName = "embedded.liquidity.getUncollectedReward";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("z1qzal6c5s9rjnnxd2z7dvdhjxpmmj4fmw56a0mz",
+                    "Zenon.Resources.api.embedded.liquidity.getUncollectedReward.json")]
+                public async Task SingleResponseAsync(string address, string resourceName)
+                {
+                    // Setup
+                    var addr = Address.Parse(address);
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, addr)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetUncollectedReward(addr);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Address.Should().Be(addr);
+                }
+            }
+
+            public class GetFrontierRewardByPage
+            {
+                public GetFrontierRewardByPage()
+                {
+                    this.MethodName = "embedded.liquidity.getFrontierRewardByPage";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var addr = Address.Parse(address);
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, addr, pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetFrontierRewardByPage(addr, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.liquidity.getFrontierRewardByPage.json")]
+                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var addr = Address.Parse(address);
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, addr, pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetFrontierRewardByPage(addr, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetLiquidityInfo
+            {
+                public GetLiquidityInfo()
+                {
+                    this.MethodName = "embedded.liquidity.getLiquidityInfo";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("Zenon.Resources.api.embedded.liquidity.getLiquidityInfo.json")]
+                public async Task SingleResponseAsync(string resourceName)
+                {
+                    // Setup
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetLiquidityInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                }
+            }
+
+            public class GetSecurityInfo
+            {
+                public GetSecurityInfo()
+                {
+                    this.MethodName = "embedded.liquidity.getSecurityInfo";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("Zenon.Resources.api.embedded.liquidity.getSecurityInfo.json")]
+                public async Task SingleResponseAsync(string resourceName)
+                {
+                    // Setup
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetSecurityInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                }
+            }
+
+            public class GetLiquidityStakeEntriesByAddress
+            {
+                public GetLiquidityStakeEntriesByAddress()
+                {
+                    this.MethodName = "embedded.liquidity.getLiquidityStakeEntriesByAddress";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var addr = Address.Parse(address);
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, addr, pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetLiquidityStakeEntriesByAddress(addr, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.liquidity.getLiquidityStakeEntriesByAddress.json")]
+                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var addr = Address.Parse(address);
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, addr, pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetLiquidityStakeEntriesByAddress(addr, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetTimeChallengesInfo
+            {
+                public GetTimeChallengesInfo()
+                {
+                    this.MethodName = "embedded.liquidity.getTimeChallengesInfo";
+                }
+
+                public string MethodName { get; }
+
+                [Fact]
+                public async Task EmptyResponseAsync()
+                {
+                    // Setup
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetTimeChallengesInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData("Zenon.Resources.api.embedded.liquidity.getTimeChallengesInfo.json")]
+                public async Task ListResponseAsync(string resourceName)
+                {
+                    // Setup
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetTimeChallengesInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+        }
+
         public class Htlc
         {
             public class GetById

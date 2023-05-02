@@ -19,6 +19,13 @@ namespace Zenon.Abi
                 Buffer.BlockCopy(bytes, 0, result, 0, bytes.Length);
                 return result;
             }
+            else if (value is Hash)
+            {
+                var result = new byte[this.FixedSize];
+                var bytes = ((Hash)value).Bytes;
+                Buffer.BlockCopy(bytes, 0, result, 0, bytes.Length);
+                return result;
+            }
             else if (value is byte[])
             {
                 var result = new byte[this.FixedSize];
