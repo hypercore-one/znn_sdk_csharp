@@ -33,7 +33,9 @@ namespace Zenon.Model.Primitives
             Parse("z1qxemdeddedxhtlcxxxxxxxxxxxxxxxxxygecvw");
         public static readonly Address LiquidityAddress =
             Parse("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae");
-        
+        public static readonly Address BridgeAddress =
+            Parse("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d");
+
         public static readonly Address[] EmbeddedContractAddresses = new Address[]
         {
             PlasmaAddress,
@@ -45,7 +47,8 @@ namespace Zenon.Model.Primitives
             SporkAddress,
             AcceleratorAddress,
             HtlcAddress,
-            LiquidityAddress
+            LiquidityAddress,
+            BridgeAddress
         };
 
         public static bool operator ==(Address obj1, Address obj2)

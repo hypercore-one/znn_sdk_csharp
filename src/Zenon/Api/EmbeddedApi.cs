@@ -20,6 +20,7 @@ namespace Zenon.Api
             Spork = new SporkApi(client);
             Htlc = new HtlcApi(client);
             Liquidity = new LiquidityApi(client);
+            Bridge = new BridgeApi(client);
         }
 
         public Lazy<IClient> Client { get; }
@@ -34,5 +35,6 @@ namespace Zenon.Api
         public SporkApi Spork { get; }
         public HtlcApi Htlc { get; }
         public LiquidityApi Liquidity { get; }
+        public BridgeApi Bridge { get; }
     }
 }
