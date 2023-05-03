@@ -60,15 +60,15 @@ namespace Zenon.Api.Embedded
 			return new WrapTokenRequestList(response);
 		}
 
-		public async Task<WrapTokenRequestList> GetAllWrapTokenRequestsByToAddress(Address toAddress, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+		public async Task<WrapTokenRequestList> GetAllWrapTokenRequestsByToAddress(string toAddress, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
 		{
-			var response = await Client.Value.SendRequest<JWrapTokenRequestList>("embedded.bridge.getAllWrapTokenRequestsByToAddress", toAddress.ToString(), pageIndex, pageSize);
+			var response = await Client.Value.SendRequest<JWrapTokenRequestList>("embedded.bridge.getAllWrapTokenRequestsByToAddress", toAddress, pageIndex, pageSize);
 			return new WrapTokenRequestList(response);
 		}
 
-		public async Task<WrapTokenRequestList> GetAllWrapTokenRequestsByToAddressNetworkClassAndChainId(Address toAddress, int networkClass, int chainId, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+		public async Task<WrapTokenRequestList> GetAllWrapTokenRequestsByToAddressNetworkClassAndChainId(string toAddress, int networkClass, int chainId, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
 		{
-			var response = await Client.Value.SendRequest<JWrapTokenRequestList>("embedded.bridge.getAllWrapTokenRequestsByToAddressNetworkClassAndChainId", toAddress.ToString(), networkClass, chainId, pageIndex, pageSize);
+			var response = await Client.Value.SendRequest<JWrapTokenRequestList>("embedded.bridge.getAllWrapTokenRequestsByToAddressNetworkClassAndChainId", toAddress, networkClass, chainId, pageIndex, pageSize);
 			return new WrapTokenRequestList(response);
 		}
 
@@ -84,9 +84,9 @@ namespace Zenon.Api.Embedded
 			return new WrapTokenRequestList(response);
 		}
 
-		public async Task<UnwrapTokenRequest> GetUnwrapTokenRequestByHashAndLog(Hash txHash, int logIndex)
+		public async Task<UnwrapTokenRequest> GetUnwrapTokenRequestByHashAndLog(Hash hash, int logIndex)
 		{
-			var response = await Client.Value.SendRequest<JUnwrapTokenRequest>("embedded.bridge.getUnwrapTokenRequestByHashAndLog", txHash.ToString(), logIndex);
+			var response = await Client.Value.SendRequest<JUnwrapTokenRequest>("embedded.bridge.getUnwrapTokenRequestByHashAndLog", hash.ToString(), logIndex);
 			return new UnwrapTokenRequest(response);
 		}
 
@@ -96,9 +96,9 @@ namespace Zenon.Api.Embedded
 			return new UnwrapTokenRequestList(response);
 		}
 
-		public async Task<UnwrapTokenRequestList> GetAllUnwrapTokenRequestsByToAddress(Address toAddress, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+		public async Task<UnwrapTokenRequestList> GetAllUnwrapTokenRequestsByToAddress(string toAddress, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
 		{
-			var response = await Client.Value.SendRequest<JUnwrapTokenRequestList>("embedded.bridge.getAllUnwrapTokenRequestsByToAddress", toAddress.ToString(), pageIndex, pageSize);
+			var response = await Client.Value.SendRequest<JUnwrapTokenRequestList>("embedded.bridge.getAllUnwrapTokenRequestsByToAddress", toAddress, pageIndex, pageSize);
 			return new UnwrapTokenRequestList(response);
 		}
 
@@ -153,14 +153,14 @@ namespace Zenon.Api.Embedded
 				Definitions.Bridge.EncodeFunction(nameof(Unhalt)));
 		}
 
-		public AccountBlockTemplate SetAllowKeygen(bool allowKeyGen)
+		public AccountBlockTemplate SetAllowKeyGen(bool allowKeyGen)
 		{
 			return AccountBlockTemplate.CallContract(Address.BridgeAddress, TokenStandard.ZnnZts, 0,
-				Definitions.Bridge.EncodeFunction(nameof(SetAllowKeygen),
+				Definitions.Bridge.EncodeFunction(nameof(SetAllowKeyGen),
 					allowKeyGen));
 		}
 
-		public AccountBlockTemplate ChangeTssECDSAPubKey(bool pubKey, string signature, string newSignature)
+		public AccountBlockTemplate ChangeTssECDSAPubKey(string pubKey, string signature, string newSignature)
 		{
 			return AccountBlockTemplate.CallContract(Address.BridgeAddress, TokenStandard.ZnnZts, 0,
 				Definitions.Bridge.EncodeFunction(nameof(ChangeTssECDSAPubKey),
@@ -222,13 +222,13 @@ namespace Zenon.Api.Embedded
 					tokenAddress));
 		}
 
-		public AccountBlockTemplate SetNetworkMetadata(int networkClass, int chainId, string tokenAddress)
+		public AccountBlockTemplate SetNetworkMetadata(int networkClass, int chainId, string metadata)
 		{
 			return AccountBlockTemplate.CallContract(Address.BridgeAddress, TokenStandard.ZnnZts, 0,
-				Definitions.Bridge.EncodeFunction(nameof(RemoveTokenPair),
+				Definitions.Bridge.EncodeFunction(nameof(SetNetworkMetadata),
 					networkClass,
 					chainId,
-					tokenAddress));
+					metadata));
 		}
 
 		public AccountBlockTemplate SetOrchestratorInfo(long windowSize, int keyGenThreshold, int confirmationsToFinality, int estimatedMomentumTime)
@@ -245,7 +245,7 @@ namespace Zenon.Api.Embedded
 		{
 			return AccountBlockTemplate.CallContract(Address.BridgeAddress, TokenStandard.ZnnZts, 0,
 				Definitions.Bridge.EncodeFunction(nameof(NominateGuardians),
-					guardians));
+					new object[] { guardians }));
 		}
 
 		public AccountBlockTemplate SetBridgeMetadata(string metadata)

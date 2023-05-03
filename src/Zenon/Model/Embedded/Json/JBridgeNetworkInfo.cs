@@ -3,7 +3,7 @@
     public class JBridgeNetworkInfo
 	{
 		public int networkClass { get; set; }
-		public int id { get; set; }
+		public int chainId { get; set; }
 		public string name { get; set; }
 		public string contractAddress { get; set; }
 		public string metadata { get; set; }

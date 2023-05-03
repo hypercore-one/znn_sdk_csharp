@@ -21,13 +21,13 @@ namespace Zenon.Api.Embedded
 
 		public async Task<UncollectedReward> GetUncollectedReward(Address address)
 		{
-			var response = await Client.Value.SendRequest<JUncollectedReward>("embedded.liquidity.getUncollectedReward", address);
+			var response = await Client.Value.SendRequest<JUncollectedReward>("embedded.liquidity.getUncollectedReward", address.ToString());
 			return new UncollectedReward(response);
 		}
 
 		public async Task<RewardHistoryList> GetFrontierRewardByPage(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
 		{
-			var response = await Client.Value.SendRequest<JRewardHistoryList>("embedded.liquidity.getFrontierRewardByPage", address, pageIndex, pageSize);
+			var response = await Client.Value.SendRequest<JRewardHistoryList>("embedded.liquidity.getFrontierRewardByPage", address.ToString(), pageIndex, pageSize);
 			return new RewardHistoryList(response);
 		}
 
@@ -45,7 +45,7 @@ namespace Zenon.Api.Embedded
 
 		public async Task<LiquidityStakeList> GetLiquidityStakeEntriesByAddress(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
 		{
-			var response = await Client.Value.SendRequest<JLiquidityStakeList>("embedded.liquidity.getLiquidityStakeEntriesByAddress", address, pageIndex, pageSize);
+			var response = await Client.Value.SendRequest<JLiquidityStakeList>("embedded.liquidity.getLiquidityStakeEntriesByAddress", address.ToString(), pageIndex, pageSize);
 			return new LiquidityStakeList(response);
 		}
 

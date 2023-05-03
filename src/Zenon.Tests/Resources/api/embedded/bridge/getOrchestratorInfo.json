@@ -1,1 +1,7 @@
-﻿{}
+﻿{
+  "windowSize": 10,
+  "keyGenThreshold": 10,
+  "confirmationsToFinality": 10,
+  "estimatedMomentumTime": 15,
+  "allowKeyGenHeight": 97
+}

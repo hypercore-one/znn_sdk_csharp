@@ -8,7 +8,7 @@ namespace Zenon.Model.Embedded
         public BridgeNetworkInfo(JBridgeNetworkInfo json)
         {
             NetworkClass = json.networkClass;
-            Id = json.id;
+            ChainId = json.chainId;
             Name = json.name;
             ContractAddress = json.contractAddress;
             Metadata = json.metadata;
@@ -18,7 +18,7 @@ namespace Zenon.Model.Embedded
         }
 
         public int NetworkClass { get; }
-        public int Id { get; }
+        public int ChainId { get; }
         public string Name { get; }
         public string ContractAddress { get; }
         public string Metadata { get; }
@@ -29,7 +29,7 @@ namespace Zenon.Model.Embedded
             return new JBridgeNetworkInfo()
             {
                 networkClass = NetworkClass,
-                id = Id,
+                chainId = ChainId,
                 name = Name,
                 contractAddress = ContractAddress,
                 metadata = Metadata,

@@ -1,1 +1,15 @@
-﻿{}
+﻿{
+  "count": 2,
+  "list": [
+    {
+      "MethodName": "NominateGuardians",
+      "ParamsHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "ChallengeStartHeight": 13
+    },
+    {
+      "MethodName": "ChangeTssECDSAPubKey",
+      "ParamsHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "ChallengeStartHeight": 39
+    }
+  ]
+}
