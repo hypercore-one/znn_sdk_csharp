@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
 
@@ -28,21 +29,15 @@ namespace Zenon.Model.NoM
             BalanceInfoList = balanceInfoList;
         }
 
-        public long? Znn => GetBalance(TokenStandard.ZnnZts);
+        public BigInteger? Znn => GetBalance(TokenStandard.ZnnZts);
 
-        public long? Qsr => GetBalance(TokenStandard.QsrZts);
+        public BigInteger? Qsr => GetBalance(TokenStandard.QsrZts);
 
-        public long GetBalance(TokenStandard tokenStandard)
+        public BigInteger GetBalance(TokenStandard tokenStandard)
         {
             var info = BalanceInfoList!.FirstOrDefault(
                 x => x.Token!.TokenStandard == tokenStandard);
-            return info?.Balance ?? 0;
-        }
-        public double GetBalanceWithDecimals(TokenStandard tokenStandard)
-        {
-            var info = BalanceInfoList!.FirstOrDefault(
-                x => x.Token!.TokenStandard == tokenStandard);
-            return info?.BalanceWithDecimals! ?? 0;
+            return info?.Balance ?? BigInteger.Zero;
         }
 
         public Token FindTokenByTokenStandard(TokenStandard tokenStandard)

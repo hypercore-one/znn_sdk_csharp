@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
@@ -30,9 +31,10 @@ namespace Zenon.Api.Embedded
             return response != null ? new SentinelInfo(response) : null;
         }
 
-        public async Task<long> GetDepositedQsr(Address address)
+        public async Task<BigInteger> GetDepositedQsr(Address address)
         {
-            return await Client.Value.SendRequest<long>("embedded.sentinel.getDepositedQsr", address.ToString());
+            return BigInteger.Parse(await 
+                Client.Value.SendRequest<string>("embedded.sentinel.getDepositedQsr", address.ToString()));
         }
 
         public async Task<UncollectedReward> GetUncollectedReward(Address address)
@@ -56,18 +58,18 @@ namespace Zenon.Api.Embedded
 
         public AccountBlockTemplate Revoke()
         {
-            return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Sentinel.EncodeFunction("Revoke"));
         }
 
         // Common contract methods
         public AccountBlockTemplate CollectReward()
         {
-            return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, BigInteger.Zero,
             Definitions.Common.EncodeFunction("CollectReward"));
         }
 
-        public AccountBlockTemplate DepositQsr(long amount)
+        public AccountBlockTemplate DepositQsr(BigInteger amount)
         {
             return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.QsrZts, amount,
             Definitions.Common.EncodeFunction("DepositQsr"));
@@ -75,7 +77,7 @@ namespace Zenon.Api.Embedded
 
         public AccountBlockTemplate WithdrawQsr()
         {
-            return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, BigInteger.Zero,
             Definitions.Common.EncodeFunction("WithdrawQsr"));
         }
     }

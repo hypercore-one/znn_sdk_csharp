@@ -1,4 +1,5 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
@@ -23,7 +24,7 @@ namespace Zenon.Model.Embedded
             RevokeCooldown = json.revokeCooldown;
             RevokeTimestamp = json.revokeTimestamp;
             CurrentStats = new PillarEpochStats(json.currentStats);
-            Weight = json.weight;
+            Weight = BigInteger.Parse(json.weight);
             ProducedMomentums = json.producedMomentums;
             ExpectedMomentums = json.expectedMomentums;
         }
@@ -40,7 +41,7 @@ namespace Zenon.Model.Embedded
         public long RevokeCooldown { get; }
         public long RevokeTimestamp { get; }
         public PillarEpochStats CurrentStats { get; }
-        public long Weight { get; }
+        public BigInteger Weight { get; }
         public long ProducedMomentums { get; }
         public long ExpectedMomentums { get; }
 
@@ -56,7 +57,7 @@ namespace Zenon.Model.Embedded
                 isRevocable = IsRevocable,
                 revokeCooldown = RevokeCooldown,
                 currentStats = CurrentStats.ToJson(),
-                weight = Weight
+                weight = Weight.ToString()
             };
         }
     }

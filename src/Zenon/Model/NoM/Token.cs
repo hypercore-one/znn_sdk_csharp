@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
 
@@ -11,11 +12,11 @@ namespace Zenon.Model.NoM
             Name = json.name;
             Symbol = json.symbol;
             Domain = json.domain;
-            TotalSupply = json.totalSupply;
+            TotalSupply = BigInteger.Parse(json.totalSupply);
             Decimals = json.decimals;
             Owner = Address.Parse(json.owner);
             TokenStandard = TokenStandard.Parse(json.tokenStandard);
-            MaxSupply = json.maxSupply;
+            MaxSupply = BigInteger.Parse(json.maxSupply);
             IsBurnable = json.isBurnable;
             IsMintable = json.isMintable;
             IsUtility = json.isUtility;
@@ -25,11 +26,11 @@ namespace Zenon.Model.NoM
             string name,
             string symbol,
             string domain,
-            long totalSupply,
+            BigInteger totalSupply,
             long decimals,
             Address owner,
             TokenStandard tokenStandard,
-            long maxSupply,
+            BigInteger maxSupply,
             bool isBurnable,
             bool isMintable,
             bool isUtility)
@@ -50,11 +51,11 @@ namespace Zenon.Model.NoM
         public string Name { get; }
         public string Symbol { get; }
         public string Domain { get; }
-        public long TotalSupply { get; }
+        public BigInteger TotalSupply { get; }
         public long Decimals { get; }
         public Address Owner { get; }
         public TokenStandard TokenStandard { get; }
-        public long MaxSupply { get; }
+        public BigInteger MaxSupply { get; }
         public bool IsBurnable { get; }
         public bool IsMintable { get; }
         public bool IsUtility { get; }
@@ -66,11 +67,11 @@ namespace Zenon.Model.NoM
                 name = Name,
                 symbol = Symbol,
                 domain = Domain,
-                totalSupply = TotalSupply,
+                totalSupply = TotalSupply.ToString(),
                 decimals = Decimals,
                 owner = Owner.ToString(),
                 tokenStandard = TokenStandard.ToString(),
-                maxSupply = MaxSupply,
+                maxSupply = MaxSupply.ToString(),
                 isBurnable = IsBurnable,
                 isMintable = IsMintable,
                 isUtility = IsUtility,

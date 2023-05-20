@@ -1,4 +1,5 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
@@ -8,11 +9,11 @@ namespace Zenon.Model.Embedded
         public SwapAssetEntry(Hash keyIdHash, JSwapAssetEntry json)
         {
             KeyIdHash = keyIdHash;
-            Qsr = json.qsr;
-            Znn = json.znn;
+            Qsr = BigInteger.Parse(json.qsr);
+            Znn = BigInteger.Parse(json.znn);
         }
 
-        public SwapAssetEntry(Hash keyIdHash, long qsr, long znn)
+        public SwapAssetEntry(Hash keyIdHash, BigInteger qsr, BigInteger znn)
         {
             KeyIdHash = keyIdHash;
             Qsr = qsr;
@@ -20,19 +21,19 @@ namespace Zenon.Model.Embedded
         }
 
         public Hash KeyIdHash { get; }
-        public long Qsr { get; }
-        public long Znn { get; }
+        public BigInteger Qsr { get; }
+        public BigInteger Znn { get; }
 
         public virtual JSwapAssetEntry ToJson()
         {
             return new JSwapAssetEntry()
             {
                 keyIdHash = KeyIdHash.ToString(),
-                qsr = Qsr,
-                znn = Znn
+                qsr = Qsr.ToString(),
+                znn = Znn.ToString()
             };
         }
 
-        public bool HasBalance => Qsr > 0 || Znn > 0;
+        public bool HasBalance => Qsr > BigInteger.Zero || Znn > BigInteger.Zero;
     }
 }

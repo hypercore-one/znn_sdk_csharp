@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Numerics;
 using Zenon.Model.Embedded.Json;
 
 namespace Zenon.Model.Embedded
@@ -7,21 +8,21 @@ namespace Zenon.Model.Embedded
     {
         public FusionEntryList(JFusionEntryList json)
         {
-            QsrAmount = json.qsrAmount;
+            QsrAmount = json.qsrAmount != null ? BigInteger.Parse(json.qsrAmount) : BigInteger.Zero;
             Count = json.count;
             List = json.list != null
                 ? json.list.Select(x => new FusionEntry(x)).ToArray()
                 : new FusionEntry[0];
         }
 
-        public FusionEntryList(long qsrAmount, long count, FusionEntry[] list)
+        public FusionEntryList(BigInteger qsrAmount, long count, FusionEntry[] list)
         {
             QsrAmount = qsrAmount;
             Count = count;
             List = list;
         }
 
-        public long QsrAmount { get; }
+        public BigInteger QsrAmount { get; }
         public long Count { get; }
         public FusionEntry[] List { get; }
 
@@ -29,7 +30,7 @@ namespace Zenon.Model.Embedded
         {
             return new JFusionEntryList()
             {
-                qsrAmount = QsrAmount,
+                qsrAmount = QsrAmount.ToString(),
                 count = Count,
                 list = List.Select(x => x.ToJson()).ToArray()
             };

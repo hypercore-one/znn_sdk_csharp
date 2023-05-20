@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
@@ -47,7 +48,7 @@ namespace Zenon.Api.Embedded
         // Contract methods
         public AccountBlockTemplate RetrieveAssets(string pubKey, string signature)
         {
-            return AccountBlockTemplate.CallContract(Address.SwapAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.SwapAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Swap.EncodeFunction("RetrieveAssets", pubKey, signature));
         }
 

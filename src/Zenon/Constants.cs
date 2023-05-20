@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Text.RegularExpressions;
 
 namespace Zenon
@@ -35,27 +36,27 @@ namespace Zenon
         public const long GenesisTimestamp = 1637755200;
 
         // Plasma
-        public const long FuseMinQsrAmount = 10 * OneQsr;
-        public const int MinPlasmaAmount = 21000;
+        public static readonly BigInteger FuseMinQsrAmount = new BigInteger(10 * OneQsr);
+        public static readonly BigInteger MinPlasmaAmount = new BigInteger(21000);
 
         // Pillar
-        public const long PillarRegisterZnnAmount = 15000 * OneZnn;
-        public const long PillarRegisterQsrAmount = 150000 * OneQsr;
+        public static readonly BigInteger PillarRegisterZnnAmount = new BigInteger(15000 * OneZnn);
+        public static readonly BigInteger PillarRegisterQsrAmount = new BigInteger(150000 * OneQsr);
         public const long PillarNameMaxLength = 40;
         public static readonly Regex PillarNameRegExp = new Regex("^([a-zA-Z0-9]+[-._]?)*[a-zA-Z0-9]$");
 
         // Sentinel
-        public const long SentinelRegisterZnnAmount = 5000 * OneZnn;
-        public const long SentinelRegisterQsrAmount = 50000 * OneQsr;
+        public static readonly BigInteger SentinelRegisterZnnAmount = new BigInteger(5000 * OneZnn);
+        public static readonly BigInteger SentinelRegisterQsrAmount = new BigInteger(50000 * OneQsr);
 
         // Staking
-        public const long StakeMinZnnAmount = OneZnn;
+        public static readonly BigInteger StakeMinZnnAmount = new BigInteger(1 * OneZnn);
         public const long StakeTimeUnitSec = 30 * 24 * 60 * 60;
         public const long StakeTimeMaxSec = 12 * StakeTimeUnitSec;
         public const string StakeUnitDurationName = "month";
 
         // Token
-        public const long TokenZtsIssueFeeInZnn = OneZnn;
+        public static readonly BigInteger TokenZtsIssueFeeInZnn = new BigInteger(1 * OneZnn);
         public const long TokenNameMaxLength = 40;
         public const long TokenSymbolMaxLength = 10;
         public static readonly string[] TokenSymbolExceptions = new string[] { "ZNN", "QSR" };
@@ -65,9 +66,9 @@ namespace Zenon
         public static readonly Regex TokenDomainRegExp = new Regex("^([A-Za-z0-9][A-Za-z0-9-]{0,61}[A-Za-z0-9].)+[A-Za-z]{2,}$");
 
         // Accelerator
+        public static readonly BigInteger ProjectCreationFeeInZnn = new BigInteger(1 * OneZnn);
         public const int ProjectDescriptionMaxLength = 240;
         public const int ProjectNameMaxLength = 30;
-        public const int ProjectCreationFeeInZnn = 1;
         public const int ProjectVotingStatus = 0;
         public const int ProjectActiveStatus = 1;
         public const int ProjectPaidStatus = 2;

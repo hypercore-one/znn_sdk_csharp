@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
@@ -19,9 +20,10 @@ namespace Zenon.Api.Embedded
 
         public Lazy<IClient> Client { get; }
 
-        public async Task<long> GetDepositedQsr(Address address)
+        public async Task<BigInteger> GetDepositedQsr(Address address)
         {
-            return await Client.Value.SendRequest<long>("embedded.pillar.getDepositedQsr", address.ToString());
+            return BigInteger.Parse(await 
+                Client.Value.SendRequest<string>("embedded.pillar.getDepositedQsr", address.ToString()));
         }
 
         public async Task<UncollectedReward> GetUncollectedReward(Address address)
@@ -36,9 +38,10 @@ namespace Zenon.Api.Embedded
             return new RewardHistoryList(response);
         }
 
-        public async Task<long> GetQsrRegistrationCost()
+        public async Task<BigInteger> GetQsrRegistrationCost()
         {
-            return await Client.Value.SendRequest<long>("embedded.pillar.getQsrRegistrationCost");
+            return BigInteger.Parse(await 
+                Client.Value.SendRequest<string>("embedded.pillar.getQsrRegistrationCost"));
         }
 
         public async Task<PillarInfoList> GetAll(int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
@@ -122,7 +125,7 @@ namespace Zenon.Api.Embedded
             return AccountBlockTemplate.CallContract(
                 Address.PillarAddress,
                 TokenStandard.ZnnZts,
-                0,
+                BigInteger.Zero,
                 Definitions.Pillar.EncodeFunction("UpdatePillar",
                     name,
                     producerAddress,
@@ -133,30 +136,30 @@ namespace Zenon.Api.Embedded
 
         public AccountBlockTemplate Revoke(string name)
         {
-            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Pillar.EncodeFunction("Revoke", name));
         }
 
         public AccountBlockTemplate Delegate(string name)
         {
-            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, BigInteger.Zero,
             Definitions.Pillar.EncodeFunction("Delegate", name));
         }
 
         public AccountBlockTemplate Undelegate()
         {
-            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, BigInteger.Zero,
             Definitions.Pillar.EncodeFunction("Undelegate"));
         }
 
         // Common contract methods
         public AccountBlockTemplate CollectReward()
         {
-            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Common.EncodeFunction("CollectReward"));
         }
 
-        public AccountBlockTemplate DepositQsr(long amount)
+        public AccountBlockTemplate DepositQsr(BigInteger amount)
         {
             return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.QsrZts, amount,
                 Definitions.Common.EncodeFunction("DepositQsr"));
@@ -164,7 +167,7 @@ namespace Zenon.Api.Embedded
 
         public AccountBlockTemplate WithdrawQsr()
         {
-            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.PillarAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Common.EncodeFunction("WithdrawQsr"));
         }
     }

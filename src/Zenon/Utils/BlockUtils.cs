@@ -35,7 +35,7 @@ namespace Zenon.Utils
             var momentumAcknowledgedBytes = transaction.MomentumAcknowledged.GetBytes();
             var addressBytes = transaction.Address.Bytes;
             var toAddressBytes = transaction.ToAddress.Bytes;
-            var amountBytes = BytesUtils.BigIntToBytes(new BigInteger(transaction.Amount), 32);
+            var amountBytes = BytesUtils.BigIntToBytes(transaction.Amount, 32);
             var tokenStandardBytes = transaction.TokenStandard.Bytes;
             var fromBlockHashBytes = transaction.FromBlockHash.Bytes;
             var descendentBlocksBytes = Hash.Digest(new byte[0]).Bytes;

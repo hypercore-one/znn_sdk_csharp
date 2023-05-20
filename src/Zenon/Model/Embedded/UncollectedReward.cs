@@ -1,4 +1,5 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Model.Embedded
@@ -8,21 +9,21 @@ namespace Zenon.Model.Embedded
         public UncollectedReward(JUncollectedReward json)
         {
             Address = Address.Parse(json.address);
-            ZnnAmount = json.znnAmount;
-            QsrAmount = json.qsrAmount;
+            ZnnAmount = BigInteger.Parse(json.znnAmount);
+            QsrAmount = BigInteger.Parse(json.qsrAmount);
         }
 
         public Address Address { get; }
-        public long ZnnAmount { get; }
-        public long QsrAmount { get; }
+        public BigInteger ZnnAmount { get; }
+        public BigInteger QsrAmount { get; }
 
         public virtual JUncollectedReward ToJson()
         {
             return new JUncollectedReward()
             {
                 address = Address.ToString(),
-                znnAmount = ZnnAmount,
-                qsrAmount = QsrAmount
+                znnAmount = ZnnAmount.ToString(),
+                qsrAmount = QsrAmount.ToString()
             };
         }
     }

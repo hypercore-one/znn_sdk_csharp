@@ -1,4 +1,5 @@
-﻿using Zenon.Model.NoM.Json;
+﻿using System.Numerics;
+using Zenon.Model.NoM.Json;
 using Zenon.Utils;
 
 namespace Zenon.Model.NoM
@@ -8,21 +9,17 @@ namespace Zenon.Model.NoM
         public BalanceInfoListItem(JBalanceInfoListItem json)
         {
             Token = json.token != null ? new Token(json.token) : null;
-            Balance = json.balance;
+            Balance = BigInteger.Parse(json.balance);
         }
 
-        public BalanceInfoListItem(Token token, long? balance)
+        public BalanceInfoListItem(Token token, BigInteger? balance)
         {
             Token = token;
             Balance = balance;
-            BalanceWithDecimals = AmountUtils.AddDecimals(balance.Value, token!.Decimals);
-            BalanceFormatted = $"{BalanceWithDecimals} {Token!.Symbol}";
         }
 
         public Token Token { get; }
-        public long? Balance { get; }
-        public double? BalanceWithDecimals { get; }
-        public string BalanceFormatted { get; }
+        public BigInteger? Balance { get; }
 
         public virtual JBalanceInfoListItem ToJson()
         {
@@ -31,7 +28,7 @@ namespace Zenon.Model.NoM
             {
                 data.token = this.Token!.ToJson();
             }
-            data.balance = Balance;
+            data.balance = Balance.ToString();
             return data;
         }
     }

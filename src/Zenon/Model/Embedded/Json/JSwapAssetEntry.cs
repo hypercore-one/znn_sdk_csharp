@@ -3,7 +3,7 @@
     public class JSwapAssetEntry
     {
         public string keyIdHash { get; set; }
-        public long qsr { get; set; }
-        public long znn { get; set; }
+        public string qsr { get; set; }
+        public string znn { get; set; }
     }
 }

@@ -8,6 +8,6 @@
         public long giveDelegateRewardPercentage { get; set; }
         public long producedBlockNum { get; set; }
         public long expectedBlockNum { get; set; }
-        public long weight { get; set; }
+        public string weight { get; set; }
     }
 }
