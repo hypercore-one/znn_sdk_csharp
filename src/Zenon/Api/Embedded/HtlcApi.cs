@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
@@ -30,7 +31,7 @@ namespace Zenon.Api.Embedded
         }
 
         // Contract methods
-        public AccountBlockTemplate Create(TokenStandard tokenStandard, long amount, Address hashLocked, long expirationTime, int hashType, int keyMaxSize, byte[] hashLock)
+        public AccountBlockTemplate Create(TokenStandard tokenStandard, BigInteger amount, Address hashLocked, long expirationTime, int hashType, int keyMaxSize, byte[] hashLock)
         {
             return AccountBlockTemplate.CallContract(Address.HtlcAddress, tokenStandard, amount,
                 Definitions.Htlc.EncodeFunction("Create", hashLocked, expirationTime, hashType, keyMaxSize, hashLock));
@@ -38,25 +39,25 @@ namespace Zenon.Api.Embedded
 
         public AccountBlockTemplate Reclaim(Hash id)
         {
-            return AccountBlockTemplate.CallContract(Address.HtlcAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.HtlcAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Htlc.EncodeFunction("Reclaim", id.Bytes));
         }
 
         public AccountBlockTemplate Unlock(Hash id, byte[] preimage)
         {
-            return AccountBlockTemplate.CallContract(Address.HtlcAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.HtlcAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Htlc.EncodeFunction("Unlock", id.Bytes, preimage));
         }
 
         public AccountBlockTemplate DenyProxyUnlock()
         {
-            return AccountBlockTemplate.CallContract(Address.HtlcAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.HtlcAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Htlc.EncodeFunction("DenyProxyUnlock"));
         }
 
         public AccountBlockTemplate AllowProxyUnlock()
         {
-            return AccountBlockTemplate.CallContract(Address.HtlcAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.HtlcAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Htlc.EncodeFunction("AllowProxyUnlock"));
         }
     }
