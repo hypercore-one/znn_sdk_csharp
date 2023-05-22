@@ -831,7 +831,7 @@ namespace Zenon.Api
                 }
             }
         }
-        
+
         public class Spork
         {
             public class GetAll
@@ -880,7 +880,7 @@ namespace Zenon.Api
                 }
             }
         }
-        
+
         public class Accelerator
         {
             public class GetAll

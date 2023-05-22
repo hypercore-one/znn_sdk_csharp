@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Zenon.Model.NoM.Json
+﻿namespace Zenon.Model.NoM.Json
 {
     public class JTokenList
     {

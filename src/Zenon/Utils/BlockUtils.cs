@@ -76,7 +76,7 @@ namespace Zenon.Utils
             return Hash.Digest(ArrayUtils.Concat(transaction.Address.Bytes, transaction.PreviousHash.Bytes));
         }
 
-        private static async Task AutofillTransactionParameters(AccountBlockTemplate accountBlockTemplate) 
+        private static async Task AutofillTransactionParameters(AccountBlockTemplate accountBlockTemplate)
         {
             var frontierAccountBlock =
                 await Znn.Instance.Ledger.GetFrontierAccountBlock(accountBlockTemplate.Address);
@@ -84,7 +84,7 @@ namespace Zenon.Utils
             long height = 1;
             Hash previousHash = Hash.Empty;
 
-            if (frontierAccountBlock != null) 
+            if (frontierAccountBlock != null)
             {
                 height = frontierAccountBlock.Height + 1;
                 previousHash = frontierAccountBlock.Hash;
@@ -94,12 +94,12 @@ namespace Zenon.Utils
             accountBlockTemplate.PreviousHash = previousHash;
 
             var frontierMomentum = await Znn.Instance.Ledger.GetFrontierMomentum();
-            
-            accountBlockTemplate.MomentumAcknowledged = 
+
+            accountBlockTemplate.MomentumAcknowledged =
                 new HashHeight(frontierMomentum.Hash, frontierMomentum.Height);
         }
 
-        private static async Task<bool> CheckAndSetFields(AccountBlockTemplate transaction, KeyPair currentKeyPair) 
+        private static async Task<bool> CheckAndSetFields(AccountBlockTemplate transaction, KeyPair currentKeyPair)
         {
             transaction.Address = currentKeyPair.Address;
             transaction.PublicKey = currentKeyPair.PublicKey;
@@ -110,7 +110,7 @@ namespace Zenon.Utils
             {
 
             }
-            else 
+            else
             {
                 if (transaction.FromBlockHash == Hash.Empty)
                 {
@@ -118,7 +118,7 @@ namespace Zenon.Utils
                 }
 
                 var sendBlock = await Znn.Instance.Ledger.GetAccountBlockByHash(transaction.FromBlockHash);
-                
+
                 if (sendBlock == null)
                 {
                     throw new Exception();
@@ -149,7 +149,7 @@ namespace Zenon.Utils
                 transaction.BlockType,
                 transaction.ToAddress,
                 transaction.Data);
-            
+
             var response =
                 await Znn.Instance.Embedded.Plasma.GetRequiredPoWForAccountBlock(powParam);
 
@@ -184,12 +184,12 @@ namespace Zenon.Utils
             return true;
         }
 
-        public static async Task<AccountBlockTemplate> Send(AccountBlockTemplate transaction, 
+        public static async Task<AccountBlockTemplate> Send(AccountBlockTemplate transaction,
             KeyPair currentKeyPair, Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
         {
             await CheckAndSetFields(transaction, currentKeyPair);
             await SetDifficulty(transaction, generatingPowCallback, waitForRequiredPlasma);
-            
+
             SetHashAndSignature(transaction, currentKeyPair);
 
             await Znn.Instance.Ledger.PublishRawTransaction(transaction);

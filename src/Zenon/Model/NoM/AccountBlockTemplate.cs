@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
 using Zenon.Utils;
@@ -107,7 +106,7 @@ namespace Zenon.Model.NoM
 
         // Verification
         public byte[] PublicKey { get; internal set; }
-        public byte[] Signature { get; internal set;  }
+        public byte[] Signature { get; internal set; }
 
         public virtual JAccountBlockTemplate ToJson()
         {

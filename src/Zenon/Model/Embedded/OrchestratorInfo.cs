@@ -15,7 +15,7 @@ namespace Zenon.Model.Embedded
 
         public long WindowSize { get; }
         public long KeyGenThreshold { get; }
-        public long ConfirmationsToFinality { get;  }
+        public long ConfirmationsToFinality { get; }
         public long EstimatedMomentumTime { get; }
         public long AllowKeyGenHeight { get; }
 

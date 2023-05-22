@@ -5,7 +5,7 @@ namespace Zenon.Abi
 {
     public class FunctionType : Bytes32Type
     {
-        public FunctionType() 
+        public FunctionType()
             : base("function")
         { }
 

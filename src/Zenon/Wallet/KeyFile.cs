@@ -146,7 +146,7 @@ namespace Zenon.Wallet
         }
 
         private KeyFile(Address baseAddress, CryptoData crypto, int timestamp, int version)
-        { 
+        {
             this.BaseAddress = baseAddress;
             this.Crypto = crypto;
             this.Timestamp = timestamp;

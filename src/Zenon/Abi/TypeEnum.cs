@@ -1,7 +1,7 @@
 ﻿namespace Zenon.Abi
 {
-    public enum TypeEnum 
-    { 
+    public enum TypeEnum
+    {
         Function
     }
 }

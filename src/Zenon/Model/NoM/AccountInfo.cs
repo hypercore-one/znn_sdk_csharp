@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Linq;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
@@ -16,7 +15,7 @@ namespace Zenon.Model.NoM
         {
             Address = json.address;
             BlockCount = json.accountHeight;
-            BalanceInfoList = this.BlockCount > 0 
+            BalanceInfoList = this.BlockCount > 0
                 ? json.balanceInfoMap.Select(x => new BalanceInfoListItem(x.Value)).ToArray()
                 : new BalanceInfoListItem[0];
         }

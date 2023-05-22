@@ -41,7 +41,7 @@ namespace Zenon.Api.Embedded
             return Convert.ToInt64(qsrAmount * 2100);
         }
 
-        public async Task<GetRequiredResponse> GetRequiredPoWForAccountBlock(GetRequiredParam powParam) 
+        public async Task<GetRequiredResponse> GetRequiredPoWForAccountBlock(GetRequiredParam powParam)
         {
             var response = await Client.Value.SendRequest<JGetRequiredResponse>("embedded.plasma.getRequiredPoWForAccountBlock", powParam.ToJson());
             return new GetRequiredResponse(response);

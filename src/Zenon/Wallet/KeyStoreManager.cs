@@ -56,19 +56,19 @@ namespace Zenon.Wallet
                 .FirstOrDefault(x => x.Name == name).FullName;
         }
 
-        public string[] ListAllKeyStores() 
+        public string[] ListAllKeyStores()
         {
             return Directory.GetFiles(WalletPath);
         }
 
-        public string CreateNew(string passphrase, string name) 
+        public string CreateNew(string passphrase, string name)
         {
             var store = KeyStore.NewRandom();
             return SaveKeyStore(store, passphrase, name: name);
         }
 
         public string CreateFromMnemonic(
-            string mnemonic, string passphrase, string name) 
+            string mnemonic, string passphrase, string name)
         {
             var store = KeyStore.FromMnemonic(mnemonic);
             return SaveKeyStore(store, passphrase, name: name);
