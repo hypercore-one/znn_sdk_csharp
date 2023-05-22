@@ -6,7 +6,7 @@ namespace Zenon.Abi
     public class BytesType : AbiType
     {
         public static readonly BytesType Bytes = new BytesType("bytes");
-        
+
         public BytesType(string name)
             : base(name)
         { }

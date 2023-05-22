@@ -317,6 +317,12 @@ namespace Zenon.Abi
             yield return new object[]
             {
                 HashType,
+                Hash.Empty,
+                Hash.Empty.Bytes
+            };
+            yield return new object[]
+            {
+                HashType,
                 Byte.MaxValue,
                 Hash.Parse("00000000000000000000000000000000000000000000000000000000000000FF").Bytes
             };

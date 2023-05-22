@@ -108,7 +108,7 @@ namespace Zenon.Model.NoM
 
         // Verification
         public byte[] PublicKey { get; internal set; }
-        public byte[] Signature { get; internal set;  }
+        public byte[] Signature { get; internal set; }
 
         public virtual JAccountBlockTemplate ToJson()
         {

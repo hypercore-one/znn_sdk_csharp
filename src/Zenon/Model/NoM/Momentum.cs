@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
 using Zenon.Utils;

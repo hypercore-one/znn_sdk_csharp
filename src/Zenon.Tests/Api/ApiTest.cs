@@ -14,7 +14,765 @@ namespace Zenon.Api
     public partial class ApiTest
     {
         #region Embedded
-        
+
+        public class Bridge
+        {
+            public class GetBridgeInfo
+            {
+                public GetBridgeInfo()
+                {
+                    this.MethodName = "embedded.bridge.getBridgeInfo";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("Zenon.Resources.api.embedded.bridge.getBridgeInfo.json")]
+                public async Task SingleResponseAsync(string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetBridgeInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                }
+            }
+
+            public class GetOrchestratorInfo
+            {
+                public GetOrchestratorInfo()
+                {
+                    this.MethodName = "embedded.bridge.getOrchestratorInfo";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("Zenon.Resources.api.embedded.bridge.getOrchestratorInfo.json")]
+                public async Task SingleResponseAsync(string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetOrchestratorInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                }
+            }
+
+            public class GetTimeChallengesInfo
+            {
+                public GetTimeChallengesInfo()
+                {
+                    this.MethodName = "embedded.bridge.getTimeChallengesInfo";
+                }
+
+                public string MethodName { get; }
+
+                [Fact]
+                public async Task EmptyResponseAsync()
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetTimeChallengesInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData("Zenon.Resources.api.embedded.bridge.getTimeChallengesInfo.json")]
+                public async Task ListResponseAsync(string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetTimeChallengesInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetSecurityInfo
+            {
+                public GetSecurityInfo()
+                {
+                    this.MethodName = "embedded.bridge.getSecurityInfo";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("Zenon.Resources.api.embedded.bridge.getSecurityInfo.json")]
+                public async Task SingleResponseAsync(string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetSecurityInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                }
+            }
+
+            public class GetNetworkInfo
+            {
+                public GetNetworkInfo()
+                {
+                    this.MethodName = "embedded.bridge.getNetworkInfo";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData(2, 123, "Zenon.Resources.api.embedded.bridge.getNetworkInfo.json")]
+                public async Task SingleResponseAsync(int networkClass, int chainId, string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, networkClass, chainId)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetNetworkInfo(networkClass, chainId);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.NetworkClass.Should().Be(networkClass);
+                    result.ChainId.Should().Be(chainId);
+                }
+            }
+
+            public class GetWrapTokenRequestById
+            {
+                public GetWrapTokenRequestById()
+                {
+                    this.MethodName = "embedded.bridge.getWrapTokenRequestById";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("11ac76e40cc23674300f68ca87f5ebeb7210fc327fd43f35081b75a839c9c632", "Zenon.Resources.api.embedded.bridge.getWrapTokenRequestById.json")]
+                public async Task SingleResponseAsync(string hash, string resourceName)
+                {
+                    // Setup
+                    var h = Hash.Parse(hash);
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, h.ToString())
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetWrapTokenRequestById(h);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Id.Should().Be(h);
+                }
+            }
+
+            public class GetAllWrapTokenRequests
+            {
+                public GetAllWrapTokenRequests()
+                {
+                    this.MethodName = "embedded.bridge.getAllWrapTokenRequests";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData(0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetAllWrapTokenRequests(pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllWrapTokenRequests.json")]
+                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetAllWrapTokenRequests(pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetAllWrapTokenRequestsByToAddress
+            {
+                public GetAllWrapTokenRequestsByToAddress()
+                {
+                    this.MethodName = "embedded.bridge.getAllWrapTokenRequestsByToAddress";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(string toAddress, int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, toAddress, pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetAllWrapTokenRequestsByToAddress(toAddress, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllWrapTokenRequestsByToAddress.json")]
+                public async Task ListResponseAsync(string toAddress, int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, toAddress, pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetAllWrapTokenRequestsByToAddress(toAddress, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetAllWrapTokenRequestsByToAddressNetworkClassAndChainId
+            {
+                public GetAllWrapTokenRequestsByToAddressNetworkClassAndChainId()
+                {
+                    this.MethodName = "embedded.bridge.getAllWrapTokenRequestsByToAddressNetworkClassAndChainId";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 2, 123, 0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(string toAddress, int networkClass, int chainId, int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, toAddress, networkClass, chainId, pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetAllWrapTokenRequestsByToAddressNetworkClassAndChainId(toAddress, networkClass, chainId, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 2, 123, 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllWrapTokenRequestsByToAddressNetworkClassAndChainId.json")]
+                public async Task ListResponseAsync(string toAddress, int networkClass, int chainId, int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, toAddress, networkClass, chainId, pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetAllWrapTokenRequestsByToAddressNetworkClassAndChainId(toAddress, networkClass, chainId, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetAllNetworks
+            {
+                public GetAllNetworks()
+                {
+                    this.MethodName = "embedded.bridge.getAllNetworks";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData(0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetAllNetworks(pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllNetworks.json")]
+                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetAllNetworks(pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetAllUnsignedWrapTokenRequests
+            {
+                public GetAllUnsignedWrapTokenRequests()
+                {
+                    this.MethodName = "embedded.bridge.getAllUnsignedWrapTokenRequests";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData(0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetAllUnsignedWrapTokenRequests(pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllUnsignedWrapTokenRequests.json")]
+                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetAllUnsignedWrapTokenRequests(pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetUnwrapTokenRequestByHashAndLog
+            {
+                public GetUnwrapTokenRequestByHashAndLog()
+                {
+                    this.MethodName = "embedded.bridge.getUnwrapTokenRequestByHashAndLog";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("11ac76e40cc23674300f68ca87f5ebeb7210fc327fd43f35081b75a839c9c632", 200, "Zenon.Resources.api.embedded.bridge.getUnwrapTokenRequestByHashAndLog.json")]
+                public async Task SingleResponseAsync(string hash, int logIndex, string resourceName)
+                {
+                    // Setup
+                    var h = Hash.Parse(hash);
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, h.ToString(), logIndex)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetUnwrapTokenRequestByHashAndLog(h, logIndex);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.TransactionHash.Should().Be(h);
+                    result.LogIndex.Should().Be(logIndex);
+                }
+            }
+
+            public class GetAllUnwrapTokenRequests
+            {
+                public GetAllUnwrapTokenRequests()
+                {
+                    this.MethodName = "embedded.bridge.getAllUnwrapTokenRequests";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData(0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetAllUnwrapTokenRequests(pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllUnwrapTokenRequests.json")]
+                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetAllUnwrapTokenRequests(pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetAllUnwrapTokenRequestsByToAddress
+            {
+                public GetAllUnwrapTokenRequestsByToAddress()
+                {
+                    this.MethodName = "embedded.bridge.getAllUnwrapTokenRequestsByToAddress";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(string toAddress, int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, toAddress, pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetAllUnwrapTokenRequestsByToAddress(toAddress, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllUnwrapTokenRequestsByToAddress.json")]
+                public async Task ListResponseAsync(string toAddress, int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, toAddress, pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetAllUnwrapTokenRequestsByToAddress(toAddress, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+        }
+
+        public class Liquidity
+        {
+            public class GetUncollectedReward
+            {
+                public GetUncollectedReward()
+                {
+                    this.MethodName = "embedded.liquidity.getUncollectedReward";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("z1qzal6c5s9rjnnxd2z7dvdhjxpmmj4fmw56a0mz",
+                    "Zenon.Resources.api.embedded.liquidity.getUncollectedReward.json")]
+                public async Task SingleResponseAsync(string address, string resourceName)
+                {
+                    // Setup
+                    var addr = Address.Parse(address);
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, addr.ToString())
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetUncollectedReward(addr);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Address.Should().Be(addr);
+                }
+            }
+
+            public class GetFrontierRewardByPage
+            {
+                public GetFrontierRewardByPage()
+                {
+                    this.MethodName = "embedded.liquidity.getFrontierRewardByPage";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var addr = Address.Parse(address);
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetFrontierRewardByPage(addr, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.liquidity.getFrontierRewardByPage.json")]
+                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var addr = Address.Parse(address);
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetFrontierRewardByPage(addr, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetLiquidityInfo
+            {
+                public GetLiquidityInfo()
+                {
+                    this.MethodName = "embedded.liquidity.getLiquidityInfo";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("Zenon.Resources.api.embedded.liquidity.getLiquidityInfo.json")]
+                public async Task SingleResponseAsync(string resourceName)
+                {
+                    // Setup
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetLiquidityInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                }
+            }
+
+            public class GetSecurityInfo
+            {
+                public GetSecurityInfo()
+                {
+                    this.MethodName = "embedded.liquidity.getSecurityInfo";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("Zenon.Resources.api.embedded.liquidity.getSecurityInfo.json")]
+                public async Task SingleResponseAsync(string resourceName)
+                {
+                    // Setup
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetSecurityInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                }
+            }
+
+            public class GetLiquidityStakeEntriesByAddress
+            {
+                public GetLiquidityStakeEntriesByAddress()
+                {
+                    this.MethodName = "embedded.liquidity.getLiquidityStakeEntriesByAddress";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize)]
+                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                {
+                    // Setup
+                    var addr = Address.Parse(address);
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetLiquidityStakeEntriesByAddress(addr, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.liquidity.getLiquidityStakeEntriesByAddress.json")]
+                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                {
+                    // Setup
+                    var addr = Address.Parse(address);
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetLiquidityStakeEntriesByAddress(addr, pageIndex, pageSize);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetTimeChallengesInfo
+            {
+                public GetTimeChallengesInfo()
+                {
+                    this.MethodName = "embedded.liquidity.getTimeChallengesInfo";
+                }
+
+                public string MethodName { get; }
+
+                [Fact]
+                public async Task EmptyResponseAsync()
+                {
+                    // Setup
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithEmptyResponse()));
+
+                    // Execute
+                    var result = await api.GetTimeChallengesInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().Be(0);
+                    result.List.Should().BeEmpty();
+                }
+
+                [Theory]
+                [InlineData("Zenon.Resources.api.embedded.liquidity.getTimeChallengesInfo.json")]
+                public async Task ListResponseAsync(string resourceName)
+                {
+                    // Setup
+                    var api = new LiquidityApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName)
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetTimeChallengesInfo();
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.Count.Should().BeGreaterThan(0);
+                    result.List.Should().NotBeEmpty();
+                }
+            }
+        }
+
         public class Htlc
         {
             public class GetById
@@ -74,7 +832,7 @@ namespace Zenon.Api
                 }
             }
         }
-        
+
         public class Spork
         {
             public class GetAll
@@ -123,7 +881,7 @@ namespace Zenon.Api
                 }
             }
         }
-        
+
         public class Accelerator
         {
             public class GetAll

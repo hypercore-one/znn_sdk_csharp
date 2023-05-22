@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Zenon.Utils;
@@ -42,7 +41,7 @@ namespace Zenon.Abi
 
             var staticSize = 0;
             var dynamicCnt = 0;
-            
+
             for (var i = 0; i < args.Length; i++)
             {
                 var type = this.Inputs[i].Type;

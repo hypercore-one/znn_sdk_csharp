@@ -76,7 +76,7 @@ namespace Zenon.Wallet
             return addresses.ToArray();
         }
 
-        public FindResponse FindAddress(Address address, int numOfAddresses) 
+        public FindResponse FindAddress(Address address, int numOfAddresses)
         {
             for (var i = 0; i < numOfAddresses; i++)
             {
@@ -114,7 +114,7 @@ namespace Zenon.Wallet
             return new JFindResponse()
             {
                 keyStore = this.Path.FullName,
-                index  = this.Index
+                index = this.Index
             };
         }
     }

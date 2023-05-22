@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Model.NoM;
@@ -22,7 +21,7 @@ namespace Zenon
 
         public KeyStoreManager KeyStoreManager { get; }
         public Lazy<IClient> Client { get; }
-        
+
         public Api.LedgerApi Ledger { get; }
         public Api.StatsApi Stats { get; }
         public Api.EmbeddedApi Embedded { get; }

@@ -21,7 +21,587 @@ namespace Zenon.Api
 
             public EmbeddedApi Api { get; }
         }
-        
+
+        #region Bridge
+        public class Bridge : IClassFixture<EmbeddedApiFixture>
+        {
+            public BridgeApi Api { get; }
+
+            public Bridge(EmbeddedApiFixture fixture)
+            {
+                this.Api = fixture.Api.Bridge;
+            }
+
+            [Fact]
+            public void When_WrapToken_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1qanamzukd2v0pp8j2wzx6m", 5000,
+                    "YdIkvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqMHhiNzk0ZjVlYTBiYTM5NDk0Y2U4Mzk2MTNmZmZiYTc0Mjc5NTc5MjY4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
+
+                // Execute
+                var block = this.Api.WrapToken(2, 123, "0xb794f5ea0ba39494ce839613fffba74279579268", 5000, TokenStandard.Parse("zts1qanamzukd2v0pp8j2wzx6m"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_UpdateWrapRequest_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "1LsRwLOgI9dRaBtq7VB/f3xPqKWdvufuEbPT45wpT8B42be5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGVDS3ViV2h3bnVxcVg5dmpHbDlsdHF4Q053RTJWOVhpNGJPMXE0MDRKWU5DVWxKMGMzaDVDcTU1OHBMeHRpbXJTNzNoUFN0anR6MjgxK0djZk5QVHlBRT0AAAAAAAAAAA==");
+
+                // Execute
+                var block = this.Api.UpdateWrapRequest(Hash.Parse("b3a023d751681b6aed507f7f7c4fa8a59dbee7ee11b3d3e39c294fc078d9b7b9"), "eCKubWhwnuqqX9vjGl9ltqxCNwE2V9Xi4bO1q404JYNCUlJ0c3h5Cq558pLxtimrS73hPStjtz281+GcfNPTyAE=");
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_UnwrapToken_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "tgaUAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsRrHbkDMI2dDAPaMqH9evrchD8Mn/UPzUIG3WoOcnGMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAAAAOocmnNPcmAAR5wxKWIdkSl2gTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKjB4NWFhYWEyMzE1Njc4YWZlY2IzNjdmMDMyZDkzZjY0MmY2NDE4MGFhMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGVDS3ViV2h3bnVxcVg5dmpHbDlsdHF4Q053RTJWOVhpNGJPMXE0MDRKWU5DVWxKMGMzaDVDcTU1OHBMeHRpbXJTNzNoUFN0anR6MjgxK0djZk5QVHlBRT0AAAAAAAAAAA==");
+
+                // Execute
+                var block = this.Api.UnwrapToken(2,
+                    123,
+                    "0x5aaaa2315678afecb367f032d93f642f64180aa3",
+                    Hash.Parse("11ac76e40cc23674300f68ca87f5ebeb7210fc327fd43f35081b75a839c9c632"),
+                    200,
+                    800,
+                    Address.Parse("z1qr4pexnnfaexqqz8nscjjcsajy5hdqfkgadvwx"),
+                    "eCKubWhwnuqqX9vjGl9ltqxCNwE2V9Xi4bO1q404JYNCUlJ0c3h5Cq558pLxtimrS73hPStjtz281+GcfNPTyAE=");
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Redeem_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "1OBseRGsduQMwjZ0MA9oyof16+tyEPwyf9Q/NQgbdag5ycYyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMg=");
+
+                // Execute
+                var block = this.Api.Redeem(
+                    Hash.Parse("11ac76e40cc23674300f68ca87f5ebeb7210fc327fd43f35081b75a839c9c632"),
+                    200);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Halt_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "cjNNIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhlQ0t1Yldod251cXFYOXZqR2w5bHRxeENOd0UyVjlYaTRiTzFxNDA0SllOQ1VsSjBjM2g1Q3E1NThwTHh0aW1yUzczaFBTdGp0ejI4MStHY2ZOUFR5QUU9AAAAAAAAAAA=");
+
+                // Execute
+                var block = this.Api.Halt("eCKubWhwnuqqX9vjGl9ltqxCNwE2V9Xi4bO1q404JYNCUlJ0c3h5Cq558pLxtimrS73hPStjtz281+GcfNPTyAE=");
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Unhalt_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "OhbyDg==");
+
+                // Execute
+                var block = this.Api.Unhalt();
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_SetAllowKeyGen_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "S5s+ywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB");
+
+                // Execute
+                var block = this.Api.SetAllowKeyGen(true);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_ChangeTssECDSAPubKey_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "FaDGQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYZUNLdWJXaHdudXFxWDl2akdsOWx0cXhDTndFMlY5WGk0Yk8xcTQwNEpZTkNVbEowYzNoNUNxNTU4cEx4dGltclM3M2hQU3RqdHoyODErR2NmTlBUeUFFPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhlQ0t1Yldod251cXFYOXZqR2w5bHRxeENOd0UyVjlYaTRiTzFxNDA0SllOQ1VsSjBjM2g1Q3E1NThwTHh0aW1yUzczaFBTdGp0ejI4MStHY2ZOUFR5QUU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlYRmVBSDJCSUtuYkhtN3FkMXpYdDZTU1JlSTlvdmhZZzVqVlBHdW1OT2tqM0J3Nk9mVXdTWlNDS1NNUEN3NE5SWkdEWFQ2bTdBeGU1VUl3QW5vNHhRRT0AAAAAAAAAAA==");
+
+                // Execute
+                var block = this.Api.ChangeTssECDSAPubKey(
+                    "eCKubWhwnuqqX9vjGl9ltqxCNwE2V9Xi4bO1q404JYNCUlJ0c3h5Cq558pLxtimrS73hPStjtz281+GcfNPTyAE=",
+                    "eCKubWhwnuqqX9vjGl9ltqxCNwE2V9Xi4bO1q404JYNCUlJ0c3h5Cq558pLxtimrS73hPStjtz281+GcfNPTyAE=",
+                    "YXFeAH2BIKnbHm7qd1zXt6SSReI9ovhYg5jVPGumNOkj3Bw6OfUwSZSCKSMPCw4NRZGDXT6m7Axe5UIwAno4xQE=");
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_ChangeAdministrator_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "T2vvfAAAAAAAAAAAAAAAAAA7BzFvzHGKQ375EWILpR91HAz5");
+
+                // Execute
+                var block = this.Api.ChangeAdministrator(Address.Parse("z1qqaswvt0e3cc5sm7lygkyza9ra63cr8e6zre09"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_SetNetwork_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "5PDGOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEV0aGVyZXVtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACoweDMyM2I1ZDRjMzIzNDVjZWQ3NzM5M2IzNTMwYjFlZWQwZjM0NjQyOWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
+
+                // Execute
+                var block = this.Api.SetNetwork(2, 123, "Ethereum", "0x323b5d4c32345ced77393b3530b1eed0f346429d", "");
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_RemoveNetwork_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "PTaqwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHs=");
+
+                // Execute
+                var block = this.Api.RemoveNetwork(2, 123);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_SetTokenPair_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "1SkkdgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFOZjGMYxjGMYxgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKjB4NWZiZGIyMzE1Njc4YWZlY2IzNjdmMDMyZDkzZjY0MmY2NDE4MGFhMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
+                // Execute
+                var block = this.Api.SetTokenPair(2, 123, TokenStandard.ZnnZts, "0x5fbdb2315678afecb367f032d93f642f64180aa3", true, true, false, 100, 15, 20, "");
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_RemoveTokenPair_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "tJe/OQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFOZjGMYxjGMYxgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACoweDVmYmRiMjMxNTY3OGFmZWNiMzY3ZjAzMmQ5M2Y2NDJmNjQxODBhYTMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
+                // Execute
+                var block = this.Api.RemoveTokenPair(2, 123, TokenStandard.ZnnZts, "0x5fbdb2315678afecb367f032d93f642f64180aa3");
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_SetNetworkMetadata_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "6+pEAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAheyJBUFIiOiAxNSwgIkxvY2tpbmdQZXJpb2QiOiAxMDB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
+
+                // Execute
+                var block = this.Api.SetNetworkMetadata(2, 123, "{\"APR\": 15, \"LockingPeriod\": 100}");
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_SetOrchestratorInfo_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "7taYVgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABh");
+
+                // Execute
+                var block = this.Api.SetOrchestratorInfo(10, 10, 15, 97);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_NominateGuardians_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "aIrGCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
+
+                // Execute
+                var block = this.Api.NominateGuardians(new Address[] { Address.Parse("z1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsggv2f") });
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_SetBridgeMetadata_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "lr4p4wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ7fQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
+
+                // Execute
+                var block = this.Api.SetBridgeMetadata("{}");
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_ProposeAdministrator_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "HKMTvQAAAAAAAAAAAAAAAAA7BzFvzHGKQ375EWILpR91HAz5");
+
+                // Execute
+                var block = this.Api.ProposeAdministrator(Address.Parse("z1qqaswvt0e3cc5sm7lygkyza9ra63cr8e6zre09"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Emergency_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "+kuhXw==");
+
+                // Execute
+                var block = this.Api.Emergency();
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_SetRedeemDelay_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "/SQR7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcQ");
+
+                // Execute
+                var block = this.Api.SetRedeemDelay(10000);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_RevokeUnwrapRequest_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "+nx/PbOgI9dRaBtq7VB/f3xPqKWdvufuEbPT45wpT8B42be5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMg=");
+
+                // Execute
+                var block = this.Api.RevokeUnwrapRequest(Hash.Parse("b3a023d751681b6aed507f7f7c4fa8a59dbee7ee11b3d3e39c294fc078d9b7b9"), 200);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+        }
+        #endregion
+
+        #region Liquidity
+        public class Liquidity : IClassFixture<EmbeddedApiFixture>
+        {
+            public LiquidityApi Api { get; }
+
+            public Liquidity(EmbeddedApiFixture fixture)
+            {
+                this.Api = fixture.Api.Liquidity;
+            }
+
+            [Fact]
+            public void When_LiquidityStake_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 1000000000,
+                    "Bx+hFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVGA");
+
+                // Execute
+                var block = this.Api.LiquidityStake(86400L, 1000000000, TokenStandard.ZnnZts);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_CancelLiquidityStake_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "uO/DfFnkOgCVs2M3kRjJ4oOEQtwrHqWWJLGK6txc1mFWB5Qe");
+
+                // Execute
+                var block = this.Api.CancelLiquidityStake(Hash.Parse("59e43a0095b363379118c9e2838442dc2b1ea59624b18aeadc5cd6615607941e"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_UnlockLiquidityStakeEntries_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "YWZDyg==");
+
+                // Execute
+                var block = this.Api.UnlockLiquidityStakeEntries(TokenStandard.ZnnZts);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_BurnZnn_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "CWt1pAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJUC+QA");
+
+                // Execute
+                var block = this.Api.BurnZnn(10000000000);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Fund_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "kS88PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJUC+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC6Q7dAA=");
+
+                // Execute
+                var block = this.Api.Fund(10000000000, 50000000000);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Donate_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "y3+LKg==");
+
+                // Execute
+                var block = this.Api.Donate();
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Update_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "IAk+pg==");
+
+                // Execute
+                var block = this.Api.Update();
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_Emergency_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "+kuhXw==");
+
+                // Execute
+                var block = this.Api.Emergency();
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_NominateGuardians_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "aIrGCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
+
+                // Execute
+                var block = this.Api.NominateGuardians(new Address[] { Address.Parse("z1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsggv2f") });
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_ChangeAdministrator_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "T2vvfAAAAAAAAAAAAAAAAAA7BzFvzHGKQ375EWILpR91HAz5");
+
+                // Execute
+                var block = this.Api.ChangeAdministrator(Address.Parse("z1qqaswvt0e3cc5sm7lygkyza9ra63cr8e6zre09"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_ProposeAdministrator_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "HKMTvQAAAAAAAAAAAAAAAAA7BzFvzHGKQ375EWILpR91HAz5");
+
+                // Execute
+                var block = this.Api.ProposeAdministrator(Address.Parse("z1qqaswvt0e3cc5sm7lygkyza9ra63cr8e6zre09"));
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_SetAdditionalReward_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "qPv+VgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJUC+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC6Q7dAA=");
+
+                // Execute
+                var block = this.Api.SetAdditionalReward(10000000000, 50000000000);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_SetIsHalted_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "Rkn+kQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB");
+
+                // Execute
+                var block = this.Api.SetIsHalted(true);
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_SetTokenTuple_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "8K1o2wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABp6dHMxOTkybnE0M3huMnVyejN3dHRrbGM4egAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaenRzMWZyZXM1YzM5YXh3ODA1eHN3dnQ1NWoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABOIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABOIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9A=");
+
+                // Execute
+                var block = this.Api.SetTokenTuple(
+                    new string[] { "zts1992nq43xn2urz3wttklc8z", "zts1fres5c39axw805xswvt55j" },
+                    new int[] { 5000, 5000 },
+                    new int[] { 5000, 5000 },
+                    new long[] { 2000, 2000 });
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+
+            [Fact]
+            public void When_CollectReward_ExpectResultToEqual()
+            {
+                // Setup
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                    "r0PT8A==");
+
+                // Execute
+                var block = this.Api.CollectReward();
+
+                // Validate
+                block.Should().BeEquivalentTo(expectedResult);
+                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
+            }
+        }
+        #endregion
+
         #region Htlc
         public class Htlc : IClassFixture<EmbeddedApiFixture>
         {
@@ -112,7 +692,7 @@ namespace Zenon.Api
             }
         }
         #endregion
-        
+
         #region Spork
         public class Spork : IClassFixture<EmbeddedApiFixture>
         {
@@ -735,7 +1315,7 @@ namespace Zenon.Api
                     "zts1znnxxxxxxxxxxxxx9z4ulx",
                     "100000000",
                     "vEELkQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHQ29udG9zbwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0NUUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABJodHRwOi8vY29udG9zby5jb20AAAAAAAAAAAAAAAAAAA==");
-                
+
                 // Execute
                 var block = this.Api.IssueToken(
                     "Contoso",

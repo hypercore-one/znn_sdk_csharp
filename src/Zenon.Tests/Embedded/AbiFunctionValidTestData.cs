@@ -75,7 +75,7 @@ namespace Zenon.Embedded.TestData
                 Convert.FromHexString("57758f10")
             };
             #endregion
-            
+
             #region Spork functions
             yield return new object[]
             {
@@ -92,7 +92,7 @@ namespace Zenon.Embedded.TestData
                 Convert.FromHexString("25c54e9605a0fef85008e63f0680b68d11743ba5caf199994d642590febe570b2a84b612")
             };
             #endregion
-            
+
             #region Accelerator functions
             yield return new object[]
             {
