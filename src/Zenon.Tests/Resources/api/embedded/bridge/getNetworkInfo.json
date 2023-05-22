@@ -1,0 +1,31 @@
+﻿{
+  "networkClass": 2,
+  "chainId": 123,
+  "name": "Ethereum",
+  "contractAddress": "0x323b5d4c32345ced77393b3530b1eed0f346429d",
+  "metadata": "{}",
+  "tokenPairs": [
+    {
+      "tokenStandard": "zts1znnxxxxxxxxxxxxx9z4ulx",
+      "tokenAddress": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      "bridgeable": true,
+      "redeemable": true,
+      "owned": false,
+      "minAmount": 100,
+      "feePercentage": 15,
+      "redeemDelay": 20,
+      "metadata": "{\"APR\": 15, \"LockingPeriod\": 100}"
+    },
+    {
+      "tokenStandard": "zts1qanamzukd2v0pp8j2wzx6m",
+      "tokenAddress": "0x5aaaa2315678afecb367f032d93f642f64180aa3",
+      "bridgeable": true,
+      "redeemable": true,
+      "owned": true,
+      "minAmount": 10,
+      "feePercentage": 100,
+      "redeemDelay": 15,
+      "metadata": "{\"APR\": 20, \"LockingPeriod\": 50}"
+    }
+  ]
+}

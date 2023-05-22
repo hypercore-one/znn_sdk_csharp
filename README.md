@@ -51,7 +51,7 @@ var passphrase = "secret";
 var mnemonic =
       "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
 
-Znn.Instance.DefaultKeyStore = 
+Znn.Instance.DefaultKeyStorePath = 
     Znn.Instance.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
 Znn.Instance.DefaultKeyStore = 
     Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, Znn.Instance.DefaultKeyStorePath);
@@ -68,7 +68,7 @@ var passphrase = "secret";
 var mnemonic =
       "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
 
-Znn.Instance.DefaultKeyStore = 
+Znn.Instance.DefaultKeyStorePath = 
     Znn.Instance.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
 Znn.Instance.DefaultKeyStore = 
     Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, Znn.Instance.DefaultKeyStorePath);
@@ -96,7 +96,7 @@ var passphrase = "secret";
 var mnemonic =
       "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
 
-Znn.Instance.DefaultKeyStore = 
+Znn.Instance.DefaultKeyStorePath = 
     Znn.Instance.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
 Znn.Instance.DefaultKeyStore = 
     Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, Znn.Instance.DefaultKeyStorePath);
@@ -114,7 +114,7 @@ if (result.Count != 0)
     {
         var tx = AccountBlockTemplate.Receive(item.Hash);
 
-        await Znn.Instance.Send(tx, true);
+        await Znn.Instance.Send(tx);
     }
 }
 

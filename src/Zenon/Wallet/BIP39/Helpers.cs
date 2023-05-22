@@ -1,12 +1,11 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Security.Cryptography;
 
 namespace Zenon.Wallet.BIP39
 {
     // Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-// See the LICENSE file in the project root for more information.
+    // The .NET Foundation licenses this file to you under the MIT license.
+    // See the LICENSE file in the project root for more information.
 
     internal static class Helpers
     {
@@ -17,12 +16,12 @@ namespace Zenon.Wallet.BIP39
                 return null;
             }
 
-            return (byte[]) (src.Clone());
+            return (byte[])(src.Clone());
         }
 
         public static KeySizes[] CloneKeySizesArray(this KeySizes[] src)
         {
-            return (KeySizes[]) (src.Clone());
+            return (KeySizes[])(src.Clone());
         }
 
         public static bool UsesIv(this CipherMode cipherMode)
@@ -93,10 +92,10 @@ namespace Zenon.Wallet.BIP39
                 Debug.Assert(arr != null);
                 Debug.Assert(arr.Length >= offset + sizeof(uint));
 
-                arr[offset] = (byte) (i >> 24);
-                arr[offset + 1] = (byte) (i >> 16);
-                arr[offset + 2] = (byte) (i >> 8);
-                arr[offset + 3] = (byte) i;
+                arr[offset] = (byte)(i >> 24);
+                arr[offset + 1] = (byte)(i >> 16);
+                arr[offset + 2] = (byte)(i >> 8);
+                arr[offset + 3] = (byte)i;
             }
         }
 
@@ -106,12 +105,12 @@ namespace Zenon.Wallet.BIP39
             for (int index = 0; index < key.Length; index++)
             {
                 // Get the bits we are interested in
-                oddParityKey[index] = (byte) (key[index] & 0xfe);
+                oddParityKey[index] = (byte)(key[index] & 0xfe);
 
                 // Get the parity of the sum of the previous bits
-                byte tmp1 = (byte) ((oddParityKey[index] & 0xF) ^ (oddParityKey[index] >> 4));
-                byte tmp2 = (byte) ((tmp1 & 0x3) ^ (tmp1 >> 2));
-                byte sumBitsMod2 = (byte) ((tmp2 & 0x1) ^ (tmp2 >> 1));
+                byte tmp1 = (byte)((oddParityKey[index] & 0xF) ^ (oddParityKey[index] >> 4));
+                byte tmp2 = (byte)((tmp1 & 0x3) ^ (tmp1 >> 2));
+                byte sumBitsMod2 = (byte)((tmp2 & 0x1) ^ (tmp2 >> 1));
 
                 // We need to set the last bit in oddParityKey[index] to the negation
                 // of the last bit in sumBitsMod2
@@ -126,10 +125,10 @@ namespace Zenon.Wallet.BIP39
         {
             Debug.Assert(dest != null);
             Debug.Assert(dest.Length == 4);
-            dest[0] = (byte) ((value & 0xFF000000) >> 24);
-            dest[1] = (byte) ((value & 0xFF0000) >> 16);
-            dest[2] = (byte) ((value & 0xFF00) >> 8);
-            dest[3] = (byte) (value & 0xFF);
+            dest[0] = (byte)((value & 0xFF000000) >> 24);
+            dest[1] = (byte)((value & 0xFF0000) >> 16);
+            dest[2] = (byte)((value & 0xFF00) >> 8);
+            dest[3] = (byte)(value & 0xFF);
         }
     }
 }

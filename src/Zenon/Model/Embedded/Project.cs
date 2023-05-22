@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System.Linq;
+﻿using System.Linq;
 using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
 

@@ -6,8 +6,8 @@ namespace Zenon.Abi
     {
         public readonly int size;
 
-        public StaticArrayType(string name) 
-            : base(name) 
+        public StaticArrayType(string name)
+            : base(name)
         {
             var idx1 = name.IndexOf('[');
             var idx2 = name.IndexOf(']', idx1);

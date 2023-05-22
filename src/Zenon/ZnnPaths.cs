@@ -6,7 +6,7 @@ namespace Zenon
 {
     public class ZnnPaths
     {
-        public static ZnnPaths Default = 
+        public static ZnnPaths Default =
             new ZnnPaths(new DotNetRuntimeInformation(), new DotNetEnvironment());
 
         public ZnnPaths(IRuntimeInformation runtimeInfo, IEnvironment environment)

@@ -166,7 +166,7 @@ namespace Zenon.Embedded
                 new JParam() { name = "id", type = "hash" }
             } }
         };
-        
+
         private static readonly JEntry[] HtlcDefinition = new JEntry[]
         {
             new JEntry() { type = "function", name = "Create", inputs = new JParam[]
@@ -190,6 +190,179 @@ namespace Zenon.Embedded
             new JEntry() { type = "function", name = "AllowProxyUnlock", inputs = new JParam[0] }
         };
 
+        private static readonly JEntry[] LiquidityDefinition = new JEntry[]
+        {
+            new JEntry() { type = "function", name = "Update", inputs = new JParam[0] },
+            new JEntry() { type = "function", name = "Donate", inputs = new JParam[0] },
+            new JEntry() { type = "function", name = "Fund", inputs = new JParam[]
+            {
+                new JParam() { name = "znnReward", type = "uint256" },
+                new JParam() { name = "qsrReward", type = "uint256" }
+            } },
+            new JEntry() { type = "function", name = "BurnZnn", inputs = new JParam[]
+            {
+                new JParam() { name = "burnAmount", type = "uint256" }
+            } },
+            new JEntry() { type = "function", name = "SetTokenTuple", inputs = new JParam[]
+            {
+                new JParam() { name = "tokenStandards", type = "string[]" },
+                new JParam() { name = "znnPercentages", type = "uint32[]" },
+                new JParam() { name = "qsrPercentages", type = "uint32[]" },
+                new JParam() { name = "minAmounts", type = "uint256[]" }
+            } },
+            new JEntry() { type = "function", name = "NominateGuardians", inputs = new JParam[]
+            {
+                new JParam() { name = "guardians", type = "address[]" }
+            } },
+            new JEntry() { type = "function", name = "ProposeAdministrator", inputs = new JParam[]
+            {
+                new JParam() { name = "address", type = "address" }
+            } },
+            new JEntry() { type = "function", name = "Emergency", inputs = new JParam[0] },
+            new JEntry() { type = "function", name = "SetIsHalted", inputs = new JParam[]
+            {
+                new JParam() { name = "isHalted", type = "bool" }
+            } },
+            new JEntry() { type = "function", name = "LiquidityStake", inputs = new JParam[]
+            {
+                new JParam() { name = "durationInSec", type = "int64" }
+            } },
+            new JEntry() { type = "function", name = "CancelLiquidityStake", inputs = new JParam[]
+            {
+                new JParam() { name = "id", type = "hash" }
+            } },
+            new JEntry() { type = "function", name = "UnlockLiquidityStakeEntries", inputs = new JParam[0] },
+            new JEntry() { type = "function", name = "SetAdditionalReward", inputs = new JParam[]
+            {
+                new JParam() { name = "znnReward", type = "uint256" },
+                new JParam() { name = "qsrReward", type = "uint256" }
+            } },
+            new JEntry() { type = "function", name = "ChangeAdministrator", inputs = new JParam[]
+            {
+                new JParam() { name = "administrator", type = "address" }
+            } }
+        };
+
+        private static readonly JEntry[] BridgeDefinition = new JEntry[]
+        {
+            new JEntry() { type = "function", name = "WrapToken", inputs = new JParam[]
+            {
+                new JParam() { name = "networkClass", type = "uint32" },
+                new JParam() { name = "chainId", type = "uint32" },
+                new JParam() { name = "toAddress", type = "string" }
+            } },
+            new JEntry() { type = "function", name = "UpdateWrapRequest", inputs = new JParam[]
+            {
+                new JParam() { name = "id", type = "hash" },
+                new JParam() { name = "signature", type = "string" }
+            } },
+            new JEntry() { type = "function", name = "SetNetwork", inputs = new JParam[]
+            {
+                new JParam() { name = "networkClass", type = "uint32" },
+                new JParam() { name = "chainId", type = "uint32" },
+                new JParam() { name = "name", type = "string" },
+                new JParam() { name = "contractAddress", type = "string" },
+                new JParam() { name = "metadata", type = "string" }
+            } },
+            new JEntry() { type = "function", name = "RemoveNetwork", inputs = new JParam[]
+            {
+                new JParam() { name = "networkClass", type = "uint32" },
+                new JParam() { name = "chainId", type = "uint32" }
+            } },
+            new JEntry() { type = "function", name = "SetTokenPair", inputs = new JParam[]
+            {
+                new JParam() { name = "networkClass", type = "uint32" },
+                new JParam() { name = "chainId", type = "uint32" },
+                new JParam() { name = "tokenStandard", type = "tokenStandard" },
+                new JParam() { name = "tokenAddress", type = "string" },
+                new JParam() { name = "bridgeable", type = "bool" },
+                new JParam() { name = "redeemable", type = "bool" },
+                new JParam() { name = "owned", type = "bool" },
+                new JParam() { name = "minAmount", type = "uint256" },
+                new JParam() { name = "feePercentage", type = "uint32" },
+                new JParam() { name = "redeemDelay", type = "uint32" },
+                new JParam() { name = "metadata", type = "string" },
+            } },
+            new JEntry() { type = "function", name = "SetNetworkMetadata", inputs = new JParam[]
+            {
+                new JParam() { name = "networkClass", type = "uint32" },
+                new JParam() { name = "chainId", type = "uint32" },
+                new JParam() { name = "metadata", type = "string" }
+            } },
+            new JEntry() { type = "function", name = "RemoveTokenPair", inputs = new JParam[]
+            {
+                new JParam() { name = "networkClass", type = "uint32" },
+                new JParam() { name = "chainId", type = "uint32" },
+                new JParam() { name = "tokenStandard", type = "tokenStandard" },
+                new JParam() { name = "tokenAddress", type = "string" }
+            } },
+            new JEntry() { type = "function", name = "Halt", inputs = new JParam[]
+            {
+                new JParam() { name = "signature", type = "string" }
+            } },
+            new JEntry() { type = "function", name = "Unhalt", inputs = new JParam[0] },
+            new JEntry() { type = "function", name = "Emergency", inputs = new JParam[0] },
+            new JEntry() { type = "function", name = "ChangeTssECDSAPubKey", inputs = new JParam[]
+            {
+                new JParam() { name = "pubKey", type = "string" },
+                new JParam() { name = "oldPubKeySignature", type = "string" },
+                new JParam() { name = "newPubKeySignature", type = "string" }
+            } },
+
+            new JEntry() { type = "function", name = "ChangeAdministrator", inputs = new JParam[]
+            {
+                new JParam() { name = "administrator", type = "address" }
+            } },
+            new JEntry() { type = "function", name = "ProposeAdministrator", inputs = new JParam[]
+            {
+                new JParam() { name = "address", type = "address" }
+            } },
+            new JEntry() { type = "function", name = "SetAllowKeyGen", inputs = new JParam[]
+            {
+                new JParam() { name = "allowKeyGen", type = "bool" }
+            } },
+            new JEntry() { type = "function", name = "SetRedeemDelay", inputs = new JParam[]
+            {
+                new JParam() { name = "redeemDelay", type = "uint64" }
+            } },
+            new JEntry() { type = "function", name = "SetBridgeMetadata", inputs = new JParam[]
+            {
+                new JParam() { name = "metadata", type = "string" }
+            } },
+            new JEntry() { type = "function", name = "UnwrapToken", inputs = new JParam[]
+            {
+                new JParam() { name = "networkClass", type = "uint32" },
+                new JParam() { name = "chainId", type = "uint32" },
+                new JParam() { name = "transactionHash", type = "hash" },
+                new JParam() { name = "logIndex", type = "uint32" },
+                new JParam() { name = "toAddress", type = "address" },
+                new JParam() { name = "tokenAddress", type = "string" },
+                new JParam() { name = "amount", type = "uint256" },
+                new JParam() { name = "signature", type = "string" }
+            } },
+            new JEntry() { type = "function", name = "RevokeUnwrapRequest", inputs = new JParam[]
+            {
+                new JParam() { name = "transactionHash", type = "hash" },
+                new JParam() { name = "logIndex", type = "uint32" }
+            } },
+            new JEntry() { type = "function", name = "Redeem", inputs = new JParam[]
+            {
+                new JParam() { name = "transactionHash", type = "hash" },
+                new JParam() { name = "logIndex", type = "uint32" }
+            } },
+            new JEntry() { type = "function", name = "NominateGuardians", inputs = new JParam[]
+            {
+                new JParam() { name = "guardians", type = "address[]" }
+            } },
+            new JEntry() { type = "function", name = "SetOrchestratorInfo", inputs = new JParam[]
+            {
+                new JParam() { name = "windowSize", type = "uint64" },
+                new JParam() { name = "keyGenThreshold", type = "uint32" },
+                new JParam() { name = "confirmationsToFinality", type = "uint32" },
+                new JParam() { name = "estimatedMomentumTime", type = "uint32" }
+            } }
+        };
+
         // Common definitions of embedded methods
         private static readonly JEntry[] CommonDefinition = new JEntry[]
         {
@@ -208,6 +381,8 @@ namespace Zenon.Embedded
         public static readonly Abi.Abi Accelerator = new Abi.Abi(AcceleratorDefinition);
         public static readonly Abi.Abi Spork = new Abi.Abi(SporkDefinition);
         public static readonly Abi.Abi Htlc = new Abi.Abi(HtlcDefinition);
+        public static readonly Abi.Abi Liquidity = new Abi.Abi(LiquidityDefinition);
+        public static readonly Abi.Abi Bridge = new Abi.Abi(BridgeDefinition);
         public static readonly Abi.Abi Common = new Abi.Abi(CommonDefinition);
     }
 }

@@ -138,9 +138,9 @@ namespace Zenon.Pow
                 data[i] = entropy[i];
             }
 
-            for (int i = 0; i < hash.Length; i += 1) 
+            for (int i = 0; i < hash.Length; i += 1)
             {
-                data[i + entropy.Length] = hash[i] ;
+                data[i + entropy.Length] = hash[i];
             }
 
             return data;

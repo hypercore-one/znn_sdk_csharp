@@ -1,0 +1,61 @@
+﻿{
+  "count": 2,
+  "list": [
+    {
+      "registrationMomentumHeight": 95,
+      "networkClass": 2,
+      "chainId": 123,
+      "transactionHash": "b3a023d751681b6aed507f7f7c4fa8a59dbee7ee11b3d3e39c294fc078d9b7b9",
+      "logIndex": 200,
+      "toAddress": "z1qr4pexnnfaexqqz8nscjjcsajy5hdqfkgadvwx",
+      "tokenAddress": "0x5aaaa2315678afecb367f032d93f642f64180aa3",
+      "tokenStandard": "zts1qanamzukd2v0pp8j2wzx6m",
+      "amount": 800,
+      "signature": "eCKubWhwnuqqX9vjGl9ltqxCNwE2V9Xi4bO1q404JYNCUlJ0c3h5Cq558pLxtimrS73hPStjtz281+GcfNPTyAE=",
+      "redeemed": 0,
+      "revoked": 0,
+      "token": {
+        "name": "test.tok3n_na-m3",
+        "symbol": "TEST",
+        "domain": "",
+        "totalSupply": 95050,
+        "decimals": 1,
+        "owner": "z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d",
+        "tokenStandard": "zts1qanamzukd2v0pp8j2wzx6m",
+        "maxSupply": 1000000,
+        "isBurnable": true,
+        "isMintable": true,
+        "isUtility": false
+      },
+      "redeemableIn": 14
+    },
+    {
+      "registrationMomentumHeight": 93,
+      "networkClass": 2,
+      "chainId": 123,
+      "transactionHash": "6a50df02d365fe8034881d0bac17be58d5af4f5efec37c4b965a7ba05a557df0",
+      "logIndex": 200,
+      "toAddress": "z1qr4pexnnfaexqqz8nscjjcsajy5hdqfkgadvwx",
+      "tokenAddress": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      "tokenStandard": "zts1znnxxxxxxxxxxxxx9z4ulx",
+      "amount": 10000000000,
+      "signature": "YXFeAH2BIKnbHm7qd1zXt6SSReI9ovhYg5jVPGumNOkj3Bw6OfUwSZSCKSMPCw4NRZGDXT6m7Axe5UIwAno4xQE=",
+      "redeemed": 0,
+      "revoked": 0,
+      "token": {
+        "name": "Zenon Coin",
+        "symbol": "ZNN",
+        "domain": "zenon.network",
+        "totalSupply": 19500000000000,
+        "decimals": 8,
+        "owner": "z1qxemdeddedxpyllarxxxxxxxxxxxxxxxsy3fmg",
+        "tokenStandard": "zts1znnxxxxxxxxxxxxx9z4ulx",
+        "maxSupply": 4611686018427387903,
+        "isBurnable": true,
+        "isMintable": true,
+        "isUtility": true
+      },
+      "redeemableIn": 17
+    }
+  ]
+}

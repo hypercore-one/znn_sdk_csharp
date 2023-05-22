@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace Zenon.Model.NoM.Json
+﻿namespace Zenon.Model.NoM.Json
 {
     public class JToken
     {
