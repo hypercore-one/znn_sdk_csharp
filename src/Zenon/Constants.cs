@@ -6,7 +6,6 @@ namespace Zenon
     public static class Constants
     {
         // Global constants
-        public const string ZnnSdkVersion = "0.0.5";
         public const string ZnnRootDirectory = "znn";
 
         // https://github.com/zenon-network/go-zenon/blob/b2e6a98fa154d763571bb7af6b1c685d0d82497d/zenon/zenon.go#L41
