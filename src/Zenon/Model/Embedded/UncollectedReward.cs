@@ -1,6 +1,7 @@
 ﻿using System.Numerics;
 using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -9,8 +10,8 @@ namespace Zenon.Model.Embedded
         public UncollectedReward(JUncollectedReward json)
         {
             Address = Address.Parse(json.address);
-            ZnnAmount = BigInteger.Parse(json.znnAmount);
-            QsrAmount = BigInteger.Parse(json.qsrAmount);
+            ZnnAmount = AmountUtils.ParseAmount(json.znnAmount);
+            QsrAmount = AmountUtils.ParseAmount(json.qsrAmount);
         }
 
         public Address Address { get; }

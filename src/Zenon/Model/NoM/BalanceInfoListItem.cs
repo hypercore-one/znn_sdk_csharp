@@ -9,7 +9,7 @@ namespace Zenon.Model.NoM
         public BalanceInfoListItem(JBalanceInfoListItem json)
         {
             Token = json.token != null ? new Token(json.token) : null;
-            Balance = BigInteger.Parse(json.balance);
+            Balance = AmountUtils.ParseAmount(json.balance);
         }
 
         public BalanceInfoListItem(Token token, BigInteger? balance)

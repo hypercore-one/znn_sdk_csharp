@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
 using Zenon.Model.Embedded.Json;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -13,7 +14,7 @@ namespace Zenon.Model.Embedded
             GiveDelegateRewardPercentage = json.giveDelegateRewardPercentage;
             ProducedBlockNum = json.producedBlockNum;
             ExpectedBlockNum = json.expectedBlockNum;
-            Weight = BigInteger.Parse(json.weight);
+            Weight = AmountUtils.ParseAmount(json.weight);
         }
 
         public PillarEpochHistory(

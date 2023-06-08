@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Numerics;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
@@ -39,7 +38,7 @@ namespace Zenon.Model.NoM
             MomentumAcknowledged = new HashHeight(json.momentumAcknowledged);
             Address = Address.Parse(json.address);
             ToAddress = Address.Parse(json.toAddress);
-            Amount = BigInteger.Parse(json.amount);
+            Amount = AmountUtils.ParseAmount(json.amount);
             TokenStandard = TokenStandard.Parse(json.tokenStandard);
             FromBlockHash = Hash.Parse(json.fromBlockHash);
             Data = string.IsNullOrEmpty(json.data) ? new byte[0] : BytesUtils.FromBase64String(json.data);

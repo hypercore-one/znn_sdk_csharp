@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Numerics;
 using Zenon.Model.Embedded.Json;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -8,8 +9,8 @@ namespace Zenon.Model.Embedded
     {
         public StakeList(JStakeList json)
         {
-            TotalAmount = json.totalAmount != null ? BigInteger.Parse(json.totalAmount) : BigInteger.Zero;
-            TotalWeightedAmount = json.totalWeightedAmount != null ? BigInteger.Parse(json.totalWeightedAmount) : BigInteger.Zero;
+            TotalAmount = AmountUtils.ParseAmount(json.totalAmount);
+            TotalWeightedAmount = AmountUtils.ParseAmount(json.totalWeightedAmount);
             Count = json.count;
             List = json.list != null
                 ? json.list.Select(x => new StakeEntry(x)).ToArray()

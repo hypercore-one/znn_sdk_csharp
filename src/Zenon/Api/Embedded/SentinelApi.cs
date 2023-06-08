@@ -7,6 +7,7 @@ using Zenon.Model.Embedded;
 using Zenon.Model.Embedded.Json;
 using Zenon.Model.NoM;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Api.Embedded
 {
@@ -33,7 +34,7 @@ namespace Zenon.Api.Embedded
 
         public async Task<BigInteger> GetDepositedQsr(Address address)
         {
-            return BigInteger.Parse(await 
+            return AmountUtils.ParseAmount(await 
                 Client.Value.SendRequest<string>("embedded.sentinel.getDepositedQsr", address.ToString()));
         }
 

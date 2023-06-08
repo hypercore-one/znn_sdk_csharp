@@ -1,6 +1,7 @@
 ﻿using System.Numerics;
 using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -9,8 +10,8 @@ namespace Zenon.Model.Embedded
         public SwapAssetEntry(Hash keyIdHash, JSwapAssetEntry json)
         {
             KeyIdHash = keyIdHash;
-            Qsr = BigInteger.Parse(json.qsr);
-            Znn = BigInteger.Parse(json.znn);
+            Qsr = AmountUtils.ParseAmount(json.qsr);
+            Znn = AmountUtils.ParseAmount(json.znn);
         }
 
         public SwapAssetEntry(Hash keyIdHash, BigInteger qsr, BigInteger znn)

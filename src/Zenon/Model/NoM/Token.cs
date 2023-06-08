@@ -2,6 +2,7 @@
 using System.Numerics;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.NoM
 {
@@ -12,11 +13,11 @@ namespace Zenon.Model.NoM
             Name = json.name;
             Symbol = json.symbol;
             Domain = json.domain;
-            TotalSupply = BigInteger.Parse(json.totalSupply);
+            TotalSupply = AmountUtils.ParseAmount(json.totalSupply);
             Decimals = json.decimals;
             Owner = Address.Parse(json.owner);
             TokenStandard = TokenStandard.Parse(json.tokenStandard);
-            MaxSupply = BigInteger.Parse(json.maxSupply);
+            MaxSupply = AmountUtils.ParseAmount(json.maxSupply);
             IsBurnable = json.isBurnable;
             IsMintable = json.isMintable;
             IsUtility = json.isUtility;

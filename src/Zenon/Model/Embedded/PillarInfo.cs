@@ -1,6 +1,7 @@
 ﻿using System.Numerics;
 using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -24,7 +25,7 @@ namespace Zenon.Model.Embedded
             RevokeCooldown = json.revokeCooldown;
             RevokeTimestamp = json.revokeTimestamp;
             CurrentStats = new PillarEpochStats(json.currentStats);
-            Weight = BigInteger.Parse(json.weight);
+            Weight = AmountUtils.ParseAmount(json.weight);
             ProducedMomentums = json.producedMomentums;
             ExpectedMomentums = json.expectedMomentums;
         }

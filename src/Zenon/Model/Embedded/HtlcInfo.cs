@@ -2,6 +2,7 @@
 using System.Numerics;
 using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -13,7 +14,7 @@ namespace Zenon.Model.Embedded
             TimeLocked = Address.Parse(json.timeLocked);
             HashLocked = Address.Parse(json.hashLocked);
             TokenStandard = TokenStandard.Parse(json.tokenStandard);
-            Amount = BigInteger.Parse(json.amount);
+            Amount = AmountUtils.ParseAmount(json.amount);
             ExpirationTime = json.expirationTime;
             HashType = json.hashType;
             KeyMaxSize = json.keyMaxSize;

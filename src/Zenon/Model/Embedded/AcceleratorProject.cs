@@ -13,8 +13,8 @@ namespace Zenon.Model.Embedded
             Name = json.name;
             Description = json.description;
             Url = json.url;
-            ZnnFundsNeeded = BigInteger.Parse(json.znnFundsNeeded);
-            QsrFundsNeeded = BigInteger.Parse(json.qsrFundsNeeded);
+            ZnnFundsNeeded = AmountUtils.ParseAmount(json.znnFundsNeeded);
+            QsrFundsNeeded = AmountUtils.ParseAmount(json.qsrFundsNeeded);
             CreationTimestamp = json.creationTimestamp;
             Status = (AcceleratorProjectStatus)json.status;
             VoteBreakdown = new VoteBreakdown(json.votes);

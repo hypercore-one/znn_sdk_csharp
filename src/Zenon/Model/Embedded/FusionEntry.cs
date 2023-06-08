@@ -1,6 +1,7 @@
 ﻿using System.Numerics;
 using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -8,7 +9,7 @@ namespace Zenon.Model.Embedded
     {
         public FusionEntry(JFusionEntry json)
         {
-            QsrAmount = BigInteger.Parse(json.qsrAmount);
+            QsrAmount = AmountUtils.ParseAmount(json.qsrAmount);
             Beneficiary = Address.Parse(json.beneficiary);
             ExpirationHeight = json.expirationHeight;
             Id = Hash.Parse(json.id);
