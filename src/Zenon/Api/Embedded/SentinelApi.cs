@@ -67,19 +67,19 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate CollectReward()
         {
             return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, BigInteger.Zero,
-            Definitions.Common.EncodeFunction("CollectReward"));
+                Definitions.Common.EncodeFunction("CollectReward"));
         }
 
         public AccountBlockTemplate DepositQsr(BigInteger amount)
         {
             return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.QsrZts, amount,
-            Definitions.Common.EncodeFunction("DepositQsr"));
+                Definitions.Common.EncodeFunction("DepositQsr"));
         }
 
         public AccountBlockTemplate WithdrawQsr()
         {
             return AccountBlockTemplate.CallContract(Address.SentinelAddress, TokenStandard.ZnnZts, BigInteger.Zero,
-            Definitions.Common.EncodeFunction("WithdrawQsr"));
+                Definitions.Common.EncodeFunction("WithdrawQsr"));
         }
     }
 }

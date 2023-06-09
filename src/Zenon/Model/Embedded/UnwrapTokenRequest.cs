@@ -1,5 +1,7 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -15,7 +17,7 @@ namespace Zenon.Model.Embedded
             ToAddress = Address.Parse(json.toAddress);
             TokenStandard = TokenStandard.Parse(json.tokenStandard);
             TokenAddress = json.tokenAddress;
-            Amount = json.amount;
+            Amount = AmountUtils.ParseAmount(json.amount);
             Signature = json.signature;
             Redeemed = json.redeemed;
             Revoked = json.revoked;
@@ -29,7 +31,7 @@ namespace Zenon.Model.Embedded
         public Address ToAddress { get; }
         public TokenStandard TokenStandard { get; }
         public string TokenAddress { get; }
-        public long Amount { get; }
+        public BigInteger Amount { get; }
         public string Signature { get; }
         public int Redeemed { get; }
         public int Revoked { get; }
@@ -46,7 +48,7 @@ namespace Zenon.Model.Embedded
                 toAddress = ToAddress.ToString(),
                 tokenStandard = TokenStandard.ToString(),
                 tokenAddress = TokenAddress,
-                amount = Amount,
+                amount = Amount.ToString(),
                 signature = Signature,
                 redeemed = Redeemed,
                 revoked = Revoked

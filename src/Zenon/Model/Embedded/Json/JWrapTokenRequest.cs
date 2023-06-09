@@ -8,8 +8,8 @@
         public string toAddress { get; set; }
         public string tokenStandard { get; set; }
         public string tokenAddress { get; set; }
-        public long amount { get; set; }
-        public long fee { get; set; }
+        public string amount { get; set; }
+        public string fee { get; set; }
         public string signature { get; set; }
         public long creationMomentumHeight { get; set; }
     }
