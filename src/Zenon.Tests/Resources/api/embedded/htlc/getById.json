@@ -3,7 +3,7 @@
    "timeLocked": "z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7",
    "hashLocked": "z1qpsjv3wzzuuzdudg7tf6uhvr6sk4ag8me42ua4",
    "tokenStandard": "zts1znnxxxxxxxxxxxxx9z4ulx",
-   "amount": 10000000000,
+   "amount": "10000000000",
    "expirationTime": 1666776333,
    "hashType": 0,
    "keyMaxSize": 32,

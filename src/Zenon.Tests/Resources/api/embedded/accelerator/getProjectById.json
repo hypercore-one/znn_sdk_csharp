@@ -12,8 +12,8 @@
             "name":"Phase 1 - The crypto",
             "description":"This phase will cover all crypto related aspects of the SDK. The crypto primitives/algorithms (Argon2, Bech, Hash, etc.) and the wallet functionality.",
             "url":"https://github.com/2bonahill/znn_sdk_rust/blob/main/AZ.md",
-            "znnFundsNeeded":53300000000,
-            "qsrFundsNeeded":0,
+            "znnFundsNeeded":"53300000000",
+            "qsrFundsNeeded":"0",
             "creationTimestamp":1651836940,
             "status":0
          },
@@ -30,8 +30,8 @@
    "name":"Zenon Rust SDK",
    "description":"Reference implementation for the Zenon SDK for Rust. Compatible with the Zenon Alphanet - Network of Momentum.",
    "url":"https://github.com/2bonahill/znn_sdk_rust",
-   "znnFundsNeeded":143000000000,
-   "qsrFundsNeeded":10000000000,
+   "znnFundsNeeded":"143000000000",
+   "qsrFundsNeeded":"10000000000",
    "creationTimestamp":1651170200,
    "status":1,
    "votes":{

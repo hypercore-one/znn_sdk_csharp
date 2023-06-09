@@ -4,7 +4,7 @@
   "count": 2,
   "list": [
     {
-      "amount": 100000000000,
+      "amount": "100000000000",
       "weightedAmount": 110000000000,
       "startTimestamp": 1640960600,
       "expirationTimestamp": 1646144600,
@@ -12,7 +12,7 @@
       "id": "ac02074302bfe831b994578fe7b5f0970055f781fd4d30a7a72c3f0c9eecdbab"
     },
     {
-      "amount": 50000000000,
+      "amount": "50000000000",
       "weightedAmount": 50000000000,
       "startTimestamp": 1646143090,
       "expirationTimestamp": 1648735090,

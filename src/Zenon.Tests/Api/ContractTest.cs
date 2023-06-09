@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Moq;
 using System;
+using System.Numerics;
 using System.Text;
 using Xunit;
 using Zenon.Api.Embedded;
@@ -36,7 +37,7 @@ namespace Zenon.Api
             public void When_WrapToken_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1qanamzukd2v0pp8j2wzx6m", 5000,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1qanamzukd2v0pp8j2wzx6m", "5000",
                     "YdIkvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqMHhiNzk0ZjVlYTBiYTM5NDk0Y2U4Mzk2MTNmZmZiYTc0Mjc5NTc5MjY4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
 
                 // Execute
@@ -51,7 +52,7 @@ namespace Zenon.Api
             public void When_UpdateWrapRequest_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "1LsRwLOgI9dRaBtq7VB/f3xPqKWdvufuEbPT45wpT8B42be5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGVDS3ViV2h3bnVxcVg5dmpHbDlsdHF4Q053RTJWOVhpNGJPMXE0MDRKWU5DVWxKMGMzaDVDcTU1OHBMeHRpbXJTNzNoUFN0anR6MjgxK0djZk5QVHlBRT0AAAAAAAAAAA==");
 
                 // Execute
@@ -66,7 +67,7 @@ namespace Zenon.Api
             public void When_UnwrapToken_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "tgaUAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsRrHbkDMI2dDAPaMqH9evrchD8Mn/UPzUIG3WoOcnGMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAAAAOocmnNPcmAAR5wxKWIdkSl2gTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKjB4NWFhYWEyMzE1Njc4YWZlY2IzNjdmMDMyZDkzZjY0MmY2NDE4MGFhMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGVDS3ViV2h3bnVxcVg5dmpHbDlsdHF4Q053RTJWOVhpNGJPMXE0MDRKWU5DVWxKMGMzaDVDcTU1OHBMeHRpbXJTNzNoUFN0anR6MjgxK0djZk5QVHlBRT0AAAAAAAAAAA==");
 
                 // Execute
@@ -88,7 +89,7 @@ namespace Zenon.Api
             public void When_Redeem_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "1OBseRGsduQMwjZ0MA9oyof16+tyEPwyf9Q/NQgbdag5ycYyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMg=");
 
                 // Execute
@@ -105,7 +106,7 @@ namespace Zenon.Api
             public void When_Halt_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "cjNNIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhlQ0t1Yldod251cXFYOXZqR2w5bHRxeENOd0UyVjlYaTRiTzFxNDA0SllOQ1VsSjBjM2g1Q3E1NThwTHh0aW1yUzczaFBTdGp0ejI4MStHY2ZOUFR5QUU9AAAAAAAAAAA=");
 
                 // Execute
@@ -120,7 +121,7 @@ namespace Zenon.Api
             public void When_Unhalt_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "OhbyDg==");
 
                 // Execute
@@ -135,7 +136,7 @@ namespace Zenon.Api
             public void When_SetAllowKeyGen_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "S5s+ywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB");
 
                 // Execute
@@ -150,7 +151,7 @@ namespace Zenon.Api
             public void When_ChangeTssECDSAPubKey_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "FaDGQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYZUNLdWJXaHdudXFxWDl2akdsOWx0cXhDTndFMlY5WGk0Yk8xcTQwNEpZTkNVbEowYzNoNUNxNTU4cEx4dGltclM3M2hQU3RqdHoyODErR2NmTlBUeUFFPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhlQ0t1Yldod251cXFYOXZqR2w5bHRxeENOd0UyVjlYaTRiTzFxNDA0SllOQ1VsSjBjM2g1Q3E1NThwTHh0aW1yUzczaFBTdGp0ejI4MStHY2ZOUFR5QUU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlYRmVBSDJCSUtuYkhtN3FkMXpYdDZTU1JlSTlvdmhZZzVqVlBHdW1OT2tqM0J3Nk9mVXdTWlNDS1NNUEN3NE5SWkdEWFQ2bTdBeGU1VUl3QW5vNHhRRT0AAAAAAAAAAA==");
 
                 // Execute
@@ -168,7 +169,7 @@ namespace Zenon.Api
             public void When_ChangeAdministrator_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "T2vvfAAAAAAAAAAAAAAAAAA7BzFvzHGKQ375EWILpR91HAz5");
 
                 // Execute
@@ -183,7 +184,7 @@ namespace Zenon.Api
             public void When_SetNetwork_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "5PDGOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEV0aGVyZXVtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACoweDMyM2I1ZDRjMzIzNDVjZWQ3NzM5M2IzNTMwYjFlZWQwZjM0NjQyOWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
 
                 // Execute
@@ -198,7 +199,7 @@ namespace Zenon.Api
             public void When_RemoveNetwork_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "PTaqwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHs=");
 
                 // Execute
@@ -213,7 +214,7 @@ namespace Zenon.Api
             public void When_SetTokenPair_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "1SkkdgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFOZjGMYxjGMYxgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKjB4NWZiZGIyMzE1Njc4YWZlY2IzNjdmMDMyZDkzZjY0MmY2NDE4MGFhMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
                 // Execute
@@ -228,7 +229,7 @@ namespace Zenon.Api
             public void When_RemoveTokenPair_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "tJe/OQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFOZjGMYxjGMYxgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACoweDVmYmRiMjMxNTY3OGFmZWNiMzY3ZjAzMmQ5M2Y2NDJmNjQxODBhYTMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
                 // Execute
@@ -243,7 +244,7 @@ namespace Zenon.Api
             public void When_SetNetworkMetadata_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "6+pEAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAheyJBUFIiOiAxNSwgIkxvY2tpbmdQZXJpb2QiOiAxMDB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
 
                 // Execute
@@ -258,7 +259,7 @@ namespace Zenon.Api
             public void When_SetOrchestratorInfo_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "7taYVgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABh");
 
                 // Execute
@@ -273,7 +274,7 @@ namespace Zenon.Api
             public void When_NominateGuardians_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "aIrGCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
 
                 // Execute
@@ -288,7 +289,7 @@ namespace Zenon.Api
             public void When_SetBridgeMetadata_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "lr4p4wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ7fQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
 
                 // Execute
@@ -303,7 +304,7 @@ namespace Zenon.Api
             public void When_ProposeAdministrator_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "HKMTvQAAAAAAAAAAAAAAAAA7BzFvzHGKQ375EWILpR91HAz5");
 
                 // Execute
@@ -318,7 +319,7 @@ namespace Zenon.Api
             public void When_Emergency_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "+kuhXw==");
 
                 // Execute
@@ -333,7 +334,7 @@ namespace Zenon.Api
             public void When_SetRedeemDelay_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "/SQR7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcQ");
 
                 // Execute
@@ -348,7 +349,7 @@ namespace Zenon.Api
             public void When_RevokeUnwrapRequest_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "+nx/PbOgI9dRaBtq7VB/f3xPqKWdvufuEbPT45wpT8B42be5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMg=");
 
                 // Execute
@@ -375,7 +376,7 @@ namespace Zenon.Api
             public void When_LiquidityStake_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 1000000000,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "1000000000",
                     "Bx+hFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVGA");
 
                 // Execute
@@ -390,7 +391,7 @@ namespace Zenon.Api
             public void When_CancelLiquidityStake_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "uO/DfFnkOgCVs2M3kRjJ4oOEQtwrHqWWJLGK6txc1mFWB5Qe");
 
                 // Execute
@@ -405,7 +406,7 @@ namespace Zenon.Api
             public void When_UnlockLiquidityStakeEntries_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "YWZDyg==");
 
                 // Execute
@@ -420,7 +421,7 @@ namespace Zenon.Api
             public void When_BurnZnn_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "CWt1pAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJUC+QA");
 
                 // Execute
@@ -435,7 +436,7 @@ namespace Zenon.Api
             public void When_Fund_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "kS88PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJUC+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC6Q7dAA=");
 
                 // Execute
@@ -450,7 +451,7 @@ namespace Zenon.Api
             public void When_Donate_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "y3+LKg==");
 
                 // Execute
@@ -465,7 +466,7 @@ namespace Zenon.Api
             public void When_Update_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "IAk+pg==");
 
                 // Execute
@@ -480,7 +481,7 @@ namespace Zenon.Api
             public void When_Emergency_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "+kuhXw==");
 
                 // Execute
@@ -495,7 +496,7 @@ namespace Zenon.Api
             public void When_NominateGuardians_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "aIrGCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
 
                 // Execute
@@ -510,7 +511,7 @@ namespace Zenon.Api
             public void When_ChangeAdministrator_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "T2vvfAAAAAAAAAAAAAAAAAA7BzFvzHGKQ375EWILpR91HAz5");
 
                 // Execute
@@ -525,7 +526,7 @@ namespace Zenon.Api
             public void When_ProposeAdministrator_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "HKMTvQAAAAAAAAAAAAAAAAA7BzFvzHGKQ375EWILpR91HAz5");
 
                 // Execute
@@ -540,7 +541,7 @@ namespace Zenon.Api
             public void When_SetAdditionalReward_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "qPv+VgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJUC+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC6Q7dAA=");
 
                 // Execute
@@ -555,7 +556,7 @@ namespace Zenon.Api
             public void When_SetIsHalted_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "Rkn+kQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB");
 
                 // Execute
@@ -570,7 +571,7 @@ namespace Zenon.Api
             public void When_SetTokenTuple_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "8K1o2wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABp6dHMxOTkybnE0M3huMnVyejN3dHRrbGM4egAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaenRzMWZyZXM1YzM5YXh3ODA1eHN3dnQ1NWoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABOIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABOIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9A=");
 
                 // Execute
@@ -578,7 +579,7 @@ namespace Zenon.Api
                     new string[] { "zts1992nq43xn2urz3wttklc8z", "zts1fres5c39axw805xswvt55j" },
                     new int[] { 5000, 5000 },
                     new int[] { 5000, 5000 },
-                    new long[] { 2000, 2000 });
+                    new BigInteger[] { 2000, 2000 });
 
                 // Validate
                 block.Should().BeEquivalentTo(expectedResult);
@@ -589,7 +590,7 @@ namespace Zenon.Api
             public void When_CollectReward_ExpectResultToEqual()
             {
                 // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", 0,
+                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxlyquydytyxxxxxxxxxxxxflaaae", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
                     "r0PT8A==");
 
                 // Execute

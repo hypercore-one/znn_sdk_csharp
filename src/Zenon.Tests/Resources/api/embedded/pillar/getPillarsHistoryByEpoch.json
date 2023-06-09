@@ -8,7 +8,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 73,
       "expectedBlockNum": 75,
-      "weight": 1141249816594
+      "weight": "1141249816594"
     },
     {
       "name": "222",
@@ -17,7 +17,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 65,
       "expectedBlockNum": 66,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "707",
@@ -26,7 +26,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 0,
       "expectedBlockNum": 67,
-      "weight": 5749823999738
+      "weight": "5749823999738"
     },
     {
       "name": "AREA51",
@@ -35,7 +35,7 @@
       "giveDelegateRewardPercentage": 80,
       "producedBlockNum": 174,
       "expectedBlockNum": 179,
-      "weight": 6548779651184
+      "weight": "6548779651184"
     },
     {
       "name": "AlienApeZ",
@@ -44,7 +44,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 57,
       "expectedBlockNum": 57,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "AlienBoyz",
@@ -53,7 +53,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 171,
       "expectedBlockNum": 171,
-      "weight": 8981714867174
+      "weight": "8981714867174"
     },
     {
       "name": "AncientPillar",
@@ -62,7 +62,7 @@
       "giveDelegateRewardPercentage": 55,
       "producedBlockNum": 175,
       "expectedBlockNum": 176,
-      "weight": 6328333437790
+      "weight": "6328333437790"
     },
     {
       "name": "AndastraCapital",
@@ -71,7 +71,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 65,
       "expectedBlockNum": 65,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "Anthem",
@@ -80,7 +80,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 166,
       "expectedBlockNum": 166,
-      "weight": 13345925760927
+      "weight": "13345925760927"
     },
     {
       "name": "Antiga",
@@ -89,7 +89,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 172,
       "expectedBlockNum": 172,
-      "weight": 13636699160309
+      "weight": "13636699160309"
     },
     {
       "name": "Asgardians",
@@ -98,7 +98,7 @@
       "giveDelegateRewardPercentage": 99,
       "producedBlockNum": 182,
       "expectedBlockNum": 182,
-      "weight": 8135572076169
+      "weight": "8135572076169"
     },
     {
       "name": "Asimov",
@@ -107,7 +107,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 169,
       "expectedBlockNum": 169,
-      "weight": 16560685541169
+      "weight": "16560685541169"
     },
     {
       "name": "Barney",
@@ -116,7 +116,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 78,
       "expectedBlockNum": 78,
-      "weight": 1341792039311
+      "weight": "1341792039311"
     },
     {
       "name": "CH405",
@@ -125,7 +125,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 62,
       "expectedBlockNum": 62,
-      "weight": 817825273187
+      "weight": "817825273187"
     },
     {
       "name": "ChadassCapital",
@@ -134,7 +134,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 63,
       "expectedBlockNum": 63,
-      "weight": 2515235
+      "weight": "2515235"
     },
     {
       "name": "DCA",
@@ -143,7 +143,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 67,
       "expectedBlockNum": 67,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "DeeZNNutz.com",
@@ -152,7 +152,7 @@
       "giveDelegateRewardPercentage": 50,
       "producedBlockNum": 66,
       "expectedBlockNum": 66,
-      "weight": 2187950189333
+      "weight": "2187950189333"
     },
     {
       "name": "ElderZ",
@@ -161,7 +161,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 169,
       "expectedBlockNum": 169,
-      "weight": 11247255134504
+      "weight": "11247255134504"
     },
     {
       "name": "Elements",
@@ -170,7 +170,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 189,
       "expectedBlockNum": 189,
-      "weight": 7831802425534
+      "weight": "7831802425534"
     },
     {
       "name": "EmeraldCap",
@@ -179,7 +179,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 182,
       "expectedBlockNum": 184,
-      "weight": 7908165538134
+      "weight": "7908165538134"
     },
     {
       "name": "GenesisPillar",
@@ -188,7 +188,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 70,
       "expectedBlockNum": 70,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "GreyZ",
@@ -197,7 +197,7 @@
       "giveDelegateRewardPercentage": 50,
       "producedBlockNum": 60,
       "expectedBlockNum": 72,
-      "weight": 4610857222821
+      "weight": "4610857222821"
     },
     {
       "name": "Halar1",
@@ -206,7 +206,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 60,
       "expectedBlockNum": 60,
-      "weight": 928
+      "weight": "928"
     },
     {
       "name": "Hybrid21",
@@ -215,7 +215,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 56,
       "expectedBlockNum": 59,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "Inception",
@@ -224,7 +224,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 55,
       "expectedBlockNum": 55,
-      "weight": 123003151681
+      "weight": "123003151681"
     },
     {
       "name": "LT",
@@ -233,7 +233,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 0,
       "expectedBlockNum": 55,
-      "weight": 366337164377
+      "weight": "366337164377"
     },
     {
       "name": "Mantra",
@@ -242,7 +242,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 169,
       "expectedBlockNum": 169,
-      "weight": 14047458217576
+      "weight": "14047458217576"
     },
     {
       "name": "Mariposa01",
@@ -251,7 +251,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 187,
       "expectedBlockNum": 189,
-      "weight": 7897567565832
+      "weight": "7897567565832"
     },
     {
       "name": "Milkdromeda",
@@ -260,7 +260,7 @@
       "giveDelegateRewardPercentage": 77,
       "producedBlockNum": 70,
       "expectedBlockNum": 70,
-      "weight": 3091460238797
+      "weight": "3091460238797"
     },
     {
       "name": "MoonBaZe",
@@ -269,7 +269,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 64,
       "expectedBlockNum": 64,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "Nomverse",
@@ -278,7 +278,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 179,
       "expectedBlockNum": 185,
-      "weight": 6437262479883
+      "weight": "6437262479883"
     },
     {
       "name": "Octopos01",
@@ -287,7 +287,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 171,
       "expectedBlockNum": 173,
-      "weight": 7912051825700
+      "weight": "7912051825700"
     },
     {
       "name": "Paradox",
@@ -296,7 +296,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 79,
       "expectedBlockNum": 79,
-      "weight": 361468390041
+      "weight": "361468390041"
     },
     {
       "name": "Perm",
@@ -305,7 +305,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 167,
       "expectedBlockNum": 167,
-      "weight": 15492463428846
+      "weight": "15492463428846"
     },
     {
       "name": "PillarNoM",
@@ -314,7 +314,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 66,
       "expectedBlockNum": 66,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "Publius",
@@ -323,7 +323,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 71,
       "expectedBlockNum": 73,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "QSR",
@@ -332,7 +332,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 60,
       "expectedBlockNum": 60,
-      "weight": 3773112968412
+      "weight": "3773112968412"
     },
     {
       "name": "SPillar",
@@ -341,7 +341,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 169,
       "expectedBlockNum": 169,
-      "weight": 9568176277070
+      "weight": "9568176277070"
     },
     {
       "name": "Shigo",
@@ -350,7 +350,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 179,
       "expectedBlockNum": 179,
-      "weight": 7928585980525
+      "weight": "7928585980525"
     },
     {
       "name": "SolarSail",
@@ -359,7 +359,7 @@
       "giveDelegateRewardPercentage": 80,
       "producedBlockNum": 55,
       "expectedBlockNum": 57,
-      "weight": 2437865316674
+      "weight": "2437865316674"
     },
     {
       "name": "SpaceInvaderz",
@@ -368,7 +368,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 59,
       "expectedBlockNum": 61,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "StakeServe",
@@ -377,7 +377,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 180,
       "expectedBlockNum": 180,
-      "weight": 7905036736266
+      "weight": "7905036736266"
     },
     {
       "name": "Stargate",
@@ -386,7 +386,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 52,
       "expectedBlockNum": 54,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "SultanOfStaking",
@@ -395,7 +395,7 @@
       "giveDelegateRewardPercentage": 99,
       "producedBlockNum": 170,
       "expectedBlockNum": 170,
-      "weight": 11228644399530
+      "weight": "11228644399530"
     },
     {
       "name": "Swagmi",
@@ -404,7 +404,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 58,
       "expectedBlockNum": 58,
-      "weight": 316587457960
+      "weight": "316587457960"
     },
     {
       "name": "Time",
@@ -413,7 +413,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 63,
       "expectedBlockNum": 63,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "UFO",
@@ -422,7 +422,7 @@
       "giveDelegateRewardPercentage": 25,
       "producedBlockNum": 70,
       "expectedBlockNum": 73,
-      "weight": 20370000000
+      "weight": "20370000000"
     },
     {
       "name": "UTOPIA",
@@ -431,7 +431,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 69,
       "expectedBlockNum": 69,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "Unizen",
@@ -440,7 +440,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 180,
       "expectedBlockNum": 181,
-      "weight": 10223290645144
+      "weight": "10223290645144"
     },
     {
       "name": "Vopo",
@@ -449,7 +449,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 183,
       "expectedBlockNum": 183,
-      "weight": 8910844050440
+      "weight": "8910844050440"
     },
     {
       "name": "WAGMI",
@@ -458,7 +458,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 171,
       "expectedBlockNum": 173,
-      "weight": 8545299791199
+      "weight": "8545299791199"
     },
     {
       "name": "WaXe",
@@ -467,7 +467,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 195,
       "expectedBlockNum": 195,
-      "weight": 10497810112949
+      "weight": "10497810112949"
     },
     {
       "name": "WolfRayet-102",
@@ -476,7 +476,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 61,
       "expectedBlockNum": 61,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "WotGasFees",
@@ -485,7 +485,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 63,
       "expectedBlockNum": 64,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "XYZ",
@@ -494,7 +494,7 @@
       "giveDelegateRewardPercentage": 20,
       "producedBlockNum": 53,
       "expectedBlockNum": 55,
-      "weight": 583361648926
+      "weight": "583361648926"
     },
     {
       "name": "Z-United",
@@ -503,7 +503,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 67,
       "expectedBlockNum": 71,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "ZENON.NETWORK",
@@ -512,7 +512,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 0,
       "expectedBlockNum": 59,
-      "weight": 576681345234
+      "weight": "576681345234"
     },
     {
       "name": "Zaulus",
@@ -521,7 +521,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 71,
       "expectedBlockNum": 71,
-      "weight": 1379862815935
+      "weight": "1379862815935"
     },
     {
       "name": "Zaurum",
@@ -530,7 +530,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 63,
       "expectedBlockNum": 63,
-      "weight": 1236026372226
+      "weight": "1236026372226"
     },
     {
       "name": "Zayin",
@@ -539,7 +539,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 72,
       "expectedBlockNum": 72,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "Zed",
@@ -548,7 +548,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 163,
       "expectedBlockNum": 163,
-      "weight": 7329256348986
+      "weight": "7329256348986"
     },
     {
       "name": "ZenDAO",
@@ -557,7 +557,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 168,
       "expectedBlockNum": 169,
-      "weight": 10121425778946
+      "weight": "10121425778946"
     },
     {
       "name": "Zeno",
@@ -566,7 +566,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 59,
       "expectedBlockNum": 59,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "ZenonOG",
@@ -575,7 +575,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 165,
       "expectedBlockNum": 166,
-      "weight": 9492510935588
+      "weight": "9492510935588"
     },
     {
       "name": "ZenonORG",
@@ -584,7 +584,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 181,
       "expectedBlockNum": 181,
-      "weight": 6720624189566
+      "weight": "6720624189566"
     },
     {
       "name": "Zeus",
@@ -593,7 +593,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 56,
       "expectedBlockNum": 56,
-      "weight": 1476616476042
+      "weight": "1476616476042"
     },
     {
       "name": "Zircon",
@@ -602,7 +602,7 @@
       "giveDelegateRewardPercentage": 51,
       "producedBlockNum": 59,
       "expectedBlockNum": 59,
-      "weight": 672902537219
+      "weight": "672902537219"
     },
     {
       "name": "Zygonidz",
@@ -611,7 +611,7 @@
       "giveDelegateRewardPercentage": 95,
       "producedBlockNum": 154,
       "expectedBlockNum": 161,
-      "weight": 7235393089995
+      "weight": "7235393089995"
     },
     {
       "name": "alien-valley.io",
@@ -620,7 +620,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 59,
       "expectedBlockNum": 59,
-      "weight": 2000973604381
+      "weight": "2000973604381"
     },
     {
       "name": "apestrongtogether",
@@ -629,7 +629,7 @@
       "giveDelegateRewardPercentage": 95,
       "producedBlockNum": 164,
       "expectedBlockNum": 164,
-      "weight": 8558954023354
+      "weight": "8558954023354"
     },
     {
       "name": "bigdickenergy",
@@ -638,7 +638,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 191,
       "expectedBlockNum": 191,
-      "weight": 9002528262102
+      "weight": "9002528262102"
     },
     {
       "name": "blow",
@@ -647,7 +647,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 41,
       "expectedBlockNum": 68,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "bonsai",
@@ -656,7 +656,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 72,
       "expectedBlockNum": 74,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "holover.se",
@@ -665,7 +665,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 57,
       "expectedBlockNum": 57,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "invictus",
@@ -674,7 +674,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 86,
       "expectedBlockNum": 86,
-      "weight": 1199554452901
+      "weight": "1199554452901"
     },
     {
       "name": "nobu",
@@ -683,7 +683,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 0,
       "expectedBlockNum": 67,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "singularity",
@@ -692,7 +692,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 69,
       "expectedBlockNum": 72,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "stardust",
@@ -701,7 +701,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 74,
       "expectedBlockNum": 74,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "starfruit",
@@ -710,7 +710,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 59,
       "expectedBlockNum": 59,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "tapwoot",
@@ -719,7 +719,7 @@
       "giveDelegateRewardPercentage": 100,
       "producedBlockNum": 56,
       "expectedBlockNum": 56,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "theone",
@@ -728,7 +728,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 0,
       "expectedBlockNum": 12,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "zAppers",
@@ -737,7 +737,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 61,
       "expectedBlockNum": 61,
-      "weight": 0
+      "weight": "0"
     },
     {
       "name": "zamiri",
@@ -746,7 +746,7 @@
       "giveDelegateRewardPercentage": 0,
       "producedBlockNum": 37,
       "expectedBlockNum": 56,
-      "weight": 0
+      "weight": "0"
     }
   ]
 }
