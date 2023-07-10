@@ -8,5 +8,7 @@
         public long startTime { get; set; }
         public long revokeTime { get; set; }
         public long expirationTime { get; set; }
+        public string stakeAddress { get; set; }
+        public string id { get; set; }
     }
 }

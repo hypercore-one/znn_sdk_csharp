@@ -15,6 +15,8 @@ namespace Zenon.Model.Embedded
             StartTime = json.startTime;
             RevokeTime = json.revokeTime;
             ExpirationTime = json.expirationTime;
+            StakeAddress = Address.Parse(json.stakeAddress);
+            Id = Hash.Parse(json.id);
         }
 
         public BigInteger Amount { get; }
@@ -23,6 +25,8 @@ namespace Zenon.Model.Embedded
         public long StartTime { get; }
         public long RevokeTime { get; }
         public long ExpirationTime { get; }
+        public Address StakeAddress { get; }
+        public Hash Id { get; }
 
         public virtual JLiquidityStakeEntry ToJson()
         {
@@ -34,6 +38,8 @@ namespace Zenon.Model.Embedded
                 startTime = StartTime,
                 revokeTime = RevokeTime,
                 expirationTime = ExpirationTime,
+                stakeAddress = StakeAddress.ToString(),
+                id = Id.ToString(),
             };
         }
     }
