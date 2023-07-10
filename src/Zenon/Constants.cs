@@ -39,6 +39,7 @@ namespace Zenon
         public static readonly BigInteger MinPlasmaAmount = new BigInteger(21000);
 
         // Pillar
+        public static readonly BigInteger MinDelegationAmount = new BigInteger(1 * OneZnn);
         public static readonly BigInteger PillarRegisterZnnAmount = new BigInteger(15000 * OneZnn);
         public static readonly BigInteger PillarRegisterQsrAmount = new BigInteger(150000 * OneQsr);
         public const long PillarNameMaxLength = 40;
@@ -49,13 +50,17 @@ namespace Zenon
         public static readonly BigInteger SentinelRegisterQsrAmount = new BigInteger(50000 * OneQsr);
 
         // Staking
-        public static readonly BigInteger StakeMinZnnAmount = new BigInteger(1 * OneZnn);
+        public static readonly BigInteger StakeMinAmount = new BigInteger(1 * OneZnn);
         public const long StakeTimeUnitSec = 30 * 24 * 60 * 60;
+        public const long StakeTimeMinSec = 1 * StakeTimeUnitSec;
         public const long StakeTimeMaxSec = 12 * StakeTimeUnitSec;
         public const string StakeUnitDurationName = "month";
 
         // Token
         public static readonly BigInteger TokenZtsIssueFeeInZnn = new BigInteger(1 * OneZnn);
+        public static readonly BigInteger MinTokenTotalMaxSupply = BigInteger.One;
+        public static readonly BigInteger BigP255 = BigInteger.Pow(2, 255);
+        public static readonly BigInteger BigP255m1 = BigInteger.Pow(2, 255) - BigInteger.One;
         public const long TokenNameMaxLength = 40;
         public const long TokenSymbolMaxLength = 10;
         public static readonly string[] TokenSymbolExceptions = new string[] { "ZNN", "QSR" };
@@ -66,6 +71,10 @@ namespace Zenon
 
         // Accelerator
         public static readonly BigInteger ProjectCreationFeeInZnn = new BigInteger(1 * OneZnn);
+        public static readonly BigInteger ZnnProjectMaximumFunds = new BigInteger(5000 * OneZnn);
+        public static readonly BigInteger QsrProjectMaximumFunds = new BigInteger(50000 * OneZnn);
+        public static readonly BigInteger ZnnProjectMinimumFunds = new BigInteger(10 * OneZnn);
+        public static readonly BigInteger QsrProjectMinimumFunds = new BigInteger(100 * OneZnn);
         public const int ProjectDescriptionMaxLength = 240;
         public const int ProjectNameMaxLength = 30;
         public const int ProjectVotingStatus = 0;
@@ -74,16 +83,16 @@ namespace Zenon
         public const int ProjectClosedStatus = 3;
         public static readonly Regex ProjectUrlRegExp = new Regex("^[a-zA-Z0-9]{2,60}.[a-zA-Z]{1,6}([a-zA-Z0-9()@:%_\\+.~#?&/=-]{0,100})$");
 
-        // Spork
-        public const int SporkNameMinLength = 5;
-        public const int SporkNameMaxLength = 40;
-        public const int SporkDescriptionMaxLength = 400;
-
         // Swap
         public const int SwapAssetDecayTimestampStart = 1645531200;
         public const int SwapAssetDecayEpochsOffset = 30 * 3;
         public const int SwapAssetDecayTickEpochs = 30;
         public const int SwapAssetDecayTickValuePercentage = 10;
+
+        // Spork
+        public const int SporkNameMinLength = 5;
+        public const int SporkNameMaxLength = 40;
+        public const int SporkDescriptionMaxLength = 400;
 
         // Htlc
         public const int HtlcPreimageMinLength = 1;
@@ -92,5 +101,9 @@ namespace Zenon
         public const int HtlcTimelockUnitSec = 60 * 60; // 1 hour
         public const int HtlcTimelockMinSec = HtlcTimelockUnitSec * 1; // 1 hour
         public const int HtlcTimelockMaxSec = HtlcTimelockUnitSec * 24 * 30 * 12; // ~1 year
+
+        // Bridge
+        public const int BridgeMinGuardians = 5;
+        public const int BridgeMaximumFee = 10000;
     }
 }
