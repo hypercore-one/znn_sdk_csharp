@@ -21,6 +21,7 @@
     <None Remove="Resources\api\embedded\bridge\getAllWrapTokenRequestsByToAddress.json" />
     <None Remove="Resources\api\embedded\bridge\getAllWrapTokenRequestsByToAddressNetworkClassAndChainId.json" />
     <None Remove="Resources\api\embedded\bridge\getBridgeInfo.json" />
+    <None Remove="Resources\api\embedded\bridge\getFeeTokenPair.json" />
     <None Remove="Resources\api\embedded\bridge\getNetworkInfo.json" />
     <None Remove="Resources\api\embedded\bridge\getOrchestratorInfo.json" />
     <None Remove="Resources\api\embedded\bridge\getSecurityInfo.json" />
@@ -100,6 +101,7 @@
     <EmbeddedResource Include="Resources\api\embedded\bridge\getBridgeInfo.json" />
     <EmbeddedResource Include="Resources\api\embedded\bridge\getNetworkInfo.json" />
     <EmbeddedResource Include="Resources\api\embedded\bridge\getOrchestratorInfo.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getFeeTokenPair.json" />
     <EmbeddedResource Include="Resources\api\embedded\bridge\getSecurityInfo.json" />
     <EmbeddedResource Include="Resources\api\embedded\bridge\getTimeChallengesInfo.json" />
     <EmbeddedResource Include="Resources\api\embedded\bridge\getUnwrapTokenRequestByHashAndLog.json" />

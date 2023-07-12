@@ -25,8 +25,7 @@ namespace Zenon
         public const int MemoryPoolPageSize = 50;
 
         // NoM constants
-        public const int ZnnDecimals = 8;
-        public const int QsrDecimals = 8;
+        public const int CoinDecimals = 8;
         public const long OneZnn = 1 * 100000000;
         public const long OneQsr = 1 * 100000000;
         public static readonly TimeSpan IntervalBetweenMomentums = TimeSpan.FromSeconds(10);
@@ -64,7 +63,6 @@ namespace Zenon
         public const long TokenNameMaxLength = 40;
         public const long TokenSymbolMaxLength = 10;
         public static readonly string[] TokenSymbolExceptions = new string[] { "ZNN", "QSR" };
-
         public static readonly Regex TokenNameRegExp = new Regex("^([a-zA-Z0-9]+[-._]?)*[a-zA-Z0-9]$");
         public static readonly Regex TokenSymbolRegExp = new Regex("^[A-Z0-9]+$");
         public static readonly Regex TokenDomainRegExp = new Regex("^([A-Za-z0-9][A-Za-z0-9-]{0,61}[A-Za-z0-9].)+[A-Za-z]{2,}$");
@@ -98,9 +96,8 @@ namespace Zenon
         public const int HtlcPreimageMinLength = 1;
         public const int HtlcPreimageMaxLength = 255;
         public const int HtlcPreimageDefaultLength = 32;
-        public const int HtlcTimelockUnitSec = 60 * 60; // 1 hour
-        public const int HtlcTimelockMinSec = HtlcTimelockUnitSec * 1; // 1 hour
-        public const int HtlcTimelockMaxSec = HtlcTimelockUnitSec * 24 * 30 * 12; // ~1 year
+        public const int HtlcHashTypeSha3 = 0;
+        public const int HtlcHashTypeSha256 = 1;
 
         // Bridge
         public const int BridgeMinGuardians = 5;

@@ -103,6 +103,12 @@ namespace Zenon.Api.Embedded
             return new UnwrapTokenRequestList(response);
         }
 
+        public async Task<ZtsFeesInfo> GetFeeTokenPair(TokenStandard zts)
+        {
+            var response = await Client.Value.SendRequest<JZtsFeesInfo>("embedded.bridge.getFeeTokenPair", zts.ToString());
+            return new ZtsFeesInfo(response);
+        }
+
         // Contract methods
 
         public AccountBlockTemplate WrapToken(int networkClass, int chainId, string toAddress, BigInteger amount, TokenStandard tokenStandard)

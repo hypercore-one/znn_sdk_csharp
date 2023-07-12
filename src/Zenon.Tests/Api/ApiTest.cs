@@ -546,6 +546,34 @@ namespace Zenon.Api
                     result.List.Should().NotBeEmpty();
                 }
             }
+
+            public class GetFeeTokenPair
+            {
+                public GetFeeTokenPair()
+                {
+                    this.MethodName = "embedded.bridge.getFeeTokenPair";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("zts1znnxxxxxxxxxxxxx9z4ulx", "Zenon.Resources.api.embedded.bridge.getFeeTokenPair.json")]
+                public async Task SingleResponseAsync(string tokenStandard, string resourceName)
+                {
+                    // Setup
+                    var zts = TokenStandard.Parse(tokenStandard);
+                    var api = new BridgeApi(new Lazy<IClient>(() => new TestClient()
+                        .WithMethod(this.MethodName, zts.ToString())
+                        .WithManifestResourceTextResponse(resourceName)));
+
+                    // Execute
+                    var result = await api.GetFeeTokenPair(zts);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.TokenStandard.Should().Be(zts);
+                }
+            }
         }
 
         public class Liquidity
