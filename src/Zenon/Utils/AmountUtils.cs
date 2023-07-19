@@ -7,12 +7,12 @@ namespace Zenon.Utils
     {
         public static BigInteger ParseAmount(string value)
         {
-            return string.IsNullOrEmpty(value) ? BigInteger.Zero : BigInteger.Parse(value);
+            return string.IsNullOrEmpty(value) ? BigInteger.Zero : BigInteger.Parse(value, CultureInfo.InvariantCulture);
         }
 
         public static BigInteger ExtractDecimals(double value, int decimals)
         {
-            return BigInteger.Parse(value.ToString("0." + new string('0', decimals))
+            return BigInteger.Parse(value.ToString("0." + new string('0', decimals), CultureInfo.InvariantCulture)
                 .Replace(CultureInfo.InvariantCulture.NumberFormat.NumberDecimalSeparator, ""));
         }
 
