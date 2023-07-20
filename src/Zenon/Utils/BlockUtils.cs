@@ -27,6 +27,11 @@ namespace Zenon.Utils
 
         public static Hash GetTransactionHash(AccountBlockTemplate transaction)
         {
+            return Hash.Digest(GetTransactionBytes(transaction));
+        }
+
+        public static byte[] GetTransactionBytes(AccountBlockTemplate transaction)
+        {
             var versionBytes = BytesUtils.GetBytes((long)transaction.Version);
             var chainIdentifierBytes = BytesUtils.GetBytes((long)transaction.ChainIdentifier);
             var blockTypeBytes = BytesUtils.GetBytes((long)transaction.BlockType);
@@ -63,12 +68,7 @@ namespace Zenon.Utils
                 nonceBytes
             );
 
-            return Hash.Digest(source);
-        }
-
-        private static byte[] GetTransactionSignature(KeyPair keyPair, AccountBlockTemplate transaction)
-        {
-            return keyPair.Sign(transaction.Hash.Bytes);
+            return source;
         }
 
         private static Hash GetPoWData(AccountBlockTemplate transaction)
@@ -99,10 +99,10 @@ namespace Zenon.Utils
                 new HashHeight(frontierMomentum.Hash, frontierMomentum.Height);
         }
 
-        private static async Task<bool> CheckAndSetFields(AccountBlockTemplate transaction, KeyPair currentKeyPair)
+        private static async Task<bool> CheckAndSetFields(AccountBlockTemplate transaction, ISigner currentKeyPair)
         {
-            transaction.Address = currentKeyPair.Address;
-            transaction.PublicKey = currentKeyPair.PublicKey;
+            transaction.Address = await currentKeyPair.GetAddressAsync();
+            transaction.PublicKey = await currentKeyPair.GetPublicKeyAsync();
 
             await AutofillTransactionParameters(transaction);
 
@@ -176,21 +176,21 @@ namespace Zenon.Utils
             return true;
         }
 
-        private static bool SetHashAndSignature(AccountBlockTemplate transaction, KeyPair currentKeyPair)
+        private static async Task<bool> SetHashAndSignature(AccountBlockTemplate transaction, ISigner currentKeyPair)
         {
             transaction.Hash = GetTransactionHash(transaction);
-            transaction.Signature = GetTransactionSignature(currentKeyPair, transaction);
+            transaction.Signature = await currentKeyPair.SignTxAsync(transaction); ;
 
             return true;
         }
 
         public static async Task<AccountBlockTemplate> Send(AccountBlockTemplate transaction,
-            KeyPair currentKeyPair, Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
+            ISigner currentKeyPair, Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
         {
             await CheckAndSetFields(transaction, currentKeyPair);
             await SetDifficulty(transaction, generatingPowCallback, waitForRequiredPlasma);
 
-            SetHashAndSignature(transaction, currentKeyPair);
+            await SetHashAndSignature(transaction, currentKeyPair);
 
             await Znn.Instance.Ledger.PublishRawTransaction(transaction);
 
@@ -199,9 +199,9 @@ namespace Zenon.Utils
             return transaction;
         }
 
-        public static async Task<bool> RequiresPoW(AccountBlockTemplate transaction, KeyPair blockSigningKey)
+        public static async Task<bool> RequiresPoW(AccountBlockTemplate transaction, ISigner blockSigningKey)
         {
-            transaction.Address = blockSigningKey.Address;
+            transaction.Address = await blockSigningKey.GetAddressAsync();
 
             var powParam = new GetRequiredParam(
                 transaction.Address,

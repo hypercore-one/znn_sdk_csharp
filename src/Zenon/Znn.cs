@@ -15,8 +15,8 @@ namespace Zenon
         public int NetworkIdentifier { get; }
         public int ChainIdentifier { get; set; }
 
-        public KeyPair DefaultKeyPair { get; set; }
-        public KeyStore DefaultKeyStore { get; set; }
+        public ISigner DefaultKeyPair { get; set; }
+        public IWallet DefaultKeyStore { get; set; }
         public string DefaultKeyStorePath { get; set; }
 
         public KeyStoreManager KeyStoreManager { get; }
@@ -51,7 +51,7 @@ namespace Zenon
         }
 
         public async Task<AccountBlockTemplate> Send(AccountBlockTemplate transaction,
-            KeyPair currentKeyPair, Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
+            ISigner currentKeyPair, Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
         {
             var keypair = currentKeyPair ?? DefaultKeyPair;
 
@@ -66,7 +66,7 @@ namespace Zenon
             return await RequiresPoW(transaction, DefaultKeyPair);
         }
 
-        public async Task<bool> RequiresPoW(AccountBlockTemplate transaction, KeyPair currentKeyPair)
+        public async Task<bool> RequiresPoW(AccountBlockTemplate transaction, ISigner currentKeyPair)
         {
             var keypair = currentKeyPair ?? DefaultKeyPair;
 
