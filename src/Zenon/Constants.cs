@@ -8,13 +8,15 @@ namespace Zenon
         // Global constants
         public const string ZnnRootDirectory = "znn";
 
+        public const int ProtocolVersion = 1;
+
         // https://github.com/zenon-network/go-zenon/blob/b2e6a98fa154d763571bb7af6b1c685d0d82497d/zenon/zenon.go#L41
         public const int NetId = 1; // Alphanet network identifier
         public const int ChainId = 1; // Alphanet chain identifier
 
-        public static string ZnnDefaultDirectory = ZnnPaths.Default.Main;
-        public static string ZnnDefaultWalletDirectory = ZnnPaths.Default.Wallet;
-        public static string ZnnDefaultCacheDirectory = ZnnPaths.Default.Cache;
+        public static string ZnnDefaultDirectory = ZdkPaths.Default.Main;
+        public static string ZnnDefaultWalletDirectory = ZdkPaths.Default.Wallet;
+        public static string ZnnDefaultCacheDirectory = ZdkPaths.Default.Cache;
 
         // Client constants
         public const int DefaultHttpPort = 35997;

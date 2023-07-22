@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Zenon.Api;
 using Zenon.Client;
 using Zenon.Model.NoM;
 using Zenon.Pow;
@@ -8,28 +9,24 @@ using Zenon.Wallet;
 
 namespace Zenon
 {
-    public sealed class Znn
+    public sealed class Zdk
     {
-        public static readonly Znn Mainnet = new Znn(Constants.ChainId);
-
-        public Znn(int chainIdentifier)
+        public Zdk(IClient client)
         {
-            ChainIdentifier = chainIdentifier;
-            Client = new Lazy<IClient>(() => new WsClient());
-            Ledger = new Api.LedgerApi(Client);
-            Stats = new Api.StatsApi(Client);
-            Embedded = new Api.EmbeddedApi(Client);
-            Subscribe = new Api.SubscribeApi(Client);
+            Client = client;
+            Ledger = new LedgerApi(Client);
+            Stats = new StatsApi(Client);
+            Embedded = new EmbeddedApi(Client);
+            Subscribe = new SubscribeApi(Client);
         }
 
         public IWalletAccount DefaultWalletAccount { get; set; }
 
-        public int ChainIdentifier { get; }
-        public Lazy<IClient> Client { get; }
-        public Api.LedgerApi Ledger { get; }
-        public Api.StatsApi Stats { get; }
-        public Api.EmbeddedApi Embedded { get; }
-        public Api.SubscribeApi Subscribe { get; }
+        public IClient Client { get; }
+        public LedgerApi Ledger { get; }
+        public StatsApi Stats { get; }
+        public EmbeddedApi Embedded { get; }
+        public SubscribeApi Subscribe { get; }
 
         public async Task<AccountBlockTemplate> SendAsync(AccountBlockTemplate transaction,
             Action<PowStatus> generatingPowCallback = default, bool waitForRequiredPlasma = false)
@@ -43,7 +40,7 @@ namespace Zenon
             var account = currentAccount ?? DefaultWalletAccount;
 
             if (account == null)
-                throw new ZnnSdkException("No default wallet account selected");
+                throw new ZdkException("No default wallet account selected");
 
             return await BlockUtils.SendAsync(this, transaction, account, generatingPowCallback, waitForRequiredPlasma);
         }
@@ -58,7 +55,7 @@ namespace Zenon
             var account = currentAccount ?? DefaultWalletAccount;
 
             if (account == null)
-                throw new ZnnSdkException("No default wallet account selected");
+                throw new ZdkException("No default wallet account selected");
 
             return await BlockUtils.RequiresPoWAsync(this, transaction, account);
         }

@@ -2,15 +2,15 @@
 
 namespace Zenon
 {
-    public class ZnnSdkException : Exception
+    public class ZdkException : Exception
     {
         private const string DefaultMessage = "Zenon SDK Exception";
 
-        public ZnnSdkException()
+        public ZdkException()
             : base(DefaultMessage)
         { }
 
-        public ZnnSdkException(string message)
+        public ZdkException(string message)
             : base(DefaultMessage + ": " + message)
         { }
     }

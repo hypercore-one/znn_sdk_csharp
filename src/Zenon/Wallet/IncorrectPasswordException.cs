@@ -1,6 +1,6 @@
 ﻿namespace Zenon.Wallet
 {
-    public class IncorrectPasswordException : ZnnSdkException
+    public class IncorrectPasswordException : ZdkException
     {
         private const string IncorrectPassword = "Incorrect password";
 

@@ -15,7 +15,7 @@ namespace Zenon.Abi
             {
                 if (entry.type != "function")
                 {
-                    throw new ZnnSdkException("Only ABI functions supported");
+                    throw new ZdkException("Only ABI functions supported");
                 }
 
                 var inputs = entry.inputs != null
