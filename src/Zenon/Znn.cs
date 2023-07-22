@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Model.NoM;
@@ -10,16 +11,10 @@ namespace Zenon
 {
     public class Znn
     {
-        public static Znn Instance = new Znn();
+        public int ChainIdentifier { get; }
 
-        public int NetworkIdentifier { get; }
-        public int ChainIdentifier { get; set; }
+        public IWalletAccount DefaultWalletAccount { get; set; }
 
-        public ISigner DefaultKeyPair { get; set; }
-        public IWallet DefaultKeyStore { get; set; }
-        public string DefaultKeyStorePath { get; set; }
-
-        public KeyStoreManager KeyStoreManager { get; }
         public Lazy<IClient> Client { get; }
 
         public Api.LedgerApi Ledger { get; }
@@ -27,11 +22,14 @@ namespace Zenon
         public Api.EmbeddedApi Embedded { get; }
         public Api.SubscribeApi Subscribe { get; }
 
-        private Znn()
+        public Znn()
+            : this(Constants.ChainId)
+        { }
+
+        public Znn(int chainIdentifier)
         {
-            NetworkIdentifier = Constants.NetId;
-            ChainIdentifier = Constants.ChainId;
-            KeyStoreManager = new KeyStoreManager(Constants.ZnnDefaultWalletDirectory);
+            ChainIdentifier = chainIdentifier;
+
             Client = new Lazy<IClient>(() => new WsClient());
             Ledger = new Api.LedgerApi(Client);
             Stats = new Api.StatsApi(Client);
@@ -39,38 +37,36 @@ namespace Zenon
             Subscribe = new Api.SubscribeApi(Client);
         }
 
-        public async Task<AccountBlockTemplate> Send(AccountBlockTemplate transaction, bool waitForRequiredPlasma = false)
+        public async Task<AccountBlockTemplate> SendAsync(AccountBlockTemplate transaction, 
+            Action<PowStatus> generatingPowCallback = default, bool waitForRequiredPlasma = false)
         {
-            return await Send(transaction, DefaultKeyPair, delegate { }, waitForRequiredPlasma);
+            return await SendAsync(transaction, DefaultWalletAccount, generatingPowCallback, waitForRequiredPlasma);
         }
 
-        public async Task<AccountBlockTemplate> Send(AccountBlockTemplate transaction,
-            Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
+        public async Task<AccountBlockTemplate> SendAsync(AccountBlockTemplate transaction,
+            IWalletAccount currentAccount, Action<PowStatus> generatingPowCallback = default, bool waitForRequiredPlasma = false)
         {
-            return await Send(transaction, DefaultKeyPair, generatingPowCallback, waitForRequiredPlasma);
+            var account = currentAccount ?? DefaultWalletAccount;
+
+            if (account == null)
+                throw new ZnnSdkException("No default wallet account selected");
+
+            return await BlockUtils.SendAsync(this, transaction, account, generatingPowCallback, waitForRequiredPlasma);
         }
 
-        public async Task<AccountBlockTemplate> Send(AccountBlockTemplate transaction,
-            ISigner currentKeyPair, Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
+        public async Task<bool> RequiresPoWAsync(AccountBlockTemplate transaction)
         {
-            var keypair = currentKeyPair ?? DefaultKeyPair;
-
-            if (keypair == null)
-                throw new ZnnSdkException("No default keyPair selected");
-
-            return await BlockUtils.Send(transaction, keypair, generatingPowCallback, waitForRequiredPlasma);
+            return await RequiresPoWAsync(transaction, DefaultWalletAccount);
         }
 
-        public async Task<bool> RequiresPoW(AccountBlockTemplate transaction)
+        public async Task<bool> RequiresPoWAsync(AccountBlockTemplate transaction, IWalletAccount currentAccount)
         {
-            return await RequiresPoW(transaction, DefaultKeyPair);
-        }
+            var account = currentAccount ?? DefaultWalletAccount;
 
-        public async Task<bool> RequiresPoW(AccountBlockTemplate transaction, ISigner currentKeyPair)
-        {
-            var keypair = currentKeyPair ?? DefaultKeyPair;
+            if (account == null)
+                throw new ZnnSdkException("No default wallet account selected");
 
-            return await BlockUtils.RequiresPoW(transaction, keypair);
+            return await BlockUtils.RequiresPoWAsync(this, transaction, account);
         }
     }
 }
