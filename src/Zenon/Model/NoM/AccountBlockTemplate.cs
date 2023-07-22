@@ -87,7 +87,7 @@ namespace Zenon.Model.NoM
         public long Height { get; internal set; }
         public HashHeight MomentumAcknowledged { get; internal set; }
 
-        public Address Address { get; set; }
+        public Address Address { get; internal set; }
 
         // Send information
         public Address ToAddress { get; }
