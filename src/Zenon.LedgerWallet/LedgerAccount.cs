@@ -4,7 +4,7 @@ using Zenon.Wallet;
 
 namespace Zenon.LedgerWallet
 {
-    public class LedgerAccount : ISigner
+    public class LedgerAccount : IWalletAccount
     {
         private Address? address;
 
@@ -17,31 +17,27 @@ namespace Zenon.LedgerWallet
         private LedgerWallet Wallet { get; }
         private IAddressPath AddressPath { get; }
 
-        public async Task<Address> GetAddressAsync()
+        public async Task<Address> GetAddressAsync(CancellationToken cancellationToken = default)
         {
-            if (address == null)
-            {
-                address = Address.FromPublicKey(await GetPublicKeyAsync());
-            }
-            return address;
+            return address ??= Address.FromPublicKey(await GetPublicKeyAsync());
         }
 
-        public async Task<byte[]> GetPublicKeyAsync()
+        public async Task<byte[]> GetPublicKeyAsync(CancellationToken cancellationToken = default)
         {
-            return await GetPublicKeyAsync(false);
+            return await GetPublicKeyAsync(false, cancellationToken);
         }
 
-        public async Task<byte[]> GetPublicKeyAsync(bool display)
+        public async Task<byte[]> GetPublicKeyAsync(bool display, CancellationToken cancellationToken = default)
         {
             return await Wallet.GetPublicKeyAsync(AddressPath, display);
         }
 
-        public Task<byte[]> SignAsync(byte[] message)
+        public Task<byte[]> SignAsync(byte[] message, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<byte[]> SignTxAsync(AccountBlockTemplate tx)
+        public async Task<byte[]> SignTxAsync(AccountBlockTemplate tx, CancellationToken cancellationToken = default)
         {
             return await Wallet.SignTxAsync(AddressPath, tx);
         }

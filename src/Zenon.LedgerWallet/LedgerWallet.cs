@@ -41,7 +41,7 @@ namespace Zenon.LedgerWallet
             });
         }
 
-        async Task<ISigner> IWallet.GetSignerAsync(int index)
+        async Task<IWalletAccount> IWallet.GetAccountAsync(int index)
         {
             return await GetAccountAsync(index);
         }
