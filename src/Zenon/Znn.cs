@@ -31,7 +31,7 @@ namespace Zenon
         public Api.EmbeddedApi Embedded { get; }
         public Api.SubscribeApi Subscribe { get; }
 
-        public async Task<AccountBlockTemplate> SendAsync(AccountBlockTemplate transaction, 
+        public async Task<AccountBlockTemplate> SendAsync(AccountBlockTemplate transaction,
             Action<PowStatus> generatingPowCallback = default, bool waitForRequiredPlasma = false)
         {
             return await SendAsync(transaction, DefaultWalletAccount, generatingPowCallback, waitForRequiredPlasma);
