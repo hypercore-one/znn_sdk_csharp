@@ -76,7 +76,7 @@ namespace Zenon.Utils
             return Hash.Digest(ArrayUtils.Concat(transaction.Address.Bytes, transaction.PreviousHash.Bytes));
         }
 
-        private static async Task AutofillTransactionParametersAsync(Znn znnClient, AccountBlockTemplate accountBlockTemplate)
+        private static async Task AutofillTransactionParametersAsync(Zdk znnClient, AccountBlockTemplate accountBlockTemplate)
         {
             var frontierAccountBlock =
                 await znnClient.Ledger.GetFrontierAccountBlock(accountBlockTemplate.Address);
@@ -99,9 +99,8 @@ namespace Zenon.Utils
                 new HashHeight(frontierMomentum.Hash, frontierMomentum.Height);
         }
 
-        private static async Task<bool> CheckAndSetFieldsAsync(Znn znnClient, AccountBlockTemplate transaction, IWalletAccount currentAccount)
+        private static async Task<bool> CheckAndSetFieldsAsync(Zdk znnClient, AccountBlockTemplate transaction, IWalletAccount currentAccount)
         {
-            transaction.ChainIdentifier = znnClient.ChainIdentifier;
             transaction.Address = await currentAccount.GetAddressAsync();
             transaction.PublicKey = await currentAccount.GetPublicKeyAsync();
 
@@ -143,7 +142,7 @@ namespace Zenon.Utils
             return true;
         }
 
-        private static async Task<bool> SetDifficultyAsync(Znn znnClient, AccountBlockTemplate transaction, 
+        private static async Task<bool> SetDifficultyAsync(Zdk znnClient, AccountBlockTemplate transaction,
             Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
         {
             var powParam = new GetRequiredParam(
@@ -186,7 +185,7 @@ namespace Zenon.Utils
             return true;
         }
 
-        public static async Task<AccountBlockTemplate> SendAsync(Znn znnClient, AccountBlockTemplate transaction,
+        public static async Task<AccountBlockTemplate> SendAsync(Zdk znnClient, AccountBlockTemplate transaction,
             IWalletAccount currentAccount, Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
         {
             await CheckAndSetFieldsAsync(znnClient, transaction, currentAccount);
@@ -201,7 +200,7 @@ namespace Zenon.Utils
             return transaction;
         }
 
-        public static async Task<bool> RequiresPoWAsync(Znn znnClient, AccountBlockTemplate transaction, IWalletAccount account)
+        public static async Task<bool> RequiresPoWAsync(Zdk znnClient, AccountBlockTemplate transaction, IWalletAccount account)
         {
             transaction.Address = await account.GetAddressAsync();
 

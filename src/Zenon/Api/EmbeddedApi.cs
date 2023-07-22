@@ -1,12 +1,11 @@
-﻿using System;
-using Zenon.Api.Embedded;
+﻿using Zenon.Api.Embedded;
 using Zenon.Client;
 
 namespace Zenon.Api
 {
     public class EmbeddedApi
     {
-        public EmbeddedApi(Lazy<IClient> client)
+        public EmbeddedApi(IClient client)
         {
             Client = client;
 
@@ -23,7 +22,7 @@ namespace Zenon.Api
             Bridge = new BridgeApi(client);
         }
 
-        public Lazy<IClient> Client { get; }
+        public IClient Client { get; }
 
         public PillarApi Pillar { get; }
         public PlasmaApi Plasma { get; }

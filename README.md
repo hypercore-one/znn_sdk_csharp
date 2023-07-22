@@ -19,17 +19,16 @@ dotnet add package Zenon.Sdk
 
 ```csharp
 using Zenon;
+using Zenon.Client;
 
-var nodeUrl = new Uri("wss://my.hc1node.com:35998");
-
-// Use default mainnet instance
-var mainnet = Znn.Mainnet;
+// Create client instance with default options (mainnet)
+using var mainnet = new WsClient("wss://my.hc1node.com:35998");
 
 // Connect to node
-await mainnet.Client.Value.StartAsync(nodeUrl);
+await mainnet.ConnectAsync();
 ...
 // Disconnect from node
-await mainnet.Client.Value.StopAsync();
+await mainnet.CloseAsync();
 ```
 
 ### Generate wallet
@@ -72,12 +71,13 @@ var walletDefinition = walletManager
 
 ```csharp
 using Zenon;
+using Zenon.Client;
 using Zenon.Wallet;
 
-// Use the key store manager
+// Use key store manager
 var walletManager = new KeyStoreManager();
 
-// Use the first wallet available
+// Use first wallet available
 var walletDefinition =
     (await walletManager.GetWalletDefinitionsAsync()).First();
 
@@ -91,27 +91,31 @@ var options = new KeyStoreOptions()
 var wallet =
     await walletManager.GetWalletAsync(walletDefinition, options);
 
-// Use default mainnet instance
-var mainnet = Znn.Mainnet;
-
-// Attach primary wallet account
-mainnet.DefaultWalletAccount =
-    await wallet.GetAccountAsync();
+// Create client instance with default options (mainnet)
+using var client = new WsClient("wss://my.hc1node.com:35998");
 
 // Connect to node
-await mainnet.Client.Value.StartAsync(new Uri("wss://my.hc1node.com:35998"));
+await client.ConnectAsync();
+
+// Create zdk instance and attach primary wallet account
+var zdk = new Zdk(client)
+{
+    DefaultWalletAccount =
+        await wallet.GetAccountAsync()
+};
 
 // Send tx
-await mainnet.SendAsync(mainnet.Embedded.Pillar.CollectReward());
-
+await zdk.SendAsync(zdk.Embedded.Pillar.CollectReward());
+...
 // Disconnect from node
-await mainnet.Client.Value.StopAsync();
+await client.CloseAsync();
 ```
 
 ### Receive a transaction
 
 ```csharp
 using Zenon;
+using Zenon.Client;
 using Zenon.Wallet;
 using Zenon.Model.NoM;
 
@@ -132,21 +136,24 @@ var options = new KeyStoreOptions()
 var wallet =
     await walletManager.GetWalletAsync(walletDefinition, options);
 
-// Use default mainnet instance
-var mainnet = Znn.Mainnet;
-
-// Attach primary wallet account
-mainnet.DefaultWalletAccount =
-    await wallet.GetAccountAsync();
-
-// Get account address
-var address = await mainnet.DefaultWalletAccount.GetAddressAsync();
+// Create client instance with default options (mainnet)
+using var client = new WsClient("wss://my.hc1node.com:35998");
 
 // Connect to node
-await mainnet.Client.Value.StartAsync(new Uri("wss://my.hc1node.com:35998"));
+await client.ConnectAsync();
+
+// Create zdk instance and attach primary wallet account
+var zdk = new Zdk(client)
+{
+    DefaultWalletAccount =
+        await wallet.GetAccountAsync()
+};
+
+// Get account address
+var address = await zdk.DefaultWalletAccount.GetAddressAsync();
 
 // Get all unreceived tx's
-var result = await mainnet.Ledger
+var result = await zdk.Ledger
     .GetUnreceivedBlocksByAddress(address);
 
 if (result.Count != 0)
@@ -154,12 +161,12 @@ if (result.Count != 0)
     foreach (var item in result.List)
     {
         // Send tx
-        await mainnet.SendAsync(AccountBlockTemplate.Receive(item.Hash));
+        await zdk.SendAsync(AccountBlockTemplate.Receive(client.ProtocolVersion, client.ChainIdentifier, item.Hash));
     }
 }
-
+...
 // Disconnect from node
-await mainnet.Client.Value.StopAsync();
+await client.CloseAsync();
 ```
 
 ## Contributing
