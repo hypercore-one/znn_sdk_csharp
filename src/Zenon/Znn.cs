@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Principal;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Model.NoM;
@@ -9,33 +8,28 @@ using Zenon.Wallet;
 
 namespace Zenon
 {
-    public class Znn
+    public sealed class Znn
     {
-        public int ChainIdentifier { get; }
-
-        public IWalletAccount DefaultWalletAccount { get; set; }
-
-        public Lazy<IClient> Client { get; }
-
-        public Api.LedgerApi Ledger { get; }
-        public Api.StatsApi Stats { get; }
-        public Api.EmbeddedApi Embedded { get; }
-        public Api.SubscribeApi Subscribe { get; }
-
-        public Znn()
-            : this(Constants.ChainId)
-        { }
+        public static readonly Znn Mainnet = new Znn(Constants.ChainId);
 
         public Znn(int chainIdentifier)
         {
             ChainIdentifier = chainIdentifier;
-
             Client = new Lazy<IClient>(() => new WsClient());
             Ledger = new Api.LedgerApi(Client);
             Stats = new Api.StatsApi(Client);
             Embedded = new Api.EmbeddedApi(Client);
             Subscribe = new Api.SubscribeApi(Client);
         }
+
+        public IWalletAccount DefaultWalletAccount { get; set; }
+
+        public int ChainIdentifier { get; }
+        public Lazy<IClient> Client { get; }
+        public Api.LedgerApi Ledger { get; }
+        public Api.StatsApi Stats { get; }
+        public Api.EmbeddedApi Embedded { get; }
+        public Api.SubscribeApi Subscribe { get; }
 
         public async Task<AccountBlockTemplate> SendAsync(AccountBlockTemplate transaction, 
             Action<PowStatus> generatingPowCallback = default, bool waitForRequiredPlasma = false)

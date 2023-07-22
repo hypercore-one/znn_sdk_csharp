@@ -22,14 +22,14 @@ using Zenon;
 
 var nodeUrl = new Uri("wss://my.hc1node.com:35998");
 
-// Create a client instance with default chain identifier
-var znnClient = new Znn();
+// Use default mainnet instance
+var mainnet = Znn.Mainnet;
 
 // Connect to node
-await znnClient.Client.Value.StartAsync(nodeUrl);
+await mainnet.Client.Value.StartAsync(nodeUrl);
 ...
 // Disconnect from node
-await znnClient.Client.Value.StopAsync();
+await mainnet.Client.Value.StopAsync();
 ```
 
 ### Generate wallet
@@ -91,21 +91,21 @@ var options = new KeyStoreOptions()
 var wallet =
     await walletManager.GetWalletAsync(walletDefinition, options);
 
-// Create a client instance with default chain identifier
-var znnClient = new Znn();
+// Use default mainnet instance
+var mainnet = Znn.Mainnet;
 
 // Attach primary wallet account
-znnClient.DefaultWalletAccount =
+mainnet.DefaultWalletAccount =
     await wallet.GetAccountAsync();
 
 // Connect to node
-await znnClient.Client.Value.StartAsync(new Uri("wss://my.hc1node.com:35998"));
+await mainnet.Client.Value.StartAsync(new Uri("wss://my.hc1node.com:35998"));
 
 // Send tx
-await znnClient.SendAsync(znnClient.Embedded.Pillar.CollectReward());
+await mainnet.SendAsync(mainnet.Embedded.Pillar.CollectReward());
 
 // Disconnect from node
-await znnClient.Client.Value.StopAsync();
+await mainnet.Client.Value.StopAsync();
 ```
 
 ### Receive a transaction
@@ -132,21 +132,21 @@ var options = new KeyStoreOptions()
 var wallet =
     await walletManager.GetWalletAsync(walletDefinition, options);
 
-// Create a client instance with default chain identifier
-var znnClient = new Znn();
+// Use default mainnet instance
+var mainnet = Znn.Mainnet;
 
 // Attach primary wallet account
-znnClient.DefaultWalletAccount =
+mainnet.DefaultWalletAccount =
     await wallet.GetAccountAsync();
 
 // Get account address
-var address = await znnClient.DefaultWalletAccount.GetAddressAsync();
+var address = await mainnet.DefaultWalletAccount.GetAddressAsync();
 
 // Connect to node
-await znnClient.Client.Value.StartAsync(new Uri("wss://my.hc1node.com:35998"));
+await mainnet.Client.Value.StartAsync(new Uri("wss://my.hc1node.com:35998"));
 
 // Get all unreceived tx's
-var result = await znnClient.Ledger
+var result = await mainnet.Ledger
     .GetUnreceivedBlocksByAddress(address);
 
 if (result.Count != 0)
@@ -154,12 +154,12 @@ if (result.Count != 0)
     foreach (var item in result.List)
     {
         // Send tx
-        await znnClient.SendAsync(AccountBlockTemplate.Receive(item.Hash));
+        await mainnet.SendAsync(AccountBlockTemplate.Receive(item.Hash));
     }
 }
 
 // Disconnect from node
-await znnClient.Client.Value.StopAsync();
+await mainnet.Client.Value.StopAsync();
 ```
 
 ## Contributing
