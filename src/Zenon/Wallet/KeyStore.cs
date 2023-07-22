@@ -90,9 +90,9 @@ namespace Zenon.Wallet
             return null;
         }
 
-        public async Task<ISigner> GetSignerAsync(int index = 0)
+        public async Task<IWalletAccount> GetAccountAsync(int accountIndex = 0)
         {
-            return await Task.Run(() => GetKeyPair(index));
+            return await Task.Run(() => GetKeyPair(accountIndex));
         }
     }
 

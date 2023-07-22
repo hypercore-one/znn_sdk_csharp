@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Zenon.Model.NoM;
 using Zenon.Model.Primitives;
 
 namespace Zenon.Wallet
 {
-    public class KeyPair : ISigner
+    public class KeyPair : IWalletAccount
     {
         public KeyPair(byte[] privateKey, byte[] publicKey = null, Address address = null)
         {
@@ -43,22 +44,22 @@ namespace Zenon.Wallet
             return Crypto.Crypto.GetPublicKey(privateKey);
         }
 
-        public async Task<Address> GetAddressAsync()
+        public async Task<Address> GetAddressAsync(CancellationToken token = default)
         {
             return await Task.Run(() => this.Address);
         }
 
-        public async Task<byte[]> GetPublicKeyAsync()
+        public async Task<byte[]> GetPublicKeyAsync(CancellationToken token = default)
         {
             return await Task.Run(() => this.PublicKey);
         }
 
-        public async Task<byte[]> SignAsync(byte[] message)
+        public async Task<byte[]> SignAsync(byte[] message, CancellationToken token = default)
         {
             return await Task.Run(() => this.Sign(message));
         }
 
-        public async Task<byte[]> SignTxAsync(AccountBlockTemplate tx)
+        public async Task<byte[]> SignTxAsync(AccountBlockTemplate tx, CancellationToken token = default)
         {
             return await Task.Run(() => this.SignTx(tx));
         }

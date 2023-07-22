@@ -2,8 +2,14 @@
 
 namespace Zenon.Wallet
 {
+    /// <summary>
+    /// Represents a wallet.
+    /// </summary>
     public interface IWallet
     {
-        Task<ISigner> GetSignerAsync(int index = 0);
+        /// <summary>
+        /// Gets a <see cref="IWalletAccount"/> by account index.
+        /// </summary>
+        Task<IWalletAccount> GetAccountAsync(int accountIndex = 0);
     }
 }
