@@ -33,6 +33,8 @@ namespace Zenon.Wallet.Ledger
 
         public async Task<LedgerAccount> GetAccountAsync(int index = 0)
         {
+            AssertDisposed();
+
             return await Task.Run(() =>
             {
                 return new LedgerAccount(this,
@@ -47,6 +49,8 @@ namespace Zenon.Wallet.Ledger
 
         public async Task<Version> GetVersionAsync()
         {
+            AssertDisposed();
+
             var response = await Transport
                 .SendRequestAsync<ZenonVersionResponse, ZenonVersionRequest>(new ZenonVersionRequest());
 
@@ -60,6 +64,8 @@ namespace Zenon.Wallet.Ledger
 
         public async Task<string> GetAppNameAsync()
         {
+            AssertDisposed();
+
             var response = await Transport
                 .SendRequestAsync<ZenonAppNameResponse, ZenonAppNameRequest>(new ZenonAppNameRequest());
 
@@ -73,6 +79,8 @@ namespace Zenon.Wallet.Ledger
 
         public async Task<byte[]> GetPublicKeyAsync(IAddressPath addressPath, bool display)
         {
+            AssertDisposed();
+
             var response = await Transport
                 .SendRequestAsync<ZenonPublicKeyResponse, ZenonPublicKeyRequest>(new ZenonPublicKeyRequest(addressPath, display));
 
@@ -86,6 +94,8 @@ namespace Zenon.Wallet.Ledger
 
         public async Task<byte[]> SignTxAsync(IAddressPath addressPath, AccountBlockTemplate transaction)
         {
+            AssertDisposed();
+
             var txData = BlockUtils.GetTransactionBytes(transaction);
 
             var response = await Transport
@@ -102,7 +112,7 @@ namespace Zenon.Wallet.Ledger
         private void AssertDisposed()
         {
             if (disposed)
-                throw new ObjectDisposedException(nameof(HidDevice));
+                throw new ObjectDisposedException(nameof(LedgerWallet));
         }
 
         public virtual void Dispose()
@@ -118,7 +128,6 @@ namespace Zenon.Wallet.Ledger
 
             disposed = true;
             Transport.Dispose();
-            GC.SuppressFinalize(this);
         }
     }
 }
