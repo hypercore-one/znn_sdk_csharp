@@ -38,7 +38,10 @@ namespace Zenon.Api.Embedded
 
         public async Task<long> GetPlasmaByQsr(double qsrAmount)
         {
-            return Convert.ToInt64(qsrAmount * 2100);
+            return await Task.Run(() =>
+            {
+                return Convert.ToInt64(qsrAmount * 2100);
+            });
         }
 
         public async Task<GetRequiredResponse> GetRequiredPoWForAccountBlock(GetRequiredParam powParam)
