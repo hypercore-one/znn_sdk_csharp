@@ -34,7 +34,7 @@ await client.ConnectAsync();
 using Zenon;
 using Zenon.Wallet;
 
-var wallet = "name";
+var walletName = "name";
 var passphrase = "secret";
 
 // Use key store manager
@@ -42,7 +42,7 @@ var walletManager = new KeyStoreManager();
 
 // Create wallet
 var walletDefinition = walletManager
-    .CreateNew(passphrase, wallet);
+    .CreateNew(passphrase, walletName);
 ```
 
 ### Generate wallet from mnemonic
@@ -51,17 +51,18 @@ var walletDefinition = walletManager
 using Zenon;
 using Zenon.Wallet;
 
-var wallet = "name";
+var walletName = "name";
 var passphrase = "secret";
-var mnemonic =
-        "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
+var mnemonic = @"route become dream access impulse price inform obtain 
+    engage ski believe awful absent pig thing vibrant 
+    possible exotic flee pepper marble rural fire fancy";
 
 // Use key store manager
 var walletManager = new KeyStoreManager();
 
 // Create wallet
 var walletDefinition = walletManager
-    .CreateFromMnemonic(mnemonic, passphrase, wallet);
+    .CreateFromMnemonic(mnemonic, passphrase, walletName);
 ```
 
 ### Sending a transaction
@@ -155,7 +156,8 @@ if (result.Count != 0)
     foreach (var item in result.List)
     {
         // Send tx
-        await zdk.SendAsync(AccountBlockTemplate.Receive(client.ProtocolVersion, client.ChainIdentifier, item.Hash));
+        await zdk.SendAsync(AccountBlockTemplate
+            .Receive(client.ProtocolVersion, client.ChainIdentifier, item.Hash));
     }
 }
 ```
