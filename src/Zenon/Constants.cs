@@ -14,10 +14,6 @@ namespace Zenon
         public const int NetId = 1; // Alphanet network identifier
         public const int ChainId = 1; // Alphanet chain identifier
 
-        public static string ZnnDefaultDirectory = ZdkPaths.Default.Main;
-        public static string ZnnDefaultWalletDirectory = ZdkPaths.Default.Wallet;
-        public static string ZnnDefaultCacheDirectory = ZdkPaths.Default.Cache;
-
         // Client constants
         public const int DefaultHttpPort = 35997;
         public const int DefaultWsPort = 35998;
@@ -60,7 +56,6 @@ namespace Zenon
         public const long TokenNameMaxLength = 40;
         public const long TokenSymbolMaxLength = 10;
         public static readonly string[] TokenSymbolExceptions = new string[] { "ZNN", "QSR" };
-
         public static readonly Regex TokenNameRegExp = new Regex("^([a-zA-Z0-9]+[-._]?)*[a-zA-Z0-9]$");
         public static readonly Regex TokenSymbolRegExp = new Regex("^[A-Z0-9]+$");
         public static readonly Regex TokenDomainRegExp = new Regex("^([A-Za-z0-9][A-Za-z0-9-]{0,61}[A-Za-z0-9].)+[A-Za-z]{2,}$");

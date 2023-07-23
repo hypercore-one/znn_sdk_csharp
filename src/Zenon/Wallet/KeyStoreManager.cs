@@ -12,7 +12,7 @@ namespace Zenon.Wallet
     public class KeyStoreManager : IWalletManager
     {
         public KeyStoreManager()
-            : this(Constants.ZnnDefaultWalletDirectory)
+            : this(ZdkPaths.Default.Wallet)
         { }
 
         public KeyStoreManager(string walletPath)
