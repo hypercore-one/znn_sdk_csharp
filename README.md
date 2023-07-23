@@ -22,13 +22,10 @@ using Zenon;
 using Zenon.Client;
 
 // Create client instance with default options (mainnet)
-using var mainnet = new WsClient("wss://my.hc1node.com:35998");
+using var client = new WsClient("wss://my.hc1node.com:35998");
 
 // Connect to node
-await mainnet.ConnectAsync();
-...
-// Disconnect from node
-await mainnet.CloseAsync();
+await client.ConnectAsync();
 ```
 
 ### Generate wallet
@@ -37,15 +34,15 @@ await mainnet.CloseAsync();
 using Zenon;
 using Zenon.Wallet;
 
-var wallet = "name";
+var walletName = "name";
 var passphrase = "secret";
 
-// Use the key store manager
+// Use key store manager
 var walletManager = new KeyStoreManager();
 
 // Create wallet
 var walletDefinition = walletManager
-    .CreateNew(passphrase, wallet);
+    .CreateNew(passphrase, walletName);
 ```
 
 ### Generate wallet from mnemonic
@@ -54,17 +51,18 @@ var walletDefinition = walletManager
 using Zenon;
 using Zenon.Wallet;
 
-var wallet = "name";
+var walletName = "name";
 var passphrase = "secret";
-var mnemonic =
-        "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
+var mnemonic = @"route become dream access impulse price inform obtain 
+    engage ski believe awful absent pig thing vibrant 
+    possible exotic flee pepper marble rural fire fancy";
 
-// Use the key store manager
+// Use key store manager
 var walletManager = new KeyStoreManager();
 
 // Create wallet
 var walletDefinition = walletManager
-    .CreateFromMnemonic(mnemonic, passphrase, wallet);
+    .CreateFromMnemonic(mnemonic, passphrase, walletName);
 ```
 
 ### Sending a transaction
@@ -101,14 +99,11 @@ await client.ConnectAsync();
 var zdk = new Zdk(client)
 {
     DefaultWalletAccount =
-        await wallet.GetAccountAsync()
+        await wallet.GetAccountAsync(accountIndex: 0)
 };
 
 // Send tx
 await zdk.SendAsync(zdk.Embedded.Pillar.CollectReward());
-...
-// Disconnect from node
-await client.CloseAsync();
 ```
 
 ### Receive a transaction
@@ -119,10 +114,10 @@ using Zenon.Client;
 using Zenon.Wallet;
 using Zenon.Model.NoM;
 
-// Use the key store manager
+// Use key store manager
 var walletManager = new KeyStoreManager();
 
-// Use the first wallet available
+// Use first wallet available
 var walletDefinition =
     (await walletManager.GetWalletDefinitionsAsync()).First();
 
@@ -146,7 +141,7 @@ await client.ConnectAsync();
 var zdk = new Zdk(client)
 {
     DefaultWalletAccount =
-        await wallet.GetAccountAsync()
+        await wallet.GetAccountAsync(accountIndex: 0)
 };
 
 // Get account address
@@ -161,12 +156,10 @@ if (result.Count != 0)
     foreach (var item in result.List)
     {
         // Send tx
-        await zdk.SendAsync(AccountBlockTemplate.Receive(client.ProtocolVersion, client.ChainIdentifier, item.Hash));
+        await zdk.SendAsync(AccountBlockTemplate
+            .Receive(client.ProtocolVersion, client.ChainIdentifier, item.Hash));
     }
 }
-...
-// Disconnect from node
-await client.CloseAsync();
 ```
 
 ## Contributing
