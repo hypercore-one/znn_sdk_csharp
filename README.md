@@ -20,11 +20,13 @@ dotnet add package Zenon.Sdk
 ```csharp
 using Zenon;
 
-var nodeUrl = new Uri("ws://nodes.zenon.place:35998");
+var nodeUrl = new Uri("ws://my.hc1node.com:35998");
 
-await Znn.Instance.Client.Value.StartAsync(nodeUrl);
+var znnClient = Znn.Instance;
+
+await znnClient.Client.Value.StartAsync(nodeUrl);
 ...
-await Znn.Instance.Client.Value.StopAsync();
+await znnClient.Client.Value.StopAsync();
 ```
 
 ### Generate wallet
@@ -35,10 +37,12 @@ using Zenon;
 var wallet = "name";
 var passphrase = "secret";
 
-Znn.Instance.DefaultKeyStorePath = 
-    Znn.Instance.KeyStoreManager.CreateNew(passphrase, wallet);
-Znn.Instance.DefaultKeyStore = 
-    Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, Znn.Instance.DefaultKeyStorePath);
+var znnClient = Znn.Instance;
+
+znnClient.DefaultKeyStorePath = 
+    znnClient.KeyStoreManager.CreateNew(passphrase, wallet);
+znnClient.DefaultKeyStore = 
+    znnClient.KeyStoreManager.ReadKeyStore(passphrase, znnClient.DefaultKeyStorePath);
 ```
 
 ### Generate wallet from mnemonic
@@ -51,10 +55,12 @@ var passphrase = "secret";
 var mnemonic =
       "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
 
-Znn.Instance.DefaultKeyStorePath = 
-    Znn.Instance.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
-Znn.Instance.DefaultKeyStore = 
-    Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, Znn.Instance.DefaultKeyStorePath);
+var znnClient = Znn.Instance;
+
+znnClient.DefaultKeyStorePath = 
+    znnClient.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
+znnClient.DefaultKeyStore = 
+    znnClient.KeyStoreManager.ReadKeyStore(passphrase, znnClient.DefaultKeyStorePath);
 ```
 
 ### Sending a transaction
@@ -62,26 +68,28 @@ Znn.Instance.DefaultKeyStore =
 ```csharp
 using Zenon;
 
-var nodeUrl = new Uri("ws://nodes.zenon.place:35998");
+var nodeUrl = new Uri("ws://my.hc1node.com:35998");
 var wallet = "name";
 var passphrase = "secret";
 var mnemonic =
       "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
 
-Znn.Instance.DefaultKeyStorePath = 
-    Znn.Instance.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
-Znn.Instance.DefaultKeyStore = 
-    Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, Znn.Instance.DefaultKeyStorePath);
-Znn.Instance.DefaultKeyPair = 
-    Znn.Instance.DefaultKeyStore.GetKeyPair(); // Use primary address
+var znnClient = Znn.Instance;
 
-await Znn.Instance.Client.Value.StartAsync(nodeUrl);
+znnClient.DefaultKeyStorePath = 
+    znnClient.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
+znnClient.DefaultKeyStore = 
+    znnClient.KeyStoreManager.ReadKeyStore(passphrase, znnClient.DefaultKeyStorePath);
+znnClient.DefaultKeyPair = 
+    await znnClient.DefaultKeyStore.GetSignerAsync(0); // Use primary address
 
-var tx = Znn.Instance.Embedded.Pillar.CollectReward();
+await znnClient.Client.Value.StartAsync(nodeUrl);
 
-await Znn.Instance.Send(tx);
+var tx = znnClient.Embedded.Pillar.CollectReward();
 
-await Znn.Instance.Client.Value.StopAsync();
+await znnClient.Send(tx);
+
+await znnClient.Client.Value.StopAsync();
 ```
 
 ### Receive a transaction
@@ -90,23 +98,25 @@ await Znn.Instance.Client.Value.StopAsync();
 using Zenon;
 using Zenon.Model.NoM;
 
-var nodeUrl = new Uri("ws://nodes.zenon.place:35998");
+var nodeUrl = new Uri("ws://my.hc1node.place:35998");
 var wallet = "name";
 var passphrase = "secret";
 var mnemonic =
       "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
 
-Znn.Instance.DefaultKeyStorePath = 
-    Znn.Instance.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
-Znn.Instance.DefaultKeyStore = 
-    Znn.Instance.KeyStoreManager.ReadKeyStore(passphrase, Znn.Instance.DefaultKeyStorePath);
-Znn.Instance.DefaultKeyPair = 
-    Znn.Instance.DefaultKeyStore.GetKeyPair(); // Use primary address
+var znnClient = Znn.Instance;
 
-await Znn.Instance.Client.Value.StartAsync(nodeUrl);
+znnClient.DefaultKeyStorePath = 
+    znnClient.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
+znnClient.DefaultKeyStore = 
+    znnClient.KeyStoreManager.ReadKeyStore(passphrase, znnClient.DefaultKeyStorePath);
+znnClient.DefaultKeyPair = 
+    await znnClient.DefaultKeyStore.GetSignerAsync(0); // Use primary address
 
-var result = await Znn.Instance.Ledger
-    .GetUnreceivedBlocksByAddress(Znn.Instance.DefaultKeyPair.Address);
+await znnClient.Client.Value.StartAsync(nodeUrl);
+
+var result = await znnClient.Ledger
+    .GetUnreceivedBlocksByAddress(await znnClient.DefaultKeyPair.GetAddressAsync());
 
 if (result.Count != 0)
 {
@@ -114,11 +124,11 @@ if (result.Count != 0)
     {
         var tx = AccountBlockTemplate.Receive(item.Hash);
 
-        await Znn.Instance.Send(tx);
+        await znnClient.Send(tx);
     }
 }
 
-await Znn.Instance.Client.Value.StopAsync();
+await znnClient.Client.Value.StopAsync();
 ```
 
 ## Contributing

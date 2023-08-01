@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Numerics;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
 using Zenon.Utils;
@@ -20,10 +21,10 @@ namespace Zenon.Model.NoM
         public static AccountBlockTemplate Receive(Hash fromBlockHash) =>
             new AccountBlockTemplate(blockType: BlockTypeEnum.UserReceive, fromBlockHash: fromBlockHash);
 
-        public static AccountBlockTemplate Send(Address toAddress, TokenStandard tokenStandard, long amount, byte[] data = null) =>
+        public static AccountBlockTemplate Send(Address toAddress, TokenStandard tokenStandard, BigInteger amount, byte[] data = null) =>
             new AccountBlockTemplate(blockType: BlockTypeEnum.UserSend, toAddress: toAddress, tokenStandard: tokenStandard, amount: amount, data: data);
 
-        public static AccountBlockTemplate CallContract(Address toAddress, TokenStandard tokenStandard, long amount, byte[] data) =>
+        public static AccountBlockTemplate CallContract(Address toAddress, TokenStandard tokenStandard, BigInteger amount, byte[] data) =>
             new AccountBlockTemplate(blockType: BlockTypeEnum.UserSend, toAddress: toAddress, tokenStandard: tokenStandard, amount: amount, data: data);
 
         public AccountBlockTemplate(Json.JAccountBlockTemplate json)
@@ -37,7 +38,7 @@ namespace Zenon.Model.NoM
             MomentumAcknowledged = new HashHeight(json.momentumAcknowledged);
             Address = Address.Parse(json.address);
             ToAddress = Address.Parse(json.toAddress);
-            Amount = json.amount;
+            Amount = AmountUtils.ParseAmount(json.amount);
             TokenStandard = TokenStandard.Parse(json.tokenStandard);
             FromBlockHash = Hash.Parse(json.fromBlockHash);
             Data = string.IsNullOrEmpty(json.data) ? new byte[0] : BytesUtils.FromBase64String(json.data);
@@ -50,7 +51,7 @@ namespace Zenon.Model.NoM
 
         public AccountBlockTemplate(BlockTypeEnum blockType,
             Address toAddress = null,
-            long? amount = null,
+            BigInteger? amount = null,
             TokenStandard tokenStandard = null,
             Hash fromBlockHash = null,
             byte[] data = null)
@@ -64,7 +65,7 @@ namespace Zenon.Model.NoM
             MomentumAcknowledged = HashHeight.Empty;
             Address = Address.EmptyAddress;
             ToAddress = toAddress ?? Address.EmptyAddress;
-            Amount = amount ?? 0;
+            Amount = amount ?? BigInteger.Zero;
             TokenStandard = tokenStandard ?? TokenStandard.EmptyZts;
             FromBlockHash = fromBlockHash ?? Hash.Empty;
             Data = data ?? new byte[0];
@@ -89,7 +90,7 @@ namespace Zenon.Model.NoM
         // Send information
         public Address ToAddress { get; }
 
-        public long Amount { get; }
+        public BigInteger Amount { get; }
         public TokenStandard TokenStandard { get; }
 
         // Receive information
@@ -126,7 +127,7 @@ namespace Zenon.Model.NoM
             json.momentumAcknowledged = this.MomentumAcknowledged.ToJson();
             json.address = this.Address.ToString();
             json.toAddress = this.ToAddress.ToString();
-            json.amount = this.Amount;
+            json.amount = this.Amount.ToString();
             json.tokenStandard = this.TokenStandard.ToString();
             json.fromBlockHash = this.FromBlockHash.ToString();
             json.data = BytesUtils.ToBase64String(this.Data);

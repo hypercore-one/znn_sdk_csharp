@@ -1,4 +1,5 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
 using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
@@ -9,22 +10,19 @@ namespace Zenon.Model.Embedded
         {
             Name = json.name;
             Status = json.status;
-            Weight = json.weight;
-            WeightWithDecimals = AmountUtils.AddDecimals(Weight, 8);
+            Weight = AmountUtils.ParseAmount(json.weight);
         }
 
-        public DelegationInfo(string name, long status, long weight)
+        public DelegationInfo(string name, long status, BigInteger weight)
         {
             Name = name;
             Status = status;
             Weight = weight;
-            WeightWithDecimals = AmountUtils.AddDecimals(Weight, 8);
         }
 
         public string Name { get; }
         public long Status { get; }
-        public long Weight { get; }
-        public double WeightWithDecimals { get; }
+        public BigInteger Weight { get; }
 
         public bool IsPillarActive => Status == 1;
 
@@ -34,7 +32,7 @@ namespace Zenon.Model.Embedded
             {
                 name = Name,
                 status = Status,
-                weight = Weight
+                weight = Weight.ToString()
             };
         }
     }

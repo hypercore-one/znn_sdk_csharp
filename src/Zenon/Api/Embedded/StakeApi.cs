@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
@@ -37,7 +38,7 @@ namespace Zenon.Api.Embedded
         }
 
         // Contract methods
-        public AccountBlockTemplate Stake(long durationInSec, long amount)
+        public AccountBlockTemplate Stake(long durationInSec, BigInteger amount)
         {
             return AccountBlockTemplate.CallContract(Address.StakeAddress, TokenStandard.ZnnZts, amount,
                 Definitions.Stake.EncodeFunction("Stake", durationInSec));
@@ -45,14 +46,14 @@ namespace Zenon.Api.Embedded
 
         public AccountBlockTemplate Cancel(Hash id)
         {
-            return AccountBlockTemplate.CallContract(Address.StakeAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.StakeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Stake.EncodeFunction("Cancel", id.Bytes));
         }
 
         // Common contract methods
         public AccountBlockTemplate CollectReward()
         {
-            return AccountBlockTemplate.CallContract(Address.StakeAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.StakeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Common.EncodeFunction("CollectReward"));
         }
     }

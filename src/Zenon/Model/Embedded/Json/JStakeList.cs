@@ -2,8 +2,8 @@
 {
     public class JStakeList
     {
-        public long totalAmount { get; set; }
-        public long totalWeightedAmount { get; set; }
+        public string totalAmount { get; set; }
+        public string totalWeightedAmount { get; set; }
         public long count { get; set; }
         public JStakeEntry[] list { get; set; }
     }

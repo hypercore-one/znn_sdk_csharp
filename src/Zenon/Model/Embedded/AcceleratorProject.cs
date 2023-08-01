@@ -1,4 +1,5 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
 using Zenon.Utils;
 
@@ -12,8 +13,8 @@ namespace Zenon.Model.Embedded
             Name = json.name;
             Description = json.description;
             Url = json.url;
-            ZnnFundsNeeded = json.znnFundsNeeded;
-            QsrFundsNeeded = json.qsrFundsNeeded;
+            ZnnFundsNeeded = AmountUtils.ParseAmount(json.znnFundsNeeded);
+            QsrFundsNeeded = AmountUtils.ParseAmount(json.qsrFundsNeeded);
             CreationTimestamp = json.creationTimestamp;
             Status = (AcceleratorProjectStatus)json.status;
             VoteBreakdown = new VoteBreakdown(json.votes);
@@ -24,8 +25,8 @@ namespace Zenon.Model.Embedded
             string name,
             string description,
             string url,
-            long znnFundsNeeded,
-            long qsrFundsNeeded,
+            BigInteger znnFundsNeeded,
+            BigInteger qsrFundsNeeded,
             long creationTimestamp,
             AcceleratorProjectStatus status,
             VoteBreakdown voteBreakdown)
@@ -45,17 +46,11 @@ namespace Zenon.Model.Embedded
         public string Name { get; }
         public string Description { get; }
         public string Url { get; }
-        public long ZnnFundsNeeded { get; }
-        public long QsrFundsNeeded { get; }
+        public BigInteger ZnnFundsNeeded { get; }
+        public BigInteger QsrFundsNeeded { get; }
         public long CreationTimestamp { get; }
         public AcceleratorProjectStatus Status { get; }
         public VoteBreakdown VoteBreakdown { get; }
-
-        public double ZnnFundsNeededWithDecimals =>
-            AmountUtils.AddDecimals(ZnnFundsNeeded, Constants.ZnnDecimals);
-
-        public double QsrFundsNeededWithDecimals =>
-              AmountUtils.AddDecimals(QsrFundsNeeded, Constants.QsrDecimals);
 
         public virtual void ToJson(JAcceleratorProject json)
         {
@@ -63,8 +58,8 @@ namespace Zenon.Model.Embedded
             json.name = Name;
             json.description = Description;
             json.url = Url;
-            json.znnFundsNeeded = ZnnFundsNeeded;
-            json.qsrFundsNeeded = QsrFundsNeeded;
+            json.znnFundsNeeded = ZnnFundsNeeded.ToString();
+            json.qsrFundsNeeded = QsrFundsNeeded.ToString();
             json.creationTimestamp = CreationTimestamp;
             json.status = (int)Status;
             json.votes = VoteBreakdown.ToJson();

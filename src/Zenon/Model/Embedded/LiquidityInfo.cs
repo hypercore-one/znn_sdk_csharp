@@ -1,6 +1,8 @@
 ﻿using System.Linq;
+using System.Numerics;
 using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -10,8 +12,8 @@ namespace Zenon.Model.Embedded
         {
             Administrator = Address.Parse(json.administrator);
             IsHalted = json.isHalted;
-            ZnnReward = json.znnReward;
-            QsrReward = json.qsrReward;
+            ZnnReward = AmountUtils.ParseAmount(json.znnReward);
+            QsrReward = AmountUtils.ParseAmount(json.qsrReward);
             TokenTuples = json.tokenTuples != null
                 ? json.tokenTuples.Select(x => new TokenTuple(x)).ToArray()
                 : new TokenTuple[0];
@@ -19,8 +21,8 @@ namespace Zenon.Model.Embedded
 
         public Address Administrator { get; }
         public bool IsHalted { get; }
-        public long ZnnReward { get; }
-        public long QsrReward { get; }
+        public BigInteger ZnnReward { get; }
+        public BigInteger QsrReward { get; }
         public TokenTuple[] TokenTuples { get; }
 
         public virtual JLiquidityInfo ToJson()
@@ -29,8 +31,8 @@ namespace Zenon.Model.Embedded
             {
                 administrator = Administrator.ToString(),
                 isHalted = IsHalted,
-                znnReward = ZnnReward,
-                qsrReward = QsrReward,
+                znnReward = ZnnReward.ToString(),
+                qsrReward = QsrReward.ToString(),
                 tokenTuples = TokenTuples.Select(x => x.ToJson()).ToArray()
             };
         }

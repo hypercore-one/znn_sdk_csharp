@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Numerics;
 using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
 
@@ -53,9 +54,9 @@ namespace Zenon.Model.Embedded
             return json;
         }
 
-        public long GetPaidZnnFunds()
+        public BigInteger GetPaidZnnFunds()
         {
-            long amount = 0;
+            var amount = BigInteger.Zero;
             foreach (var phase in Phases)
             {
                 if (phase.Status == AcceleratorProjectStatus.Paid)
@@ -66,10 +67,10 @@ namespace Zenon.Model.Embedded
             return amount;
         }
 
-        public long GetPendingZnnFunds()
+        public BigInteger GetPendingZnnFunds()
         {
             if (Phases.Length == 0)
-                return 0;
+                return BigInteger.Zero;
 
             var lastPhase = GetLastPhase();
             if (lastPhase != null &&
@@ -80,7 +81,7 @@ namespace Zenon.Model.Embedded
             return 0;
         }
 
-        public long GetRemainingZnnFunds()
+        public BigInteger GetRemainingZnnFunds()
         {
             if (Phases.Length == 0)
                 return ZnnFundsNeeded;
@@ -88,14 +89,14 @@ namespace Zenon.Model.Embedded
             return ZnnFundsNeeded - GetPaidZnnFunds();
         }
 
-        public long GetTotalZnnFunds()
+        public BigInteger GetTotalZnnFunds()
         {
             return ZnnFundsNeeded;
         }
 
-        public long GetPaidQsrFunds()
+        public BigInteger GetPaidQsrFunds()
         {
-            long amount = 0;
+            var amount = BigInteger.Zero;
             foreach (var phase in Phases)
             {
                 if (phase.Status == AcceleratorProjectStatus.Paid)
@@ -106,10 +107,10 @@ namespace Zenon.Model.Embedded
             return amount;
         }
 
-        public long GetPendingQsrFunds()
+        public BigInteger GetPendingQsrFunds()
         {
             if (Phases.Length == 0)
-                return 0;
+                return BigInteger.Zero;
 
             var lastPhase = GetLastPhase();
             if (lastPhase != null &&
@@ -120,7 +121,7 @@ namespace Zenon.Model.Embedded
             return 0;
         }
 
-        public long GetRemainingQsrFunds()
+        public BigInteger GetRemainingQsrFunds()
         {
             if (Phases.Length == 0)
                 return QsrFundsNeeded;
@@ -128,7 +129,7 @@ namespace Zenon.Model.Embedded
             return QsrFundsNeeded - GetPaidQsrFunds();
         }
 
-        public long GetTotalQsrFunds()
+        public BigInteger GetTotalQsrFunds()
         {
             return QsrFundsNeeded;
         }

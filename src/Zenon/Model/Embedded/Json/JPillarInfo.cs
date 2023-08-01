@@ -14,7 +14,7 @@
         public long revokeCooldown { get; set; }
         public long revokeTimestamp { get; set; }
         public JPillarEpochStats currentStats { get; set; }
-        public long weight { get; set; }
+        public string weight { get; set; }
         public long producedMomentums { get; set; }
         public long expectedMomentums { get; set; }
     }

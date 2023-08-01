@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
@@ -36,9 +37,12 @@ namespace Zenon.Api.Embedded
             return await Client.Value.SendRequest<long>("embedded.plasma.getRequiredFusionAmount", requiredPlasma);
         }
 
-        public async Task<long> GetPlasmaByQsr(double qsrAmount)
+        public async Task<BigInteger> GetPlasmaByQsr(BigInteger qsrAmount)
         {
-            return Convert.ToInt64(qsrAmount * 2100);
+            return await Task.Run(() =>
+            {
+                return qsrAmount * 2100;
+            });
         }
 
         public async Task<GetRequiredResponse> GetRequiredPoWForAccountBlock(GetRequiredParam powParam)
@@ -48,7 +52,7 @@ namespace Zenon.Api.Embedded
         }
 
         // Contract methods
-        public AccountBlockTemplate Fuse(Address beneficiary, long amount)
+        public AccountBlockTemplate Fuse(Address beneficiary, BigInteger amount)
         {
             return AccountBlockTemplate.CallContract(Address.PlasmaAddress, TokenStandard.QsrZts, amount,
                 Definitions.Plasma.EncodeFunction("Fuse", beneficiary));
@@ -56,7 +60,7 @@ namespace Zenon.Api.Embedded
 
         public AccountBlockTemplate Cancel(Hash id)
         {
-            return AccountBlockTemplate.CallContract(Address.PlasmaAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Address.PlasmaAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Plasma.EncodeFunction("CancelFuse", id.Bytes));
         }
     }

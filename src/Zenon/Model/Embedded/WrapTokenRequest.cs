@@ -1,5 +1,7 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -13,8 +15,8 @@ namespace Zenon.Model.Embedded
             ToAddress = json.toAddress;
             TokenStandard = TokenStandard.Parse(json.tokenStandard);
             TokenAddress = json.tokenAddress;
-            Amount = json.amount;
-            Fee = json.fee;
+            Amount = AmountUtils.ParseAmount(json.amount);
+            Fee = AmountUtils.ParseAmount(json.fee);
             Signature = json.signature;
             CreationMomentumHeight = json.creationMomentumHeight;
         }
@@ -25,8 +27,8 @@ namespace Zenon.Model.Embedded
         public string ToAddress { get; }
         public TokenStandard TokenStandard { get; }
         public string TokenAddress { get; }
-        public long Amount { get; }
-        public long Fee { get; }
+        public BigInteger Amount { get; }
+        public BigInteger Fee { get; }
         public string Signature { get; }
         public long CreationMomentumHeight { get; }
 
@@ -40,8 +42,8 @@ namespace Zenon.Model.Embedded
                 toAddress = ToAddress,
                 tokenStandard = TokenStandard.ToString(),
                 tokenAddress = TokenAddress,
-                amount = Amount,
-                fee = Fee,
+                amount = Amount.ToString(),
+                fee = Fee.ToString(),
                 signature = Signature,
                 creationMomentumHeight = CreationMomentumHeight,
             };

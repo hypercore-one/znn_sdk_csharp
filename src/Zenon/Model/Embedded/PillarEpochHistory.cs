@@ -1,4 +1,6 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -12,7 +14,7 @@ namespace Zenon.Model.Embedded
             GiveDelegateRewardPercentage = json.giveDelegateRewardPercentage;
             ProducedBlockNum = json.producedBlockNum;
             ExpectedBlockNum = json.expectedBlockNum;
-            Weight = json.weight;
+            Weight = AmountUtils.ParseAmount(json.weight);
         }
 
         public PillarEpochHistory(
@@ -39,7 +41,7 @@ namespace Zenon.Model.Embedded
         public long GiveDelegateRewardPercentage { get; }
         public long ProducedBlockNum { get; }
         public long ExpectedBlockNum { get; }
-        public long Weight { get; }
+        public BigInteger Weight { get; }
 
         public virtual JPillarEpochHistory ToJson()
         {
@@ -51,7 +53,7 @@ namespace Zenon.Model.Embedded
                 giveDelegateRewardPercentage = GiveDelegateRewardPercentage,
                 producedBlockNum = ProducedBlockNum,
                 expectedBlockNum = ExpectedBlockNum,
-                weight = Weight
+                weight = Weight.ToString()
             };
         }
     }
