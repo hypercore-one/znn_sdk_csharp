@@ -45,7 +45,7 @@ namespace Zenon.Utils
             }
 
             var strVal = intVal.ToString();
-            return scale > 0 
+            return scale > 0
                 ? strVal.Insert(strVal.Length - scale, CultureInfo.InvariantCulture.NumberFormat.NumberDecimalSeparator)
                 : strVal;
         }

@@ -52,7 +52,7 @@ namespace Zenon.Api.Embedded
         }
 
         // Contract methods
-        public AccountBlockTemplate CreateProject(string name, string description, 
+        public AccountBlockTemplate CreateProject(string name, string description,
             string url, BigInteger znnFundsNeeded, BigInteger qsrFundsNeeded)
         {
             return AccountBlockTemplate.CallContract(Address.AcceleratorAddress, TokenStandard.ZnnZts,
@@ -60,14 +60,14 @@ namespace Zenon.Api.Embedded
                 Definitions.Accelerator.EncodeFunction("CreateProject", name, description, url, znnFundsNeeded, qsrFundsNeeded));
         }
 
-        public AccountBlockTemplate AddPhase(Hash id, string name, string description, 
+        public AccountBlockTemplate AddPhase(Hash id, string name, string description,
             string url, BigInteger znnFundsNeeded, BigInteger qsrFundsNeeded)
         {
             return AccountBlockTemplate.CallContract(Address.AcceleratorAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Accelerator.EncodeFunction("AddPhase", id.Bytes, name, description, url, znnFundsNeeded, qsrFundsNeeded));
         }
 
-        public AccountBlockTemplate UpdatePhase(Hash id, string name, string description, 
+        public AccountBlockTemplate UpdatePhase(Hash id, string name, string description,
             string url, BigInteger znnFundsNeeded, BigInteger qsrFundsNeeded)
         {
             return AccountBlockTemplate.CallContract(Address.AcceleratorAddress, TokenStandard.ZnnZts, BigInteger.Zero,

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Numerics;
 using System.Threading.Tasks;
 using Zenon.Model.Embedded;
 using Zenon.Model.NoM;

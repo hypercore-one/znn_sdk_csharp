@@ -23,7 +23,7 @@ namespace Zenon.Api.Embedded
 
         public async Task<BigInteger> GetDepositedQsr(Address address)
         {
-            return AmountUtils.ParseAmount(await 
+            return AmountUtils.ParseAmount(await
                 Client.Value.SendRequest<string>("embedded.pillar.getDepositedQsr", address.ToString()));
         }
 
@@ -41,7 +41,7 @@ namespace Zenon.Api.Embedded
 
         public async Task<BigInteger> GetQsrRegistrationCost()
         {
-            return AmountUtils.ParseAmount(await 
+            return AmountUtils.ParseAmount(await
                 Client.Value.SendRequest<string>("embedded.pillar.getQsrRegistrationCost"));
         }
 

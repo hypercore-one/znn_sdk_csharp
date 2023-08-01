@@ -637,7 +637,7 @@ namespace Zenon.Api
                 // Setup
                 var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxhtlcxxxxxxxxxxxxxxxxxygecvw",
                     "zts1znnxxxxxxxxxxxxx9z4ulx", "0", "fgA8jVnkOgCVs2M3kRjJ4oOEQtwrHqWWJLGK6txc1mFWB5Qe");
-                
+
                 // Execute
                 var block = this.Api.Reclaim(
                         Hash.Parse("59e43a0095b363379118c9e2838442dc2b1ea59624b18aeadc5cd6615607941e"));
