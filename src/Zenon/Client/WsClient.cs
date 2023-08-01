@@ -1,10 +1,8 @@
 ﻿using StreamJsonRpc;
 using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.Net.WebSockets;
-using System.Reflection.Metadata;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,7 +18,7 @@ namespace Zenon.Client
 
     public class WsClient : IClient, IDisposable
     {
-        public static readonly WsClientOptions DefaultOptions = new WsClientOptions()
+        private static readonly WsClientOptions DefaultOptions = new WsClientOptions()
         {
             ProtocolVersion = Constants.ProtocolVersion,
             ChainIdentifier = Constants.ChainId,
@@ -198,7 +196,7 @@ namespace Zenon.Client
                     catch { }
                     socket = null;
                 }
-                
+
                 if (wsRpcClient != null)
                 {
                     try
