@@ -1,5 +1,7 @@
 ﻿using System.Linq;
+using System.Numerics;
 using Zenon.Model.Embedded.Json;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -7,15 +9,15 @@ namespace Zenon.Model.Embedded
     {
         public StakeList(JStakeList json)
         {
-            TotalAmount = json.totalAmount;
-            TotalWeightedAmount = json.totalWeightedAmount;
+            TotalAmount = AmountUtils.ParseAmount(json.totalAmount);
+            TotalWeightedAmount = AmountUtils.ParseAmount(json.totalWeightedAmount);
             Count = json.count;
             List = json.list != null
                 ? json.list.Select(x => new StakeEntry(x)).ToArray()
                 : new StakeEntry[0];
         }
 
-        public StakeList(long totalAmount, long totalWeightedAmount, long count, StakeEntry[] list)
+        public StakeList(BigInteger totalAmount, BigInteger totalWeightedAmount, long count, StakeEntry[] list)
         {
             TotalAmount = totalAmount;
             TotalWeightedAmount = totalWeightedAmount;
@@ -23,8 +25,8 @@ namespace Zenon.Model.Embedded
             List = list;
         }
 
-        public long TotalAmount { get; }
-        public long TotalWeightedAmount { get; }
+        public BigInteger TotalAmount { get; }
+        public BigInteger TotalWeightedAmount { get; }
         public long Count { get; }
         public StakeEntry[] List { get; }
 
@@ -32,8 +34,8 @@ namespace Zenon.Model.Embedded
         {
             return new JStakeList()
             {
-                totalAmount = TotalAmount,
-                totalWeightedAmount = TotalWeightedAmount,
+                totalAmount = TotalAmount.ToString(),
+                totalWeightedAmount = TotalWeightedAmount.ToString(),
                 count = Count,
                 list = List.Select(x => x.ToJson()).ToArray()
             };

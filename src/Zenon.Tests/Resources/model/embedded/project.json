@@ -10,8 +10,8 @@
           "name": "Phase 1",
           "description": "I've made a plan for phases 1 + 2  on a medium article, will refine phase 2 later on.",
           "url": "https://medium.com/@Zyler9985/zyler-proposal-the-phased-plan-4ec5fac82ae8",
-          "znnFundsNeeded": 10000000000,
-          "qsrFundsNeeded": 200000000000,
+          "znnFundsNeeded": "10000000000",
+          "qsrFundsNeeded": "200000000000",
           "creationTimestamp": 1651561570,
           "acceptedTimestamp": 0,
           "status": 0
@@ -29,8 +29,8 @@
     "name": "Zyler 1: A series of articles",
     "description": "A series of articles for marketing Zenon, see link below explaining this.",
     "url": "https://medium.com/@Zyler9985/zyler-proposal-1-a-series-of-articles-f105b698fedf",
-    "znnFundsNeeded": 10000000000,
-    "qsrFundsNeeded": 500000000000,
+    "znnFundsNeeded": "10000000000",
+    "qsrFundsNeeded": "500000000000",
     "creationTimestamp": 1650631980,
     "status": 1,
     "votes": {

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
@@ -51,29 +52,32 @@ namespace Zenon.Api.Embedded
         }
 
         // Contract methods
-        public AccountBlockTemplate CreateProject(string name, string description, string url, long znnFundsNeeded, long qsrFundsNeeded)
+        public AccountBlockTemplate CreateProject(string name, string description,
+            string url, BigInteger znnFundsNeeded, BigInteger qsrFundsNeeded)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
                 Address.AcceleratorAddress, TokenStandard.ZnnZts,
-                AmountUtils.ExtractDecimals(Constants.ProjectCreationFeeInZnn, Constants.ZnnDecimals),
+                Constants.ProjectCreationFeeInZnn,
                 Definitions.Accelerator.EncodeFunction("CreateProject", name, description, url, znnFundsNeeded, qsrFundsNeeded));
         }
 
-        public AccountBlockTemplate AddPhase(Hash id, string name, string description, string url, long znnFundsNeeded, long qsrFundsNeeded)
+        public AccountBlockTemplate AddPhase(Hash id, string name, string description,
+            string url, BigInteger znnFundsNeeded, BigInteger qsrFundsNeeded)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.AcceleratorAddress, TokenStandard.ZnnZts, 0,
+                Address.AcceleratorAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Accelerator.EncodeFunction("AddPhase", id.Bytes, name, description, url, znnFundsNeeded, qsrFundsNeeded));
         }
 
-        public AccountBlockTemplate UpdatePhase(Hash id, string name, string description, string url, long znnFundsNeeded, long qsrFundsNeeded)
+        public AccountBlockTemplate UpdatePhase(Hash id, string name, string description,
+            string url, BigInteger znnFundsNeeded, BigInteger qsrFundsNeeded)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.AcceleratorAddress, TokenStandard.ZnnZts, 0,
+                Address.AcceleratorAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Accelerator.EncodeFunction("UpdatePhase", id.Bytes, name, description, url, znnFundsNeeded, qsrFundsNeeded));
         }
 
-        public AccountBlockTemplate Donate(long amount, TokenStandard zts)
+        public AccountBlockTemplate Donate(BigInteger amount, TokenStandard zts)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
                 Address.AcceleratorAddress, zts, amount,
@@ -83,14 +87,14 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate VoteByName(Hash id, string pillarName, int vote)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.AcceleratorAddress, TokenStandard.ZnnZts, 0,
+                Address.AcceleratorAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Accelerator.EncodeFunction("VoteByName", id.Bytes, pillarName, vote));
         }
 
         public AccountBlockTemplate VoteByProdAddress(Hash id, int vote)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.AcceleratorAddress, TokenStandard.ZnnZts, 0,
+                Address.AcceleratorAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Accelerator.EncodeFunction("VoteByProdAddress", id.Bytes, vote));
         }
     }

@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Numerics;
+using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
 using Zenon.Model.Embedded;
@@ -101,9 +103,15 @@ namespace Zenon.Api.Embedded
             return new UnwrapTokenRequestList(response);
         }
 
+        public async Task<ZtsFeesInfo> GetFeeTokenPair(TokenStandard zts)
+        {
+            var response = await Client.SendRequestAsync<JZtsFeesInfo>("embedded.bridge.getFeeTokenPair", zts.ToString());
+            return new ZtsFeesInfo(response);
+        }
+
         // Contract methods
 
-        public AccountBlockTemplate WrapToken(int networkClass, int chainId, string toAddress, long amount, TokenStandard tokenStandard)
+        public AccountBlockTemplate WrapToken(int networkClass, int chainId, string toAddress, BigInteger amount, TokenStandard tokenStandard)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
                 Address.BridgeAddress, tokenStandard, amount,
@@ -114,15 +122,15 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate UpdateWrapRequest(Hash id, string signature)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(UpdateWrapRequest),
                     id, signature));
         }
 
-        public AccountBlockTemplate UnwrapToken(int networkClass, int chainId, string tokenAddress, Hash txHash, int logIndex, long amount, Address toAddress, string signature)
+        public AccountBlockTemplate UnwrapToken(int networkClass, int chainId, string tokenAddress, Hash txHash, int logIndex, BigInteger amount, Address toAddress, string signature)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(UnwrapToken),
                     networkClass,
                     chainId,
@@ -137,16 +145,16 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate Redeem(Hash hash, int logIndex)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(Redeem),
-                    hash.ToString(),
+                    hash,
                     logIndex));
         }
 
         public AccountBlockTemplate Halt(string signature)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(Halt),
                     signature));
         }
@@ -154,7 +162,7 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate Unhalt()
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(Unhalt)));
         }
 
@@ -169,7 +177,7 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate ChangeTssECDSAPubKey(string pubKey, string signature, string newSignature)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(ChangeTssECDSAPubKey),
                     pubKey,
                     signature,
@@ -179,15 +187,15 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate ChangeAdministrator(Address administrator)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(ChangeAdministrator),
-                    administrator.ToString()));
+                    administrator));
         }
 
         public AccountBlockTemplate SetNetwork(int networkClass, int chainId, string name, string contractAddress, string metadata)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(SetNetwork),
                     networkClass,
                     chainId,
@@ -199,16 +207,16 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate RemoveNetwork(int networkClass, int chainId)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(RemoveNetwork),
                     networkClass,
                     chainId));
         }
 
-        public AccountBlockTemplate SetTokenPair(int networkClass, int chainId, TokenStandard tokenStandard, string tokenAddress, bool bridgeable, bool redeemable, bool owned, long minAmount, int fee, int redeemDelay, string metadata)
+        public AccountBlockTemplate SetTokenPair(int networkClass, int chainId, TokenStandard tokenStandard, string tokenAddress, bool bridgeable, bool redeemable, bool owned, BigInteger minAmount, BigInteger fee, int redeemDelay, string metadata)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(SetTokenPair),
                     networkClass,
                     chainId,
@@ -226,7 +234,7 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate RemoveTokenPair(int networkClass, int chainId, TokenStandard tokenStandard, string tokenAddress)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(RemoveTokenPair),
                     networkClass,
                     chainId,
@@ -237,7 +245,7 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate SetNetworkMetadata(int networkClass, int chainId, string metadata)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(SetNetworkMetadata),
                     networkClass,
                     chainId,
@@ -247,7 +255,7 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate SetOrchestratorInfo(long windowSize, int keyGenThreshold, int confirmationsToFinality, int estimatedMomentumTime)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(SetOrchestratorInfo),
                     windowSize,
                     keyGenThreshold,
@@ -258,7 +266,7 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate NominateGuardians(Address[] guardians)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(NominateGuardians),
                     new object[] { guardians }));
         }
@@ -266,7 +274,7 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate SetBridgeMetadata(string metadata)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(SetBridgeMetadata),
                     metadata));
         }
@@ -274,7 +282,7 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate ProposeAdministrator(Address administrator)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(ProposeAdministrator),
                     administrator));
         }
@@ -282,14 +290,14 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate Emergency()
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(Emergency)));
         }
 
         public AccountBlockTemplate SetRedeemDelay(long redeemDelay)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(SetRedeemDelay),
                     redeemDelay));
         }
@@ -297,7 +305,7 @@ namespace Zenon.Api.Embedded
         public AccountBlockTemplate RevokeUnwrapRequest(Hash transactionHash, int logIndex)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, 0,
+                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Bridge.EncodeFunction(nameof(RevokeUnwrapRequest),
                     transactionHash,
                     logIndex));

@@ -14,7 +14,7 @@
           "bridgeable": true,
           "redeemable": true,
           "owned": false,
-          "minAmount": 100,
+          "minAmount": "100",
           "feePercentage": 15,
           "redeemDelay": 20,
           "metadata": "{\"APR\": 15, \"LockingPeriod\": 100}"
@@ -25,7 +25,7 @@
           "bridgeable": true,
           "redeemable": true,
           "owned": true,
-          "minAmount": 10,
+          "minAmount": "10",
           "feePercentage": 100,
           "redeemDelay": 15,
           "metadata": "{\"APR\": 20, \"LockingPeriod\": 50}"

@@ -1,4 +1,6 @@
 ﻿using FluentAssertions;
+using System;
+using System.Numerics;
 using System.Threading.Tasks;
 using Xunit;
 using Zenon.Api.Embedded;
@@ -541,6 +543,34 @@ namespace Zenon.Api
                     result.Should().NotBeNull();
                     result.Count.Should().BeGreaterThan(0);
                     result.List.Should().NotBeEmpty();
+                }
+            }
+
+            public class GetFeeTokenPair
+            {
+                public GetFeeTokenPair()
+                {
+                    this.MethodName = "embedded.bridge.getFeeTokenPair";
+                }
+
+                public string MethodName { get; }
+
+                [Theory]
+                [InlineData("zts1znnxxxxxxxxxxxxx9z4ulx", "Zenon.Resources.api.embedded.bridge.getFeeTokenPair.json")]
+                public async Task SingleResponseAsync(string tokenStandard, string resourceName)
+                {
+                    // Setup
+                    var zts = TokenStandard.Parse(tokenStandard);
+                    var api = new BridgeApi(new TestClient()
+                        .WithMethod(this.MethodName, zts.ToString())
+                        .WithManifestResourceTextResponse(resourceName));
+
+                    // Execute
+                    var result = await api.GetFeeTokenPair(zts);
+
+                    // Validate
+                    result.Should().NotBeNull();
+                    result.TokenStandard.Should().Be(zts);
                 }
             }
         }
@@ -1527,17 +1557,17 @@ namespace Zenon.Api
             public class GetPlasmaByQsr
             {
                 [Theory]
-                [InlineData(100.21, 210441)]
-                public async Task SingleResponseAsync(double qsrAmount, long expectedResult)
+                [InlineData("10021000000", "21044100000000")]
+                public async Task SingleResponseAsync(string qsrAmount, string expectedResult)
                 {
                     // Setup
                     var api = new PlasmaApi(new TestClient());
 
                     // Execute
-                    var result = await api.GetPlasmaByQsr(qsrAmount);
+                    var result = await api.GetPlasmaByQsr(BigInteger.Parse(qsrAmount));
 
                     // Validate
-                    result.Should().Be(expectedResult);
+                    result.Should().Be(BigInteger.Parse(expectedResult));
                 }
             }
 

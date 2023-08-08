@@ -3,7 +3,7 @@
     public class JRewardHistoryEntry
     {
         public long epoch { get; set; }
-        public long znnAmount { get; set; }
-        public long qsrAmount { get; set; }
+        public string znnAmount { get; set; }
+        public string qsrAmount { get; set; }
     }
 }
