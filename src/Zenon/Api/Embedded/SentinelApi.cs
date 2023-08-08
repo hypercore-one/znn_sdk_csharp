@@ -1,10 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Numerics;
+using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
 using Zenon.Model.Embedded;
 using Zenon.Model.Embedded.Json;
 using Zenon.Model.NoM;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Api.Embedded
 {
@@ -29,9 +32,10 @@ namespace Zenon.Api.Embedded
             return response != null ? new SentinelInfo(response) : null;
         }
 
-        public async Task<long> GetDepositedQsr(Address address)
+        public async Task<BigInteger> GetDepositedQsr(Address address)
         {
-            return await Client.SendRequestAsync<long>("embedded.sentinel.getDepositedQsr", address.ToString());
+            return AmountUtils.ParseAmount(await
+                Client.SendRequestAsync<string>("embedded.sentinel.getDepositedQsr", address.ToString()));
         }
 
         public async Task<UncollectedReward> GetUncollectedReward(Address address)
@@ -55,18 +59,18 @@ namespace Zenon.Api.Embedded
 
         public AccountBlockTemplate Revoke()
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.SentinelAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.SentinelAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Sentinel.EncodeFunction("Revoke"));
         }
 
         // Common contract methods
         public AccountBlockTemplate CollectReward()
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.SentinelAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.SentinelAddress, TokenStandard.ZnnZts, BigInteger.Zero,
             Definitions.Common.EncodeFunction("CollectReward"));
         }
 
-        public AccountBlockTemplate DepositQsr(long amount)
+        public AccountBlockTemplate DepositQsr(BigInteger amount)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.SentinelAddress, TokenStandard.QsrZts, amount,
             Definitions.Common.EncodeFunction("DepositQsr"));
@@ -74,7 +78,7 @@ namespace Zenon.Api.Embedded
 
         public AccountBlockTemplate WithdrawQsr()
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.SentinelAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.SentinelAddress, TokenStandard.ZnnZts, BigInteger.Zero,
             Definitions.Common.EncodeFunction("WithdrawQsr"));
         }
     }

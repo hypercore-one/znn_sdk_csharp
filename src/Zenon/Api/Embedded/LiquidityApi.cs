@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Numerics;
+using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
 using Zenon.Model.Embedded;
@@ -58,7 +60,7 @@ namespace Zenon.Api.Embedded
         /// <summary>
         /// Method for staking the liquidity for the Orbital Program.
         /// </summary>
-        public AccountBlockTemplate LiquidityStake(long durationInSec, long amount, TokenStandard zts)
+        public AccountBlockTemplate LiquidityStake(long durationInSec, BigInteger amount, TokenStandard zts)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, zts, amount,
                 Definitions.Liquidity.EncodeFunction(nameof(LiquidityStake),
@@ -70,7 +72,7 @@ namespace Zenon.Api.Embedded
         /// </summary>
         public AccountBlockTemplate CancelLiquidityStake(Hash id)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(CancelLiquidityStake), id));
         }
 
@@ -79,31 +81,31 @@ namespace Zenon.Api.Embedded
         /// </summary>
         public AccountBlockTemplate UnlockLiquidityStakeEntries(TokenStandard zts)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, zts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, zts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(UnlockLiquidityStakeEntries)));
         }
 
-        public AccountBlockTemplate BurnZnn(long burnAmount)
+        public AccountBlockTemplate BurnZnn(BigInteger burnAmount)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(BurnZnn), burnAmount));
         }
 
-        public AccountBlockTemplate Fund(long znnReward, long qsrReward)
+        public AccountBlockTemplate Fund(BigInteger znnReward, BigInteger qsrReward)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(Fund), znnReward, qsrReward));
         }
 
         public AccountBlockTemplate Donate()
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(Donate)));
         }
 
         public AccountBlockTemplate Update()
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(Update)));
         }
 
@@ -117,7 +119,7 @@ namespace Zenon.Api.Embedded
         /// </remarks>
         public AccountBlockTemplate Emergency()
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(Emergency)));
         }
 
@@ -129,7 +131,7 @@ namespace Zenon.Api.Embedded
         /// </remarks>
         public AccountBlockTemplate NominateGuardians(Address[] guardians)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(NominateGuardians), new object[] { guardians }));
         }
 
@@ -141,7 +143,7 @@ namespace Zenon.Api.Embedded
         /// </remarks>
         public AccountBlockTemplate ChangeAdministrator(Address administrator)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(ChangeAdministrator),
                     administrator));
         }
@@ -154,7 +156,7 @@ namespace Zenon.Api.Embedded
         /// </remarks>
         public AccountBlockTemplate ProposeAdministrator(Address administrator)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(ProposeAdministrator),
                     administrator));
         }
@@ -165,9 +167,9 @@ namespace Zenon.Api.Embedded
         /// <remarks>
         /// Can only be called by the administrator.
         /// </remarks>
-        public AccountBlockTemplate SetAdditionalReward(long znnAmount, long qsrAmount)
+        public AccountBlockTemplate SetAdditionalReward(BigInteger znnAmount, BigInteger qsrAmount)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(SetAdditionalReward), znnAmount, qsrAmount));
         }
 
@@ -179,7 +181,7 @@ namespace Zenon.Api.Embedded
         /// </remarks>
         public AccountBlockTemplate SetIsHalted(bool value)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(SetIsHalted),
                     value));
         }
@@ -190,9 +192,9 @@ namespace Zenon.Api.Embedded
         /// <remarks>
         /// Can only be called by the administrator.
         /// </remarks>
-        public AccountBlockTemplate SetTokenTuple(string[] tokenStandards, int[] znnPercentages, int[] qsrPercentages, long[] minAmounts)
+        public AccountBlockTemplate SetTokenTuple(string[] tokenStandards, int[] znnPercentages, int[] qsrPercentages, BigInteger[] minAmounts)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Liquidity.EncodeFunction(nameof(SetTokenTuple),
                     tokenStandards,
                     znnPercentages,
@@ -204,7 +206,7 @@ namespace Zenon.Api.Embedded
 
         public AccountBlockTemplate CollectReward()
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.LiquidityAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Common.EncodeFunction(nameof(CollectReward)));
         }
     }

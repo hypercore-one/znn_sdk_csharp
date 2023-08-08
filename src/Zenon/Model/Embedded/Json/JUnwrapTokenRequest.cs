@@ -10,7 +10,7 @@
         public string toAddress { get; set; }
         public string tokenStandard { get; set; }
         public string tokenAddress { get; set; }
-        public long amount { get; set; }
+        public string amount { get; set; }
         public string signature { get; set; }
         public int redeemed { get; set; }
         public int revoked { get; set; }

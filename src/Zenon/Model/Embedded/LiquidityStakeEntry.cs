@@ -1,5 +1,7 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -7,31 +9,37 @@ namespace Zenon.Model.Embedded
     {
         public LiquidityStakeEntry(JLiquidityStakeEntry json)
         {
-            Amount = json.amount;
+            Amount = AmountUtils.ParseAmount(json.amount);
             TokenStandard = TokenStandard.Parse(json.tokenStandard);
-            WeightedAmount = json.weightedAmount;
+            WeightedAmount = AmountUtils.ParseAmount(json.weightedAmount);
             StartTime = json.startTime;
             RevokeTime = json.revokeTime;
             ExpirationTime = json.expirationTime;
+            StakeAddress = Address.Parse(json.stakeAddress);
+            Id = Hash.Parse(json.id);
         }
 
-        public long Amount { get; }
+        public BigInteger Amount { get; }
         public TokenStandard TokenStandard { get; }
-        public long WeightedAmount { get; }
+        public BigInteger WeightedAmount { get; }
         public long StartTime { get; }
         public long RevokeTime { get; }
         public long ExpirationTime { get; }
+        public Address StakeAddress { get; }
+        public Hash Id { get; }
 
         public virtual JLiquidityStakeEntry ToJson()
         {
             return new JLiquidityStakeEntry()
             {
-                amount = Amount,
+                amount = Amount.ToString(),
                 tokenStandard = TokenStandard.ToString(),
-                weightedAmount = WeightedAmount,
+                weightedAmount = WeightedAmount.ToString(),
                 startTime = StartTime,
                 revokeTime = RevokeTime,
                 expirationTime = ExpirationTime,
+                stakeAddress = StakeAddress.ToString(),
+                id = Id.ToString(),
             };
         }
     }

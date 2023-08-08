@@ -1,4 +1,6 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -7,21 +9,21 @@ namespace Zenon.Model.Embedded
         public RewardHistoryEntry(JRewardHistoryEntry json)
         {
             Epoch = json.epoch;
-            ZnnAmount = json.znnAmount;
-            QsrAmount = json.qsrAmount;
+            ZnnAmount = AmountUtils.ParseAmount(json.znnAmount);
+            QsrAmount = AmountUtils.ParseAmount(json.qsrAmount);
         }
 
         public long Epoch { get; }
-        public long ZnnAmount { get; }
-        public long QsrAmount { get; }
+        public BigInteger ZnnAmount { get; }
+        public BigInteger QsrAmount { get; }
 
         public virtual JRewardHistoryEntry ToJson()
         {
             return new JRewardHistoryEntry()
             {
                 epoch = Epoch,
-                znnAmount = ZnnAmount,
-                qsrAmount = QsrAmount
+                znnAmount = ZnnAmount.ToString(),
+                qsrAmount = QsrAmount.ToString()
             };
         }
     }

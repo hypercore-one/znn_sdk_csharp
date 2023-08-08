@@ -13,7 +13,7 @@ namespace Zenon.Model.NoM.Json
         public JHashHeight momentumAcknowledged { get; set; }
         public string address { get; set; }
         public string toAddress { get; set; }
-        public long amount { get; set; }
+        public string amount { get; set; }
         public string tokenStandard { get; set; }
         public string fromBlockHash { get; set; }
         public string data { get; set; }

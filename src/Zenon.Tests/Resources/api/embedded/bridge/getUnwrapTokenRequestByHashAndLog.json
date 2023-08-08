@@ -7,7 +7,7 @@
   "toAddress": "z1qr4pexnnfaexqqz8nscjjcsajy5hdqfkgadvwx",
   "tokenAddress": "0x5aaaa2315678afecb367f032d93f642f64180aa3",
   "tokenStandard": "zts1qanamzukd2v0pp8j2wzx6m",
-  "amount": 800,
+  "amount": "800",
   "signature": "eCKubWhwnuqqX9vjGl9ltqxCNwE2V9Xi4bO1q404JYNCUlJ0c3h5Cq558pLxtimrS73hPStjtz281+GcfNPTyAE=",
   "redeemed": 0,
   "revoked": 0

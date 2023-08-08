@@ -1,5 +1,7 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -12,7 +14,7 @@ namespace Zenon.Model.Embedded
             Bridgeable = json.bridgeable;
             Redeemable = json.redeemable;
             Owned = json.owned;
-            MinAmount = json.minAmount;
+            MinAmount = AmountUtils.ParseAmount(json.minAmount);
             FeePercentage = json.feePercentage;
             RedeemDelay = json.redeemDelay;
             Metadata = json.metadata;
@@ -23,7 +25,7 @@ namespace Zenon.Model.Embedded
         public bool Bridgeable { get; }
         public bool Redeemable { get; }
         public bool Owned { get; }
-        public long MinAmount { get; }
+        public BigInteger MinAmount { get; }
         public int FeePercentage { get; }
         public int RedeemDelay { get; }
         public string Metadata { get; }
@@ -37,7 +39,7 @@ namespace Zenon.Model.Embedded
                 bridgeable = Bridgeable,
                 redeemable = Redeemable,
                 owned = Owned,
-                minAmount = MinAmount,
+                minAmount = MinAmount.ToString(),
                 feePercentage = FeePercentage,
                 redeemDelay = RedeemDelay,
                 metadata = Metadata

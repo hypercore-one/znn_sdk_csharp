@@ -20,12 +20,12 @@ namespace Zenon
                 return reader.ReadToEnd();
         }
 
-        internal static AccountBlockTemplate CreateAccountBlockTemplate(long amount, string data)
+        internal static AccountBlockTemplate CreateAccountBlockTemplate(string amount, string data)
         {
             return CreateAccountBlockTemplate("z1qxemdeddedxaccelerat0rxxxxxxxxxxp4tk22", "zts1znnxxxxxxxxxxxxx9z4ulx", amount, data);
         }
 
-        internal static AccountBlockTemplate CreateAccountBlockTemplate(string toAddres, string tokenStandard, long amount, string data)
+        internal static AccountBlockTemplate CreateAccountBlockTemplate(string toAddres, string tokenStandard, string amount, string data)
         {
             return new AccountBlockTemplate(
                 new JAccountBlockTemplate()

@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Numerics;
+using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
 using Zenon.Model.NoM;
@@ -52,13 +54,13 @@ namespace Zenon.Api.Embedded
                     utility));
         }
 
-        public AccountBlockTemplate MintToken(TokenStandard tokenStandard, long amount, Address receiveAddress)
+        public AccountBlockTemplate MintToken(TokenStandard tokenStandard, BigInteger amount, Address receiveAddress)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.TokenAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.TokenAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Token.EncodeFunction("Mint", tokenStandard, amount, receiveAddress));
         }
 
-        public AccountBlockTemplate BurnToken(TokenStandard tokenStandard, long amount)
+        public AccountBlockTemplate BurnToken(TokenStandard tokenStandard, BigInteger amount)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.TokenAddress, tokenStandard, amount,
                 Definitions.Token.EncodeFunction("Burn"));
@@ -66,7 +68,7 @@ namespace Zenon.Api.Embedded
 
         public AccountBlockTemplate UpdateToken(TokenStandard tokenStandard, Address owner, bool isMintable, bool isBurnable)
         {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.TokenAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.TokenAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Token.EncodeFunction("UpdateToken", tokenStandard, owner, isMintable, isBurnable));
         }
     }

@@ -4,6 +4,6 @@
     {
         public string name { get; set; }
         public long status { get; set; }
-        public long weight { get; set; }
+        public string weight { get; set; }
     }
 }
