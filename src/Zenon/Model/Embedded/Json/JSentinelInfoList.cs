@@ -2,7 +2,7 @@
 {
     public class JSentinelInfoList
     {
-        public long count { get; set; }
+        public ulong count { get; set; }
         public JSentinelInfo[] list { get; set; }
     }
 }

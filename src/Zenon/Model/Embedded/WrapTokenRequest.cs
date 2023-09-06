@@ -21,8 +21,8 @@ namespace Zenon.Model.Embedded
             CreationMomentumHeight = json.creationMomentumHeight;
         }
 
-        public int NetworkClass { get; }
-        public int ChainId { get; }
+        public uint NetworkClass { get; }
+        public uint ChainId { get; }
         public Hash Id { get; }
         public string ToAddress { get; }
         public TokenStandard TokenStandard { get; }
@@ -30,7 +30,7 @@ namespace Zenon.Model.Embedded
         public BigInteger Amount { get; }
         public BigInteger Fee { get; }
         public string Signature { get; }
-        public long CreationMomentumHeight { get; }
+        public ulong CreationMomentumHeight { get; }
 
         public virtual JWrapTokenRequest ToJson()
         {

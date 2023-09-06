@@ -14,7 +14,7 @@ namespace Zenon.Model.Embedded
 
         public string MethodName { get; set; }
         public Hash ParamsHash { get; set; }
-        public long ChallengeStartHeight { get; set; }
+        public ulong ChallengeStartHeight { get; set; }
 
         public virtual JTimeChallengeInfo ToJson()
         {

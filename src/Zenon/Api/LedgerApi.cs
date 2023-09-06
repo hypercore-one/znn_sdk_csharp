@@ -21,13 +21,13 @@ namespace Zenon.Api
             await Client.SendRequestAsync("ledger.publishRawTransaction", accountBlockTemplate.ToJson());
         }
 
-        public async Task<AccountBlockList> GetUnconfirmedBlocksByAddress(Address address, int pageIndex = 0, int pageSize = Constants.MemoryPoolPageSize)
+        public async Task<AccountBlockList> GetUnconfirmedBlocksByAddress(Address address, uint pageIndex = 0, uint pageSize = Constants.MemoryPoolPageSize)
         {
             var response = await Client.SendRequestAsync<JAccountBlockList>("ledger.getUnconfirmedBlocksByAddress", address.ToString(), pageIndex, pageSize);
             return new AccountBlockList(response);
         }
 
-        public async Task<AccountBlockList> GetUnreceivedBlocksByAddress(Address address, int pageIndex = 0, int pageSize = Constants.MemoryPoolPageSize)
+        public async Task<AccountBlockList> GetUnreceivedBlocksByAddress(Address address, uint pageIndex = 0, uint pageSize = Constants.MemoryPoolPageSize)
         {
             var response = await Client.SendRequestAsync<JAccountBlockList>("ledger.getUnreceivedBlocksByAddress", address.ToString(), pageIndex, pageSize);
             return new AccountBlockList(response);
@@ -46,14 +46,14 @@ namespace Zenon.Api
             return response != null ? new AccountBlock(response) : null;
         }
 
-        public async Task<AccountBlockList> GetAccountBlocksByHeight(Address address, int height = 1, int count = Constants.RpcMaxPageSize)
+        public async Task<AccountBlockList> GetAccountBlocksByHeight(Address address, ulong height = 1, ulong count = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JAccountBlockList>("ledger.getAccountBlocksByHeight", address.ToString(), height, count);
             return new AccountBlockList(response);
         }
 
         /// pageIndex = 0 returns the most recent account blocks sorted descending by height
-        public async Task<AccountBlockList> GetAccountBlocksByPage(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<AccountBlockList> GetAccountBlocksByPage(Address address, uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JAccountBlockList>("ledger.getAccountBlocksByPage", address.ToString(), pageIndex, pageSize);
             return new AccountBlockList(response);
@@ -78,7 +78,7 @@ namespace Zenon.Api
             return response != null ? new Momentum(response) : null;
         }
 
-        public async Task<MomentumList> GetMomentumsByHeight(long height, long count)
+        public async Task<MomentumList> GetMomentumsByHeight(ulong height, ulong count)
         {
             height = height < 1 ? 1 : height;
             count = count > Constants.RpcMaxPageSize ? Constants.RpcMaxPageSize : count;
@@ -87,13 +87,13 @@ namespace Zenon.Api
         }
 
         /// pageIndex = 0 returns the most recent momentums sorted descending by height
-        public async Task<MomentumList> GetMomentumsByPage(int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<MomentumList> GetMomentumsByPage(uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JMomentumList>("ledger.getMomentumsByPage", pageIndex, pageSize);
             return new MomentumList(response);
         }
 
-        public async Task<DetailedMomentumList> GetDetailedMomentumsByHeight(long height, long count)
+        public async Task<DetailedMomentumList> GetDetailedMomentumsByHeight(ulong height, ulong count)
         {
             height = height < 1 ? 1 : height;
             count = count > Constants.RpcMaxPageSize ? Constants.RpcMaxPageSize : count;

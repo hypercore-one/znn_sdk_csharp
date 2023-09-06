@@ -13,7 +13,7 @@ namespace Zenon.Model.Embedded
                 : new WrapTokenRequest[0];
         }
 
-        public long Count { get; }
+        public ulong Count { get; }
         public WrapTokenRequest[] List { get; }
 
         public virtual JWrapTokenRequestList ToJson()

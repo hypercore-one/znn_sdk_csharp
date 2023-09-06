@@ -23,9 +23,9 @@ namespace Zenon.Model.Embedded
         public string DecompressedTssECDSAPubKey { get; }
         public bool AllowKeyGen { get; }
         public bool Halted { get; }
-        public long UnhaltedAt { get; }
-        public long UnhaltDurationInMomentums { get; }
-        public long TssNonce { get; }
+        public ulong UnhaltedAt { get; }
+        public ulong UnhaltDurationInMomentums { get; }
+        public ulong TssNonce { get; }
         public string Metadata { get; }
 
         public virtual JBridgeInfo ToJson()

@@ -18,13 +18,13 @@ namespace Zenon.Api.Embedded
 
         public IClient Client { get; }
 
-        public async Task<TokenList> GetAll(int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<TokenList> GetAll(uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JTokenList>("embedded.token.getAll", pageIndex, pageSize);
             return new TokenList(response);
         }
 
-        public async Task<TokenList> GetByOwner(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<TokenList> GetByOwner(Address address, uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JTokenList>("embedded.token.getByOwner", address.ToString(), pageIndex, pageSize);
             return new TokenList(response);
@@ -38,7 +38,7 @@ namespace Zenon.Api.Embedded
 
         // Contract methods
         public AccountBlockTemplate IssueToken(string tokenName, string tokenSymbol, string tokenDomain,
-            long totalSupply, long maxSupply, int decimals,
+            BigInteger totalSupply, BigInteger maxSupply, int decimals,
             bool mintable, bool burnable, bool utility)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.TokenAddress, TokenStandard.ZnnZts, Constants.TokenZtsIssueFeeInZnn,
