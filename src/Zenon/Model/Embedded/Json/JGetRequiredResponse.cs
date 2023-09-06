@@ -2,8 +2,8 @@
 {
     public class JGetRequiredResponse
     {
-        public long availablePlasma { get; set; }
-        public long basePlasma { get; set; }
-        public long requiredDifficulty { get; set; }
+        public ulong availablePlasma { get; set; }
+        public ulong basePlasma { get; set; }
+        public ulong requiredDifficulty { get; set; }
     }
 }

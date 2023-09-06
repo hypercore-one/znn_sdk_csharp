@@ -4,6 +4,6 @@
     {
         public string address { get; set; }
         public string hash { get; set; }
-        public long? height { get; set; }
+        public ulong? height { get; set; }
     }
 }

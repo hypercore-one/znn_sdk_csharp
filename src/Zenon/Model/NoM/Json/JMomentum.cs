@@ -2,12 +2,12 @@
 {
     public class JMomentum
     {
-        public int version { get; set; }
-        public int chainIdentifier { get; set; }
+        public ulong version { get; set; }
+        public ulong chainIdentifier { get; set; }
         public string hash { get; set; }
         public string previousHash { get; set; }
-        public long height { get; set; }
-        public long timestamp { get; set; }
+        public ulong height { get; set; }
+        public ulong timestamp { get; set; }
         public string data { get; set; }
         public JAccountHeader[] content { get; set; }
         public string changesHash { get; set; }

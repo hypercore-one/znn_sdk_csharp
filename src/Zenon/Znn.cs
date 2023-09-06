@@ -12,8 +12,8 @@ namespace Zenon
     {
         public static Znn Instance = new Znn();
 
-        public int NetworkIdentifier { get; }
-        public int ChainIdentifier { get; set; }
+        public ulong NetworkIdentifier { get; }
+        public ulong ChainIdentifier { get; set; }
 
         public KeyPair DefaultKeyPair { get; set; }
         public KeyStore DefaultKeyStore { get; set; }
