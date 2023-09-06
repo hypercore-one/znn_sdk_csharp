@@ -4,9 +4,9 @@ namespace Zenon.Model.Embedded
 {
     public class GetRequiredResponse : IJsonConvertible<JGetRequiredResponse>
     {
-        public long AvailablePlasma { get; }
-        public long BasePlasma { get; }
-        public long RequiredDifficulty { get; }
+        public ulong AvailablePlasma { get; }
+        public ulong BasePlasma { get; }
+        public ulong RequiredDifficulty { get; }
 
         public GetRequiredResponse(JGetRequiredResponse json)
         {

@@ -14,14 +14,14 @@ namespace Zenon.Model.NoM
             More = json.more;
         }
 
-        public AccountBlockList(long count, AccountBlock[] list, bool more)
+        public AccountBlockList(ulong count, AccountBlock[] list, bool more)
         {
             Count = count;
             List = list;
             More = more;
         }
 
-        public long Count { get; }
+        public ulong Count { get; }
         public AccountBlock[] List { get; }
 
         /// If true, there are more than `count` elements, but only these can be retrieved

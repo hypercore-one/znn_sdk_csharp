@@ -3,7 +3,7 @@
     public class JMomentumShort
     {
         public string hash { get; set; }
-        public long? height { get; set; }
-        public long? timestamp { get; set; }
+        public ulong? height { get; set; }
+        public ulong? timestamp { get; set; }
     }
 }

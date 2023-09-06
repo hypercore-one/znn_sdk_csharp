@@ -5,19 +5,19 @@ namespace Zenon.Model.NoM
 {
     public class TokenList : IJsonConvertible<JTokenList>
     {
-        public TokenList(Json.JTokenList json)
+        public TokenList(JTokenList json)
         {
             Count = json.count;
             List = json.list != null ? json.list.Select(x => new Token(x)).ToArray() : new Token[0];
         }
 
-        public TokenList(long count, Token[] list)
+        public TokenList(ulong count, Token[] list)
         {
             Count = count;
             List = list;
         }
 
-        public long Count { get; }
+        public ulong Count { get; }
         public Token[] List { get; }
 
         public virtual JTokenList ToJson()

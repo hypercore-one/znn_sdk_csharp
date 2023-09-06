@@ -2,7 +2,7 @@
 {
     public class JTokenList
     {
-        public long count { get; set; }
+        public ulong count { get; set; }
         public JToken[] list { get; set; }
     }
 }
