@@ -20,7 +20,7 @@ namespace Zenon.Api.Embedded
 
         public IClient Client { get; }
 
-        public async Task<SentinelInfoList> GetAllActive(int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<SentinelInfoList> GetAllActive(uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JSentinelInfoList>("embedded.sentinel.getAllActive", pageIndex, pageSize);
             return new SentinelInfoList(response);
@@ -44,7 +44,7 @@ namespace Zenon.Api.Embedded
             return new UncollectedReward(response);
         }
 
-        public async Task<RewardHistoryList> GetFrontierRewardByPage(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<RewardHistoryList> GetFrontierRewardByPage(Address address, uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JRewardHistoryList>("embedded.sentinel.getFrontierRewardByPage", address.ToString(), pageIndex, pageSize);
             return new RewardHistoryList(response);

@@ -13,7 +13,7 @@ namespace Zenon.Model.Embedded
                 : new BridgeNetworkInfo[0];
         }
 
-        public long Count { get; }
+        public ulong Count { get; }
         public BridgeNetworkInfo[] List { get; }
 
         public virtual JBridgeNetworkInfoList ToJson()

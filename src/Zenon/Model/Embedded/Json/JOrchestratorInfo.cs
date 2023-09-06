@@ -2,10 +2,10 @@
 {
     public class JOrchestratorInfo
     {
-        public long windowSize { get; set; }
-        public long keyGenThreshold { get; set; }
-        public long confirmationsToFinality { get; set; }
-        public long estimatedMomentumTime { get; set; }
-        public long allowKeyGenHeight { get; set; }
+        public ulong windowSize { get; set; }
+        public uint keyGenThreshold { get; set; }
+        public uint confirmationsToFinality { get; set; }
+        public uint estimatedMomentumTime { get; set; }
+        public ulong allowKeyGenHeight { get; set; }
     }
 }

@@ -7,11 +7,11 @@ namespace Zenon.Model.NoM
     {
         public DetailedMomentumList(JDetailedMomentumList json)
         {
-            Count = json.count;
+            Count = json.count.HasValue ? json.count.Value : 0;
             List = json.list != null ? json.list.Select(x => new DetailedMomentum(x)).ToArray() : null;
         }
 
-        public long? Count { get; }
+        public ulong Count { get; }
         public DetailedMomentum[] List { get; }
 
         public virtual JDetailedMomentumList ToJson()

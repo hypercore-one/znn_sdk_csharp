@@ -13,7 +13,7 @@ namespace Zenon.Model.Embedded
                 : new PillarEpochHistory[0];
         }
 
-        public long Count { get; }
+        public ulong Count { get; }
         public PillarEpochHistory[] List { get; }
 
         public virtual JPillarEpochHistoryList ToJson()

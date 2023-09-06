@@ -26,8 +26,8 @@ namespace Zenon.Model.Embedded
         public bool Redeemable { get; }
         public bool Owned { get; }
         public BigInteger MinAmount { get; }
-        public int FeePercentage { get; }
-        public int RedeemDelay { get; }
+        public uint FeePercentage { get; }
+        public ulong RedeemDelay { get; }
         public string Metadata { get; }
 
         public virtual JTokenPair ToJson()

@@ -18,7 +18,7 @@ namespace Zenon.Model.Embedded
         public string Name { get; }
         public string Description { get; }
         public bool Activated { get; }
-        public long EnforcementHeight { get; }
+        public ulong EnforcementHeight { get; }
 
         public virtual JSpork ToJson()
         {

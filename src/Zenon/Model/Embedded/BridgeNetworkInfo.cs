@@ -17,8 +17,8 @@ namespace Zenon.Model.Embedded
                 : new TokenPair[0];
         }
 
-        public int NetworkClass { get; }
-        public int ChainId { get; }
+        public uint NetworkClass { get; }
+        public uint ChainId { get; }
         public string Name { get; }
         public string ContractAddress { get; }
         public string Metadata { get; }

@@ -4,6 +4,6 @@
     {
         public string methodName { get; set; }
         public string paramsHash { get; set; }
-        public long challengeStartHeight { get; set; }
+        public ulong challengeStartHeight { get; set; }
     }
 }

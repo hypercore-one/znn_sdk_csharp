@@ -13,11 +13,11 @@ namespace Zenon.Model.Embedded
             AllowKeyGenHeight = json.allowKeyGenHeight;
         }
 
-        public long WindowSize { get; }
-        public long KeyGenThreshold { get; }
-        public long ConfirmationsToFinality { get; }
-        public long EstimatedMomentumTime { get; }
-        public long AllowKeyGenHeight { get; }
+        public ulong WindowSize { get; }
+        public uint KeyGenThreshold { get; }
+        public uint ConfirmationsToFinality { get; }
+        public uint EstimatedMomentumTime { get; }
+        public ulong AllowKeyGenHeight { get; }
 
         public virtual JOrchestratorInfo ToJson()
         {

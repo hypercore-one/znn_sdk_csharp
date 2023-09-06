@@ -150,7 +150,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(2, 123, "Zenon.Resources.api.embedded.bridge.getNetworkInfo.json")]
-                public async Task SingleResponseAsync(int networkClass, int chainId, string resourceName)
+                public async Task SingleResponseAsync(uint networkClass, uint chainId, string resourceName)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -206,7 +206,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -224,7 +224,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllWrapTokenRequests.json")]
-                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -252,7 +252,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string toAddress, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string toAddress, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -270,7 +270,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllWrapTokenRequestsByToAddress.json")]
-                public async Task ListResponseAsync(string toAddress, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string toAddress, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -298,7 +298,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 2, 123, 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string toAddress, int networkClass, int chainId, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string toAddress, uint networkClass, uint chainId, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -316,7 +316,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 2, 123, 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllWrapTokenRequestsByToAddressNetworkClassAndChainId.json")]
-                public async Task ListResponseAsync(string toAddress, int networkClass, int chainId, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string toAddress, uint networkClass, uint chainId, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -344,7 +344,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -362,7 +362,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllNetworks.json")]
-                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -390,7 +390,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -408,7 +408,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllUnsignedWrapTokenRequests.json")]
-                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -436,7 +436,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("11ac76e40cc23674300f68ca87f5ebeb7210fc327fd43f35081b75a839c9c632", 200, "Zenon.Resources.api.embedded.bridge.getUnwrapTokenRequestByHashAndLog.json")]
-                public async Task SingleResponseAsync(string hash, int logIndex, string resourceName)
+                public async Task SingleResponseAsync(string hash, uint logIndex, string resourceName)
                 {
                     // Setup
                     var h = Hash.Parse(hash);
@@ -465,7 +465,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -483,7 +483,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllUnwrapTokenRequests.json")]
-                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -511,7 +511,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string toAddress, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string toAddress, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -529,7 +529,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("0xb794f5ea0ba39494ce839613fffba74279579268", 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.bridge.getAllUnwrapTokenRequestsByToAddress.json")]
-                public async Task ListResponseAsync(string toAddress, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string toAddress, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new BridgeApi(new TestClient()
@@ -617,7 +617,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string address, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -636,7 +636,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.liquidity.getFrontierRewardByPage.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -717,7 +717,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string address, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -736,7 +736,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7", 0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.liquidity.getLiquidityStakeEntriesByAddress.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -873,7 +873,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new SporkApi(new TestClient()
@@ -891,7 +891,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.spork.getAll.json")]
-                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new SporkApi(new TestClient()
@@ -922,7 +922,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new AcceleratorApi(new TestClient()
@@ -940,7 +940,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.accelerator.getAll.json")]
-                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new AcceleratorApi(new TestClient()
@@ -1141,7 +1141,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y", 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string address, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -1161,7 +1161,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData("z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y", 0, Constants.RpcMaxPageSize,
                     "Zenon.Resources.api.embedded.pillar.getFrontierRewardByPage.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -1216,7 +1216,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new PillarApi(new TestClient()
@@ -1235,7 +1235,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize,
                     "Zenon.Resources.api.embedded.pillar.getAll.json")]
-                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new PillarApi(new TestClient()
@@ -1391,7 +1391,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("SultanOfStaking", 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string name, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string name, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new PillarApi(new TestClient()
@@ -1410,7 +1410,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData("SultanOfStaking", 0, Constants.RpcMaxPageSize,
                     "Zenon.Resources.api.embedded.pillar.getPillarEpochHistory.json")]
-                public async Task ListResponseAsync(string name, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string name, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new PillarApi(new TestClient()
@@ -1438,7 +1438,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(140, 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(int epoch, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(ulong epoch, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new PillarApi(new TestClient()
@@ -1457,7 +1457,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData(140, 0, Constants.RpcMaxPageSize,
                     "Zenon.Resources.api.embedded.pillar.getPillarsHistoryByEpoch.json")]
-                public async Task ListResponseAsync(int epoch, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(ulong epoch, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new PillarApi(new TestClient()
@@ -1516,7 +1516,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qqylpfyyrj5t8pe99n4nf4x634vxse96fg7sge", 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string address, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -1536,7 +1536,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData("z1qqylpfyyrj5t8pe99n4nf4x634vxse96fg7sge", 0, Constants.RpcMaxPageSize,
                     "Zenon.Resources.api.embedded.plasma.getEntriesByAddress.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -1613,7 +1613,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var api = new SentinelApi(new TestClient()
@@ -1632,7 +1632,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize,
                     "Zenon.Resources.api.embedded.sentinel.getAllActive.json")]
-                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new SentinelApi(new TestClient()
@@ -1744,7 +1744,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qrg4nt69dakvw9wc3pmcvnuax70uj04wt4dxk4", 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string address, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -1764,7 +1764,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData("z1qrg4nt69dakvw9wc3pmcvnuax70uj04wt4dxk4", 0, Constants.RpcMaxPageSize,
                     "Zenon.Resources.api.embedded.sentinel.getFrontierRewardByPage.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -1796,7 +1796,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y", 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string address, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -1816,7 +1816,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData("z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y", 0, Constants.RpcMaxPageSize,
                     "Zenon.Resources.api.embedded.stake.getEntriesByAddress.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -1845,7 +1845,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y", 0, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string address, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -1865,7 +1865,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData("z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y", 0, Constants.RpcMaxPageSize,
                     "Zenon.Resources.api.embedded.stake.getFrontierRewardByPage.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -2042,7 +2042,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(0, Constants.RpcMaxPageSize, "Zenon.Resources.api.embedded.token.getAll.json")]
-                public async Task ListResponseAsync(int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var api = new TokenApi(new TestClient()
@@ -2071,7 +2071,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData("z1qpgdtn89u9365jr7ltdxu29fy52pnzwe4fl7zc", 0, Constants.RpcMaxPageSize,
                     "Zenon.Resources.api.embedded.token.getByOwner.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -2133,7 +2133,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qqylpfyyrj5t8pe99n4nf4x634vxse96fg7sge", 0, Constants.MemoryPoolPageSize)]
-                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string address, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -2153,7 +2153,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData("z1qqylpfyyrj5t8pe99n4nf4x634vxse96fg7sge", 0, Constants.MemoryPoolPageSize,
                     "Zenon.Resources.api.ledger.getUnconfirmedBlocksByAddress.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -2182,7 +2182,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qq6g4jptwwjmp0ym38n0juru2zzygap6r42pc0", 0, Constants.MemoryPoolPageSize)]
-                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string address, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -2202,7 +2202,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData("z1qq6g4jptwwjmp0ym38n0juru2zzygap6r42pc0", 0, Constants.MemoryPoolPageSize,
                     "Zenon.Resources.api.ledger.getUnreceivedBlocksByAddress.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -2288,17 +2288,17 @@ namespace Zenon.Api
                 public string MethodName { get; set; }
 
                 [Theory]
-                [InlineData("z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y", 500, Constants.RpcMaxPageSize)]
-                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                [InlineData("z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y", 500, Constants.MemoryPoolPageSize)]
+                public async Task EmptyResponseAsync(string address, ulong height, ulong count)
                 {
                     // Setup
                     var addr = Address.Parse(address);
                     var api = new LedgerApi(new TestClient()
-                        .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
+                        .WithMethod(this.MethodName, addr.ToString(), height, count)
                         .WithEmptyResponse());
 
                     // Execute
-                    var result = await api.GetAccountBlocksByHeight(addr, pageIndex, pageSize);
+                    var result = await api.GetAccountBlocksByHeight(addr, height, count);
 
                     // Validate
                     result.Should().NotBeNull();
@@ -2309,16 +2309,16 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData("z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y", 500, Constants.MemoryPoolPageSize,
                     "Zenon.Resources.api.ledger.getAccountBlocksByHeight.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, ulong height, ulong count, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
                     var api = new LedgerApi(new TestClient()
-                        .WithMethod(this.MethodName, addr.ToString(), pageIndex, pageSize)
+                        .WithMethod(this.MethodName, addr.ToString(), height, count)
                         .WithManifestResourceTextResponse(resourceName));
 
                     // Execute
-                    var result = await api.GetAccountBlocksByHeight(addr, pageIndex, pageSize);
+                    var result = await api.GetAccountBlocksByHeight(addr, height, count);
 
                     // Validate
                     result.Should().NotBeNull();
@@ -2338,7 +2338,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData("z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y", 0, 10)]
-                public async Task EmptyResponseAsync(string address, int pageIndex, int pageSize)
+                public async Task EmptyResponseAsync(string address, uint pageIndex, uint pageSize)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -2358,7 +2358,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData("z1qqwttth8sj5fchuqyr0ctum63hax2rqfyswk8y", 0, 10,
                     "Zenon.Resources.api.ledger.getAccountBlocksByPage.json")]
-                public async Task ListResponseAsync(string address, int pageIndex, int pageSize, string resourceName)
+                public async Task ListResponseAsync(string address, uint pageIndex, uint pageSize, string resourceName)
                 {
                     // Setup
                     var addr = Address.Parse(address);
@@ -2499,7 +2499,7 @@ namespace Zenon.Api
 
                 [Theory]
                 [InlineData(140, 10)]
-                public async Task EmptyResponseAsync(long height, long count)
+                public async Task EmptyResponseAsync(ulong height, ulong count)
                 {
                     // Setup
                     var api = new LedgerApi(new TestClient()
@@ -2518,7 +2518,7 @@ namespace Zenon.Api
                 [Theory]
                 [InlineData(140, 10,
                     "Zenon.Resources.api.ledger.getMomentumsByHeight.json")]
-                public async Task ListResponseAsync(long height, long count, string resourceName)
+                public async Task ListResponseAsync(ulong height, ulong count, string resourceName)
                 {
                     // Setup
                     var api = new LedgerApi(new TestClient()

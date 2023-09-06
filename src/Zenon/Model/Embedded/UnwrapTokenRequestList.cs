@@ -13,7 +13,7 @@ namespace Zenon.Model.Embedded
                 : new UnwrapTokenRequest[0];
         }
 
-        public long Count { get; }
+        public ulong Count { get; }
         public UnwrapTokenRequest[] List { get; }
 
         public virtual JUnwrapTokenRequestList ToJson()

@@ -2,7 +2,7 @@
 {
     public class JBridgeNetworkInfoList
     {
-        public long count { get; set; }
+        public ulong count { get; set; }
         public JBridgeNetworkInfo[] list { get; set; }
     }
 }

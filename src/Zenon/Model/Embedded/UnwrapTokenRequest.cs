@@ -23,11 +23,11 @@ namespace Zenon.Model.Embedded
             Revoked = json.revoked;
         }
 
-        public long RegistrationMomentumHeight { get; }
-        public int NetworkClass { get; }
-        public int ChainId { get; }
+        public ulong RegistrationMomentumHeight { get; }
+        public uint NetworkClass { get; }
+        public uint ChainId { get; }
         public Hash TransactionHash { get; }
-        public long LogIndex { get; }
+        public uint LogIndex { get; }
         public Address ToAddress { get; }
         public TokenStandard TokenStandard { get; }
         public string TokenAddress { get; }

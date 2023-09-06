@@ -17,7 +17,7 @@ namespace Zenon.Model.Embedded
                 : new StakeEntry[0];
         }
 
-        public StakeList(BigInteger totalAmount, BigInteger totalWeightedAmount, long count, StakeEntry[] list)
+        public StakeList(BigInteger totalAmount, BigInteger totalWeightedAmount, ulong count, StakeEntry[] list)
         {
             TotalAmount = totalAmount;
             TotalWeightedAmount = totalWeightedAmount;
@@ -27,7 +27,7 @@ namespace Zenon.Model.Embedded
 
         public BigInteger TotalAmount { get; }
         public BigInteger TotalWeightedAmount { get; }
-        public long Count { get; }
+        public ulong Count { get; }
         public StakeEntry[] List { get; }
 
         public virtual JStakeList ToJson()

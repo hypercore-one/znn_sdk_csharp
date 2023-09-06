@@ -32,7 +32,7 @@ namespace Zenon.Api.Embedded
             return new UncollectedReward(response);
         }
 
-        public async Task<RewardHistoryList> GetFrontierRewardByPage(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<RewardHistoryList> GetFrontierRewardByPage(Address address, uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JRewardHistoryList>("embedded.pillar.getFrontierRewardByPage", address.ToString(), pageIndex, pageSize);
             return new RewardHistoryList(response);
@@ -44,7 +44,7 @@ namespace Zenon.Api.Embedded
                 Client.SendRequestAsync<string>("embedded.pillar.getQsrRegistrationCost"));
         }
 
-        public async Task<PillarInfoList> GetAll(int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<PillarInfoList> GetAll(uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JPillarInfoList>("embedded.pillar.getAll", pageIndex, pageSize);
             return new PillarInfoList(response);
@@ -73,13 +73,13 @@ namespace Zenon.Api.Embedded
             return response != null ? new DelegationInfo(response) : null;
         }
 
-        public async Task<PillarEpochHistoryList> GetPillarEpochHistory(string name, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<PillarEpochHistoryList> GetPillarEpochHistory(string name, uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JPillarEpochHistoryList>("embedded.pillar.getPillarEpochHistory", name, pageIndex, pageSize);
             return new PillarEpochHistoryList(response);
         }
 
-        public async Task<PillarEpochHistoryList> GetPillarsHistoryByEpoch(int epoch, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<PillarEpochHistoryList> GetPillarsHistoryByEpoch(ulong epoch, uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JPillarEpochHistoryList>("embedded.pillar.getPillarsHistoryByEpoch", epoch, pageIndex, pageSize);
             return new PillarEpochHistoryList(response);

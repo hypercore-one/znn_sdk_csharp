@@ -17,7 +17,7 @@ namespace Zenon.Api.Embedded
 
         public IClient Client { get; }
 
-        public async Task<SporkList> GetAll(int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<SporkList> GetAll(uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.SendRequestAsync<JSporkList>("embedded.spork.getAll", pageIndex, pageSize);
             return new SporkList(response);

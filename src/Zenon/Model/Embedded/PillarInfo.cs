@@ -31,7 +31,7 @@ namespace Zenon.Model.Embedded
         }
 
         public string Name { get; }
-        public long Rank { get; }
+        public int Rank { get; }
         public int Type { get; }
         public Address OwnerAddress { get; }
         public Address ProducerAddress { get; }
@@ -43,8 +43,8 @@ namespace Zenon.Model.Embedded
         public long RevokeTimestamp { get; }
         public PillarEpochStats CurrentStats { get; }
         public BigInteger Weight { get; }
-        public long ProducedMomentums { get; }
-        public long ExpectedMomentums { get; }
+        public int ProducedMomentums { get; }
+        public int ExpectedMomentums { get; }
 
         public virtual JPillarInfo ToJson()
         {
