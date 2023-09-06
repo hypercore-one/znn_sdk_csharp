@@ -2,7 +2,7 @@
 {
     public class JWrapTokenRequestList
     {
-        public long count { get; set; }
+        public ulong count { get; set; }
         public JWrapTokenRequest[] list { get; set; }
     }
 }

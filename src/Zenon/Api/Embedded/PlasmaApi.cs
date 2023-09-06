@@ -25,7 +25,7 @@ namespace Zenon.Api.Embedded
             return new PlasmaInfo(response);
         }
 
-        public async Task<FusionEntryList> GetEntriesByAddress(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<FusionEntryList> GetEntriesByAddress(Address address, uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.Value.SendRequest<JFusionEntryList>("embedded.plasma.getEntriesByAddress", address.ToString(), pageIndex, pageSize);
             return new FusionEntryList(response);

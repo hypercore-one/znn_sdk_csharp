@@ -16,7 +16,7 @@ namespace Zenon.Model.Embedded
                 : new FusionEntry[0];
         }
 
-        public FusionEntryList(BigInteger qsrAmount, long count, FusionEntry[] list)
+        public FusionEntryList(BigInteger qsrAmount, ulong count, FusionEntry[] list)
         {
             QsrAmount = qsrAmount;
             Count = count;
@@ -24,7 +24,7 @@ namespace Zenon.Model.Embedded
         }
 
         public BigInteger QsrAmount { get; }
-        public long Count { get; }
+        public ulong Count { get; }
         public FusionEntry[] List { get; }
 
         public virtual JFusionEntryList ToJson()

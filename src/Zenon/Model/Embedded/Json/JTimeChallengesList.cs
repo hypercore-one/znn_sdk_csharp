@@ -2,7 +2,7 @@
 {
     public class JTimeChallengesList
     {
-        public long count { get; set; }
+        public ulong count { get; set; }
         public JTimeChallengeInfo[] list { get; set; }
     }
 }

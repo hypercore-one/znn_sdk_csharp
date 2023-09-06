@@ -19,7 +19,7 @@ namespace Zenon.Api.Embedded
 
         public Lazy<IClient> Client { get; }
 
-        public async Task<StakeList> GetEntriesByAddress(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<StakeList> GetEntriesByAddress(Address address, uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.Value.SendRequest<JStakeList>("embedded.stake.getEntriesByAddress", address.ToString(), pageIndex, pageSize);
             return new StakeList(response);
@@ -31,7 +31,7 @@ namespace Zenon.Api.Embedded
             return new UncollectedReward(response);
         }
 
-        public async Task<RewardHistoryList> GetFrontierRewardByPage(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<RewardHistoryList> GetFrontierRewardByPage(Address address, uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.Value.SendRequest<JRewardHistoryList>("embedded.stake.getFrontierRewardByPage", address.ToString(), pageIndex, pageSize);
             return new RewardHistoryList(response);

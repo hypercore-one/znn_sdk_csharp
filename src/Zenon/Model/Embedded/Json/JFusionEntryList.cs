@@ -3,7 +3,7 @@
     public class JFusionEntryList
     {
         public string qsrAmount { get; set; }
-        public long count { get; set; }
+        public ulong count { get; set; }
         public JFusionEntry[] list { get; set; }
     }
 }
