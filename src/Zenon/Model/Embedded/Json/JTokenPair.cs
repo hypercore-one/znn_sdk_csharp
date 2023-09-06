@@ -8,8 +8,8 @@
         public bool redeemable { get; set; }
         public bool owned { get; set; }
         public string minAmount { get; set; }
-        public int feePercentage { get; set; }
-        public int redeemDelay { get; set; }
+        public uint feePercentage { get; set; }
+        public ulong redeemDelay { get; set; }
         public string metadata { get; set; }
     }
 }

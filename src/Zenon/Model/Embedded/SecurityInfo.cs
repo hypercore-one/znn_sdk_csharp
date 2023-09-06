@@ -16,8 +16,8 @@ namespace Zenon.Model.Embedded
 
         public Address[] Guardians { get; }
         public Address[] GuardiansVotes { get; }
-        public long AdministratorDelay { get; }
-        public long SoftDelay { get; }
+        public ulong AdministratorDelay { get; }
+        public ulong SoftDelay { get; }
 
         public virtual JSecurityInfo ToJson()
         {

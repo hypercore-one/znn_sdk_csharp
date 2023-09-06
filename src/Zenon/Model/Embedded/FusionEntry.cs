@@ -15,7 +15,7 @@ namespace Zenon.Model.Embedded
             Id = Hash.Parse(json.id);
         }
 
-        public FusionEntry(Address beneficiary, long expirationHeight, Hash id, BigInteger qsrAmount)
+        public FusionEntry(Address beneficiary, ulong expirationHeight, Hash id, BigInteger qsrAmount)
         {
             Beneficiary = beneficiary;
             ExpirationHeight = expirationHeight;
@@ -25,7 +25,7 @@ namespace Zenon.Model.Embedded
 
         public BigInteger QsrAmount { get; }
         public Address Beneficiary { get; }
-        public long ExpirationHeight { get; }
+        public ulong ExpirationHeight { get; }
         public Hash Id { get; }
         public bool? IsRevocable { get; }
 

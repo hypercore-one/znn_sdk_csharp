@@ -19,7 +19,7 @@ namespace Zenon.Model.Embedded
 
         public BigInteger TotalAmount { get; }
         public BigInteger TotalWeightedAmount { get; }
-        public long Count { get; }
+        public ulong Count { get; }
         public LiquidityStakeEntry[] List { get; }
 
         public virtual JLiquidityStakeList ToJson()

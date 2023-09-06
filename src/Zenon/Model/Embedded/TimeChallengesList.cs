@@ -13,7 +13,7 @@ namespace Zenon.Model.Embedded
                 : new TimeChallengeInfo[0];
         }
 
-        public long Count { get; }
+        public ulong Count { get; }
         public TimeChallengeInfo[] List { get; }
 
         public virtual JTimeChallengesList ToJson()

@@ -21,7 +21,7 @@ namespace Zenon.Api.Embedded
 
         public Lazy<IClient> Client { get; }
 
-        public async Task<ProjectList> GetAll(int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<ProjectList> GetAll(uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
             var response = await Client.Value.SendRequest<JProjectList>("embedded.accelerator.getAll", pageIndex, pageSize);
             return new ProjectList(response);

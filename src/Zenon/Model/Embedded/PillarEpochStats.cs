@@ -10,8 +10,8 @@ namespace Zenon.Model.Embedded
             ExpectedMomentums = json.expectedMomentums;
         }
 
-        public long ProducedMomentums { get; }
-        public long ExpectedMomentums { get; }
+        public int ProducedMomentums { get; }
+        public int ExpectedMomentums { get; }
 
         public virtual JPillarEpochStats ToJson()
         {

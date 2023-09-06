@@ -2,7 +2,7 @@
 {
     public class JRewardHistoryList
     {
-        public long count { get; set; }
+        public ulong count { get; set; }
         public JRewardHistoryEntry[] list { get; set; }
     }
 }

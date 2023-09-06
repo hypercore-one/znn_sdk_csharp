@@ -7,9 +7,9 @@
         public string decompressedTssECDSAPubKey { get; set; }
         public bool allowKeyGen { get; set; }
         public bool halted { get; set; }
-        public long unhaltedAt { get; set; }
-        public long unhaltDurationInMomentums { get; set; }
-        public long tssNonce { get; set; }
+        public ulong unhaltedAt { get; set; }
+        public ulong unhaltDurationInMomentums { get; set; }
+        public ulong tssNonce { get; set; }
         public string metadata { get; set; }
     }
 }
