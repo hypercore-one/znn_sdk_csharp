@@ -59,8 +59,8 @@ namespace Zenon.Model.NoM
             Hash fromBlockHash = null,
             byte[] data = null)
         {
-            Version = protocolVersion;
-            ChainIdentifier = chainIdentifier;
+            Version = (ulong)protocolVersion;
+            ChainIdentifier = (ulong)chainIdentifier;
             BlockType = blockType;
             Hash = Hash.Empty;
             PreviousHash = Hash.Empty;
