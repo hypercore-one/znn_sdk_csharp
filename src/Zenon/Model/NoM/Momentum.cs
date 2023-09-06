@@ -23,12 +23,12 @@ namespace Zenon.Model.NoM
             Producer = Address.Parse(json.producer);
         }
 
-        public int Version { get; }
-        public int ChainIdentifier { get; }
+        public ulong Version { get; }
+        public ulong ChainIdentifier { get; }
         public Hash Hash { get; }
         public Hash PreviousHash { get; }
-        public long Height { get; }
-        public long Timestamp { get; }
+        public ulong Height { get; }
+        public ulong Timestamp { get; }
         public byte[] Data { get; }
         public AccountHeader[] Content { get; }
         public Hash ChangesHash { get; }

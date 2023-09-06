@@ -13,10 +13,10 @@ namespace Zenon.Model.NoM
             MomentumTimestamp = json.momentumTimestamp;
         }
 
-        public long NumConfirmations { get; }
-        public long MomentumHeight { get; }
+        public ulong NumConfirmations { get; }
+        public ulong MomentumHeight { get; }
         public Hash MomentumHash { get; }
-        public long MomentumTimestamp { get; }
+        public ulong MomentumTimestamp { get; }
 
         public virtual JAccountBlockConfirmationDetail ToJson()
         {

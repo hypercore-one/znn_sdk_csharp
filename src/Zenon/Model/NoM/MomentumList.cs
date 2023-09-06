@@ -13,7 +13,7 @@ namespace Zenon.Model.NoM
                 : new Momentum[0];
         }
 
-        public long Count { get; }
+        public ulong Count { get; }
         public Momentum[] List { get; }
 
         public virtual JMomentumList ToJson()

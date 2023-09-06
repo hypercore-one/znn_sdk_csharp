@@ -14,7 +14,7 @@ namespace Zenon.Pow
         private const int DataSize = 40;
         private static readonly SHA3.Net.Sha3 shaAlg = SHA3.Net.Sha3.Sha3256();
 
-        public static async Task<string> Generate(Hash hash, long difficulty)
+        public static async Task<string> Generate(Hash hash, ulong difficulty)
         {
             return await Task.Run(() =>
             {
@@ -22,7 +22,7 @@ namespace Zenon.Pow
             });
         }
 
-        public static async Task<string> Benchmark(long difficulty)
+        public static async Task<string> Benchmark(ulong difficulty)
         {
             return await Task.Run(() =>
             {
@@ -30,7 +30,7 @@ namespace Zenon.Pow
             });
         }
 
-        private static byte[] GenerateInternal(byte[] hash, long difficulty)
+        private static byte[] GenerateInternal(byte[] hash, ulong difficulty)
         {
             var target = GetTarget(difficulty);
             var entropy = GetRandomSeed();
@@ -52,7 +52,7 @@ namespace Zenon.Pow
             }
         }
 
-        private static byte[] BenchmarkInternal(long difficulty)
+        private static byte[] BenchmarkInternal(ulong difficulty)
         {
             var target = GetTarget(difficulty);
             var data = GetData(new byte[OutSize], new byte[InSize]);
@@ -80,7 +80,7 @@ namespace Zenon.Pow
             Array.Copy(digest, hash, 8);
         }
 
-        private static byte[] GetTarget(long difficulty)
+        private static byte[] GetTarget(ulong difficulty)
         {
             // set big to 1 << 64
             var big = new BigInteger(1L << 62);

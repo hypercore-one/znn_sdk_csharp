@@ -59,7 +59,17 @@ namespace Zenon.Utils
             return EndianBitConverter.Big.GetBytes(value);
         }
 
+        public static byte[] GetBytes(uint value)
+        {
+            return EndianBitConverter.Big.GetBytes(value);
+        }
+
         public static byte[] GetBytes(long value)
+        {
+            return EndianBitConverter.Big.GetBytes(value);
+        }
+
+        public static byte[] GetBytes(ulong value)
         {
             return EndianBitConverter.Big.GetBytes(value);
         }

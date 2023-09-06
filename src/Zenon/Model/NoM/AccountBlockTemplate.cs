@@ -76,13 +76,13 @@ namespace Zenon.Model.NoM
             Signature = new byte[0];
         }
 
-        public int Version { get; }
-        public int ChainIdentifier { get; }
+        public ulong Version { get; }
+        public ulong ChainIdentifier { get; }
         public BlockTypeEnum BlockType { get; }
 
         public Hash Hash { get; internal set; }
         public Hash PreviousHash { get; internal set; }
-        public long Height { get; internal set; }
+        public ulong Height { get; internal set; }
         public HashHeight MomentumAcknowledged { get; internal set; }
 
         public Address Address { get; set; }
@@ -99,8 +99,8 @@ namespace Zenon.Model.NoM
         public byte[] Data { get; }
 
         // PoW
-        public long FusedPlasma { get; internal set; }
-        public long Difficulty { get; internal set; }
+        public ulong FusedPlasma { get; internal set; }
+        public ulong Difficulty { get; internal set; }
 
         // Hex representation of 8 byte nonce
         public string Nonce { get; internal set; }
@@ -120,7 +120,7 @@ namespace Zenon.Model.NoM
         {
             json.version = this.Version;
             json.chainIdentifier = this.ChainIdentifier;
-            json.blockType = (int)this.BlockType;
+            json.blockType = (ulong)this.BlockType;
             json.hash = this.Hash.ToString();
             json.previousHash = this.PreviousHash.ToString();
             json.height = this.Height;
