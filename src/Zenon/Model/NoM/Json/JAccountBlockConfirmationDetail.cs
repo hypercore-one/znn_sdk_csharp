@@ -2,9 +2,9 @@
 {
     public class JAccountBlockConfirmationDetail
     {
-        public long numConfirmations { get; set; }
-        public long momentumHeight { get; set; }
+        public ulong numConfirmations { get; set; }
+        public ulong momentumHeight { get; set; }
         public string momentumHash { get; set; }
-        public long momentumTimestamp { get; set; }
+        public ulong momentumTimestamp { get; set; }
     }
 }

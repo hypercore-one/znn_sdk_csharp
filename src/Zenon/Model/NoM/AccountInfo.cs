@@ -9,7 +9,7 @@ namespace Zenon.Model.NoM
     public class AccountInfo : IJsonConvertible<JAccountInfo>
     {
         public string Address { get; }
-        public long? BlockCount { get; }
+        public ulong? BlockCount { get; }
         public BalanceInfoListItem[] BalanceInfoList { get; }
 
         public AccountInfo(JAccountInfo json)
@@ -21,7 +21,7 @@ namespace Zenon.Model.NoM
                 : new BalanceInfoListItem[0];
         }
 
-        public AccountInfo(string address, long? blockCount, BalanceInfoListItem[] balanceInfoList)
+        public AccountInfo(string address, ulong? blockCount, BalanceInfoListItem[] balanceInfoList)
         {
             Address = address;
             BlockCount = blockCount;

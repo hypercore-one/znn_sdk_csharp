@@ -80,7 +80,7 @@ namespace Zenon.Utils
             var frontierAccountBlock =
                 await zdk.Ledger.GetFrontierAccountBlock(accountBlockTemplate.Address);
 
-            long height = 1;
+            ulong height = 1;
             Hash previousHash = Hash.Empty;
 
             if (frontierAccountBlock != null)

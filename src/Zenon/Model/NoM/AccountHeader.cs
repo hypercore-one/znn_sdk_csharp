@@ -13,7 +13,7 @@ namespace Zenon.Model.NoM
             Height = json.height;
         }
 
-        public AccountHeader(Hash hash, long? height)
+        public AccountHeader(Hash hash, ulong? height)
         {
             Hash = hash;
             Height = height;
@@ -22,7 +22,7 @@ namespace Zenon.Model.NoM
         /// Added here for simplicity. Is not part of the RPC response.
         public Address Address { get; }
         public Hash Hash { get; }
-        public long? Height { get; }
+        public ulong? Height { get; }
 
         public virtual JAccountHeader ToJson()
         {
