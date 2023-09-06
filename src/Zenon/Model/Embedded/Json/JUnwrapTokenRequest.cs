@@ -5,7 +5,7 @@
         public long registrationMomentumHeight { get; set; }
         public int networkClass { get; set; }
         public string transactionHash { get; set; }
-        public int logIndex { get; set; }
+        public long logIndex { get; set; }
         public int chainId { get; set; }
         public string toAddress { get; set; }
         public string tokenStandard { get; set; }

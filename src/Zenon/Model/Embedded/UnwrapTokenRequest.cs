@@ -27,7 +27,7 @@ namespace Zenon.Model.Embedded
         public int NetworkClass { get; }
         public int ChainId { get; }
         public Hash TransactionHash { get; }
-        public int LogIndex { get; }
+        public long LogIndex { get; }
         public Address ToAddress { get; }
         public TokenStandard TokenStandard { get; }
         public string TokenAddress { get; }
