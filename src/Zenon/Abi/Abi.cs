@@ -7,7 +7,7 @@ namespace Zenon.Abi
 {
     public class Abi
     {
-        private static Entry[] ParseEntries(JEntry[] json)
+        public static Entry[] ParseEntries(JEntry[] json)
         {
             var entries = new List<Entry>();
 
