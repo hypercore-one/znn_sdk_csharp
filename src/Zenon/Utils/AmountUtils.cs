@@ -5,15 +5,27 @@ namespace Zenon.Utils
 {
     public static class AmountUtils
     {
+        private const char NumberDecimalSeparator = '.';
+
         public static BigInteger ParseAmount(string value)
         {
-            return string.IsNullOrEmpty(value) ? BigInteger.Zero : BigInteger.Parse(value, CultureInfo.InvariantCulture);
+            return string.IsNullOrEmpty(value) 
+                ? BigInteger.Zero
+                : BigInteger.Parse(value, CultureInfo.InvariantCulture);
         }
 
-        public static BigInteger ExtractDecimals(double value, int decimals)
+        public static BigInteger ExtractDecimals(string amount, int decimals)
         {
-            return BigInteger.Parse(value.ToString("0." + new string('0', decimals), CultureInfo.InvariantCulture)
-                .Replace(CultureInfo.InvariantCulture.NumberFormat.NumberDecimalSeparator, ""));
+            if (!amount.Contains(NumberDecimalSeparator))
+            {
+                return ParseAmount(amount + new string('0', decimals));
+            }
+            var parts = amount.Split(NumberDecimalSeparator);
+
+            return ParseAmount(parts[0] +
+                (parts[1].Length > decimals
+                    ? parts[1].Substring(0, decimals)
+                    : parts[1].PadRight(decimals, '0')));
         }
 
         public static string AddDecimals(BigInteger value, int decimals)
@@ -21,7 +33,7 @@ namespace Zenon.Utils
             return CreateAndStripZerosForScale(value, decimals, 0);
         }
 
-        public static string CreateAndStripZerosForScale(
+        private static string CreateAndStripZerosForScale(
             BigInteger intVal,
             int scale,
             int preferredScale)
@@ -44,13 +56,10 @@ namespace Zenon.Utils
                 scale += -1;
             }
 
-            var strVal = intVal.ToString();
-            if (scale == 0) return strVal;
-
-            if (strVal.Length > scale)
-                return strVal.Insert(strVal.Length - scale, CultureInfo.InvariantCulture.NumberFormat.NumberDecimalSeparator);
-            else
-                return "0" + CultureInfo.InvariantCulture.NumberFormat.NumberDecimalSeparator + strVal.PadLeft(scale, '0');
+            var strVal = intVal.ToString().PadLeft(scale, '0');
+            return scale > 0
+                ? strVal.Insert(strVal.Length - scale, NumberDecimalSeparator.ToString())
+                : strVal;
         }
     }
 }
