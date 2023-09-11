@@ -42,7 +42,7 @@ namespace Zenon
             if (account == null)
                 throw new ZdkException("No default wallet account selected");
 
-            return await BlockUtils.SendAsync(this, transaction, account, generatingPowCallback, waitForRequiredPlasma);
+            return await BlockUtils.SendAsync(this, transaction, account, generatingPowCallback ?? delegate { }, waitForRequiredPlasma);
         }
 
         public async Task<bool> RequiresPoWAsync(AccountBlockTemplate transaction)
