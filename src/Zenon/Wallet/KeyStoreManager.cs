@@ -53,7 +53,9 @@ namespace Zenon.Wallet
 
         public IEnumerable<KeyStoreDefinition> ListAllKeyStores()
         {
-            return Directory.GetFiles(WalletPath).Select(x => new KeyStoreDefinition(x));
+            if (Directory.Exists(WalletPath))
+                return Directory.GetFiles(WalletPath).Select(x => new KeyStoreDefinition(x));
+            return new KeyStoreDefinition[0];
         }
 
         public KeyStoreDefinition CreateNew(string passphrase, string name)
