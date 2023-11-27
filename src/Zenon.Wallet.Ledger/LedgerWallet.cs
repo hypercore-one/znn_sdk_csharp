@@ -9,26 +9,31 @@ namespace Zenon.Wallet.Ledger
     {
         private bool disposed;
 
-        public static LedgerWallet Connect(string path)
+        public static LedgerWallet Connect(string path, LedgerWalletOptions options)
         {
-            return new LedgerWallet(new LedgerTransport(new HidDevice(path, nameof(LedgerWallet))));
+            return new LedgerWallet(new LedgerTransport(new HidDevice(path, nameof(LedgerWallet))), options);
         }
 
-        public static LedgerWallet Connect(ushort vendorId, ushort proudctId)
+        public static LedgerWallet Connect(ushort vendorId, ushort proudctId, LedgerWalletOptions options)
         {
-            return new LedgerWallet(new LedgerTransport(new HidDevice(vendorId, proudctId, nameof(LedgerWallet))));
+            return new LedgerWallet(new LedgerTransport(new HidDevice(vendorId, proudctId, nameof(LedgerWallet))), options);
         }
 
-        public static LedgerWallet Connect(ushort vendorId, ushort proudctId, string serialNumber)
+        public static LedgerWallet Connect(ushort vendorId, ushort proudctId, string serialNumber, LedgerWalletOptions options)
         {
-            return new LedgerWallet(new LedgerTransport(new HidDevice(vendorId, proudctId, serialNumber, nameof(LedgerWallet))));
+            return new LedgerWallet(new LedgerTransport(new HidDevice(vendorId, proudctId, serialNumber, nameof(LedgerWallet))), options);
         }
 
         private LedgerTransport Transport { get; }
+        private LedgerWalletOptions Options { get; }
 
-        private LedgerWallet(LedgerTransport transport)
+        private LedgerWallet(LedgerTransport transport, LedgerWalletOptions options)
         {
             Transport = transport;
+            Options = new LedgerWalletOptions()
+            {
+                ConfirmAddressByDefault = options.ConfirmAddressByDefault
+            };
         }
 
         public async Task<LedgerAccount> GetAccountAsync(int index = 0)
@@ -77,12 +82,14 @@ namespace Zenon.Wallet.Ledger
             throw Helpers.HandleErrorResponse(response);
         }
 
-        public async Task<byte[]> GetPublicKeyAsync(IAddressPath addressPath, bool display)
+        public async Task<byte[]> GetPublicKeyAsync(IAddressPath addressPath, bool? confirm = null)
         {
             AssertDisposed();
 
+            confirm ??= Options.ConfirmAddressByDefault;
+
             var response = await Transport
-                .SendRequestAsync<ZenonPublicKeyResponse, ZenonPublicKeyRequest>(new ZenonPublicKeyRequest(addressPath, display));
+                .SendRequestAsync<ZenonPublicKeyResponse, ZenonPublicKeyRequest>(new ZenonPublicKeyRequest(addressPath, confirm.Value));
 
             if (response.IsSuccess)
             {

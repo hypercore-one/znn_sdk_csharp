@@ -6,6 +6,7 @@ namespace Zenon.Wallet.Ledger
     public class LedgerAccount : IWalletAccount
     {
         private Address? address;
+        private byte[]? publicKey;
 
         public LedgerAccount(LedgerWallet wallet, IAddressPath addressPath)
         {
@@ -23,12 +24,15 @@ namespace Zenon.Wallet.Ledger
 
         public async Task<byte[]> GetPublicKeyAsync(CancellationToken cancellationToken = default)
         {
-            return await GetPublicKeyAsync(false, cancellationToken);
+            return publicKey ??= await Wallet.GetPublicKeyAsync(AddressPath);
         }
 
-        public async Task<byte[]> GetPublicKeyAsync(bool display, CancellationToken cancellationToken = default)
+        public async Task<byte[]> GetPublicKeyAsync(bool confirm, CancellationToken cancellationToken = default)
         {
-            return await Wallet.GetPublicKeyAsync(AddressPath, display);
+            // Do not retrieve from cache when confirmation is explicit
+            if (confirm)
+                publicKey = await Wallet.GetPublicKeyAsync(AddressPath, confirm);
+            return publicKey ??= await Wallet.GetPublicKeyAsync(AddressPath, confirm);
         }
 
         public Task<byte[]> SignAsync(byte[] message, CancellationToken cancellationToken = default)

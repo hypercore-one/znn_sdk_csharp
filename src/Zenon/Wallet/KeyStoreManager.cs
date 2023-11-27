@@ -89,7 +89,7 @@ namespace Zenon.Wallet
                 }
                 if (!(walletOptions is KeyStoreOptions))
                 {
-                    throw new NotSupportedException($"Unsupported wallet options '{walletDefinition.GetType().Name}'.");
+                    throw new NotSupportedException($"Unsupported wallet options '{walletOptions.GetType().Name}'.");
                 }
                 return ReadKeyStore(
                     ((KeyStoreOptions)walletOptions).DecryptionPassword,

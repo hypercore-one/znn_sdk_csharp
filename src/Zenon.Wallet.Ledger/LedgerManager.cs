@@ -6,6 +6,9 @@ namespace Zenon.Wallet.Ledger
     {
         private const int vendorId = 0x2c97; // Ledger
 
+        private readonly static LedgerWalletOptions DefaultWalletOptions 
+            = new LedgerWalletOptions();
+
         private bool disposed;
 
         public LedgerManager()
@@ -28,7 +31,12 @@ namespace Zenon.Wallet.Ledger
                 {
                     throw new NotSupportedException($"Unsupported wallet definition '{walletDefinition.GetType().Name}'.");
                 }
-                return LedgerWallet.Connect(walletDefinition.WalletId);
+                walletOptions ??= DefaultWalletOptions;
+                if (!(walletOptions is LedgerWalletOptions))
+                {
+                    throw new NotSupportedException($"Unsupported wallet options '{walletOptions.GetType().Name}'.");
+                }
+                return LedgerWallet.Connect(walletDefinition.WalletId, (LedgerWalletOptions)walletOptions);
             }, cancellationToken);
         }
 
