@@ -9,11 +9,11 @@
         {
             get
             {
-                if (base.ReturnCode != Constants.SuccessStatusCode)
+                if (base.ReturnCode != StatusCode.Success)
                     return base.ReturnCode;
 
                 if (Data == null || Data.Length != 35)
-                    return Constants.WrongResponseLengthStatusCode;
+                    return StatusCode.WrongResponseLength;
 
                 return base.ReturnCode;
             }

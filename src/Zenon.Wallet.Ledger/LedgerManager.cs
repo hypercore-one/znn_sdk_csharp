@@ -18,26 +18,26 @@ namespace Zenon.Wallet.Ledger
         {
             AssertDisposed();
 
-            return Hid.Enumerate(vendorId).Select(x => new LedgerDefinition(x));
+            return await Task.Run(() =>
+            {
+                return Hid.Enumerate(vendorId).Select(x => new LedgerDefinition(x));
+            }, cancellationToken);
         }
 
         public async Task<IWallet> GetWalletAsync(IWalletDefinition walletDefinition, IWalletOptions? walletOptions = null, CancellationToken cancellationToken = default)
         {
             AssertDisposed();
 
-            return await Task.Run(() =>
+            if (!(walletDefinition is LedgerDefinition))
             {
-                if (!(walletDefinition is LedgerDefinition))
-                {
-                    throw new NotSupportedException($"Unsupported wallet definition '{walletDefinition.GetType().Name}'.");
-                }
-                walletOptions ??= DefaultWalletOptions;
-                if (!(walletOptions is LedgerWalletOptions))
-                {
-                    throw new NotSupportedException($"Unsupported wallet options '{walletOptions.GetType().Name}'.");
-                }
-                return LedgerWallet.Connect(walletDefinition.WalletId, (LedgerWalletOptions)walletOptions);
-            }, cancellationToken);
+                throw new NotSupportedException($"Unsupported wallet definition '{walletDefinition.GetType().Name}'.");
+            }
+            walletOptions ??= DefaultWalletOptions;
+            if (!(walletOptions is LedgerWalletOptions))
+            {
+                throw new NotSupportedException($"Unsupported wallet options '{walletOptions.GetType().Name}'.");
+            }
+            return await LedgerWallet.ConnectAsync(walletDefinition.WalletId, (LedgerWalletOptions)walletOptions);
         }
 
         public async Task<bool> SupportsWalletAsync(IWalletDefinition walletDefinition, CancellationToken cancellationToken = default)

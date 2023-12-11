@@ -19,17 +19,53 @@ namespace Zenon.Wallet.Ledger
         {
             if (response == null) throw new ArgumentNullException(nameof(response));
 
-            switch (response.ReturnCode)
+            return new ResponseException(GetStatusMessage(response.ReturnCode), response.Data, response.ReturnCode);
+        }
+
+        public static string GetStatusMessage(int returnCode)
+        {
+            switch (returnCode)
             {
-                case >= 0x6E00 and <= 0x6E02:
-                case >= 0x6D00 and <= 0x6D06:
-                    return new InstructionNotSupportedException(response.Data, response.ReturnCode);
+                // Incorrect length errors
                 case >= 0x6801 and <= 0x6818:
-                    return new IncorrectLengthException(response.Data, response.ReturnCode);
+                    return "Incorrect length exception occurred. The Ledger received incorrect data. This probably means that there is no app loaded.";
+                // Security errors
                 case >= 0x5101 and <= 0x590B:
-                    return new SecurityException(response.Data, response.ReturnCode);
+                    return "A security exception occurred. This probably means that the user has not entered their pin, or there is no app loaded.";
+
+                case StatusCode.Success:
+                    return "Success";
+                case StatusCode.Deny: // DENY
+                    return "Conditions have not been satisfied for this command";
+                case StatusCode.WrongP1P2: // WRONG_P1P2
+                    return "Incorrect P1 or P2";
+                case StatusCode.WrongDataLength: // WRONG_DATA_LENGTH
+                    return "Either wrong Lc or length of APDU command less than 5";
+                case StatusCode.InstructionCodeNotSupported: // INS_NOT_SUPPORTED
+                    return "Instruction not supported in current app or there is no app running";
+                case StatusCode.InstructionClassNotSupported: // CLA_NOT_SUPPORTED
+                    return "CLA not supported in current app";
+                // App specific errors
+                case StatusCode.WrongResponseLength: // WRONG_RESPONSE_LENGTH
+                    return "Wrong response length (buffer too small or too big)";
+                case StatusCode.DisplayBIP32PathFail: // DISPLAY_BIP32_PATH_FAIL
+                    return "Failed to display BIP32 path";
+                case StatusCode.DisplayAddressFail: // DISPLAY_ADDRESS_FAIL
+                    return "Failed to display address";
+                case StatusCode.DisplayAmountFail: // DISPLAY_AMOUNT_FAIL
+                    return "Failed to display amount";
+                case StatusCode.WrongTxLength: // SW_WRONG_TX_LENGTH
+                    return "Wrong transaction length";
+                case StatusCode.TxParsingFail: // TX_PARSING_FAIL
+                    return "Failed to parse transaction";
+                case StatusCode.TxHashFail: // TX_HASH_FAIL
+                    return "Failed to hash transaction";
+                case StatusCode.BadState: // BAD_STATE
+                    return "Bad state";
+                case StatusCode.SignatureFail: // SIGNATURE_FAIL
+                    return "Failed to sign transaction";
                 default:
-                    return new InvalidAPDUResponseException(response.StatusMessage, response.Data, response.ReturnCode);
+                    return "Unknown error";
             }
         }
 

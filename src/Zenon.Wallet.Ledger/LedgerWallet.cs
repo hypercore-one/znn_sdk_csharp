@@ -1,5 +1,6 @@
 ﻿using Zenon.Model.NoM;
 using Zenon.Utils;
+using Zenon.Wallet.Ledger.Exceptions;
 using Zenon.Wallet.Ledger.Requests;
 using Zenon.Wallet.Ledger.Responses;
 
@@ -7,21 +8,40 @@ namespace Zenon.Wallet.Ledger
 {
     public class LedgerWallet : IWallet, IDisposable
     {
+        public readonly static string AppName = "Zenon";
+
         private bool disposed;
 
-        public static LedgerWallet Connect(string path, LedgerWalletOptions options)
+        public static async Task<LedgerWallet> ConnectAsync(string path, LedgerWalletOptions options)
         {
-            return new LedgerWallet(new LedgerTransport(new HidDevice(path, nameof(LedgerWallet))), options);
+            return await ConnectAsync(new HidDevice(path, nameof(LedgerWallet)), options);
         }
 
-        public static LedgerWallet Connect(ushort vendorId, ushort proudctId, LedgerWalletOptions options)
+        public static async Task<LedgerWallet> ConnectAsync(ushort vendorId, ushort proudctId, LedgerWalletOptions options)
         {
-            return new LedgerWallet(new LedgerTransport(new HidDevice(vendorId, proudctId, nameof(LedgerWallet))), options);
+            return await ConnectAsync(new HidDevice(vendorId, proudctId, nameof(LedgerWallet)), options);
         }
 
-        public static LedgerWallet Connect(ushort vendorId, ushort proudctId, string serialNumber, LedgerWalletOptions options)
+        public static async Task<LedgerWallet> ConnectAsync(ushort vendorId, ushort proudctId, string serialNumber, LedgerWalletOptions options)
         {
-            return new LedgerWallet(new LedgerTransport(new HidDevice(vendorId, proudctId, serialNumber, nameof(LedgerWallet))), options);
+            return await ConnectAsync(new HidDevice(vendorId, proudctId, serialNumber, nameof(LedgerWallet)), options);
+        }
+
+        private static async Task<LedgerWallet> ConnectAsync(HidDevice device, LedgerWalletOptions options)
+        {
+            var wallet = new LedgerWallet(new LedgerTransport(device), options);
+            try
+            {
+                var appName = await wallet.GetAppNameAsync();
+                if (!string.Equals(appName, AppName))
+                    throw new ResponseException($"The {AppName} app is not running", new byte[0], StatusCode.AppIsNotOpen);
+            }
+            catch
+            {
+                wallet.Dispose();
+                throw;
+            }
+            return wallet;
         }
 
         private LedgerTransport Transport { get; }

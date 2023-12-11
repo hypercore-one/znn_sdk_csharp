@@ -72,7 +72,7 @@ namespace Zenon.Wallet.Ledger
 
                 var returnCode = ResponseBase.GetReturnCode(responseDataChunk);
 
-                if (returnCode != Constants.SuccessStatusCode)
+                if (returnCode != StatusCode.Success)
                 {
                     return responseData;
                 }
