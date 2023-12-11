@@ -41,10 +41,16 @@ namespace Zenon.Wallet.Ledger
                     return "Incorrect P1 or P2";
                 case StatusCode.WrongDataLength: // WRONG_DATA_LENGTH
                     return "Either wrong Lc or length of APDU command less than 5";
+                case StatusCode.InactiveDevice:
+                    return "Device is inactive";
+                case StatusCode.NotAllowed:
+                    return "Not allowed";
                 case StatusCode.InstructionCodeNotSupported: // INS_NOT_SUPPORTED
                     return "Instruction not supported in current app or there is no app running";
                 case StatusCode.InstructionClassNotSupported: // CLA_NOT_SUPPORTED
                     return "CLA not supported in current app";
+                case StatusCode.AppIsNotOpen:
+                    return "App is not open";
                 // App specific errors
                 case StatusCode.WrongResponseLength: // WRONG_RESPONSE_LENGTH
                     return "Wrong response length (buffer too small or too big)";
