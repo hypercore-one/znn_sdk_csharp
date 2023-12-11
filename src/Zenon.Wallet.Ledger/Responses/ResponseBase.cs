@@ -6,7 +6,7 @@
 
         public byte[] Data { get; }
         public bool IsSuccess => ReturnCode == Constants.SuccessStatusCode;
-        public int ReturnCode { get; }
+        public virtual int ReturnCode { get; }
 
         public string StatusMessage
         {

@@ -23,13 +23,13 @@ namespace Zenon.Wallet.Ledger
             {
                 case >= 0x6E00 and <= 0x6E02:
                 case >= 0x6D00 and <= 0x6D06:
-                    return new InstructionNotSupportedException(response.Data);
+                    return new InstructionNotSupportedException(response.Data, response.ReturnCode);
                 case >= 0x6801 and <= 0x6818:
-                    return new IncorrectLengthException(response.Data);
+                    return new IncorrectLengthException(response.Data, response.ReturnCode);
                 case >= 0x5101 and <= 0x590B:
-                    return new SecurityException(response.Data);
+                    return new SecurityException(response.Data, response.ReturnCode);
                 default:
-                    return new Exception(response.StatusMessage);
+                    return new InvalidAPDUResponseException(response.StatusMessage, response.Data, response.ReturnCode);
             }
         }
 

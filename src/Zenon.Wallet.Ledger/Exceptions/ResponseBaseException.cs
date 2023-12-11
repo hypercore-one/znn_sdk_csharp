@@ -4,9 +4,12 @@
     {
         public byte[] ResponseData { get; }
 
-        protected ResponseBaseException(string message, byte[] responseData) : base(message)
+        public int ReturnCode { get; }
+
+        protected ResponseBaseException(string message, byte[] responseData, int returnCode) : base(message)
         {
             ResponseData = responseData;
+            ReturnCode = returnCode;
         }
     }
 }

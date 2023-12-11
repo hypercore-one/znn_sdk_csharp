@@ -56,12 +56,11 @@ namespace Zenon.Wallet.Ledger
                 }
 
                 var packetIndex = 0;
-                byte[]? data = null;
                 using (var memoryStream = new MemoryStream(apduCommandChunk))
                 {
                     do
                     {
-                        data = Helpers.GetRequestDataPacket(memoryStream, packetIndex);
+                        byte[]? data = Helpers.GetRequestDataPacket(memoryStream, packetIndex);
                         packetIndex++;
                         await LedgerHidDevice.WriteAsync(data);
                     } while (memoryStream.Position != memoryStream.Length);

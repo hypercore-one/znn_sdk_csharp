@@ -6,6 +6,20 @@
 
         public string? Signature { get; }
 
+        public override int ReturnCode
+        {
+            get
+            {
+                if (base.ReturnCode != Constants.SuccessStatusCode)
+                    return base.ReturnCode;
+
+                if (Data == null || Data.Length != 67)
+                    return Constants.WrongResponseLengthStatusCode;
+
+                return base.ReturnCode;
+            }
+        }
+
         public ZenonSignatureResponse(byte[] data)
             : base(data)
         {
