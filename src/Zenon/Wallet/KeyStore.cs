@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 using Zenon.Model.Primitives;
 using Zenon.Utils;
 using Zenon.Wallet.BIP39;
@@ -9,7 +10,7 @@ using Zenon.Wallet.Json;
 
 namespace Zenon.Wallet
 {
-    public class KeyStore
+    public class KeyStore : IWallet
     {
         public static KeyStore FromMnemonic(string mnemonic)
         {
@@ -87,6 +88,11 @@ namespace Zenon.Wallet
                 }
             }
             return null;
+        }
+
+        public async Task<IWalletAccount> GetAccountAsync(int accountIndex = 0)
+        {
+            return await Task.Run(() => GetKeyPair(accountIndex));
         }
     }
 

@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Zenon
 {
-    public class ZnnPathsTest
+    public class ZdkPathsTest
     {
         public class Windows
         {
@@ -31,7 +31,7 @@ namespace Zenon
                     .Returns(root);
 
                 // Execute
-                var paths = new ZnnPaths(runtime.Object, environment.Object);
+                var paths = new ZdkPaths(runtime.Object, environment.Object);
 
                 // Validate
                 main.Should().BeEquivalentTo(paths.Main);
@@ -62,7 +62,7 @@ namespace Zenon
                     .Returns(root);
 
                 // Execute
-                var paths = new ZnnPaths(runtime.Object, environment.Object);
+                var paths = new ZdkPaths(runtime.Object, environment.Object);
 
                 // Validate
                 main.Should().BeEquivalentTo(paths.Main);
@@ -93,7 +93,7 @@ namespace Zenon
                     .Returns(root);
 
                 // Execute
-                var paths = new ZnnPaths(runtime.Object, environment.Object);
+                var paths = new ZdkPaths(runtime.Object, environment.Object);
 
                 // Validate
                 main.Should().BeEquivalentTo(paths.Main);
@@ -124,7 +124,7 @@ namespace Zenon
                     .Returns(root);
 
                 // Execute
-                var paths = new ZnnPaths(runtime.Object, environment.Object);
+                var paths = new ZdkPaths(runtime.Object, environment.Object);
 
                 // Validate
                 main.Should().BeEquivalentTo(paths.Main);

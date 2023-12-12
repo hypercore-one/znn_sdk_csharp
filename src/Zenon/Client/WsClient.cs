@@ -16,60 +16,74 @@ namespace Zenon.Client
         Stopped
     }
 
-    public class WsClient : IClient
+    public class WsClient : IClient, IDisposable
     {
-        public WsClient()
+        private static readonly WsClientOptions DefaultOptions = new WsClientOptions()
         {
-            Status = WebsocketStatus.Uninitialized;
-            TraceSourceLevels = SourceLevels.Warning;
+            ProtocolVersion = Constants.ProtocolVersion,
+            ChainIdentifier = Constants.ChainId,
+            TraceSourceLevels = SourceLevels.Warning
+        };
+
+        private bool disposed;
+        private ClientWebSocket socket;
+        private JsonRpc wsRpcClient;
+
+        public WsClient(string url)
+            : this(url, DefaultOptions)
+        { }
+
+        public WsClient(string url, WsClientOptions options)
+        {
+            if (!Utils.ValidateWsConnectionrUrl(url))
+                throw new ArgumentException("Invalid url");
+            Url = new Uri(url);
+            options ??= DefaultOptions;
+            ProtocolVersion = options.ProtocolVersion;
+            ChainIdentifier = options.ChainIdentifier;
+            TraceSourceLevels = options.TraceSourceLevels;
         }
 
-        private ClientWebSocket _socket;
-        public JsonRpc _wsRpcClient;
+        public Uri Url { get; }
 
-        public Uri Url { get; private set; }
+        public int ProtocolVersion { get; }
 
-        public SourceLevels TraceSourceLevels { get; set; }
+        public int ChainIdentifier { get; }
+
+        public SourceLevels TraceSourceLevels { get; }
 
         public WebsocketStatus Status { get; private set; }
 
-        public bool IsClosed => _wsRpcClient == null || _wsRpcClient.IsDisposed;
+        public bool IsClosed => wsRpcClient == null || wsRpcClient.IsDisposed;
 
-        public async Task<T> SendRequest<T>(string method, params object[] parameters)
+        public bool IsDisposed => disposed;
+
+        public async Task<T> SendRequestAsync<T>(string method, params object[] parameters)
         {
-            if (IsClosed)
-            {
-                throw new NoConnectionException();
-            }
+            AssertConnection();
 
-            return await _wsRpcClient.InvokeAsync<T>(method, parameters);
+            return await wsRpcClient.InvokeAsync<T>(method, parameters);
         }
 
-        public async Task SendRequest(string method, params object[] parameters)
+        public async Task SendRequestAsync(string method, params object[] parameters)
         {
-            if (IsClosed)
-            {
-                throw new NoConnectionException();
-            }
+            AssertConnection();
 
-            await _wsRpcClient.InvokeAsync(method, parameters);
+            await wsRpcClient.InvokeAsync(method, parameters);
         }
 
         public void Subscribe(string method, Delegate callback)
         {
-            if (IsClosed)
-            {
-                throw new NoConnectionException();
-            }
+            AssertConnection();
 
-            _wsRpcClient.AllowModificationWhileListening = true;
-            _wsRpcClient.AddLocalRpcMethod(method, callback);
-            _wsRpcClient.AllowModificationWhileListening = false;
+            wsRpcClient.AllowModificationWhileListening = true;
+            wsRpcClient.AddLocalRpcMethod(method, callback);
+            wsRpcClient.AllowModificationWhileListening = false;
         }
 
-        public async Task<bool> StartAsync(Uri url, bool retry = true, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<bool> ConnectAsync(bool retry = true, CancellationToken cancellationToken = default)
         {
-            this.Url = url;
+            AssertDisposed();
 
             Debug.WriteLine("Initializing websocket connection ...");
 
@@ -77,22 +91,22 @@ namespace Zenon.Client
 
             do
             {
-                _socket = new ClientWebSocket();
-                _socket.Options.KeepAliveInterval = TimeSpan.FromSeconds(5);
+                socket = new ClientWebSocket();
+                socket.Options.KeepAliveInterval = TimeSpan.FromSeconds(5);
 
                 try
                 {
-                    await _socket.ConnectAsync(Url, cancellationToken);
+                    await socket.ConnectAsync(Url, cancellationToken);
 
                     Debug.WriteLine("Websocket connection successfully established");
 
-                    _wsRpcClient = new JsonRpc(new WebSocketMessageHandler(_socket));
-                    _wsRpcClient.TraceSource.Listeners.Add(new ConsoleTraceListener());
-                    _wsRpcClient.TraceSource.Switch.Level = TraceSourceLevels;
+                    wsRpcClient = new JsonRpc(new WebSocketMessageHandler(socket));
+                    wsRpcClient.TraceSource.Listeners.Add(new ConsoleTraceListener());
+                    wsRpcClient.TraceSource.Switch.Level = TraceSourceLevels;
 
                     this.Status = WebsocketStatus.Running;
 
-                    _wsRpcClient.StartListening();
+                    wsRpcClient.StartListening();
 
                     return true;
                 }
@@ -107,7 +121,7 @@ namespace Zenon.Client
                 {
                     retry = false;
 
-                    await _socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client closing", CancellationToken.None);
+                    await socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client closing", CancellationToken.None);
                 }
             }
             while (retry);
@@ -115,8 +129,10 @@ namespace Zenon.Client
             return false;
         }
 
-        public async Task StopAsync()
+        public async Task CloseAsync()
         {
+            AssertDisposed();
+
             if (this.Status != WebsocketStatus.Running)
             {
                 return;
@@ -125,27 +141,74 @@ namespace Zenon.Client
 
             Debug.WriteLine("Websocket client closed");
 
-            if (_socket != null)
+            if (socket != null)
             {
                 try
                 {
-                    await _socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client closing", CancellationToken.None);
+                    await socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client closing", CancellationToken.None);
                 }
                 catch { }
-                _socket = null;
+                socket = null;
             }
 
-            if (_wsRpcClient != null)
+            if (wsRpcClient != null)
             {
                 try
                 {
-                    _wsRpcClient.Dispose();
+                    wsRpcClient.Dispose();
                 }
                 catch { }
-                _wsRpcClient = null;
+                wsRpcClient = null;
             }
 
             Debug.WriteLine("Websocket client is now closed");
+        }
+
+        private void AssertConnection()
+        {
+            if (IsClosed)
+                throw new NoConnectionException();
+        }
+
+        private void AssertDisposed()
+        {
+            if (IsDisposed)
+                throw new ObjectDisposedException(nameof(WsClient));
+        }
+
+        public void Dispose()
+        {
+            Dispose(false);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Check to see if Dispose has already been called.
+            if (!disposed)
+            {
+                if (socket != null)
+                {
+                    try
+                    {
+                        socket.Dispose();
+                    }
+                    catch { }
+                    socket = null;
+                }
+
+                if (wsRpcClient != null)
+                {
+                    try
+                    {
+                        wsRpcClient.Dispose();
+                    }
+                    catch { }
+                    wsRpcClient = null;
+                }
+
+                disposed = true;
+            }
         }
     }
 }

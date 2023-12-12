@@ -4,7 +4,7 @@ namespace Zenon.Client
 {
     public static class Utils
     {
-        public static bool ValidateWsConnectionURL(string urlString)
+        public static bool ValidateWsConnectionrUrl(string urlString)
         {
             Uri url;
             return Uri.TryCreate(urlString, UriKind.Absolute, out url) &&
