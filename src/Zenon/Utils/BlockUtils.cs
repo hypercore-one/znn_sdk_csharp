@@ -187,6 +187,9 @@ namespace Zenon.Utils
         public static async Task<AccountBlockTemplate> SendAsync(Zdk zdk, AccountBlockTemplate transaction,
             IWalletAccount currentAccount, Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
         {
+            // Use copy
+            transaction = new AccountBlockTemplate(transaction.ToJson());
+
             await CheckAndSetFieldsAsync(zdk, transaction, currentAccount);
             await SetDifficultyAsync(zdk, transaction, generatingPowCallback, waitForRequiredPlasma);
 
