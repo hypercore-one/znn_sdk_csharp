@@ -53,7 +53,9 @@ namespace Zenon.Wallet
 
         public IEnumerable<KeyStoreDefinition> ListAllKeyStores()
         {
-            return Directory.GetFiles(WalletPath).Select(x => new KeyStoreDefinition(x));
+            if (Directory.Exists(WalletPath))
+                return Directory.GetFiles(WalletPath).Select(x => new KeyStoreDefinition(x));
+            return new KeyStoreDefinition[0];
         }
 
         public KeyStoreDefinition CreateNew(string passphrase, string name)
@@ -87,7 +89,7 @@ namespace Zenon.Wallet
                 }
                 if (!(walletOptions is KeyStoreOptions))
                 {
-                    throw new NotSupportedException($"Unsupported wallet options '{walletDefinition.GetType().Name}'.");
+                    throw new NotSupportedException($"Unsupported wallet options '{walletOptions.GetType().Name}'.");
                 }
                 return ReadKeyStore(
                     ((KeyStoreOptions)walletOptions).DecryptionPassword,
