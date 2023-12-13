@@ -35,7 +35,11 @@ namespace Zenon.Api
         public TestClientRequest Request { get; private set; }
         public Func<string> Response { get; private set; }
 
-        public async Task<T> SendRequest<T>(string method, params object[] parameters)
+        public int ProtocolVersion => Constants.ProtocolVersion;
+
+        public int ChainIdentifier => Constants.ChainId;
+
+        public async Task<T> SendRequestAsync<T>(string method, params object[] parameters)
         {
             return await Task.Run(() =>
             {
@@ -45,7 +49,7 @@ namespace Zenon.Api
             });
         }
 
-        public async Task SendRequest(string method, params object[] parameters)
+        public async Task SendRequestAsync(string method, params object[] parameters)
         {
             await Task.Run(() =>
             {

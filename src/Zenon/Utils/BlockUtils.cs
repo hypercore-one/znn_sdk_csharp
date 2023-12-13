@@ -26,6 +26,11 @@ namespace Zenon.Utils
 
         public static Hash GetTransactionHash(AccountBlockTemplate transaction)
         {
+            return Hash.Digest(GetTransactionBytes(transaction));
+        }
+
+        public static byte[] GetTransactionBytes(AccountBlockTemplate transaction)
+        {
             var versionBytes = BytesUtils.GetBytes((long)transaction.Version);
             var chainIdentifierBytes = BytesUtils.GetBytes((long)transaction.ChainIdentifier);
             var blockTypeBytes = BytesUtils.GetBytes((long)transaction.BlockType);
@@ -62,12 +67,7 @@ namespace Zenon.Utils
                 nonceBytes
             );
 
-            return Hash.Digest(source);
-        }
-
-        private static byte[] GetTransactionSignature(KeyPair keyPair, AccountBlockTemplate transaction)
-        {
-            return keyPair.Sign(transaction.Hash.Bytes);
+            return source;
         }
 
         private static Hash GetPoWData(AccountBlockTemplate transaction)
@@ -75,10 +75,10 @@ namespace Zenon.Utils
             return Hash.Digest(ArrayUtils.Concat(transaction.Address.Bytes, transaction.PreviousHash.Bytes));
         }
 
-        private static async Task AutofillTransactionParameters(AccountBlockTemplate accountBlockTemplate)
+        private static async Task AutofillTransactionParametersAsync(Zdk zdk, AccountBlockTemplate accountBlockTemplate)
         {
             var frontierAccountBlock =
-                await Znn.Instance.Ledger.GetFrontierAccountBlock(accountBlockTemplate.Address);
+                await zdk.Ledger.GetFrontierAccountBlock(accountBlockTemplate.Address);
 
             ulong height = 1;
             Hash previousHash = Hash.Empty;
@@ -92,18 +92,18 @@ namespace Zenon.Utils
             accountBlockTemplate.Height = height;
             accountBlockTemplate.PreviousHash = previousHash;
 
-            var frontierMomentum = await Znn.Instance.Ledger.GetFrontierMomentum();
+            var frontierMomentum = await zdk.Ledger.GetFrontierMomentum();
 
             accountBlockTemplate.MomentumAcknowledged =
                 new HashHeight(frontierMomentum.Hash, frontierMomentum.Height);
         }
 
-        private static async Task<bool> CheckAndSetFields(AccountBlockTemplate transaction, KeyPair currentKeyPair)
+        private static async Task<bool> CheckAndSetFieldsAsync(Zdk zdk, AccountBlockTemplate transaction, IWalletAccount currentAccount)
         {
-            transaction.Address = currentKeyPair.Address;
-            transaction.PublicKey = currentKeyPair.PublicKey;
+            transaction.Address = await currentAccount.GetAddressAsync();
+            transaction.PublicKey = await currentAccount.GetPublicKeyAsync();
 
-            await AutofillTransactionParameters(transaction);
+            await AutofillTransactionParametersAsync(zdk, transaction);
 
             if (BlockUtils.IsSendBlock(transaction.BlockType))
             {
@@ -116,7 +116,7 @@ namespace Zenon.Utils
                     throw new Exception();
                 }
 
-                var sendBlock = await Znn.Instance.Ledger.GetAccountBlockByHash(transaction.FromBlockHash);
+                var sendBlock = await zdk.Ledger.GetAccountBlockByHash(transaction.FromBlockHash);
 
                 if (sendBlock == null)
                 {
@@ -141,7 +141,8 @@ namespace Zenon.Utils
             return true;
         }
 
-        private static async Task<bool> SetDifficulty(AccountBlockTemplate transaction, Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
+        private static async Task<bool> SetDifficultyAsync(Zdk zdk, AccountBlockTemplate transaction,
+            Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
         {
             var powParam = new GetRequiredParam(
                 transaction.Address,
@@ -150,14 +151,14 @@ namespace Zenon.Utils
                 transaction.Data);
 
             var response =
-                await Znn.Instance.Embedded.Plasma.GetRequiredPoWForAccountBlock(powParam);
+                await zdk.Embedded.Plasma.GetRequiredPoWForAccountBlock(powParam);
 
             if (response.RequiredDifficulty != 0)
             {
                 transaction.FusedPlasma = response.AvailablePlasma;
                 transaction.Difficulty = response.RequiredDifficulty;
 
-                Debug.WriteLine($"Generating Plasma for block: hash={BlockUtils.GetPoWData(transaction)}");
+                Debug.WriteLine($"Generating Plasma for block: hash={GetPoWData(transaction)}");
 
                 generatingPowCallback(PowStatus.Generating);
 
@@ -175,32 +176,35 @@ namespace Zenon.Utils
             return true;
         }
 
-        private static bool SetHashAndSignature(AccountBlockTemplate transaction, KeyPair currentKeyPair)
+        private static async Task<bool> SetHashAndSignatureAsync(AccountBlockTemplate transaction, IWalletAccount currentAccount)
         {
             transaction.Hash = GetTransactionHash(transaction);
-            transaction.Signature = GetTransactionSignature(currentKeyPair, transaction);
+            transaction.Signature = await currentAccount.SignTxAsync(transaction); ;
 
             return true;
         }
 
-        public static async Task<AccountBlockTemplate> Send(AccountBlockTemplate transaction,
-            KeyPair currentKeyPair, Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
+        public static async Task<AccountBlockTemplate> SendAsync(Zdk zdk, AccountBlockTemplate transaction,
+            IWalletAccount currentAccount, Action<PowStatus> generatingPowCallback, bool waitForRequiredPlasma = false)
         {
-            await CheckAndSetFields(transaction, currentKeyPair);
-            await SetDifficulty(transaction, generatingPowCallback, waitForRequiredPlasma);
+            // Use copy
+            transaction = new AccountBlockTemplate(transaction.ToJson());
 
-            SetHashAndSignature(transaction, currentKeyPair);
+            await CheckAndSetFieldsAsync(zdk, transaction, currentAccount);
+            await SetDifficultyAsync(zdk, transaction, generatingPowCallback, waitForRequiredPlasma);
 
-            await Znn.Instance.Ledger.PublishRawTransaction(transaction);
+            await SetHashAndSignatureAsync(transaction, currentAccount);
+
+            await zdk.Ledger.PublishRawTransaction(transaction);
 
             Debug.WriteLine("Published account-block");
 
             return transaction;
         }
 
-        public static async Task<bool> RequiresPoW(AccountBlockTemplate transaction, KeyPair blockSigningKey)
+        public static async Task<bool> RequiresPoWAsync(Zdk zdk, AccountBlockTemplate transaction, IWalletAccount account)
         {
-            transaction.Address = blockSigningKey.Address;
+            transaction.Address = await account.GetAddressAsync();
 
             var powParam = new GetRequiredParam(
                 transaction.Address,
@@ -209,7 +213,7 @@ namespace Zenon.Utils
                 transaction.Data);
 
             var response =
-                await Znn.Instance.Embedded.Plasma.GetRequiredPoWForAccountBlock(powParam);
+                await zdk.Embedded.Plasma.GetRequiredPoWForAccountBlock(powParam);
 
             if (response.RequiredDifficulty == 0)
             {

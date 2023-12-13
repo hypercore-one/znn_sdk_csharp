@@ -1,6 +1,6 @@
 # Zenon Sdk for .NET
 
-[![nuget](https://img.shields.io/nuget/v/Zenon.Sdk)](https://nuget.org/packages/Zenon.Sdk) [![build](https://img.shields.io/github/actions/workflow/status/kingGorrin/znn_sdk_csharp/publish.yml?branch=main)](https://github.com/KingGorrin/znn_sdk_csharp/actions/workflows/publish.yml) [![codecov](https://img.shields.io/codecov/c/github/KingGorrin/znn_sdk_csharp?token=FWKGWMWO7U)](https://codecov.io/gh/KingGorrin/znn_sdk_csharp)
+[![nuget](https://img.shields.io/nuget/v/Zenon.Sdk)](https://nuget.org/packages/Zenon.Sdk) [![build](https://img.shields.io/github/actions/workflow/status/hypercore-one/znn_sdk_csharp/publish.yml?branch=main)](https://github.com/hypercore-one/znn_sdk_csharp/actions/workflows/publish.yml) [![codecov](https://img.shields.io/codecov/c/github/hypercore-one/znn_sdk_csharp?token=FWKGWMWO7U)](https://codecov.io/gh/hypercore-one/znn_sdk_csharp)
 
 Reference implementation for the Zenon SDK for .NET. Compatible with the Zenon Alphanet - Network of Momentum Phase 1. 
 It provides a simple integration with any .NET based projects.
@@ -19,116 +19,147 @@ dotnet add package Zenon.Sdk
 
 ```csharp
 using Zenon;
+using Zenon.Client;
 
-var nodeUrl = new Uri("ws://my.hc1node.com:35998");
+// Create client instance with default options (mainnet)
+using var client = new WsClient("wss://my.hc1node.com:35998");
 
-var znnClient = Znn.Instance;
-
-await znnClient.Client.Value.StartAsync(nodeUrl);
-...
-await znnClient.Client.Value.StopAsync();
+// Connect to node
+await client.ConnectAsync();
 ```
 
 ### Generate wallet
 
 ```csharp
 using Zenon;
+using Zenon.Wallet;
 
-var wallet = "name";
+var walletName = "name";
 var passphrase = "secret";
 
-var znnClient = Znn.Instance;
+// Use key store manager
+var walletManager = new KeyStoreManager();
 
-znnClient.DefaultKeyStorePath = 
-    znnClient.KeyStoreManager.CreateNew(passphrase, wallet);
-znnClient.DefaultKeyStore = 
-    znnClient.KeyStoreManager.ReadKeyStore(passphrase, znnClient.DefaultKeyStorePath);
+// Create wallet
+var walletDefinition = walletManager
+    .CreateNew(passphrase, walletName);
 ```
 
 ### Generate wallet from mnemonic
 
 ```csharp
 using Zenon;
+using Zenon.Wallet;
 
-var wallet = "name";
+var walletName = "name";
 var passphrase = "secret";
-var mnemonic =
-      "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
+var mnemonic = @"route become dream access impulse price inform obtain 
+    engage ski believe awful absent pig thing vibrant 
+    possible exotic flee pepper marble rural fire fancy";
 
-var znnClient = Znn.Instance;
+// Use key store manager
+var walletManager = new KeyStoreManager();
 
-znnClient.DefaultKeyStorePath = 
-    znnClient.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
-znnClient.DefaultKeyStore = 
-    znnClient.KeyStoreManager.ReadKeyStore(passphrase, znnClient.DefaultKeyStorePath);
+// Create wallet
+var walletDefinition = walletManager
+    .CreateFromMnemonic(mnemonic, passphrase, walletName);
 ```
 
 ### Sending a transaction
 
 ```csharp
 using Zenon;
+using Zenon.Client;
+using Zenon.Wallet;
 
-var nodeUrl = new Uri("ws://my.hc1node.com:35998");
-var wallet = "name";
-var passphrase = "secret";
-var mnemonic =
-      "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
+// Use key store manager
+var walletManager = new KeyStoreManager();
 
-var znnClient = Znn.Instance;
+// Use first wallet available
+var walletDefinition =
+    (await walletManager.GetWalletDefinitionsAsync()).First();
 
-znnClient.DefaultKeyStorePath = 
-    znnClient.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
-znnClient.DefaultKeyStore = 
-    znnClient.KeyStoreManager.ReadKeyStore(passphrase, znnClient.DefaultKeyStorePath);
-znnClient.DefaultKeyPair = 
-    await znnClient.DefaultKeyStore.GetSignerAsync(0); // Use primary address
+// Options for retrieving the wallet
+var options = new KeyStoreOptions()
+{
+    DecryptionPassword = "secret"
+};
 
-await znnClient.Client.Value.StartAsync(nodeUrl);
+// Retrieve the wallet
+var wallet =
+    await walletManager.GetWalletAsync(walletDefinition, options);
 
-var tx = znnClient.Embedded.Pillar.CollectReward();
+// Create client instance with default options (mainnet)
+using var client = new WsClient("wss://my.hc1node.com:35998");
 
-await znnClient.Send(tx);
+// Connect to node
+await client.ConnectAsync();
 
-await znnClient.Client.Value.StopAsync();
+// Create zdk instance and attach primary wallet account
+var zdk = new Zdk(client)
+{
+    DefaultWalletAccount =
+        await wallet.GetAccountAsync(accountIndex: 0)
+};
+
+// Send tx
+await zdk.SendAsync(zdk.Embedded.Pillar.CollectReward());
 ```
 
 ### Receive a transaction
 
 ```csharp
 using Zenon;
+using Zenon.Client;
+using Zenon.Wallet;
 using Zenon.Model.NoM;
 
-var nodeUrl = new Uri("ws://my.hc1node.place:35998");
-var wallet = "name";
-var passphrase = "secret";
-var mnemonic =
-      "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
+// Use key store manager
+var walletManager = new KeyStoreManager();
 
-var znnClient = Znn.Instance;
+// Use first wallet available
+var walletDefinition =
+    (await walletManager.GetWalletDefinitionsAsync()).First();
 
-znnClient.DefaultKeyStorePath = 
-    znnClient.KeyStoreManager.CreateFromMnemonic(mnemonic, passphrase, wallet);
-znnClient.DefaultKeyStore = 
-    znnClient.KeyStoreManager.ReadKeyStore(passphrase, znnClient.DefaultKeyStorePath);
-znnClient.DefaultKeyPair = 
-    await znnClient.DefaultKeyStore.GetSignerAsync(0); // Use primary address
+// Options for retrieving the wallet
+var options = new KeyStoreOptions()
+{
+    DecryptionPassword = "secret"
+};
 
-await znnClient.Client.Value.StartAsync(nodeUrl);
+// Retrieve the wallet
+var wallet =
+    await walletManager.GetWalletAsync(walletDefinition, options);
 
-var result = await znnClient.Ledger
-    .GetUnreceivedBlocksByAddress(await znnClient.DefaultKeyPair.GetAddressAsync());
+// Create client instance with default options (mainnet)
+using var client = new WsClient("wss://my.hc1node.com:35998");
+
+// Connect to node
+await client.ConnectAsync();
+
+// Create zdk instance and attach primary wallet account
+var zdk = new Zdk(client)
+{
+    DefaultWalletAccount =
+        await wallet.GetAccountAsync(accountIndex: 0)
+};
+
+// Get account address
+var address = await zdk.DefaultWalletAccount.GetAddressAsync();
+
+// Get all unreceived tx's
+var result = await zdk.Ledger
+    .GetUnreceivedBlocksByAddress(address);
 
 if (result.Count != 0)
 {
     foreach (var item in result.List)
     {
-        var tx = AccountBlockTemplate.Receive(item.Hash);
-
-        await znnClient.Send(tx);
+        // Send tx
+        await zdk.SendAsync(AccountBlockTemplate
+            .Receive(client.ProtocolVersion, client.ChainIdentifier, item.Hash));
     }
 }
-
-await znnClient.Client.Value.StopAsync();
 ```
 
 ## Contributing

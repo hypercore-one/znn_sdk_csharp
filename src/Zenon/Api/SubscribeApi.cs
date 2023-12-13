@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Zenon.Client;
@@ -11,38 +10,38 @@ namespace Zenon.Api
 
     public class SubscribeApi
     {
-        public SubscribeApi(Lazy<IClient> client)
+        public SubscribeApi(IClient client)
         {
             Client = client;
         }
 
-        public Lazy<IClient> Client { get; }
+        public IClient Client { get; }
 
         public async Task ToMomentums(SubscriptionCallback callback)
         {
             InitHandler();
-            var id = await Client.Value.SendRequest<string>("ledger.subscribe", "momentums");
+            var id = await Client.SendRequestAsync<string>("ledger.subscribe", "momentums");
             SetCallback(id, callback);
         }
 
         public async Task ToAllAccountBlocks(SubscriptionCallback callback)
         {
             InitHandler();
-            var id = await Client.Value.SendRequest<string>("ledger.subscribe", "allAccountBlocks");
+            var id = await Client.SendRequestAsync<string>("ledger.subscribe", "allAccountBlocks");
             SetCallback(id, callback);
         }
 
         public async Task ToAccountBlocksByAddress(Address address, SubscriptionCallback callback)
         {
             InitHandler();
-            var id = await Client.Value.SendRequest<string>("ledger.subscribe", "accountBlocksByAddress", address.ToString());
+            var id = await Client.SendRequestAsync<string>("ledger.subscribe", "accountBlocksByAddress", address.ToString());
             SetCallback(id, callback);
         }
 
         public async Task ToUnreceivedAccountBlocksByAddress(Address address, SubscriptionCallback callback)
         {
             InitHandler();
-            var id = await Client.Value.SendRequest<string>("ledger.subscribe", "unreceivedAccountBlocksByAddress", address.ToString());
+            var id = await Client.SendRequestAsync<string>("ledger.subscribe", "unreceivedAccountBlocksByAddress", address.ToString());
             SetCallback(id, callback);
         }
 
@@ -53,7 +52,7 @@ namespace Zenon.Api
             if (Subscriptions == null)
             {
                 Subscriptions = new SubscriptionHandler();
-                Client.Value.Subscribe("ledger.subscription", Subscriptions.HandleGlobalNotification);
+                Client.Subscribe("ledger.subscription", Subscriptions.HandleGlobalNotification);
             }
         }
 

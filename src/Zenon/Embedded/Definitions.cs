@@ -321,10 +321,6 @@ namespace Zenon.Embedded
             {
                 new JParam() { name = "allowKeyGen", type = "bool" }
             } },
-            new JEntry() { type = "function", name = "SetRedeemDelay", inputs = new JParam[]
-            {
-                new JParam() { name = "redeemDelay", type = "uint64" }
-            } },
             new JEntry() { type = "function", name = "SetBridgeMetadata", inputs = new JParam[]
             {
                 new JParam() { name = "metadata", type = "string" }

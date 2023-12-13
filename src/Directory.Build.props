@@ -10,7 +10,7 @@
 		<EnableTrimAnalyzer>true</EnableTrimAnalyzer>
 		<OutputPath>..\..\bin\$(MSBuildProjectName)\$(Configuration.ToLower())\</OutputPath>
 		<ProjectUrl>https://zenon.network</ProjectUrl>
-		<RepositoryUrl>https://github.com/KingGorrin/znn_sdk_csharp</RepositoryUrl>
+		<RepositoryUrl>https://github.com/hypercore-one/znn_sdk_csharp</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -24,7 +24,7 @@
 	<ItemGroup>
 		<PackageReference Include="Nerdbank.GitVersioning" Condition="!Exists('packages.config')">
 			<PrivateAssets>all</PrivateAssets>
-			<Version>3.5.103</Version>
+			<Version>3.6.133</Version>
 		</PackageReference>
 	</ItemGroup>
 </Project>

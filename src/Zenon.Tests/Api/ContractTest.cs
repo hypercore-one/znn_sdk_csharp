@@ -5,7 +5,6 @@ using System.Numerics;
 using System.Text;
 using Xunit;
 using Zenon.Api.Embedded;
-using Zenon.Client;
 using Zenon.Model.Primitives;
 using Zenon.Utils;
 
@@ -17,7 +16,7 @@ namespace Zenon.Api
         {
             public EmbeddedApiFixture()
             {
-                this.Api = new EmbeddedApi(new Lazy<IClient>(() => new Mock<TestClient>().Object));
+                this.Api = new EmbeddedApi(new Mock<TestClient>().Object);
             }
 
             public EmbeddedApi Api { get; }
@@ -324,21 +323,6 @@ namespace Zenon.Api
 
                 // Execute
                 var block = this.Api.Emergency();
-
-                // Validate
-                block.Should().BeEquivalentTo(expectedResult);
-                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
-            }
-
-            [Fact]
-            public void When_SetRedeemDelay_ExpectResultToEqual()
-            {
-                // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
-                    "/SQR7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcQ");
-
-                // Execute
-                var block = this.Api.SetRedeemDelay(10000);
 
                 // Validate
                 block.Should().BeEquivalentTo(expectedResult);

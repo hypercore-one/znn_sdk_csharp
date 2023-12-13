@@ -18,14 +18,14 @@ namespace Zenon.Model.NoM
 
     public class AccountBlockTemplate : IJsonConvertible<JAccountBlockTemplate>
     {
-        public static AccountBlockTemplate Receive(Hash fromBlockHash) =>
-            new AccountBlockTemplate(blockType: BlockTypeEnum.UserReceive, fromBlockHash: fromBlockHash);
+        public static AccountBlockTemplate Receive(int protocolVersion, int chainIdentifier, Hash fromBlockHash) =>
+            new AccountBlockTemplate(protocolVersion, chainIdentifier, BlockTypeEnum.UserReceive, fromBlockHash: fromBlockHash);
 
-        public static AccountBlockTemplate Send(Address toAddress, TokenStandard tokenStandard, BigInteger amount, byte[] data = null) =>
-            new AccountBlockTemplate(blockType: BlockTypeEnum.UserSend, toAddress: toAddress, tokenStandard: tokenStandard, amount: amount, data: data);
+        public static AccountBlockTemplate Send(int protocolVersion, int chainIdentifier, Address toAddress, TokenStandard tokenStandard, BigInteger amount, byte[] data = null) =>
+            new AccountBlockTemplate(protocolVersion, chainIdentifier, BlockTypeEnum.UserSend, toAddress, amount, tokenStandard, data: data);
 
-        public static AccountBlockTemplate CallContract(Address toAddress, TokenStandard tokenStandard, BigInteger amount, byte[] data) =>
-            new AccountBlockTemplate(blockType: BlockTypeEnum.UserSend, toAddress: toAddress, tokenStandard: tokenStandard, amount: amount, data: data);
+        public static AccountBlockTemplate CallContract(int protocolVersion, int chainIdentifier, Address toAddress, TokenStandard tokenStandard, BigInteger amount, byte[] data) =>
+            new AccountBlockTemplate(protocolVersion, chainIdentifier, BlockTypeEnum.UserSend, toAddress, amount, tokenStandard, data: data);
 
         public AccountBlockTemplate(Json.JAccountBlockTemplate json)
         {
@@ -49,15 +49,18 @@ namespace Zenon.Model.NoM
             Signature = string.IsNullOrEmpty(json.signature) ? new byte[0] : BytesUtils.FromBase64String(json.signature);
         }
 
-        public AccountBlockTemplate(BlockTypeEnum blockType,
+        public AccountBlockTemplate(
+            int protocolVersion,
+            int chainIdentifier,
+            BlockTypeEnum blockType,
             Address toAddress = null,
             BigInteger? amount = null,
             TokenStandard tokenStandard = null,
             Hash fromBlockHash = null,
             byte[] data = null)
         {
-            Version = 1;
-            ChainIdentifier = Znn.Instance.ChainIdentifier;
+            Version = (ulong)protocolVersion;
+            ChainIdentifier = (ulong)chainIdentifier;
             BlockType = blockType;
             Hash = Hash.Empty;
             PreviousHash = Hash.Empty;
@@ -85,7 +88,7 @@ namespace Zenon.Model.NoM
         public ulong Height { get; internal set; }
         public HashHeight MomentumAcknowledged { get; internal set; }
 
-        public Address Address { get; set; }
+        public Address Address { get; internal set; }
 
         // Send information
         public Address ToAddress { get; }
