@@ -294,14 +294,6 @@ namespace Zenon.Api.Embedded
                 Definitions.Bridge.EncodeFunction(nameof(Emergency)));
         }
 
-        public AccountBlockTemplate SetRedeemDelay(ulong redeemDelay)
-        {
-            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,
-                Address.BridgeAddress, TokenStandard.ZnnZts, BigInteger.Zero,
-                Definitions.Bridge.EncodeFunction(nameof(SetRedeemDelay),
-                    redeemDelay));
-        }
-
         public AccountBlockTemplate RevokeUnwrapRequest(Hash transactionHash, uint logIndex)
         {
             return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier,

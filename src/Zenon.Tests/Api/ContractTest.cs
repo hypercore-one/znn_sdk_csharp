@@ -330,21 +330,6 @@ namespace Zenon.Api
             }
 
             [Fact]
-            public void When_SetRedeemDelay_ExpectResultToEqual()
-            {
-                // Setup
-                var expectedResult = TestHelper.CreateAccountBlockTemplate("z1qxemdeddedxdrydgexxxxxxxxxxxxxxxmqgr0d", "zts1znnxxxxxxxxxxxxx9z4ulx", "0",
-                    "/SQR7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcQ");
-
-                // Execute
-                var block = this.Api.SetRedeemDelay(10000);
-
-                // Validate
-                block.Should().BeEquivalentTo(expectedResult);
-                block.ToJson().Should().BeEquivalentTo(expectedResult.ToJson());
-            }
-
-            [Fact]
             public void When_RevokeUnwrapRequest_ExpectResultToEqual()
             {
                 // Setup
