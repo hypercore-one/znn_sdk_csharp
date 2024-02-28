@@ -8,7 +8,7 @@ namespace Zenon.Wallet
         {
             if (!File.Exists(keyStorePath))
             {
-                throw new InvalidKeyStorePathException(
+                throw new WalletException(
                     $"Given keyStore does not exist ({keyStorePath})");
             }
 

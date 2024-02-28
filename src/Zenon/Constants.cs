@@ -100,5 +100,12 @@ namespace Zenon
         // Bridge
         public const int BridgeMinGuardians = 5;
         public const int BridgeMaximumFee = 10000;
+
+        // Wallet Metadata
+        public const string BaseAddressKey = "baseAddress";
+        public const string WalletTypeKey = "walletType";
+
+        // Wallet KeyStore
+        public const string KeyStoreWalletType = "keystore";
     }
 }
