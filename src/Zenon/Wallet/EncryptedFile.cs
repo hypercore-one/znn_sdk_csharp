@@ -1,17 +1,17 @@
 ﻿using Konscious.Security.Cryptography;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
-using Zenon.Model.Primitives;
 using Zenon.Utils;
 using Zenon.Wallet.Json;
 
 namespace Zenon.Wallet
 {
-    public class KeyFile
+    public class EncryptedFile
     {
-        public static KeyFile Encrypt(KeyStore store, string password)
+        public static EncryptedFile Encrypt(byte[] data, string password, IDictionary<string, dynamic> metadata = null)
         {
             if (!AesGcm.IsSupported)
                 throw new NotSupportedException("AES-GCM Encryption is not supported on this platform.");
@@ -22,14 +22,14 @@ namespace Zenon.Wallet
 
             var timestamp = (int)Math.Round(ts.TotalMilliseconds / 1000);
 
-            var stored = new KeyFile(store.GetKeyPair().Address,
+            var stored = new EncryptedFile(metadata,
                 new CryptoData(new Argon2Params(new byte[0]), new byte[0], "aes-256-gcm", "argon2.IDKey", new byte[0]),
                 timestamp, 1);
 
-            return stored.EncryptEntropy(store, password);
+            return stored.EncryptData(data, password);
         }
 
-        public KeyStore Decrypt(string password)
+        public byte[] Decrypt(string password)
         {
             try
             {
@@ -45,16 +45,16 @@ namespace Zenon.Wallet
 
                 using (var aes = new AesGcm(key))
                 {
-                    var entropy = new byte[this.Crypto.CipherData.Length - 16];
+                    var data = new byte[this.Crypto.CipherData.Length - 16];
 
                     aes.Decrypt(
                         this.Crypto.Nonce,
                         this.Crypto.CipherData.Sublist(0, this.Crypto.CipherData.Length - 16),
                         this.Crypto.CipherData.Sublist(this.Crypto.CipherData.Length - 16, this.Crypto.CipherData.Length),
-                        entropy,
+                        data,
                         Encoding.UTF8.GetBytes("zenon"));
 
-                    return KeyStore.FromEntropy(BytesUtils.ToHexString(entropy));
+                    return data;
                 }
             }
             catch (CryptographicException)
@@ -137,28 +137,28 @@ namespace Zenon.Wallet
             }
         }
 
-        public KeyFile(JKeyFile json)
+        public EncryptedFile(JEncryptedFile json)
         {
-            BaseAddress = Address.Parse(json.baseAddress);
+            Metadata = json.metadata != null ? new Dictionary<string, dynamic>(json.metadata) : new Dictionary<string, dynamic>();
             Crypto = json.crypto != null ? new CryptoData(json.crypto) : null;
             Timestamp = json.timestamp;
             Version = json.version;
         }
 
-        private KeyFile(Address baseAddress, CryptoData crypto, int timestamp, int version)
+        private EncryptedFile(IDictionary<string, dynamic> metadata, CryptoData crypto, int timestamp, int version)
         {
-            this.BaseAddress = baseAddress;
+            this.Metadata = metadata != null ? new Dictionary<string, dynamic>(metadata) : new Dictionary<string, dynamic>();
             this.Crypto = crypto;
             this.Timestamp = timestamp;
             this.Version = version;
         }
 
-        public Address BaseAddress { get; }
+        public Dictionary<string, dynamic> Metadata { get; }
         private CryptoData Crypto { get; }
         public int Timestamp { get; }
         public int Version { get; }
 
-        private KeyFile EncryptEntropy(KeyStore store, string password)
+        private EncryptedFile EncryptData(byte[] data, string password)
         {
             using (var generator = RandomNumberGenerator.Create())
             {
@@ -198,7 +198,7 @@ namespace Zenon.Wallet
                     var ciphertext = new byte[key.Length];
                     var tag = new byte[AesGcm.TagByteSizes.MaxSize];
 
-                    aes.Encrypt(nonce, BytesUtils.FromHexString(store.Entropy), ciphertext, tag, Encoding.UTF8.GetBytes("zenon"));
+                    aes.Encrypt(nonce, data, ciphertext, tag, Encoding.UTF8.GetBytes("zenon"));
 
                     this.Crypto.CipherData = ArrayUtils.Concat(ciphertext, tag);
                     this.Crypto.Nonce = nonce;
@@ -209,11 +209,11 @@ namespace Zenon.Wallet
             }
         }
 
-        public JKeyFile ToJson()
+        public JEncryptedFile ToJson()
         {
-            return new JKeyFile()
+            return new JEncryptedFile()
             {
-                baseAddress = this.BaseAddress.ToString(),
+                metadata = new Dictionary<string, dynamic>(this.Metadata),
                 crypto = this.Crypto?.ToJson(),
                 timestamp = this.Timestamp,
                 version = this.Version
@@ -222,7 +222,7 @@ namespace Zenon.Wallet
 
         public override string ToString()
         {
-            return JsonConvert.SerializeObject(this.ToJson(), Formatting.Indented);
+            return JsonConvert.SerializeObject(JEncryptedFile.ToJObject(this.ToJson()), Formatting.Indented);
         }
     }
 }

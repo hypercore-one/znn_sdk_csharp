@@ -1,5 +1,7 @@
 ﻿using FluentAssertions;
+using System.Collections.Generic;
 using Xunit;
+using Zenon.Utils;
 using Zenon.Wallet.Json;
 
 namespace Zenon.Wallet
@@ -10,9 +12,12 @@ namespace Zenon.Wallet
         {
             Mnemonic = "route become dream access impulse price inform obtain engage ski believe awful absent pig thing vibrant possible exotic flee pepper marble rural fire fancy";
             Password = "Secret";
-            KeyFileJson = new JKeyFile()
+            KeyFileJson = new JEncryptedFile()
             {
-                baseAddress = "z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7",
+                metadata = new Dictionary<string, dynamic>() 
+                {
+                    { "baseAddress", "z1qqjnwjjpnue8xmmpanz6csze6tcmtzzdtfsww7" }
+                },
                 crypto = new JCryptoData()
                 {
                     argon2Params = new JArgon2Params()
@@ -31,14 +36,14 @@ namespace Zenon.Wallet
 
         public string Mnemonic { get; }
         public string Password { get; }
-        public JKeyFile KeyFileJson { get; }
+        public JEncryptedFile KeyFileJson { get; }
     }
 
     public class KeyFileTest : IClassFixture<KeyFileFixture>
     {
         public string Mnemonic { get; }
         public string Password { get; }
-        public JKeyFile KeyFileJson { get; }
+        public JEncryptedFile KeyFileJson { get; }
 
         public KeyFileTest(KeyFileFixture fixture)
         {
@@ -52,11 +57,12 @@ namespace Zenon.Wallet
         {
             // Setup
             var originalKeyStore = KeyStore.FromMnemonic(Mnemonic);
+            var originalKeyStoreData = BytesUtils.FromHexString(originalKeyStore.Entropy);
 
             // Execute
-            var keyFile = KeyFile.Encrypt(originalKeyStore, Password);
-            keyFile = new KeyFile(keyFile.ToJson());
-            var decryptedKeyStore = keyFile.Decrypt(Password);
+            var keyFile = EncryptedFile.Encrypt(originalKeyStoreData, Password);
+            keyFile = new EncryptedFile(keyFile.ToJson());
+            var decryptedKeyStore = KeyStore.FromEntropy(BytesUtils.ToHexString(keyFile.Decrypt(Password)));
 
             // Validate
             originalKeyStore.Entropy.Should().BeEquivalentTo(decryptedKeyStore.Entropy);
@@ -69,10 +75,10 @@ namespace Zenon.Wallet
         {
             // Setup
             var originalKeyStore = KeyStore.FromMnemonic(Mnemonic);
-            var keyFile = new KeyFile(KeyFileJson);
+            var keyFile = new EncryptedFile(KeyFileJson);
 
             // Execute
-            KeyStore decryptedKeyStore = keyFile.Decrypt(Password);
+            var decryptedKeyStore = KeyStore.FromEntropy(BytesUtils.ToHexString(keyFile.Decrypt(Password)));
 
             // Validate
             originalKeyStore.Entropy.Should().BeEquivalentTo(decryptedKeyStore.Entropy);
