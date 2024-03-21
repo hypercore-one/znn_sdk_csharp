@@ -12,7 +12,6 @@ namespace Zenon.Pow
         private const int OutSize = 8;
         private const int InSize = 32;
         private const int DataSize = 40;
-        private static readonly SHA3.Net.Sha3 shaAlg = SHA3.Net.Sha3.Sha3256();
 
         public static async Task<string> Generate(Hash hash, ulong difficulty)
         {
@@ -75,9 +74,12 @@ namespace Zenon.Pow
 
         private static void Hash(byte[] hash, byte[] data)
         {
-            shaAlg.Initialize();
-            var digest = shaAlg.ComputeHash(data);
-            Array.Copy(digest, hash, 8);
+            using (var sha = SHA3.Net.Sha3.Sha3256())
+            {
+                sha.Initialize();
+                var digest = sha.ComputeHash(data);
+                Array.Copy(digest, hash, 8);
+            }
         }
 
         private static byte[] GetTarget(ulong difficulty)
