@@ -113,29 +113,29 @@ namespace Zenon.Utils
             {
                 if (transaction.FromBlockHash == Hash.Empty)
                 {
-                    throw new Exception();
+                    throw new ZdkException("From block hash is empty");
                 }
 
                 var sendBlock = await zdk.Ledger.GetAccountBlockByHash(transaction.FromBlockHash);
 
                 if (sendBlock == null)
                 {
-                    throw new Exception();
+                    throw new ZdkException("From block does not exist");
                 }
                 if (sendBlock.ToAddress.ToString() != transaction.Address.ToString())
                 {
-                    throw new Exception();
+                    throw new ZdkException("To address does not match");
                 }
 
                 if (transaction.Data == null || transaction.Data.Length != 0)
                 {
-                    throw new Exception();
+                    throw new ZdkException("Data must be empty");
                 }
             }
 
             if (transaction.Difficulty > 0 && transaction.Nonce == "")
             {
-                throw new Exception();
+                throw new ZdkException("Empty nonce");
             }
 
             return true;
