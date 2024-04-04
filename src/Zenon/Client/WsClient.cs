@@ -103,6 +103,7 @@ namespace Zenon.Client
                     wsRpcClient = new JsonRpc(new WebSocketMessageHandler(socket));
                     wsRpcClient.TraceSource.Listeners.Add(new ConsoleTraceListener());
                     wsRpcClient.TraceSource.Switch.Level = TraceSourceLevels;
+                    wsRpcClient.Disconnected += (sender, e) => _ = CloseAsync();
 
                     this.Status = WebsocketStatus.Running;
 
