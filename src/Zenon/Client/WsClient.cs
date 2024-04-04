@@ -44,6 +44,8 @@ namespace Zenon.Client
             TraceSourceLevels = options.TraceSourceLevels;
         }
 
+        public event EventHandler ConnectionEstablished;
+
         public Uri Url { get; }
 
         public int ProtocolVersion { get; }
@@ -103,10 +105,13 @@ namespace Zenon.Client
                     wsRpcClient = new JsonRpc(new WebSocketMessageHandler(socket));
                     wsRpcClient.TraceSource.Listeners.Add(new ConsoleTraceListener());
                     wsRpcClient.TraceSource.Switch.Level = TraceSourceLevels;
+                    wsRpcClient.Disconnected += (sender, e) => _ = CloseAsync();
 
                     this.Status = WebsocketStatus.Running;
 
                     wsRpcClient.StartListening();
+
+                    ConnectionEstablished?.Invoke(this, EventArgs.Empty);
 
                     return true;
                 }
