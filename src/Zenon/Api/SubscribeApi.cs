@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Model.Primitives;
@@ -17,76 +16,24 @@ namespace Zenon.Api
 
         public IClient Client { get; }
 
-        public async Task ToMomentums(SubscriptionCallback callback)
+        public async Task<string> ToMomentums()
         {
-            InitHandler();
-            var id = await Client.SendRequestAsync<string>("ledger.subscribe", "momentums");
-            SetCallback(id, callback);
+            return await Client.SendRequestAsync<string>("ledger.subscribe", "momentums");
         }
 
-        public async Task ToAllAccountBlocks(SubscriptionCallback callback)
+        public async Task<string> ToAllAccountBlocks()
         {
-            InitHandler();
-            var id = await Client.SendRequestAsync<string>("ledger.subscribe", "allAccountBlocks");
-            SetCallback(id, callback);
+            return await Client.SendRequestAsync<string>("ledger.subscribe", "allAccountBlocks");
         }
 
-        public async Task ToAccountBlocksByAddress(Address address, SubscriptionCallback callback)
+        public async Task<string> ToAccountBlocksByAddress(Address address)
         {
-            InitHandler();
-            var id = await Client.SendRequestAsync<string>("ledger.subscribe", "accountBlocksByAddress", address.ToString());
-            SetCallback(id, callback);
+            return await Client.SendRequestAsync<string>("ledger.subscribe", "accountBlocksByAddress", address.ToString());
         }
 
-        public async Task ToUnreceivedAccountBlocksByAddress(Address address, SubscriptionCallback callback)
+        public async Task<string> ToUnreceivedAccountBlocksByAddress(Address address)
         {
-            InitHandler();
-            var id = await Client.SendRequestAsync<string>("ledger.subscribe", "unreceivedAccountBlocksByAddress", address.ToString());
-            SetCallback(id, callback);
-        }
-
-        private SubscriptionHandler Subscriptions { get; set; }
-
-        private void InitHandler()
-        {
-            if (Subscriptions == null)
-            {
-                Subscriptions = new SubscriptionHandler();
-                Client.Subscribe("ledger.subscription", Subscriptions.HandleGlobalNotification);
-            }
-        }
-
-        private void SetCallback(string id, SubscriptionCallback callback)
-        {
-            Subscriptions.SetCallback(id, callback);
-        }
-
-        private class SubscriptionHandler
-        {
-            private Dictionary<string, SubscriptionCallback> callbacks;
-
-            public SubscriptionHandler()
-            {
-                this.callbacks = new Dictionary<string, SubscriptionCallback>();
-            }
-
-            public void SetCallback(string id, SubscriptionCallback callback)
-            {
-                this.callbacks[id] = callback;
-            }
-
-            public void HandleGlobalNotification(string subscription, JToken[] result)
-            {
-                string id = subscription;
-                if (this.callbacks.ContainsKey(id))
-                {
-                    var callback = this.callbacks[id];
-                    if (callback != null)
-                    {
-                        callback(result);
-                    }
-                }
-            }
+            return await Client.SendRequestAsync<string>("ledger.subscribe", "unreceivedAccountBlocksByAddress", address.ToString());
         }
     }
 }
