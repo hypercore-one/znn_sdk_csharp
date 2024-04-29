@@ -47,7 +47,7 @@ namespace Zenon.Wallet
             var content = File.ReadAllText(keyStorePath);
             var file = new EncryptedFile(JEncryptedFile.FromJObject(JObject.Parse(content)));
             if (file.Metadata != null &&
-                file.Metadata![Constants.WalletTypeKey] != null &&
+                file.Metadata!.ContainsKey(Constants.WalletTypeKey) &&
                 file.Metadata![Constants.WalletTypeKey] != Constants.KeyStoreWalletType)
             {
                 throw new WalletException($"Wallet type ({file.Metadata[Constants.WalletTypeKey]}) is not supported");
