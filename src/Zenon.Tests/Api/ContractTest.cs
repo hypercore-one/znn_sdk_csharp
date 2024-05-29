@@ -5,7 +5,6 @@ using System.Numerics;
 using System.Text;
 using Xunit;
 using Zenon.Api.Embedded;
-using Zenon.Client;
 using Zenon.Model.Primitives;
 using Zenon.Utils;
 

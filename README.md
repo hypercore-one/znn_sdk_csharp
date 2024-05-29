@@ -160,8 +160,6 @@ if (result.Count != 0)
             .Receive(client.ProtocolVersion, client.ChainIdentifier, item.Hash));
     }
 }
-
-await Znn.Instance.Client.Value.StopAsync();
 ```
 
 ## Contributing

@@ -1,10 +1,8 @@
 ﻿using FluentAssertions;
-using System;
 using System.Numerics;
 using System.Threading.Tasks;
 using Xunit;
 using Zenon.Api.Embedded;
-using Zenon.Client;
 using Zenon.Model.Embedded;
 using Zenon.Model.NoM;
 using Zenon.Model.Primitives;

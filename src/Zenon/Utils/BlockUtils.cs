@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Numerics;
 using System.Threading.Tasks;
 using Zenon.Model.Embedded;
 using Zenon.Model.NoM;
@@ -69,11 +68,6 @@ namespace Zenon.Utils
             );
 
             return source;
-        }
-
-        private static byte[] GetTransactionSignature(KeyPair keyPair, AccountBlockTemplate transaction)
-        {
-            return keyPair.Sign(transaction.Hash.Bytes);
         }
 
         private static Hash GetPoWData(AccountBlockTemplate transaction)
