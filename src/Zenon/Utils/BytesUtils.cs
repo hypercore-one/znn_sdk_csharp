@@ -9,13 +9,13 @@ namespace Zenon.Utils
         public static BigInteger DecodeBigInt(byte[] bytes, bool unsigned = true)
         {
             return new BigInteger(bytes, unsigned, true);
-            
+
         }
 
         public static byte[] EncodeBigInt(BigInteger value, bool unsigned = true)
         {
             return value.ToByteArray(unsigned, true);
-            
+
         }
 
         public static byte[] BigIntToBytes(BigInteger b, int numBytes)
@@ -59,7 +59,17 @@ namespace Zenon.Utils
             return EndianBitConverter.Big.GetBytes(value);
         }
 
+        public static byte[] GetBytes(uint value)
+        {
+            return EndianBitConverter.Big.GetBytes(value);
+        }
+
         public static byte[] GetBytes(long value)
+        {
+            return EndianBitConverter.Big.GetBytes(value);
+        }
+
+        public static byte[] GetBytes(ulong value)
         {
             return EndianBitConverter.Big.GetBytes(value);
         }

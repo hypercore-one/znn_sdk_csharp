@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 
 namespace Zenon
 {
-    public class ZnnPaths
+    public class ZdkPaths
     {
-        public static ZnnPaths Default = 
-            new ZnnPaths(new DotNetRuntimeInformation(), new DotNetEnvironment());
+        public static readonly ZdkPaths Default =
+            new ZdkPaths(new DotNetRuntimeInformation(), new DotNetEnvironment());
 
-        public ZnnPaths(IRuntimeInformation runtimeInfo, IEnvironment environment)
+        public ZdkPaths(IRuntimeInformation runtimeInfo, IEnvironment environment)
         {
             string main;
 
@@ -39,7 +39,7 @@ namespace Zenon
             Cache = Path.Join(main, "syrius");
         }
 
-        public ZnnPaths(string main, string wallet, string cache)
+        public ZdkPaths(string main, string wallet, string cache)
         {
             Main = main;
             Wallet = wallet;

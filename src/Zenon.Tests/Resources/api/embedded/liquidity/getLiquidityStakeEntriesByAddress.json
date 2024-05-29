@@ -1,0 +1,27 @@
+﻿{
+  "totalAmount": "4000000000",
+  "totalWeightedAmount": "10000000000",
+  "count": 2,
+  "list": [
+    {
+      "amount": "1000000000",
+      "tokenStandard": "zts1992nq43xn2urz3wttklc8z",
+      "weightedAmount": "1000000000",
+      "startTime": 1000005480,
+      "revokeTime": 0,
+      "expirationTime": 1000009080,
+      "stakeAddress": "z1qzal6c5s9rjnnxd2z7dvdhjxpmmj4fmw56a0mz",
+      "id": "62690006c58c67dc5b7c41e095a22e40307eba0463cee5585f84b91f6815a5b1"
+    },
+    {
+      "amount": "3000000000",
+      "tokenStandard": "zts1fres5c39axw805xswvt55j",
+      "weightedAmount": "9000000000",
+      "startTime": 1000005500,
+      "revokeTime": 0,
+      "expirationTime": 1000016300,
+      "stakeAddress": "z1qzal6c5s9rjnnxd2z7dvdhjxpmmj4fmw56a0mz",
+      "id": "3de102aa795d705f1183c3422f8139983bbbcf398d3b60c848f7de27defdf4ea"
+    }
+  ]
+}

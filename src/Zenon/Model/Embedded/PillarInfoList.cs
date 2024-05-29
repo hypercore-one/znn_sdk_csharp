@@ -13,7 +13,7 @@ namespace Zenon.Model.Embedded
                 : new PillarInfo[0];
         }
 
-        public long Count { get; }
+        public ulong Count { get; }
         public PillarInfo[] List { get; }
 
         public virtual JPillarInfoList ToJson()

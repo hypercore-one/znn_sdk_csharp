@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
@@ -10,37 +11,37 @@ namespace Zenon.Api.Embedded
 {
     public class TokenApi
     {
-        public TokenApi(Lazy<IClient> client)
+        public TokenApi(IClient client)
         {
             Client = client;
         }
 
-        public Lazy<IClient> Client { get; }
+        public IClient Client { get; }
 
-        public async Task<TokenList> GetAll(int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<TokenList> GetAll(uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
-            var response = await Client.Value.SendRequest<JTokenList>("embedded.token.getAll", pageIndex, pageSize);
+            var response = await Client.SendRequestAsync<JTokenList>("embedded.token.getAll", pageIndex, pageSize);
             return new TokenList(response);
         }
 
-        public async Task<TokenList> GetByOwner(Address address, int pageIndex = 0, int pageSize = Constants.RpcMaxPageSize)
+        public async Task<TokenList> GetByOwner(Address address, uint pageIndex = 0, uint pageSize = Constants.RpcMaxPageSize)
         {
-            var response = await Client.Value.SendRequest<JTokenList>("embedded.token.getByOwner", address.ToString(), pageIndex, pageSize);
+            var response = await Client.SendRequestAsync<JTokenList>("embedded.token.getByOwner", address.ToString(), pageIndex, pageSize);
             return new TokenList(response);
         }
 
         public async Task<Token> GetByZts(TokenStandard tokenStandard)
         {
-            var response = await Client.Value.SendRequest<JToken>("embedded.token.getByZts", tokenStandard.ToString());
+            var response = await Client.SendRequestAsync<JToken>("embedded.token.getByZts", tokenStandard.ToString());
             return response != null ? new Token(response) : null;
         }
 
         // Contract methods
         public AccountBlockTemplate IssueToken(string tokenName, string tokenSymbol, string tokenDomain,
-            long totalSupply, long maxSupply, int decimals,
+            BigInteger totalSupply, BigInteger maxSupply, int decimals,
             bool mintable, bool burnable, bool utility)
         {
-            return AccountBlockTemplate.CallContract(Address.TokenAddress, TokenStandard.ZnnZts, Constants.TokenZtsIssueFeeInZnn,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.TokenAddress, TokenStandard.ZnnZts, Constants.TokenZtsIssueFeeInZnn,
                 Definitions.Token.EncodeFunction("IssueToken",
                     tokenName,
                     tokenSymbol,
@@ -53,21 +54,21 @@ namespace Zenon.Api.Embedded
                     utility));
         }
 
-        public AccountBlockTemplate MintToken(TokenStandard tokenStandard, long amount, Address receiveAddress)
+        public AccountBlockTemplate MintToken(TokenStandard tokenStandard, BigInteger amount, Address receiveAddress)
         {
-            return AccountBlockTemplate.CallContract(Address.TokenAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.TokenAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Token.EncodeFunction("Mint", tokenStandard, amount, receiveAddress));
         }
 
-        public AccountBlockTemplate BurnToken(TokenStandard tokenStandard, long amount)
+        public AccountBlockTemplate BurnToken(TokenStandard tokenStandard, BigInteger amount)
         {
-            return AccountBlockTemplate.CallContract(Address.TokenAddress, tokenStandard, amount,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.TokenAddress, tokenStandard, amount,
                 Definitions.Token.EncodeFunction("Burn"));
         }
 
         public AccountBlockTemplate UpdateToken(TokenStandard tokenStandard, Address owner, bool isMintable, bool isBurnable)
         {
-            return AccountBlockTemplate.CallContract(Address.TokenAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.TokenAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Token.EncodeFunction("UpdateToken", tokenStandard, owner, isMintable, isBurnable));
         }
     }

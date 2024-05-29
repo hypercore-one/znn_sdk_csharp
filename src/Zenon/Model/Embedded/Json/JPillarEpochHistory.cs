@@ -3,11 +3,11 @@
     public class JPillarEpochHistory
     {
         public string name { get; set; }
-        public long epoch { get; set; }
-        public long giveBlockRewardPercentage { get; set; }
-        public long giveDelegateRewardPercentage { get; set; }
-        public long producedBlockNum { get; set; }
-        public long expectedBlockNum { get; set; }
-        public long weight { get; set; }
+        public ulong epoch { get; set; }
+        public int giveBlockRewardPercentage { get; set; }
+        public int giveDelegateRewardPercentage { get; set; }
+        public int producedBlockNum { get; set; }
+        public int expectedBlockNum { get; set; }
+        public string weight { get; set; }
     }
 }

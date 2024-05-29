@@ -14,8 +14,8 @@
          "name":"vote no if znn a shitcoin",
          "description":"dump it all",
          "url":"forum.zenon.org",
-         "znnFundsNeeded":66600000000,
-         "qsrFundsNeeded":66600000000,
+         "znnFundsNeeded":"66600000000",
+         "qsrFundsNeeded":"66600000000",
          "creationTimestamp":1651909450,
          "status":0,
          "votes":{
@@ -38,8 +38,8 @@
          "name":"Trololo",
          "description":"Upcoming daily spamming?",
          "url":"www.rekt.com",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651890100,
          "status":0,
          "votes":{
@@ -62,8 +62,8 @@
          "name":"If only you were decent beings",
          "description":"You would have avoided the upcomong weeks of all day spamming",
          "url":"https://www.youtube.com/watch?v=tBbiVKPGjho",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651889890,
          "status":0,
          "votes":{
@@ -86,8 +86,8 @@
          "name":"There were other ways",
          "description":"And you can't stop it now",
          "url":"www.lmao.com",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651889890,
          "status":0,
          "votes":{
@@ -110,8 +110,8 @@
          "name":"Educational community sm",
          "description":"Watch",
          "url":"https://www.youtube.com/watch?v=GK87AKIPyZY",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651889750,
          "status":0,
          "votes":{
@@ -121,54 +121,54 @@
             "no":5
          }
       },
-      {
-         "owner":"z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
-         "phaseIds":[
-            
-         ],
-         "phases":[
-            
-         ],
-         "lastUpdateTimestamp":1651889750,
-         "id":"362b2c7d85c9bf4c97a01df2eb2f1af781e70194905100cd61be928925de4991",
-         "name":"if only you had half a brain",
-         "description":"You would have thought about this",
-         "url":"https://youtu.be/CyMUt8cBRsg",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
-         "creationTimestamp":1651889750,
-         "status":0,
-         "votes":{
-            "id":"362b2c7d85c9bf4c97a01df2eb2f1af781e70194905100cd61be928925de4991",
-            "total":8,
-            "yes":0,
-            "no":5
-         }
-      },
-      {
-         "owner":"z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
-         "phaseIds":[
-            
-         ],
-         "phases":[
-            
-         ],
-         "lastUpdateTimestamp":1651889750,
-         "id":"3bf333638a411954c12b120cc874e0019cea6653e1d3fce296f879da076b661c",
-         "name":"10 Hours of non stop farting",
-         "description":"10 Hours of non stop farting",
-         "url":"https://www.youtube.com/watch?v=o2Is1oTUPHE",
-         "znnFundsNeeded":10000000000,
-         "qsrFundsNeeded":20000000000,
-         "creationTimestamp":1651889750,
-         "status":0,
-         "votes":{
-            "id":"3bf333638a411954c12b120cc874e0019cea6653e1d3fce296f879da076b661c",
-            "total":8,
-            "yes":0,
-            "no":5
-         }
-      },
+    {
+      "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+      "phaseIds": [
+
+      ],
+      "phases": [
+
+      ],
+      "lastUpdateTimestamp": 1651889750,
+      "id": "362b2c7d85c9bf4c97a01df2eb2f1af781e70194905100cd61be928925de4991",
+      "name": "if only you had half a brain",
+      "description": "You would have thought about this",
+      "url": "https://youtu.be/CyMUt8cBRsg",
+      "znnFundsNeeded":"500000000000",
+      "qsrFundsNeeded":"5000000000000",
+      "creationTimestamp": 1651889750,
+      "status": 0,
+      "votes": {
+        "id": "362b2c7d85c9bf4c97a01df2eb2f1af781e70194905100cd61be928925de4991",
+        "total": 8,
+        "yes": 0,
+        "no": 5
+      }
+    },
+    {
+      "owner": "z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
+      "phaseIds": [
+
+      ],
+      "phases": [
+
+      ],
+      "lastUpdateTimestamp": 1651889750,
+      "id": "3bf333638a411954c12b120cc874e0019cea6653e1d3fce296f879da076b661c",
+      "name": "10 Hours of non stop farting",
+      "description": "10 Hours of non stop farting",
+      "url": "https://www.youtube.com/watch?v=o2Is1oTUPHE",
+      "znnFundsNeeded":"10000000000",
+      "qsrFundsNeeded":"20000000000",
+      "creationTimestamp": 1651889750,
+      "status": 0,
+      "votes": {
+        "id": "3bf333638a411954c12b120cc874e0019cea6653e1d3fce296f879da076b661c",
+        "total": 8,
+        "yes": 0,
+        "no": 5
+      }
+    },
       {
          "owner":"z1qr3amdm99n7urvza4aqkyac0c4xyej37he6zn8",
          "phaseIds":[
@@ -182,8 +182,8 @@
          "name":"You asked for this",
          "description":"Good luck",
          "url":"https://www.youtube.com/watch?v=GK87AKIPyZY",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651889750,
          "status":0,
          "votes":{
@@ -206,8 +206,8 @@
          "name":"Spammong",
          "description":"Communism 1 / Fucktards 0",
          "url":"https://www.youtube.com/watch?v=GK87AKIPyZY",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651889750,
          "status":0,
          "votes":{
@@ -230,8 +230,8 @@
          "name":"Communism education #2",
          "description":"Watch, lubertarian",
          "url":"https://www.youtube.com/watch?v=DRsrYi-wXro",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651889750,
          "status":0,
          "votes":{
@@ -254,8 +254,8 @@
          "name":"10 Hours of non stop farting",
          "description":"10 Hours of non stop farting",
          "url":"https://www.youtube.com/watch?v=o2Is1oTUPHE",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651889750,
          "status":0,
          "votes":{
@@ -278,8 +278,8 @@
          "name":"Vote democratic socialists",
          "description":"You know what to do",
          "url":"https://berniesanders.com/",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651889380,
          "status":0,
          "votes":{
@@ -302,8 +302,8 @@
          "name":"To the idiots",
          "description":"Watch",
          "url":"https://www.youtube.com/watch?v=kugiufHh800",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651889380,
          "status":0,
          "votes":{
@@ -326,8 +326,8 @@
          "name":"Watch communists videos 1",
          "description":"Just watch",
          "url":"https://www.youtube.com/watch?v=thLgkQBFTPw",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651889380,
          "status":0,
          "votes":{
@@ -350,8 +350,8 @@
          "name":"Libertarians have small dicks",
          "description":"Money make you men",
          "url":"www.smolpp.com",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651889150,
          "status":0,
          "votes":{
@@ -375,8 +375,8 @@
                   "name":"creating a website",
                   "description":"https://medium.com/@domznn/zenon-projects-43d93ee5ca9b",
                   "url":"https://medium.com/@domznn/zenon-projects-43d93ee5ca9b",
-                  "znnFundsNeeded":42500000000,
-                  "qsrFundsNeeded":1250000000000,
+                  "znnFundsNeeded":"42500000000",
+                  "qsrFundsNeeded":"1250000000000",
                   "creationTimestamp":1651862710,
                   "status":0
                },
@@ -393,8 +393,8 @@
          "name":"Zenoinformative web + promotional marketing",
          "description":null,
          "url":"https://medium.com/@domznn/zenon-projects-ecee320426ba",
-         "znnFundsNeeded":85000000000,
-         "qsrFundsNeeded":2499900000000,
+         "znnFundsNeeded":"85000000000",
+         "qsrFundsNeeded":"2499900000000",
          "creationTimestamp":1650809630,
          "status":1,
          "votes":{
@@ -418,8 +418,8 @@
                   "name":"Phase 1 - The crypto",
                   "description":"This phase will cover all crypto related aspects of the SDK. The crypto primitives/algorithms (Argon2, Bech, Hash, etc.) and the wallet functionality.",
                   "url":"https://github.com/2bonahill/znn_sdk_rust/blob/main/AZ.md",
-                  "znnFundsNeeded":53300000000,
-                  "qsrFundsNeeded":0,
+                  "znnFundsNeeded":"53300000000",
+                  "qsrFundsNeeded":"0",
                   "creationTimestamp":1651836940,
                   "status":0
                },
@@ -436,8 +436,8 @@
          "name":"Zenon Rust SDK",
          "description":"Reference implementation for the Zenon SDK for Rust. Compatible with the Zenon Alphanet - Network of Momentum.",
          "url":"https://github.com/2bonahill/znn_sdk_rust",
-         "znnFundsNeeded":143000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"143000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1651170200,
          "status":1,
          "votes":{
@@ -461,8 +461,8 @@
                   "name":"Phase 0",
                   "description":"Phase 0 covers the build, configure and recruitment phase of the forum. The supplied URL provides specifics around Phase 0 tasks and objectives",
                   "url":"https://forum.zenon.org/t/proposal-zenon-community-forum/253",
-                  "znnFundsNeeded":150000000000,
-                  "qsrFundsNeeded":1500000000000,
+                  "znnFundsNeeded":"150000000000",
+                  "qsrFundsNeeded":"1500000000000",
                   "creationTimestamp":1651735030,
                   "status":0
                },
@@ -479,8 +479,8 @@
          "name":"Zenon Community Forum",
          "description":"Deploy a community forum for Zenon Network where people can post questions, ideas or thoughts. Initially, the forum will focus on general discussion, technical support, how-to’s, development, marketing and Accelerator-Z proposals.",
          "url":"https://forum.zenon.org/t/proposal-zenon-community-forum/253",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651206060,
          "status":1,
          "votes":{
@@ -503,8 +503,8 @@
          "name":"Mercatox Listing",
          "description":"Requesting funds to list again $wZNN on Mercatox CeX, gathering more accessibility. ",
          "url":"https://medium.com/@john_84734/zenon-listing-on-mercatox-e0eca27a2966",
-         "znnFundsNeeded":100000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"100000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1651686440,
          "status":0,
          "votes":{
@@ -527,8 +527,8 @@
                   "name":"Phase 1",
                   "description":"I've made a plan for phases 1 + 2 on a medium article will refine phase 2 later on.",
                   "url":"https://medium.com/@Zyler9985/zyler-proposal-the-phased-plan-4ec5fac82ae8",
-                  "znnFundsNeeded":10000000000,
-                  "qsrFundsNeeded":200000000000,
+                  "znnFundsNeeded":"10000000000",
+                  "qsrFundsNeeded":"200000000000",
                   "creationTimestamp":1651561570,
                   "acceptedTimestamp":0,
                   "status":0
@@ -546,8 +546,8 @@
          "name":"Zyler 1: A series of articles",
          "description":"A series of articles for marketing Zenon, see link below explaining this.",
          "url":"https://medium.com/@Zyler9985/zyler-proposal-1-a-series-of-articles-f105b698fedf",
-         "znnFundsNeeded":10000000000,
-         "qsrFundsNeeded":500000000000,
+         "znnFundsNeeded":"10000000000",
+         "qsrFundsNeeded":"500000000000",
          "creationTimestamp":1650631980,
          "status":1,
          "votes":{
@@ -570,8 +570,8 @@
          "name":"Decentralize Wikifeet",
          "description":"Let's move Wikifeet on the NoM",
          "url":"https://www.wikifeet.com/",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651427020,
          "status":0,
          "votes":{
@@ -594,8 +594,8 @@
          "name":"Elondrop",
          "description":"Why is it morally, economically, and politically necessary for Elon to tap into those 179 million global swing votes with an Elondrop?",
          "url":"https://balajis.com/elondrop/",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1651185240,
          "status":0,
          "votes":{
@@ -618,8 +618,8 @@
          "name":"ZNN Aliens Club",
          "description":"3D printed high-tech NFTs",
          "url":"https://medium.com/@dr.greenthumb421/znn-aliens-club-3d-printed-high-tech-nfts-cd4e6da77648",
-         "znnFundsNeeded":400000000000,
-         "qsrFundsNeeded":4000000000000,
+         "znnFundsNeeded":"400000000000",
+         "qsrFundsNeeded":"4000000000000",
          "creationTimestamp":1651079300,
          "status":0,
          "votes":{
@@ -642,8 +642,8 @@
          "name":"MilkyWay v.2 - NFT Platform",
          "description":"Non-Fungible-Token Marketplace for Zenon Network ecosystem",
          "url":"https://forum.zenon.org/t/milky-way-nft-marketplace-for-znn-ecosystem/261",
-         "znnFundsNeeded":280000000000,
-         "qsrFundsNeeded":500000000000,
+         "znnFundsNeeded":"280000000000",
+         "qsrFundsNeeded":"500000000000",
          "creationTimestamp":1650807270,
          "status":3,
          "votes":{
@@ -666,8 +666,8 @@
          "name":"MilkyWay - NFT Marketplace",
          "description":"MilkyWay will be the NFT platform for Zenon ecosystem.",
          "url":"milkyway.space",
-         "znnFundsNeeded":280000000000,
-         "qsrFundsNeeded":500000000000,
+         "znnFundsNeeded":"280000000000",
+         "qsrFundsNeeded":"500000000000",
          "creationTimestamp":1650799520,
          "status":3,
          "votes":{
@@ -690,8 +690,8 @@
          "name":"Holo Network - AMM, better",
          "description":"A fully decentralized AMM with no slippage and no fee. Built on ZNN.",
          "url":"https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1650730370,
          "status":3,
          "votes":{
@@ -714,8 +714,8 @@
          "name":"Zenon Rust SDK",
          "description":"Reference implementation for the Zenon SDK for Rust. Compatible with the Zenon Alphanet - Network of Momentum. It provides a simple integration with any Rust based project.",
          "url":"https://github.com/2bonahill/znn_sdk_rust_az",
-         "znnFundsNeeded":500000000000,
-         "qsrFundsNeeded":5000000000000,
+         "znnFundsNeeded":"500000000000",
+         "qsrFundsNeeded":"5000000000000",
          "creationTimestamp":1650660730,
          "status":3,
          "votes":{
@@ -738,8 +738,8 @@
          "name":"Zyler 2: Zenon Culture",
          "description":"A twitter account as a source of zenon culture, inspired by Publius, aiming to be more varied and active.",
          "url":"https://medium.com/@Zyler9985/zyler-proposal-2-zenon-culture-29cacf649fe7",
-         "znnFundsNeeded":10000000000,
-         "qsrFundsNeeded":500000000000,
+         "znnFundsNeeded":"10000000000",
+         "qsrFundsNeeded":"500000000000",
          "creationTimestamp":1650632410,
          "status":3,
          "votes":{
@@ -762,8 +762,8 @@
          "name":"Can I have a free haircut?",
          "description":"Give a free haircut to bambam",
          "url":"freebambam.com",
-         "znnFundsNeeded":1000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"1000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1650587080,
          "status":3,
          "votes":{
@@ -786,8 +786,8 @@
          "name":"Decentralize money",
          "description":"Let's create an electronic peer to peer currency based on crypto stuffs",
          "url":"bithewwo.com",
-         "znnFundsNeeded":1000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"1000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1650586940,
          "status":3,
          "votes":{
@@ -810,8 +810,8 @@
          "name":"Zenon Cash",
          "description":"Zenon Network with bigger momentoums",
          "url":"zenon.cash",
-         "znnFundsNeeded":1000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"1000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1650586650,
          "status":3,
          "votes":{
@@ -834,8 +834,8 @@
          "name":"Pump the price",
          "description":"Let's go on the moon like bobu",
          "url":"bobu.com",
-         "znnFundsNeeded":1000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"1000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1650586420,
          "status":3,
          "votes":{
@@ -858,8 +858,8 @@
          "name":"Buy Twitter",
          "description":"Let's buy Twitter",
          "url":"twitter.com",
-         "znnFundsNeeded":1000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"1000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1650586320,
          "status":3,
          "votes":{
@@ -882,8 +882,8 @@
          "name":"Enlarge my pp",
          "description":"I'd love more centimeters, thick and long",
          "url":"ppbig.com",
-         "znnFundsNeeded":1000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"1000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1650586320,
          "status":3,
          "votes":{
@@ -906,8 +906,8 @@
          "name":"Cancel Joker 2",
          "description":"The one was a drop mic. Don't come back on stage plz",
          "url":"joker2no.com",
-         "znnFundsNeeded":1000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"1000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1650586260,
          "status":3,
          "votes":{
@@ -930,8 +930,8 @@
          "name":"Hookers for hewwo",
          "description":"A hooker a day to make hewwo happy",
          "url":"sexemodel.com",
-         "znnFundsNeeded":1000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"1000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1650586260,
          "status":3,
          "votes":{
@@ -954,8 +954,8 @@
          "name":"Fartn",
          "description":"Stepn but with farts",
          "url":"https://fartn.net",
-         "znnFundsNeeded":1000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"1000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1650586040,
          "status":3,
          "votes":{
@@ -978,8 +978,8 @@
          "name":"Big Fat Zendaya NFT feet",
          "description":"A collection of 10000 NFT of Zendaya extra large feet",
          "url":"https://www.wikifeet.com/Zendaya",
-         "znnFundsNeeded":1000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"1000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1650585700,
          "status":3,
          "votes":{
@@ -1002,8 +1002,8 @@
          "name":"Test",
          "description":"Test",
          "url":"Test.com",
-         "znnFundsNeeded":1000000000,
-         "qsrFundsNeeded":10000000000,
+         "znnFundsNeeded":"1000000000",
+         "qsrFundsNeeded":"10000000000",
          "creationTimestamp":1650573460,
          "status":3,
          "votes":{

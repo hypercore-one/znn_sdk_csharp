@@ -27,8 +27,8 @@
         public string platformFamily { get; set; }
         public string platformVersion { get; set; }
         public string kernelVersion { get; set; }
-        public long memoryTotal { get; set; }
-        public long memoryFree { get; set; }
+        public ulong memoryTotal { get; set; }
+        public ulong memoryFree { get; set; }
         public long numCPU { get; set; }
         public long numGoroutine { get; set; }
     }
@@ -36,7 +36,7 @@
     public class JSyncInfo
     {
         public long state { get; set; }
-        public long currentHeight { get; set; }
-        public long targetHeight { get; set; }
+        public ulong currentHeight { get; set; }
+        public ulong targetHeight { get; set; }
     }
 }

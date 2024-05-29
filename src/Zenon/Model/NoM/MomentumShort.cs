@@ -13,8 +13,8 @@ namespace Zenon.Model.NoM
         }
 
         public Hash Hash { get; }
-        public long? Height { get; }
-        public long? Timestamp { get; }
+        public ulong? Height { get; }
+        public ulong? Timestamp { get; }
 
         public virtual JMomentumShort ToJson()
         {

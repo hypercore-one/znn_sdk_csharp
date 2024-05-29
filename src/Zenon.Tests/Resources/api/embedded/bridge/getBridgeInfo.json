@@ -1,0 +1,11 @@
+﻿{
+  "administrator": "z1qqaswvt0e3cc5sm7lygkyza9ra63cr8e6zre09",
+  "compressedTssECDSAPubKey": "AsAQx1M3LVXCuozDOqO5b9adj/PItYgwZFG/xTDBiZzT",
+  "decompressedTssECDSAPubKey": "BMAQx1M3LVXCuozDOqO5b9adj/PItYgwZFG/xTDBiZzTnQAT1qOPAkuPzu6yoewss9XbnTmZmb9JQNGXmkPYtK4=",
+  "allowKeyGen": true,
+  "halted": true,
+  "unhaltedAt": 0,
+  "unhaltDurationInMomentums": 5,
+  "tssNonce": 0,
+  "metadata": "{}"
+}

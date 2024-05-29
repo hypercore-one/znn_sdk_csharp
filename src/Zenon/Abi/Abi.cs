@@ -7,7 +7,7 @@ namespace Zenon.Abi
 {
     public class Abi
     {
-        private static Entry[] ParseEntries(JEntry[] json)
+        public static Entry[] ParseEntries(JEntry[] json)
         {
             var entries = new List<Entry>();
 
@@ -15,7 +15,7 @@ namespace Zenon.Abi
             {
                 if (entry.type != "function")
                 {
-                    throw new ZnnSdkException("Only ABI functions supported");
+                    throw new ZdkException("Only ABI functions supported");
                 }
 
                 var inputs = entry.inputs != null

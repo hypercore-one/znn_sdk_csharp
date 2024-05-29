@@ -3,6 +3,6 @@
     public class JDetailedMomentumList
     {
         public JDetailedMomentum[] list { get; set; }
-        public long? count { get; set; }
+        public ulong? count { get; set; }
     }
 }

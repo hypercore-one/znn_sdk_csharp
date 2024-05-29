@@ -12,9 +12,8 @@ namespace Zenon.Pow
         private const int OutSize = 8;
         private const int InSize = 32;
         private const int DataSize = 40;
-        private static readonly SHA3.Net.Sha3 shaAlg = SHA3.Net.Sha3.Sha3256();
 
-        public static async Task<string> Generate(Hash hash, long difficulty)
+        public static async Task<string> Generate(Hash hash, ulong difficulty)
         {
             return await Task.Run(() =>
             {
@@ -22,7 +21,7 @@ namespace Zenon.Pow
             });
         }
 
-        public static async Task<string> Benchmark(long difficulty)
+        public static async Task<string> Benchmark(ulong difficulty)
         {
             return await Task.Run(() =>
             {
@@ -30,7 +29,7 @@ namespace Zenon.Pow
             });
         }
 
-        private static byte[] GenerateInternal(byte[] hash, long difficulty)
+        private static byte[] GenerateInternal(byte[] hash, ulong difficulty)
         {
             var target = GetTarget(difficulty);
             var entropy = GetRandomSeed();
@@ -52,7 +51,7 @@ namespace Zenon.Pow
             }
         }
 
-        private static byte[] BenchmarkInternal(long difficulty)
+        private static byte[] BenchmarkInternal(ulong difficulty)
         {
             var target = GetTarget(difficulty);
             var data = GetData(new byte[OutSize], new byte[InSize]);
@@ -75,12 +74,15 @@ namespace Zenon.Pow
 
         private static void Hash(byte[] hash, byte[] data)
         {
-            shaAlg.Initialize();
-            var digest = shaAlg.ComputeHash(data);
-            Array.Copy(digest, hash, 8);
+            using (var sha = SHA3.Net.Sha3.Sha3256())
+            {
+                sha.Initialize();
+                var digest = sha.ComputeHash(data);
+                Array.Copy(digest, hash, 8);
+            }
         }
 
-        private static byte[] GetTarget(long difficulty)
+        private static byte[] GetTarget(ulong difficulty)
         {
             // set big to 1 << 64
             var big = new BigInteger(1L << 62);
@@ -138,9 +140,9 @@ namespace Zenon.Pow
                 data[i] = entropy[i];
             }
 
-            for (int i = 0; i < hash.Length; i += 1) 
+            for (int i = 0; i < hash.Length; i += 1)
             {
-                data[i + entropy.Length] = hash[i] ;
+                data[i + entropy.Length] = hash[i];
             }
 
             return data;

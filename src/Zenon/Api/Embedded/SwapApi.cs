@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 using Zenon.Client;
 using Zenon.Embedded;
@@ -14,22 +14,22 @@ namespace Zenon.Api.Embedded
 {
     public class SwapApi
     {
-        public SwapApi(Lazy<IClient> client)
+        public SwapApi(IClient client)
         {
             Client = client;
         }
 
-        public Lazy<IClient> Client { get; }
+        public IClient Client { get; }
 
         public async Task<SwapAssetEntry> GetAssetsByKeyIdHash(Hash keyIdHash)
         {
-            var response = await Client.Value.SendRequest<JSwapAssetEntry>("embedded.swap.getAssetsByKeyIdHash", keyIdHash.ToString());
+            var response = await Client.SendRequestAsync<JSwapAssetEntry>("embedded.swap.getAssetsByKeyIdHash", keyIdHash.ToString());
             return new SwapAssetEntry(keyIdHash, response);
         }
 
         public async Task<SwapAssetEntry[]> GetAssets()
         {
-            var response = await Client.Value.SendRequest<JObject>("embedded.swap.getAssets");
+            var response = await Client.SendRequestAsync<JObject>("embedded.swap.getAssets");
             var result = new List<SwapAssetEntry>();
             foreach (var token in response)
             {
@@ -40,14 +40,14 @@ namespace Zenon.Api.Embedded
 
         public async Task<SwapLegacyPillarEntry[]> GetLegacyPillars()
         {
-            var response = await Client.Value.SendRequest<JSwapLegacyPillarEntry[]>("embedded.swap.getLegacyPillars");
+            var response = await Client.SendRequestAsync<JSwapLegacyPillarEntry[]>("embedded.swap.getLegacyPillars");
             return response == null ? null : response.Select(x => new SwapLegacyPillarEntry(x)).ToArray();
         }
 
         // Contract methods
         public AccountBlockTemplate RetrieveAssets(string pubKey, string signature)
         {
-            return AccountBlockTemplate.CallContract(Address.SwapAddress, TokenStandard.ZnnZts, 0,
+            return AccountBlockTemplate.CallContract(Client.ProtocolVersion, Client.ChainIdentifier, Address.SwapAddress, TokenStandard.ZnnZts, BigInteger.Zero,
                 Definitions.Swap.EncodeFunction("RetrieveAssets", pubKey, signature));
         }
 

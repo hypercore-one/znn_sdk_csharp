@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
+using System.Numerics;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
 using Zenon.Utils;
@@ -18,14 +18,14 @@ namespace Zenon.Model.NoM
 
     public class AccountBlockTemplate : IJsonConvertible<JAccountBlockTemplate>
     {
-        public static AccountBlockTemplate Receive(Hash fromBlockHash) =>
-            new AccountBlockTemplate(blockType: BlockTypeEnum.UserReceive, fromBlockHash: fromBlockHash);
+        public static AccountBlockTemplate Receive(int protocolVersion, int chainIdentifier, Hash fromBlockHash) =>
+            new AccountBlockTemplate(protocolVersion, chainIdentifier, BlockTypeEnum.UserReceive, fromBlockHash: fromBlockHash);
 
-        public static AccountBlockTemplate Send(Address toAddress, TokenStandard tokenStandard, long amount, byte[] data = null) =>
-            new AccountBlockTemplate(blockType: BlockTypeEnum.UserSend, toAddress: toAddress, tokenStandard: tokenStandard, amount: amount, data: data);
+        public static AccountBlockTemplate Send(int protocolVersion, int chainIdentifier, Address toAddress, TokenStandard tokenStandard, BigInteger amount, byte[] data = null) =>
+            new AccountBlockTemplate(protocolVersion, chainIdentifier, BlockTypeEnum.UserSend, toAddress, amount, tokenStandard, data: data);
 
-        public static AccountBlockTemplate CallContract(Address toAddress, TokenStandard tokenStandard, long amount, byte[] data) =>
-            new AccountBlockTemplate(blockType: BlockTypeEnum.UserSend, toAddress: toAddress, tokenStandard: tokenStandard, amount: amount, data: data);
+        public static AccountBlockTemplate CallContract(int protocolVersion, int chainIdentifier, Address toAddress, TokenStandard tokenStandard, BigInteger amount, byte[] data) =>
+            new AccountBlockTemplate(protocolVersion, chainIdentifier, BlockTypeEnum.UserSend, toAddress, amount, tokenStandard, data: data);
 
         public AccountBlockTemplate(Json.JAccountBlockTemplate json)
         {
@@ -38,7 +38,7 @@ namespace Zenon.Model.NoM
             MomentumAcknowledged = new HashHeight(json.momentumAcknowledged);
             Address = Address.Parse(json.address);
             ToAddress = Address.Parse(json.toAddress);
-            Amount = json.amount;
+            Amount = AmountUtils.ParseAmount(json.amount);
             TokenStandard = TokenStandard.Parse(json.tokenStandard);
             FromBlockHash = Hash.Parse(json.fromBlockHash);
             Data = string.IsNullOrEmpty(json.data) ? new byte[0] : BytesUtils.FromBase64String(json.data);
@@ -49,15 +49,18 @@ namespace Zenon.Model.NoM
             Signature = string.IsNullOrEmpty(json.signature) ? new byte[0] : BytesUtils.FromBase64String(json.signature);
         }
 
-        public AccountBlockTemplate(BlockTypeEnum blockType,
+        public AccountBlockTemplate(
+            int protocolVersion,
+            int chainIdentifier,
+            BlockTypeEnum blockType,
             Address toAddress = null,
-            long? amount = null,
+            BigInteger? amount = null,
             TokenStandard tokenStandard = null,
             Hash fromBlockHash = null,
             byte[] data = null)
         {
-            Version = 1;
-            ChainIdentifier = Znn.Instance.ChainIdentifier;
+            Version = (ulong)protocolVersion;
+            ChainIdentifier = (ulong)chainIdentifier;
             BlockType = blockType;
             Hash = Hash.Empty;
             PreviousHash = Hash.Empty;
@@ -65,7 +68,7 @@ namespace Zenon.Model.NoM
             MomentumAcknowledged = HashHeight.Empty;
             Address = Address.EmptyAddress;
             ToAddress = toAddress ?? Address.EmptyAddress;
-            Amount = amount ?? 0;
+            Amount = amount ?? BigInteger.Zero;
             TokenStandard = tokenStandard ?? TokenStandard.EmptyZts;
             FromBlockHash = fromBlockHash ?? Hash.Empty;
             Data = data ?? new byte[0];
@@ -76,21 +79,21 @@ namespace Zenon.Model.NoM
             Signature = new byte[0];
         }
 
-        public int Version { get; }
-        public int ChainIdentifier { get; }
+        public ulong Version { get; }
+        public ulong ChainIdentifier { get; }
         public BlockTypeEnum BlockType { get; }
 
         public Hash Hash { get; internal set; }
         public Hash PreviousHash { get; internal set; }
-        public long Height { get; internal set; }
+        public ulong Height { get; internal set; }
         public HashHeight MomentumAcknowledged { get; internal set; }
 
-        public Address Address { get; set; }
+        public Address Address { get; internal set; }
 
         // Send information
         public Address ToAddress { get; }
 
-        public long Amount { get; }
+        public BigInteger Amount { get; }
         public TokenStandard TokenStandard { get; }
 
         // Receive information
@@ -99,15 +102,15 @@ namespace Zenon.Model.NoM
         public byte[] Data { get; }
 
         // PoW
-        public long FusedPlasma { get; internal set; }
-        public long Difficulty { get; internal set; }
+        public ulong FusedPlasma { get; internal set; }
+        public ulong Difficulty { get; internal set; }
 
         // Hex representation of 8 byte nonce
         public string Nonce { get; internal set; }
 
         // Verification
         public byte[] PublicKey { get; internal set; }
-        public byte[] Signature { get; internal set;  }
+        public byte[] Signature { get; internal set; }
 
         public virtual JAccountBlockTemplate ToJson()
         {
@@ -120,14 +123,14 @@ namespace Zenon.Model.NoM
         {
             json.version = this.Version;
             json.chainIdentifier = this.ChainIdentifier;
-            json.blockType = (int)this.BlockType;
+            json.blockType = (ulong)this.BlockType;
             json.hash = this.Hash.ToString();
             json.previousHash = this.PreviousHash.ToString();
             json.height = this.Height;
             json.momentumAcknowledged = this.MomentumAcknowledged.ToJson();
             json.address = this.Address.ToString();
             json.toAddress = this.ToAddress.ToString();
-            json.amount = this.Amount;
+            json.amount = this.Amount.ToString();
             json.tokenStandard = this.TokenStandard.ToString();
             json.fromBlockHash = this.FromBlockHash.ToString();
             json.data = BytesUtils.ToBase64String(this.Data);

@@ -13,7 +13,7 @@ namespace Zenon.Model.Primitives
         public void When_GetBytes_ExpectToEqual(string hashString, long? height, string byteString)
         {
             // Setup
-            var hh = new HashHeight(Hash.Parse(hashString), height);
+            var hh = new HashHeight(Hash.Parse(hashString), (ulong?)height);
 
             // Execute
             var bytes = hh.GetBytes();
@@ -28,7 +28,7 @@ namespace Zenon.Model.Primitives
         public void When_Serialize_ExpectToEqual(string hashString, long? height, string expectedJson)
         {
             // Setup
-            var hh = new HashHeight(Hash.Parse(hashString), height);
+            var hh = new HashHeight(Hash.Parse(hashString), (ulong?)height);
 
             // Execute
             string json = JsonConvert.SerializeObject(hh.ToJson(), Formatting.None);
@@ -43,7 +43,7 @@ namespace Zenon.Model.Primitives
         public void When_Deserialize_ExpectToEqual(string hashString, long? height, string json)
         {
             // Setup
-            var exprectedHh = new HashHeight(Hash.Parse(hashString), height);
+            var exprectedHh = new HashHeight(Hash.Parse(hashString), (ulong?)height);
 
             // Execute
             var hh = new HashHeight(JsonConvert.DeserializeObject<JHashHeight>(json));

@@ -19,8 +19,8 @@ namespace Zenon.Model.NoM
         }
 
         public AccountBlock[] DescendantBlocks { get; }
-        public long BasePlasma { get; }
-        public long UsedPlasma { get; }
+        public ulong BasePlasma { get; }
+        public ulong UsedPlasma { get; }
         public Hash ChangesHash { get; }
         public Token Token { get; }
         // Available if account-block is confirmed, null otherwise

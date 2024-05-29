@@ -1,5 +1,7 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -23,13 +25,13 @@ namespace Zenon.Model.Embedded
             RevokeCooldown = json.revokeCooldown;
             RevokeTimestamp = json.revokeTimestamp;
             CurrentStats = new PillarEpochStats(json.currentStats);
-            Weight = json.weight;
+            Weight = AmountUtils.ParseAmount(json.weight);
             ProducedMomentums = json.producedMomentums;
             ExpectedMomentums = json.expectedMomentums;
         }
 
         public string Name { get; }
-        public long Rank { get; }
+        public int Rank { get; }
         public int Type { get; }
         public Address OwnerAddress { get; }
         public Address ProducerAddress { get; }
@@ -40,9 +42,9 @@ namespace Zenon.Model.Embedded
         public long RevokeCooldown { get; }
         public long RevokeTimestamp { get; }
         public PillarEpochStats CurrentStats { get; }
-        public long Weight { get; }
-        public long ProducedMomentums { get; }
-        public long ExpectedMomentums { get; }
+        public BigInteger Weight { get; }
+        public int ProducedMomentums { get; }
+        public int ExpectedMomentums { get; }
 
         public virtual JPillarInfo ToJson()
         {
@@ -56,7 +58,7 @@ namespace Zenon.Model.Embedded
                 isRevocable = IsRevocable,
                 revokeCooldown = RevokeCooldown,
                 currentStats = CurrentStats.ToJson(),
-                weight = Weight
+                weight = Weight.ToString()
             };
         }
     }

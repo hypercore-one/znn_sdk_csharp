@@ -9,8 +9,8 @@ namespace Zenon.Abi
             var result = new List<object>();
 
             var offset = 0;
-            
-            foreach (var param in parameters) 
+
+            foreach (var param in parameters)
             {
                 var decoded = param.Type.IsDynamicType
                     ? param.Type.Decode(encoded, (int)IntType.DecodeInt(encoded, offset))

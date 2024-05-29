@@ -3,6 +3,6 @@
     public class JMomentumList
     {
         public JMomentum[] list { get; set; }
-        public long count { get; set; }
+        public ulong count { get; set; }
     }
 }

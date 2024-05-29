@@ -1,5 +1,7 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
 using Zenon.Model.Primitives;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -7,13 +9,13 @@ namespace Zenon.Model.Embedded
     {
         public FusionEntry(JFusionEntry json)
         {
-            QsrAmount = json.qsrAmount;
+            QsrAmount = AmountUtils.ParseAmount(json.qsrAmount);
             Beneficiary = Address.Parse(json.beneficiary);
             ExpirationHeight = json.expirationHeight;
             Id = Hash.Parse(json.id);
         }
 
-        public FusionEntry(Address beneficiary, long expirationHeight, Hash id, long qsrAmount)
+        public FusionEntry(Address beneficiary, ulong expirationHeight, Hash id, BigInteger qsrAmount)
         {
             Beneficiary = beneficiary;
             ExpirationHeight = expirationHeight;
@@ -21,9 +23,9 @@ namespace Zenon.Model.Embedded
             QsrAmount = qsrAmount;
         }
 
-        public long QsrAmount { get; }
+        public BigInteger QsrAmount { get; }
         public Address Beneficiary { get; }
-        public long ExpirationHeight { get; }
+        public ulong ExpirationHeight { get; }
         public Hash Id { get; }
         public bool? IsRevocable { get; }
 
@@ -31,7 +33,7 @@ namespace Zenon.Model.Embedded
         {
             return new JFusionEntry()
             {
-                qsrAmount = QsrAmount,
+                qsrAmount = QsrAmount.ToString(),
                 beneficiary = Beneficiary.ToString(),
                 expirationHeight = ExpirationHeight,
                 id = Id.ToString()

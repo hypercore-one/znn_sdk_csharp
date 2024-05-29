@@ -6,14 +6,14 @@ namespace Zenon.Model.Embedded
 {
     public class ProjectList : IJsonConvertible<JProjectList>
     {
-        public long Count { get; }
+        public ulong Count { get; }
         public Project[] List { get; }
 
         public ProjectList(JProjectList json)
         {
             Count = json.count;
-            List = json.list != null 
-                ? json.list.Select(x => new Project(x)).ToArray() 
+            List = json.list != null
+                ? json.list.Select(x => new Project(x)).ToArray()
                 : new Project[0];
         }
 

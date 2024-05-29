@@ -1,4 +1,6 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -8,10 +10,10 @@ namespace Zenon.Model.Embedded
         {
             CurrentPlasma = json.currentPlasma;
             MaxPlasma = json.maxPlasma;
-            QsrAmount = json.qsrAmount;
+            QsrAmount = AmountUtils.ParseAmount(json.qsrAmount);
         }
 
-        public PlasmaInfo(long currentPlasma, long maxPlasma, long qsrAmount)
+        public PlasmaInfo(long currentPlasma, long maxPlasma, BigInteger qsrAmount)
         {
             CurrentPlasma = currentPlasma;
             MaxPlasma = maxPlasma;
@@ -20,7 +22,7 @@ namespace Zenon.Model.Embedded
 
         public long CurrentPlasma { get; }
         public long MaxPlasma { get; }
-        public long QsrAmount { get; }
+        public BigInteger QsrAmount { get; }
 
         public virtual JPlasmaInfo ToJson()
         {
@@ -28,7 +30,7 @@ namespace Zenon.Model.Embedded
             {
                 currentPlasma = CurrentPlasma,
                 maxPlasma = MaxPlasma,
-                qsrAmount = QsrAmount
+                qsrAmount = QsrAmount.ToString()
             };
         }
     }

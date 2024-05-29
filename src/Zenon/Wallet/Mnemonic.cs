@@ -12,7 +12,7 @@ namespace Zenon.Wallet
 
         public static bool ValidateMnemonic(params string[] words)
         {
-            return new BIP39.BIP39().ValidateMnemonic(String.Concat(" ", words), BIP39Wordlist.English);
+            return new BIP39.BIP39().ValidateMnemonic(String.Join(" ", words), BIP39Wordlist.English);
         }
 
         public static bool IsValidWord(string word)

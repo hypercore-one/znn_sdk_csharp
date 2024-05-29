@@ -13,13 +13,13 @@ namespace Zenon.Model.Embedded
                 : new SentinelInfo[0];
         }
 
-        public SentinelInfoList(long count, SentinelInfo[] list)
+        public SentinelInfoList(ulong count, SentinelInfo[] list)
         {
             Count = count;
             List = list;
         }
 
-        public long Count { get; }
+        public ulong Count { get; }
         public SentinelInfo[] List { get; }
 
         public virtual JSentinelInfoList ToJson()

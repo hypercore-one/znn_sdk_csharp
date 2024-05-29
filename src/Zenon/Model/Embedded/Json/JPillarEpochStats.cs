@@ -2,7 +2,7 @@
 {
     public class JPillarEpochStats
     {
-        public long producedMomentums { get; set; }
-        public long expectedMomentums { get; set; }
+        public int producedMomentums { get; set; }
+        public int expectedMomentums { get; set; }
     }
 }

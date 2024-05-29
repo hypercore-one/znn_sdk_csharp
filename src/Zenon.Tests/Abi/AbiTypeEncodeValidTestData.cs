@@ -221,6 +221,12 @@ namespace Zenon.Abi
             yield return new object[]
             {
                 StringType,
+                "",
+                Convert.FromHexString("0000000000000000000000000000000000000000000000000000000000000000")
+            };
+            yield return new object[]
+            {
+                StringType,
                 "Hello Zenon!",
                 Convert.FromHexString("000000000000000000000000000000000000000000000000000000000000000C48656C6C6F205A656E6F6E210000000000000000000000000000000000000000")
             };
@@ -314,6 +320,12 @@ namespace Zenon.Abi
             #endregion
 
             #region Test Hash
+            yield return new object[]
+            {
+                HashType,
+                Hash.Empty,
+                Hash.Empty.Bytes
+            };
             yield return new object[]
             {
                 HashType,

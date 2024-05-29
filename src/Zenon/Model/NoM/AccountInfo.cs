@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using Zenon.Model.NoM.Json;
 using Zenon.Model.Primitives;
 
@@ -9,40 +10,34 @@ namespace Zenon.Model.NoM
     public class AccountInfo : IJsonConvertible<JAccountInfo>
     {
         public string Address { get; }
-        public long? BlockCount { get; }
+        public ulong? BlockCount { get; }
         public BalanceInfoListItem[] BalanceInfoList { get; }
 
         public AccountInfo(JAccountInfo json)
         {
             Address = json.address;
             BlockCount = json.accountHeight;
-            BalanceInfoList = this.BlockCount > 0 
+            BalanceInfoList = this.BlockCount > 0
                 ? json.balanceInfoMap.Select(x => new BalanceInfoListItem(x.Value)).ToArray()
                 : new BalanceInfoListItem[0];
         }
 
-        public AccountInfo(string address, long? blockCount, BalanceInfoListItem[] balanceInfoList)
+        public AccountInfo(string address, ulong? blockCount, BalanceInfoListItem[] balanceInfoList)
         {
             Address = address;
             BlockCount = blockCount;
             BalanceInfoList = balanceInfoList;
         }
 
-        public long? Znn => GetBalance(TokenStandard.ZnnZts);
+        public BigInteger? Znn => GetBalance(TokenStandard.ZnnZts);
 
-        public long? Qsr => GetBalance(TokenStandard.QsrZts);
+        public BigInteger? Qsr => GetBalance(TokenStandard.QsrZts);
 
-        public long GetBalance(TokenStandard tokenStandard)
+        public BigInteger GetBalance(TokenStandard tokenStandard)
         {
             var info = BalanceInfoList!.FirstOrDefault(
                 x => x.Token!.TokenStandard == tokenStandard);
-            return info?.Balance ?? 0;
-        }
-        public double GetBalanceWithDecimals(TokenStandard tokenStandard)
-        {
-            var info = BalanceInfoList!.FirstOrDefault(
-                x => x.Token!.TokenStandard == tokenStandard);
-            return info?.BalanceWithDecimals! ?? 0;
+            return info?.Balance ?? BigInteger.Zero;
         }
 
         public Token FindTokenByTokenStandard(TokenStandard tokenStandard)

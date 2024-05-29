@@ -13,6 +13,28 @@
     <None Remove="Resources\api\embedded\accelerator\getPillarVotes.json" />
     <None Remove="Resources\api\embedded\accelerator\getProjectById.json" />
     <None Remove="Resources\api\embedded\accelerator\getVoteBreakdown.json" />
+    <None Remove="Resources\api\embedded\bridge\getAllNetworks.json" />
+    <None Remove="Resources\api\embedded\bridge\getAllUnsignedWrapTokenRequests.json" />
+    <None Remove="Resources\api\embedded\bridge\getAllUnwrapTokenRequests.json" />
+    <None Remove="Resources\api\embedded\bridge\getAllUnwrapTokenRequestsByToAddress.json" />
+    <None Remove="Resources\api\embedded\bridge\getAllWrapTokenRequests.json" />
+    <None Remove="Resources\api\embedded\bridge\getAllWrapTokenRequestsByToAddress.json" />
+    <None Remove="Resources\api\embedded\bridge\getAllWrapTokenRequestsByToAddressNetworkClassAndChainId.json" />
+    <None Remove="Resources\api\embedded\bridge\getBridgeInfo.json" />
+    <None Remove="Resources\api\embedded\bridge\getFeeTokenPair.json" />
+    <None Remove="Resources\api\embedded\bridge\getNetworkInfo.json" />
+    <None Remove="Resources\api\embedded\bridge\getOrchestratorInfo.json" />
+    <None Remove="Resources\api\embedded\bridge\getSecurityInfo.json" />
+    <None Remove="Resources\api\embedded\bridge\getTimeChallengesInfo.json" />
+    <None Remove="Resources\api\embedded\bridge\getUnwrapTokenRequestByHashAndLog.json" />
+    <None Remove="Resources\api\embedded\bridge\getWrapTokenRequestById.json" />
+    <None Remove="Resources\api\embedded\htlc\getById.json" />
+    <None Remove="Resources\api\embedded\liquidity\getFrontierRewardByPage.json" />
+    <None Remove="Resources\api\embedded\liquidity\getLiquidityInfo.json" />
+    <None Remove="Resources\api\embedded\liquidity\getLiquidityStakeEntriesByAddress.json" />
+    <None Remove="Resources\api\embedded\liquidity\getSecurityInfo.json" />
+    <None Remove="Resources\api\embedded\liquidity\getTimeChallengesInfo.json" />
+    <None Remove="Resources\api\embedded\liquidity\getUncollectedReward.json" />
     <None Remove="Resources\api\embedded\pillar\getAll.json" />
     <None Remove="Resources\api\embedded\pillar\getByName.json" />
     <None Remove="Resources\api\embedded\pillar\getByOwner.json" />
@@ -70,6 +92,28 @@
     <EmbeddedResource Include="Resources\api\embedded\accelerator\getPillarVotes.json" />
     <EmbeddedResource Include="Resources\api\embedded\accelerator\getProjectById.json" />
     <EmbeddedResource Include="Resources\api\embedded\accelerator\getVoteBreakdown.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getAllNetworks.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getAllUnsignedWrapTokenRequests.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getAllUnwrapTokenRequests.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getAllUnwrapTokenRequestsByToAddress.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getAllWrapTokenRequests.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getAllWrapTokenRequestsByToAddress.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getAllWrapTokenRequestsByToAddressNetworkClassAndChainId.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getBridgeInfo.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getNetworkInfo.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getOrchestratorInfo.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getFeeTokenPair.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getSecurityInfo.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getTimeChallengesInfo.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getUnwrapTokenRequestByHashAndLog.json" />
+    <EmbeddedResource Include="Resources\api\embedded\bridge\getWrapTokenRequestById.json" />
+    <EmbeddedResource Include="Resources\api\embedded\htlc\getById.json" />
+    <EmbeddedResource Include="Resources\api\embedded\liquidity\getFrontierRewardByPage.json" />
+    <EmbeddedResource Include="Resources\api\embedded\liquidity\getLiquidityInfo.json" />
+    <EmbeddedResource Include="Resources\api\embedded\liquidity\getLiquidityStakeEntriesByAddress.json" />
+    <EmbeddedResource Include="Resources\api\embedded\liquidity\getSecurityInfo.json" />
+    <EmbeddedResource Include="Resources\api\embedded\liquidity\getTimeChallengesInfo.json" />
+    <EmbeddedResource Include="Resources\api\embedded\liquidity\getUncollectedReward.json" />
     <EmbeddedResource Include="Resources\api\embedded\ptlc\getById.json" />
     <EmbeddedResource Include="Resources\api\embedded\pillar\getAll.json" />
     <EmbeddedResource Include="Resources\api\embedded\pillar\getByName.json" />
@@ -145,7 +189,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Model\" />
+    <Folder Include="Resources\model\" />
   </ItemGroup>
 
 </Project>

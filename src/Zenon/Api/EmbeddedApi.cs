@@ -1,12 +1,11 @@
-﻿using System;
-using Zenon.Api.Embedded;
+﻿using Zenon.Api.Embedded;
 using Zenon.Client;
 
 namespace Zenon.Api
 {
     public class EmbeddedApi
     {
-        public EmbeddedApi(Lazy<IClient> client)
+        public EmbeddedApi(IClient client)
         {
             Client = client;
 
@@ -17,10 +16,14 @@ namespace Zenon.Api
             Swap = new SwapApi(client);
             Token = new TokenApi(client);
             Accelerator = new AcceleratorApi(client);
+            Spork = new SporkApi(client);
             Ptlc = new PtlcApi(client);
+            Htlc = new HtlcApi(client);
+            Liquidity = new LiquidityApi(client);
+            Bridge = new BridgeApi(client);
         }
 
-        public Lazy<IClient> Client { get; }
+        public IClient Client { get; }
 
         public PillarApi Pillar { get; }
         public PlasmaApi Plasma { get; }
@@ -29,6 +32,10 @@ namespace Zenon.Api
         public SwapApi Swap { get; }
         public TokenApi Token { get; }
         public AcceleratorApi Accelerator { get; }
+        public SporkApi Spork { get; }
         public PtlcApi Ptlc { get; }
+        public HtlcApi Htlc { get; }
+        public LiquidityApi Liquidity { get; }
+        public BridgeApi Bridge { get; }
     }
 }

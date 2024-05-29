@@ -1,4 +1,6 @@
-﻿using Zenon.Model.Embedded.Json;
+﻿using System.Numerics;
+using Zenon.Model.Embedded.Json;
+using Zenon.Utils;
 
 namespace Zenon.Model.Embedded
 {
@@ -12,17 +14,17 @@ namespace Zenon.Model.Embedded
             GiveDelegateRewardPercentage = json.giveDelegateRewardPercentage;
             ProducedBlockNum = json.producedBlockNum;
             ExpectedBlockNum = json.expectedBlockNum;
-            Weight = json.weight;
+            Weight = AmountUtils.ParseAmount(json.weight);
         }
 
         public PillarEpochHistory(
             string name,
-            long epoch,
-            long giveBlockRewardPercentage,
-            long giveDelegateRewardPercentage,
-            long producedBlockNum,
-            long expectedBlockNum,
-            long weight)
+            ulong epoch,
+            int giveBlockRewardPercentage,
+            int giveDelegateRewardPercentage,
+            int producedBlockNum,
+            int expectedBlockNum,
+            BigInteger weight)
         {
             Name = name;
             Epoch = epoch;
@@ -34,12 +36,12 @@ namespace Zenon.Model.Embedded
         }
 
         public string Name { get; }
-        public long Epoch { get; }
-        public long GiveBlockRewardPercentage { get; }
-        public long GiveDelegateRewardPercentage { get; }
-        public long ProducedBlockNum { get; }
-        public long ExpectedBlockNum { get; }
-        public long Weight { get; }
+        public ulong Epoch { get; }
+        public int GiveBlockRewardPercentage { get; }
+        public int GiveDelegateRewardPercentage { get; }
+        public int ProducedBlockNum { get; }
+        public int ExpectedBlockNum { get; }
+        public BigInteger Weight { get; }
 
         public virtual JPillarEpochHistory ToJson()
         {
@@ -51,7 +53,7 @@ namespace Zenon.Model.Embedded
                 giveDelegateRewardPercentage = GiveDelegateRewardPercentage,
                 producedBlockNum = ProducedBlockNum,
                 expectedBlockNum = ExpectedBlockNum,
-                weight = Weight
+                weight = Weight.ToString()
             };
         }
     }

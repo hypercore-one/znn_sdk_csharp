@@ -6,7 +6,7 @@ namespace Zenon.Abi
     public class BytesType : AbiType
     {
         public static readonly BytesType Bytes = new BytesType("bytes");
-        
+
         public BytesType(string name)
             : base(name)
         { }
@@ -28,7 +28,9 @@ namespace Zenon.Abi
             }
 
             var size = this.FixedSize;
-            var resultLength = ((int)((bytes.Length - 1) / size) + 1) * size;
+            var resultLength = bytes.Length == 0 
+                ? 0 : ((int)((bytes.Length - 1) / size) + 1) * size;
+            
             var result = new byte[resultLength];
 
             Buffer.BlockCopy(bytes, 0, result, 0, bytes.Length);

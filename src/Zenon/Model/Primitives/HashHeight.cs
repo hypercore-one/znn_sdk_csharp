@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Zenon.Model.Primitives.Json;
 using Zenon.Utils;
 
 namespace Zenon.Model.Primitives
@@ -7,20 +8,20 @@ namespace Zenon.Model.Primitives
     {
         public static readonly HashHeight Empty = new HashHeight(Hash.Empty, 0);
 
-        public HashHeight(Json.JHashHeight json)
+        public HashHeight(JHashHeight json)
         {
             Hash = Hash.Parse(json.hash);
             Height = json.height;
         }
 
-        public HashHeight(Hash hash, long? height)
+        public HashHeight(Hash hash, ulong? height)
         {
             Hash = hash;
             Height = height;
         }
 
         public Hash Hash { get; }
-        public long? Height { get; }
+        public ulong? Height { get; }
 
         public byte[] GetBytes()
         {
